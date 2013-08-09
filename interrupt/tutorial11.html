@@ -1,0 +1,1315 @@
+<html><head>
+<meta http-equiv="Content-Language" content="en-us">
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+<title>Interrupts - An Introduction - PIC Microcontroller Tutorials - PIC 
+Tutorial Resource - Connect to the PIC</title>
+<meta name="keywords" content="Connect to the PIC Microcontroller, Introduction to PIC Microcontroller, Pic Microcontroller Tutorials, PiC Microcontroller Resources, PIC Microcontroller, Connect to the PIC, About PIC Microcontroller, PIC Microcontroller Projects, PIC Microcontroller Kits, Microcontroller Tutorials, PIC Microcontroller Diagram, PIC Microcontroller Pins, PIC Microcontoller Programming Techniques, PIC Microcontroller Registers, PIC Microcontroller Writing to the Ports, PIC Microcontroller Delay Loop, PIC Microcontroller Subroutines, PIC Microcontroller Reading from the I/O Ports, PIC Microcontroller Logical And Arithmetic Operators, PIC Micrcontroller Bit Operations, PIC Microcontroller Data Tables, PIC Microcontroller Interrupts, PIC Microcontroller Interrupts Writing The Code, PIC Microcontroller Watchdog Timer, Overview of Cybot Robot, Cybot Robot">
+<meta name="description" content="Interrupts - An Introduction - PIC Microcontroller Tutorials - The subject of interrupts is probably going to be the longest and most difficult to go through. There is no easy way of explaining interrupts, but hopefully by the end of this section you will be able to implement interrupts into your own programs.">
+<meta name="author" content="Hobby Projects">
+<meta name="robots" content="index, follow">
+<meta name="robots" content="all">
+<meta name="rating" content="general">
+<meta name="revisit-after" content="18 days">
+<meta name="expires" content="never">
+<meta name="classification" content="Electronics Hobby Projects Circuits and Tutorials">
+<link href="tutorial11_files/design-style.css" rel="stylesheet" type="text/css">
+</head>
+
+<body>
+<div align="center">
+<table class="maintable">
+<tbody><tr>
+<td bgcolor="#000000">
+<table border="0" cellpadding="2" width="100%">
+<tbody><tr>
+<td bgcolor="#000000" width="216">
+<table border="0" cellpadding="5" width="100%">
+<tbody><tr>
+<td align="center">
+<a href="http://www.hobbyprojects.com/">
+<img src="tutorial11_files/hobby-projects-logo.jpg" alt="Electronics Circuits &amp; Tutorials" border="0" height="104" width="205"></a></td>
+</tr>
+<tr>
+<td align="center" bgcolor="#FF0000">
+<font color="#FFFFFF"><b>Electronics Circuits &amp; 
+Tutorials</b></font></td>
+</tr>
+</tbody></table>
+</td>
+<td>
+<div align="center">
+<table border="0" cellpadding="4" width="100%">
+<tbody><tr>
+<td align="center" valign="top">
+<object classid="clsid:D27CDB6E-AE6D-11CF-96B8-444553540000" id="obj4" codebase="http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=6,0,40,0" border="0" height="18" width="745">
+<param name="movie" value="../images/ad-banner-top.swf">
+<param name="quality" value="High">
+<param name="menu" value="false">
+<embed src="tutorial11_files/ad-banner-top.swf" pluginspage="http://www.macromedia.com/go/getflashplayer" type="application/x-shockwave-flash" name="obj4" quality="High" menu="false" height="18" width="745"></object>
+</td>
+</tr>
+<tr>
+<td valign="top">
+<p align="center">
+<script type="text/javascript"><!--
+google_ad_client = "ca-pub-5584687688693767";
+google_ad_slot = "1014171837";
+google_ad_width = 728;
+google_ad_height = 90;
+//-->
+</script>
+<script type="text/javascript" src="tutorial11_files/show_ads.js">
+</script><ins style="display:inline-table;border:none;height:90px;margin:0;padding:0;position:relative;visibility:visible;width:728px"><ins id="aswift_0_anchor" style="display:block;border:none;height:90px;margin:0;padding:0;position:relative;visibility:visible;width:728px"><iframe allowtransparency="true" hspace="0" marginwidth="0" marginheight="0" onload="var i=this.id,s=window.google_iframe_oncopy,H=s&amp;&amp;s.handlers,h=H&amp;&amp;H[i],w=this.contentWindow,d;try{d=w.document}catch(e){}if(h&amp;&amp;d&amp;&amp;(!d.body||!d.body.firstChild)){if(h.call){i+='.call';setTimeout(h,0)}else if(h.match){i+='.nav';w.location.replace(h)}s.log&amp;&amp;s.log.push(i)}" vspace="0" id="aswift_0" name="aswift_0" style="left: 0pt; position: absolute; top: 0pt;" scrolling="no" frameborder="0" height="90" width="728"></iframe></ins></ins></p></td>
+</tr>
+</tbody></table>
+</div>
+</td>
+</tr>
+</tbody></table>
+</td>
+</tr>
+<tr>
+<td>
+<div align="center">
+<table border="0" cellpadding="5" width="95%">
+<tbody><tr class="menubutton">
+<td><a href="http://www.hobbyprojects.com/">Home</a></td>
+<td><a href="http://www.hobbyprojects.com/aboutus.html">About us</a></td>
+<td><a href="http://www.hobbyprojects.com/electronics-circuits.html">Electronic Circuits</a></td>
+<td><a href="http://www.hobbyprojects.com/tutorial.html">Electronic Tutorials</a></td>
+<td><a href="http://www.hobbyprojects.com/engineering-projects.html">Engineering Hobby Projects</a></td>
+<td><a href="http://www.hobbyprojects.com/dictionaries.html">Online Dictionaries</a></td>
+<td><a href="http://www.hobbyprojects.com/contactus.html">Contact us</a></td>
+</tr></tbody></table>
+</div>
+</td>
+</tr>
+<tr>
+<td align="center" bgcolor="#000000" height="20">
+<script type="text/javascript"><!--
+google_ad_client = "ca-pub-5584687688693767";
+google_ad_slot = "1064764123";
+google_ad_width = 728;
+google_ad_height = 15;
+//-->
+</script>
+<script type="text/javascript" src="tutorial11_files/show_ads.js">
+</script><ins style="display:inline-table;border:none;height:15px;margin:0;padding:0;position:relative;visibility:visible;width:728px"><ins id="aswift_1_anchor" style="display:block;border:none;height:15px;margin:0;padding:0;position:relative;visibility:visible;width:728px"><iframe allowtransparency="true" hspace="0" marginwidth="0" marginheight="0" onload="var i=this.id,s=window.google_iframe_oncopy,H=s&amp;&amp;s.handlers,h=H&amp;&amp;H[i],w=this.contentWindow,d;try{d=w.document}catch(e){}if(h&amp;&amp;d&amp;&amp;(!d.body||!d.body.firstChild)){if(h.call){i+='.call';setTimeout(h,0)}else if(h.match){i+='.nav';w.location.replace(h)}s.log&amp;&amp;s.log.push(i)}" vspace="0" id="aswift_1" name="aswift_1" style="left: 0pt; position: absolute; top: 0pt;" scrolling="no" frameborder="0" height="15" width="728"></iframe></ins></ins></td>
+</tr>
+<tr>
+<td bgcolor="#FF0000">
+<object classid="clsid:D27CDB6E-AE6D-11CF-96B8-444553540000" id="obj2" codebase="http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=6,0,40,0" border="0" height="20" width="100%">
+<param name="movie" value="../flash-menu.swf">
+<param name="quality" value="High">
+<param name="wmode" value="transparent">
+<param name="menu" value="false">
+<embed src="tutorial11_files/flash-menu.swf" pluginspage="http://www.macromedia.com/go/getflashplayer" type="application/x-shockwave-flash" name="obj2" quality="High" wmode="transparent" menu="false" height="20" width="100%"></object>
+</td>
+</tr>
+<tr>
+<td>
+<table border="0" cellpadding="4">
+<tbody><tr>
+<td bgcolor="#000000" valign="top" width="20%">
+<table border="0" cellpadding="5" width="100%">
+<tbody><tr>
+<td class="tableh1">Tutorials</td>
+</tr>
+<tr>
+<td bgcolor="#FFFFFF">
+<ul>
+<li>
+<a href="http://www.hobbyprojects.com/tutorial.html#electronics-for-beginners">
+Basic/Beginners</a></li>
+<li>
+<a href="http://www.hobbyprojects.com/tutorial.html#intermediate-electronics">
+Intermediate/Advance</a></li>
+<li>
+<a href="http://www.hobbyprojects.com/microcontroller_tutorials.html">
+Microcontrollers</a></li>
+<li><a href="http://www.hobbyprojects.com/microprocessor_tutorials.html">
+Microprocessors</a></li>
+<li>
+<a href="http://www.hobbyprojects.com/schematics_circuits_symbols.html">Electronics 
+Symbols</a></li>
+<li>
+<a href="http://www.hobbyprojects.com/electronic_formula.html">Electronics Formulas</a></li>
+<li>
+<a href="http://www.hobbyprojects.com/dictionary_of_units.html">Dictionary of Units</a></li>
+</ul>
+<p align="left">
+&nbsp;&nbsp;&nbsp;&nbsp;
+<a href="http://www.hobbyprojects.com/tutorial.html">more....</a></p></td>
+</tr>
+<tr>
+<td class="ads">
+<script type="text/javascript"><!--
+google_ad_client = "ca-pub-5584687688693767";
+google_ad_slot = "5635722485";
+google_ad_width = 160;
+google_ad_height = 600;
+//-->
+</script>
+<script type="text/javascript" src="tutorial11_files/show_ads.js">
+</script><ins style="display:inline-table;border:none;height:600px;margin:0;padding:0;position:relative;visibility:visible;width:160px"><ins id="aswift_2_anchor" style="display:block;border:none;height:600px;margin:0;padding:0;position:relative;visibility:visible;width:160px"><iframe allowtransparency="true" hspace="0" marginwidth="0" marginheight="0" onload="var i=this.id,s=window.google_iframe_oncopy,H=s&amp;&amp;s.handlers,h=H&amp;&amp;H[i],w=this.contentWindow,d;try{d=w.document}catch(e){}if(h&amp;&amp;d&amp;&amp;(!d.body||!d.body.firstChild)){if(h.call){i+='.call';setTimeout(h,0)}else if(h.match){i+='.nav';w.location.replace(h)}s.log&amp;&amp;s.log.push(i)}" vspace="0" id="aswift_2" name="aswift_2" style="left: 0pt; position: absolute; top: 0pt;" scrolling="no" frameborder="0" height="600" width="160"></iframe></ins></ins></td>
+</tr>
+<tr>
+<td class="tableh1">Dictionaries</td>
+</tr>
+<tr>
+<td bgcolor="#FFFFFF">
+<ul>
+<li>
+<a href="http://www.hobbyprojects.com/dictionary/electronics-terms.html">Electronics Terms</a></li>
+<li>
+<a href="http://www.hobbyprojects.com/abbreviations/electronics-abbreviations.html">Abbreviations</a></li>
+<li><a href="http://www.hobbyprojects.com/online-dictionary.html">Computer Terms</a></li>
+<li><a href="http://www.hobbyprojects.com/physics-glossary-terms-dictionary.html">
+Physics Glossary</a></li>
+<li><a href="http://www.hobbyprojects.com/science-glossary-terms-dictionary.html">
+Science Glossary</a></li>
+<li>
+<a href="http://www.hobbyprojects.com/space-solor-glossary-terms-dictionary-definitions.html">
+Space &amp; Solar Terms</a></li>
+<li>
+<a href="http://www.hobbyprojects.com/semiconductor_symbols_abbreviations.html">
+Semiconductor Symbols / Abbreviation</a></li>
+<li><a href="http://www.hobbyprojects.com/radio_terminology.html">Radio Terminology 
+Bibliography</a></li>
+</ul>
+<p align="left">
+&nbsp;&nbsp;&nbsp;&nbsp;
+<a href="http://www.hobbyprojects.com/dictionaries.html">more....</a></p></td>
+</tr>
+<tr>
+<td class="tableh1">Projects</td>
+</tr>
+<tr>
+<td bgcolor="#FFFFFF">
+<ul>
+<li><a href="http://www.hobbyprojects.com/engineering-projects.html">Engineering 
+Projects</a></li>
+</ul>
+</td>
+</tr>
+</tbody></table>
+</td>
+<td bgcolor="#FFFFFF" valign="top">
+<table border="0" cellpadding="5" width="100%">
+<tbody><tr>
+<td align="center">
+
+<form action="http://www.hobbyprojects.com/search-result.html" id="cse-search-box">
+<div>
+<input name="cx" value="partner-pub-5584687688693767:3801644741" type="hidden">
+<input name="cof" value="FORID:10" type="hidden">
+<input name="ie" value="ISO-8859-1" type="hidden">
+<input style="border: 1px solid rgb(126, 157, 185); padding: 2px; background: url(&quot;http://www.google.com/cse/intl/en/images/google_custom_search_watermark.gif&quot;) no-repeat scroll left center rgb(255, 255, 255);" name="q" size="55" type="text">
+<input name="sa" value="Search" type="submit">
+</div>
+<input value="www.hobbyprojects.com/pic_tutorials/tutorial11.html" name="siteurl" type="hidden"></form>
+<script type="text/javascript" src="tutorial11_files/brand"></script>
+</td>
+</tr>
+</tbody></table>
+<table border="0" cellpadding="5" width="100%">
+<tbody><tr>
+<td bgcolor="#F4F4F4"> 
+<p style="line-height: 150%; margin-bottom: 0"> 
+<a href="http://www.hobbyprojects.com/index.html">Home</a> &gt; <a href="http://www.hobbyprojects.com/tutorial.html">
+Electronic Tutorials</a> &gt; 
+<a href="http://www.hobbyprojects.com/microcontroller_tutorials.html">Microcontroller Tutorials - PIC</a> 
+&gt; PIC Tutorial 11 - <span lang="EN-GB">Interrupts 
+																		- An 
+																		Introduction</span></p></td>
+</tr>
+<tr>
+<td align="center" bgcolor="#FF8800"> 
+<b><font size="5">PIC Microcontroller Tutorial</font></b></td>
+</tr>
+<tr>
+<td align="center" bgcolor="#A40000"> 
+<h1>PIC Tutorial 11 - <span lang="EN-GB">Interrupts 
+																		- An 
+																		Introduction</span></h1>
+</td>
+</tr>
+<tr>
+<td align="center">
+<script type="text/javascript"><!--
+google_ad_client = "ca-pub-5584687688693767";
+google_ad_slot = "8687342286";
+google_ad_width = 468;
+google_ad_height = 15;
+//-->
+</script>
+<script type="text/javascript" src="tutorial11_files/show_ads.js">
+</script><ins style="display:inline-table;border:none;height:15px;margin:0;padding:0;position:relative;visibility:visible;width:468px"><ins id="aswift_3_anchor" style="display:block;border:none;height:15px;margin:0;padding:0;position:relative;visibility:visible;width:468px"><iframe allowtransparency="true" hspace="0" marginwidth="0" marginheight="0" onload="var i=this.id,s=window.google_iframe_oncopy,H=s&amp;&amp;s.handlers,h=H&amp;&amp;H[i],w=this.contentWindow,d;try{d=w.document}catch(e){}if(h&amp;&amp;d&amp;&amp;(!d.body||!d.body.firstChild)){if(h.call){i+='.call';setTimeout(h,0)}else if(h.match){i+='.nav';w.location.replace(h)}s.log&amp;&amp;s.log.push(i)}" vspace="0" id="aswift_3" name="aswift_3" style="left: 0pt; position: absolute; top: 0pt;" scrolling="no" frameborder="0" height="15" width="468"></iframe></ins></ins></td>
+</tr>
+<tr>
+<td class="maintext">
+<h2><span lang="EN-GB">Interrupts 
+																		- An 
+																		Introduction</span></h2>
+<p><span lang="EN-GB">The 
+																		subject 
+																		of 
+																		interrupts</span> 
+																		is 
+																		probably 
+																		going to 
+																		be the 
+																		longest 
+																		and most 
+																		difficult 
+																		to go 
+																		through.&nbsp;There is 
+																		no easy 
+																		way of 
+																		explaining 
+																		interrupts, 
+																		but 
+																		hopefully 
+																		by the 
+																		end of 
+																		this 
+																		section 
+																		you will 
+																		be able 
+																		to 
+																		implement 
+																		interrupts 
+																		into 
+																		your own 
+																		programs.&nbsp;We have 
+																		split 
+																		the
+																		<span lang="EN-GB">section</span> 
+into two parts.&nbsp;This is to help break the subject up, and to give you, the 
+reader, a break.</p>
+<p>So what is an interrupt?&nbsp; Well, as the name suggests, an 
+interrupt is a 
+process or a signal that stops a microprocessor/microcontroller from 
+what it is 
+doing so that something else can happen.&nbsp;Let me give you an every 
+day 
+example.&nbsp;Suppose you are sitting at home, chatting to someone. 
+Suddenly the telephone rings.&nbsp;You stop chatting, and pick up the 
+telephone 
+to speak to the caller.&nbsp;When you have finished your telephone 
+conversation, you go back to chatting to the person before the telephone
+ rang.&nbsp;You can think of the main routine as you chatting to 
+someone, the telephone 
+ringing causes you to interrupt your chatting, and the interrupt routine
+ is the 
+process of talking on the telephone.&nbsp;When the telephone 
+conversation has 
+ended, you then go back to your main routine of chatting.&nbsp;This 
+example is 
+exactly how an interrupt causes a processor to act.&nbsp;The main 
+program is 
+running, performing some function in a circuit, but when an interrupt 
+occurs the 
+main program halts while another routine is carried out.&nbsp;When this 
+routine 
+finishes, the processor goes back to the main routine again.</p>
+<p>The PIC has 4 sources of interrupt.&nbsp;They can be split into two 
+groups. Two are sources of interrupts that can be applied externally to 
+the PIC, while 
+the other two are internal processes.&nbsp;We are going to explain the 
+two 
+external ones here.&nbsp;The other two will be explained in other 
+tutorials 
+when we come to look at timers and storing data.</p>
+<p>If you 
+																		look at 
+																		the 
+																		pin-out 
+																		of the 
+																		PIC, you 
+																		will see 
+																		that pin 
+																		6 shows 
+																		it is 
+																		RB0/INT.&nbsp;Now, RB0 
+																		is 
+																		obviously 
+																		Port B 
+																		bit 0.&nbsp;The INT 
+																		symbolizes 
+																		that it 
+																		can also 
+																		be 
+																		configures 
+																		as an 
+																		external 
+																		interrupt 
+																		pin.&nbsp;Also, 
+																		Port B
+<span lang="EN-GB">bits</span> 
+																		4 to 7 
+																		(pins 10 
+																		to 13) 
+																		can also 
+																		be used 
+																		for 
+																		interrupts.&nbsp;Before 
+																		we can 
+																		use the INT or 
+other Port B pins, we need to do two things.&nbsp;First we need to tell the PIC 
+that we are going to use interrupts.&nbsp;Secondly, we need to specify which 
+port B pin we will be using as an interrupt and not as an I/O pin.</p>
+<p>Inside 
+																		the PIC 
+																		there is 
+																		a 
+																		register 
+																		called 
+																		INTCON, 
+																		and is 
+																		at 
+																		address 
+																		0Bh.&nbsp;Within 
+																		this 
+																		register 
+																		there 
+																		are 8 
+																		bits 
+																		that can 
+																		be 
+																		enabled 
+																		or 
+																		disabled.&nbsp;Bit 7 of INTCON 
+																		is 
+																		called 
+																		GIE.&nbsp;This is 
+																		the 
+																		Global Interrngupt 
+																		Enable.&nbsp;Setting 
+																		this to 
+																		1 tells 
+																		the PIC 
+																		that we 
+																		are 
+																		going to 
+																		use an 
+																		interrupt.&nbsp;Bit 4 of INTCON 
+																		is 
+																		called 
+																		INTE, 
+																		which 
+																		means 
+																		INTerrupt&nbsp; 
+																		Enable.&nbsp;Setting 
+																		this bit 
+																		to 1 
+																		tells 
+																		the PIC 
+																		that RB0 
+																		will be 
+																		an 
+																		interrupt 
+																		pin.&nbsp;Setting 
+																		bit 3, 
+																		called RBIE, 
+																		tells 
+																		the PIc 
+																		that we 
+																		will be 
+																		using 
+																		Port B 
+																		bits 4 
+																		to 7.&nbsp;
+																		Now the 
+																		PIC 
+																		knows 
+																		when 
+																		this pin 
+																		goes 
+																		high or 
+																		low, it 
+																		will 
+																		need to 
+																		stop 
+																		what 
+																		it’s 
+																		doing 
+																		and get 
+																		on with 
+																		an 
+																		interrupt 
+																		routine.&nbsp;Now, we 
+																		need to 
+																		tell the 
+																		PIC 
+																		whether 
+																		the 
+																		interrupt 
+																		is going 
+																		to be on 
+																		the 
+																		rising 
+																		edge (0V 
+																		to +5V) 
+																		or the 
+																		falling 
+																		edge 
+																		(+5V to 
+																		0V) 
+																		transition 
+																		of the 
+																		signal.&nbsp;In other 
+																		words, 
+																		do we 
+																		want the 
+																		PIC to 
+																		interrupt 
+																		when the 
+																		signal 
+																		goes 
+																		from low 
+																		to high, 
+																		or from 
+																		high to 
+																		low.&nbsp;By 
+																		default, 
+																		this is 
+																		set up 
+																		to be on 
+																		the 
+																		rising 
+																		edge.&nbsp;The edge 
+																		‘triggering’ 
+																		is set 
+																		up in 
+																		another 
+																		register 
+																		called 
+																		the 
+																		OPTION 
+																		register, 
+																		at 
+																		address 
+																		81h.&nbsp;The bit 
+																		we are 
+																		interested 
+																		in is 
+																		bit 6, 
+																		which is 
+																		called INTEDG. 
+Setting this to 1 will cause the PIC to interrupt on the rising edge 
+(default 
+state) and setting it to 0 will cause the PIC to interrupt on the 
+falling edge.&nbsp;If you want the PIC to trigger on the rising edge, 
+then you don’t need to do 
+anything to this bit.&nbsp;Now, unfortunately, the Option register is in
+ Bank 
+1, which means that we have to change from bank 0 to bank 1, set the bit
+ in the 
+Option register, then come back to bank 0.&nbsp;The trick here is to do 
+all of 
+the Bank 1 registers in one hit, such as setting up the port pins, then 
+coming 
+back to Bank 0 when you are finished.</p>
+<p>Ok, so now we have told the PIC which pin is going to be the 
+interrupt, and 
+on which edge to trigger, what happens in the program and the PIC when 
+the 
+interrupt occurs?&nbsp;Two things happen. First, a ‘flag’ is 
+set.&nbsp;This tells the internal processor of the PIC that an interrupt
+ has occurred.&nbsp;
+Secondly, the program counter (which we mentioned in the last tutorial) 
+points 
+to a particular address within the PIC.&nbsp;Let’s quickly look at each 
+of 
+these separately.</p>
+<h3>Interrupt 
+																		Flag</h3>
+<p>In our 
+																		INTCON 
+																		register, 
+																		bit 1 is 
+																		the 
+																		interrupt 
+																		flag, 
+																		called 
+																		INTF.&nbsp;Now, when any interrupt occurs, this flag 
+will be set to 1.&nbsp;While there 
+isn’t an interrupt, the flag is set to 0.&nbsp;And that is all it 
+does.&nbsp;Now you are probably thinking ‘what is the point?’&nbsp; 
+Well, while this flag 
+is set to 1, the PIC cannot, and will not, respond to any other 
+interrupt.&nbsp;So, let’s say that we cause an interrupt.&nbsp;The flag 
+will be set to 1, and 
+the PIC will go to our routine for processing the interrupt.&nbsp;If 
+this flag 
+wasn’t set to 1, and the PIC was allowed to keep responding to the 
+interrupt, 
+then continually pulsing the pin will keep the PIC going back to the 
+start of 
+our interrupt routine, and never finishing it.&nbsp;Going back to 
+my&nbsp; 
+example of the telephone, it’s like picking up the telephone, and just 
+as soon 
+as you start to speak it starts ringing again because someone else want 
+to talk 
+to you.&nbsp;It is far better to finish one conversation, then pick up 
+the 
+phone again to talk to the second person.</p>
+<p>There is 
+																		a slight 
+																		drawback 
+																		to this 
+																		flag.&nbsp;Although 
+																		the PIC 
+																		automatically 
+																		sets 
+																		this 
+																		flag to 
+																		1, it 
+																		doesn’t 
+																		set it 
+																		back to 
+																		0!&nbsp;That 
+																		task has 
+																		to be 
+																		done by 
+																		the 
+																		programmer 
+																		– i.e. 
+																		you.&nbsp;This is 
+																		easily 
+																		done, as 
+																		We are sure 
+																		you can 
+																		guess, 
+																		and has 
+																		to be 
+																		done 
+																		after 
+																		the PIC 
+																		has 
+																		executed 
+																		the 
+																		interrupt 
+																		routine.</p>
+<h3>Memory 
+																		Location</h3>
+<p>When you first power up the PIC, or if there is a reset, the Program 
+Counter 
+points to address 0000h, which is right at the start of the program 
+memory.&nbsp;However, when there is an interrupt, the Program Counter 
+will point to address 
+0004h.&nbsp;So, when we are writing our program that is going to have 
+interrupts, we first of all have to tell the PIC to jump over address 
+0004h, and 
+keep the interrupt routine which starts at address 0004h separate from 
+the rest 
+of the program.&nbsp;This is very easy to do.</p>
+<p>First, 
+																		we start 
+																		our 
+																		program 
+																		with a 
+																		command 
+																		called 
+																		ORG.&nbsp;This 
+																		command 
+																		means 
+																		Origin, 
+																		or 
+																		start.&nbsp;
+																		We 
+																		follow 
+																		it with 
+																		an 
+																		address.&nbsp;Because 
+																		the PIC 
+																		will 
+																		start at 
+																		address 
+																		0000h, 
+																		we type 
+																		ORG 
+																		0000h. 
+																		Next we 
+																		need to 
+																		skip 
+																		over 
+																		address 
+																		0004h.&nbsp;We do 
+																		this by 
+																		placing 
+																		a GOTO 
+																		instruction, 
+																		followed 
+																		by a 
+																		label 
+																		which 
+																		points 
+																		to our 
+																		main 
+																		program.&nbsp;We then 
+																		follow 
+																		this GOTO 
+																		command 
+																		with 
+																		another 
+																		ORG, 
+																		this 
+																		time 
+																		with the 
+																		address 
+																		0004h.&nbsp;It is 
+																		after 
+																		this 
+																		command 
+																		that we 
+																		enter 
+																		our 
+																		interrupt 
+																		routine.&nbsp;Now, we 
+																		could 
+																		either 
+																		type in 
+																		our 
+																		interrupt 
+																		routine 
+																		directly 
+																		following 
+																		the 
+																		second 
+																		ORG 
+																		command, 
+																		or we 
+																		can 
+																		place a GOTO 
+																		statement 
+																		which 
+																		points 
+																		to the 
+																		interrupt 
+																		routine.&nbsp;It 
+																		really 
+																		is a 
+																		matter 
+																		of 
+																		choice 
+																		on your 
+																		part.&nbsp;To tell 
+																		the PIC 
+																		that it 
+																		has come 
+																		to the 
+																		end of 
+																		the 
+																		interrupt 
+																		routine 
+																		we need 
+																		to place 
+																		the 
+																		command RTFIE at 
+																		the end 
+																		of the 
+																		routine.&nbsp;This 
+																		command 
+																		means 
+																		return 
+																		from the 
+																		interrupt 
+																		routine.&nbsp;When the 
+																		PIC see 
+																		this, 
+																		the 
+																		Program 
+																		Counter 
+																		points 
+																		to the 
+																		last 
+																		location 
+																		the PIC 
+																		was at 
+																		before 
+																		the 
+																		interrupt 
+																		happened.&nbsp;We have 
+																		shown 
+																		below a 
+																		short 
+																		segment 
+																		of code 
+																		to show 
+																		the 
+																		above:</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+																		ORG&nbsp;&nbsp;&nbsp; 
+																		0000h&nbsp; ;PIC 
+																		starts 
+																		here on 
+																		power up 
+																		and 
+																		reset</b><br>
+																		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+																		<b>GOTO&nbsp; 
+																		start&nbsp;</b>&nbsp;&nbsp; 
+																		;Goto 
+our main program<br>
+																		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b>&nbsp; 
+																		ORG&nbsp;&nbsp;&nbsp; 
+																		0004h&nbsp;</b> 
+																		;The PIC 
+																		will 
+																		come 
+																		here on 
+																		an 
+																		interrupt<br>
+																		
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+																		
+:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ ;This is 
+																		our 
+																		interrupt 
+																		routine 
+																		that we<br>
+																		
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+																		
+:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ ;want 
+																		the PIC 
+																		to do 
+																		when it 
+																		receives<br>
+																		
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+																		
+:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ ;an 
+																		interrupt</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+																		<b>RETFIE</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ;End of 
+																		the 
+																		interrupt 
+																		routine</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <b>start</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ;This is 
+																		the 
+																		start of 
+																		our main 
+																		program.</p>
+<p>There 
+																		are two 
+																		things 
+																		you 
+																		should 
+																		be aware 
+																		of when 
+																		using 
+																		interrupts.&nbsp;The 
+																		first is 
+																		that if 
+																		you are 
+																		using 
+																		the same 
+																		register 
+																		in your 
+																		main 
+																		program 
+																		and the 
+																		interrupt 
+																		routine, 
+																		bear in 
+																		mind 
+																		that the 
+																		contents 
+																		of the 
+																		register 
+																		will 
+																		probably 
+																		change 
+																		when the 
+																		interrupt 
+																		occurs.&nbsp;For 
+																		example, 
+																		let’s 
+																		you are 
+																		using 
+																		the w 
+																		register 
+																		to send 
+																		data to 
+																		Port A 
+																		in the 
+																		main 
+																		program, 
+																		and you 
+																		are also 
+																		using 
+																		the w 
+																		register 
+																		in the 
+																		interrupt 
+																		routine 
+																		to move 
+																		data 
+																		from one 
+																		location 
+																		to 
+																		another.&nbsp;If you 
+																		are not 
+																		careful, 
+																		the w 
+																		register 
+																		will 
+																		contain 
+																		the last 
+																		value it 
+																		had when 
+																		it was 
+																		in the 
+																		interrupt 
+																		routine, 
+																		and when 
+																		you come 
+																		back 
+																		from the 
+																		interrupt 
+																		this 
+																		data 
+																		will be 
+																		sent to 
+																		Port A 
+																		instead 
+																		of the 
+																		value 
+																		you had 
+																		before 
+																		the 
+																		interrupt 
+																		happened.&nbsp;The way 
+																		round 
+																		this is 
+																		to 
+																		temporarily 
+																		store 
+																		the 
+																		contents 
+																		of the w 
+																		register 
+																		before 
+																		you use 
+																		it again 
+																		in the 
+																		interrupt 
+																		routine.&nbsp;The 
+																		second 
+																		is that 
+																		there is 
+																		a delay 
+																		between 
+																		when one 
+																		interrupt 
+																		occurs 
+																		and when 
+																		the next 
+																		one can 
+																		occur.&nbsp;As you 
+																		know, 
+																		the PIC 
+																		has an 
+																		external 
+																		clock, 
+																		which 
+																		can 
+																		either 
+																		be a 
+																		crystal 
+																		or it 
+																		can be a 
+																		resistor-capacitor 
+																		combination.&nbsp;Whatever 
+																		the 
+																		frequency 
+																		of this 
+																		clock, 
+																		the PIC 
+																		divides 
+																		it by 4 
+																		and then 
+																		uses 
+																		this for 
+																		it’s 
+																		internal 
+																		timing.&nbsp;For 
+																		example 
+																		if you 
+																		have a 
+																		4MHz 
+																		crystal 
+																		connected 
+																		to your 
+																		PIC, 
+																		then the 
+																		PIC will 
+																		carry 
+																		out the 
+																		instructions 
+																		at 
+																		1MHz.&nbsp;
+																		This 
+																		internal 
+																		timing 
+																		is 
+																		called 
+																		an 
+																		Instruction 
+																		Cycle.&nbsp;Now, the 
+																		data 
+																		sheet 
+																		states 
+																		(admittedly 
+																		in very 
+																		small 
+																		print) 
+																		that you 
+																		must 
+																		allow 3 
+																		to 4 
+																		instruction 
+																		cycles 
+																		between 
+																		interrupts.&nbsp;My 
+																		advice 
+																		is to 
+																		allow 4 
+																		cycles.&nbsp;The 
+																		reason 
+																		for the 
+																		delay is 
+																		the PIC 
+																		needs 
+																		time to 
+																		jump to 
+																		the 
+																		interrupt 
+																		address, 
+																		set the 
+																		flag, 
+																		and come 
+																		back out 
+																		of the 
+																		interrupt 
+																		routine.&nbsp;So, bear 
+																		this in 
+																		mind if 
+																		you are 
+																		using 
+																		another 
+																		circuit 
+																		to 
+																		trigger 
+																		an 
+																		interrupt 
+																		for the 
+																		PIC.</p>
+<p>Now, a 
+																		point to 
+																		remember 
+																		is that 
+																		if you 
+																		use bits 
+																		4 to 7 
+																		of Port 
+																		B as an 
+																		interrupt.&nbsp;You 
+																		cannot 
+																		select 
+																		individual 
+																		pins on 
+																		Port B 
+																		to serve 
+																		as an 
+																		interrupt.&nbsp;So, if 
+																		you 
+																		enable 
+																		these 
+																		pins, 
+																		then 
+																		they are 
+																		all 
+																		available.&nbsp;So, for 
+																		example, 
+																		you 
+																		can’t 
+																		just 
+																		have 
+																		bits 4 
+																		and 5 – 
+																		bits 6 
+																		and 7 
+																		will be 
+																		enabled 
+																		as 
+																		well. 
+																		So what 
+																		is the 
+																		point of 
+																		having 
+																		four 
+																		bits to 
+																		act as 
+																		an 
+																		interrupt?&nbsp;Well, 
+																		you 
+																		could 
+																		have a 
+																		circuit 
+																		connected 
+																		to the 
+																		PIC, and 
+																		if any 
+																		one of 
+																		four 
+																		lines go 
+																		high, 
+																		then 
+																		this 
+																		could be 
+																		a 
+																		condition 
+																		that you 
+																		need the 
+																		PIC to 
+																		act on 
+																		quickly.&nbsp;One 
+																		example 
+																		of this 
+																		would be 
+																		a house 
+																		alarm, 
+																		where 
+																		four 
+																		sensors 
+																		are 
+																		connected 
+																		to Port 
+																		B 
+<span lang="EN-GB">bits</span> 
+																		4 to 7.&nbsp;Any 
+																		sensor 
+																		can 
+																		trigger 
+																		the PIC 
+																		to sound 
+																		an 
+																		alarm, 
+																		and the 
+																		alarm 
+																		sounding 
+																		routine 
+																		is the 
+																		interrupt 
+																		routine.&nbsp;This 
+																		saves 
+																		examining 
+																		the 
+																		ports 
+																		all the 
+																		time and 
+																		allows 
+																		the PIC 
+																		to get 
+																		on with 
+																		other 
+																		things.</p>
+<p><span lang="EN-GB">In the 
+																		next 
+																		tutorial, 
+																		we will 
+																		write a 
+																		program 
+																		to 
+																		handle 
+																		an 
+																		interrupt.</span></p>
+<p style="text-align: center">Click 
+																		here &nbsp;&gt;&gt;&gt;&gt;&nbsp;
+																		<a href="http://www.hobbyprojects.com/pic_tutorials/tutorial12.html">Tutorial 
+																		12</a></p></td>
+</tr>
+<tr>
+<td align="center" valign="top" width="530">
+<script type="text/javascript"><!--
+google_ad_client = "ca-pub-5584687688693767";
+google_ad_slot = "8687342286";
+google_ad_width = 468;
+google_ad_height = 15;
+//-->
+</script>
+<script type="text/javascript" src="tutorial11_files/show_ads.js">
+</script><ins style="display:inline-table;border:none;height:15px;margin:0;padding:0;position:relative;visibility:visible;width:468px"><ins id="aswift_4_anchor" style="display:block;border:none;height:15px;margin:0;padding:0;position:relative;visibility:visible;width:468px"><iframe allowtransparency="true" hspace="0" marginwidth="0" marginheight="0" onload="var i=this.id,s=window.google_iframe_oncopy,H=s&amp;&amp;s.handlers,h=H&amp;&amp;H[i],w=this.contentWindow,d;try{d=w.document}catch(e){}if(h&amp;&amp;d&amp;&amp;(!d.body||!d.body.firstChild)){if(h.call){i+='.call';setTimeout(h,0)}else if(h.match){i+='.nav';w.location.replace(h)}s.log&amp;&amp;s.log.push(i)}" vspace="0" id="aswift_4" name="aswift_4" style="left: 0pt; position: absolute; top: 0pt;" scrolling="no" frameborder="0" height="15" width="468"></iframe></ins></ins></td>
+</tr>
+<tr>
+<td align="center" valign="top">
+
+<font color="#FF0000"><b>Note:</b></font> To report broken links or to submit your projects please send email to <u> <b> <a href="http://www.hobbyprojects.com/contactus.html">Webmaster</a></b></u></td>
+</tr>
+<tr>
+<td align="center" valign="top">
+<hr color="#FF8800"></td>
+</tr>
+</tbody></table>
+</td>
+<td bgcolor="#000000" valign="top" width="20%">
+<table border="0" cellpadding="5" width="100%">
+<tbody><tr>
+<td class="tableh1">Circuits</td>
+</tr>
+<tr>
+<td bgcolor="#FFFFFF">
+<table class="circuitmenu">
+<tbody><tr>
+<td><a href="http://www.hobbyprojects.com/schematics/electronics-circuits-a.html">A</a></td>
+<td><a href="http://www.hobbyprojects.com/schematics/electronics-circuits-b.html">B</a></td>
+<td><a href="http://www.hobbyprojects.com/schematics/electronics-circuits-c.html">C</a></td>
+<td><a href="http://www.hobbyprojects.com/schematics/electronics-circuits-d.html">D</a></td>
+</tr>
+<tr>
+<td><a href="http://www.hobbyprojects.com/schematics/electronics-circuits-e.html">E</a></td>
+<td><a href="http://www.hobbyprojects.com/schematics/electronics-circuits-f.html">F</a></td>
+<td><a href="http://www.hobbyprojects.com/schematics/electronics-circuits-g.html">G</a></td>
+<td><a href="http://www.hobbyprojects.com/schematics/electronics-circuits-h.html">H</a></td>
+</tr>
+<tr>
+<td><a href="http://www.hobbyprojects.com/schematics/electronics-circuits-i.html">I</a></td>
+<td><a href="http://www.hobbyprojects.com/schematics/electronics-circuits-j.html">J</a></td>
+<td><a href="http://www.hobbyprojects.com/schematics/electronics-circuits-k.html">K</a></td>
+<td><a href="http://www.hobbyprojects.com/schematics/electronics-circuits-l.html">L</a></td>
+</tr>
+<tr>
+<td><a href="http://www.hobbyprojects.com/schematics/electronics-circuits-m.html">M</a></td>
+<td><a href="http://www.hobbyprojects.com/schematics/electronics-circuits-n.html">N</a></td>
+<td><a href="http://www.hobbyprojects.com/schematics/electronics-circuits-o.html">O</a></td>
+<td><a href="http://www.hobbyprojects.com/schematics/electronics-circuits-p.html">P</a></td>
+</tr>
+<tr>
+<td><a href="http://www.hobbyprojects.com/schematics/electronics-circuits-q.html">Q</a></td>
+<td><a href="http://www.hobbyprojects.com/schematics/electronics-circuits-r.html">R</a></td>
+<td><a href="http://www.hobbyprojects.com/schematics/electronics-circuits-s.html">S</a></td>
+<td><a href="http://www.hobbyprojects.com/schematics/electronics-circuits-t.html">T</a></td>
+</tr>
+<tr>
+<td><a href="http://www.hobbyprojects.com/schematics/electronics-circuits-u.html">U</a></td>
+<td><a href="http://www.hobbyprojects.com/schematics/electronics-circuits-v.html">V</a></td>
+<td><a href="http://www.hobbyprojects.com/schematics/electronics-circuits-w.html">W</a></td>
+<td><a href="http://www.hobbyprojects.com/schematics/electronics-circuits-x.html">X</a></td>
+</tr>
+<tr>
+<td><a href="http://www.hobbyprojects.com/schematics/electronics-circuits-y.html">Y</a></td>
+<td><a href="http://www.hobbyprojects.com/schematics/electronics-circuits-z.html">Z</a></td>
+<td></td>
+<td></td>
+</tr>
+</tbody></table>
+</td>
+</tr>
+</tbody></table>
+<table border="0" cellpadding="5" width="100%">
+<tbody><tr>
+<td class="ads">
+<script type="text/javascript"><!--
+google_ad_client = "ca-pub-5584687688693767";
+google_ad_slot = "5635722485";
+google_ad_width = 160;
+google_ad_height = 600;
+//-->
+</script>
+<script type="text/javascript" src="tutorial11_files/show_ads.js">
+</script><ins style="display:inline-table;border:none;height:600px;margin:0;padding:0;position:relative;visibility:visible;width:160px"><ins id="aswift_5_anchor" style="display:block;border:none;height:600px;margin:0;padding:0;position:relative;visibility:visible;width:160px"><iframe allowtransparency="true" hspace="0" marginwidth="0" marginheight="0" onload="var i=this.id,s=window.google_iframe_oncopy,H=s&amp;&amp;s.handlers,h=H&amp;&amp;H[i],w=this.contentWindow,d;try{d=w.document}catch(e){}if(h&amp;&amp;d&amp;&amp;(!d.body||!d.body.firstChild)){if(h.call){i+='.call';setTimeout(h,0)}else if(h.match){i+='.nav';w.location.replace(h)}s.log&amp;&amp;s.log.push(i)}" vspace="0" id="aswift_5" name="aswift_5" style="left: 0pt; position: absolute; top: 0pt;" scrolling="no" frameborder="0" height="600" width="160"></iframe></ins></ins></td>
+</tr>
+<tr>
+<td class="tableh1">Discover</td>
+</tr>
+<tr>
+<td bgcolor="#FFFFFF">
+<ul>
+<li><a href="http://www.hobbyprojects.com/c_language_reference_guide.html">C/C++ 
+Language Programming Library</a></li>
+<li>
+<a href="http://www.hobbyprojects.com/conversion_between_electrical_system.html">
+Electronic Conversions</a></li>
+<li>
+<a href="http://www.hobbyprojects.com/history-progression-of-electronics-technology.html">
+History of Electronics</a></li>
+<li>
+<a href="http://www.hobbyprojects.com/history-progression-of-computer-technology.html">
+History of Computers</a></li>
+<li><a href="http://www.hobbyprojects.com/electricity-around-the-world.html">Elec. 
+Power Standards</a></li>
+<li><a href="http://www.hobbyprojects.com/online_calculators_&amp;_conversions.html">
+Online Calculator and Conversions</a></li>
+<li>
+<a href="http://www.hobbyprojects.com/controlling-electrical-hazards-osha.html">
+Electrical Hazards - Health &amp; Safety</a></li>
+<li><a href="http://www.hobbyprojects.com/datasheets.html">Datasheets</a></li>
+<li><a href="http://www.hobbyprojects.com/quick_circuits_reference.html">Quick 
+Reference links</a></li>
+<li><a href="http://www.hobbyprojects.com/electronics-magazines.html">Electronics 
+Magazines</a></li>
+<li><a href="http://www.hobbyprojects.com/career_in_electronics_engineering.html">
+Career in Electronics</a></li>
+<li><a href="http://www.hobbyprojects.com/ems-international-parcel-tracking.html">EMS 
+Post Tracking</a></li>
+</ul>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;
+<a href="http://www.hobbyprojects.com/discover-electronics.html">more......</a></p></td>
+</tr>
+</tbody></table>
+</td>
+</tr>
+<tr>
+<td colspan="3" valign="top">
+<div align="center">
+<table border="0" cellpadding="5" width="95%">
+<tbody><tr class="menubutton">
+<td><a href="http://www.hobbyprojects.com/">Home</a></td>
+<td><a href="http://www.hobbyprojects.com/electronics-circuits.html">Electronic Circuits</a></td>
+<td><a href="http://www.hobbyprojects.com/tutorial.html">Electronic Tutorials</a></td>
+<td><a href="http://www.hobbyprojects.com/engineering-projects.html">Engineering Hobby Projects</a></td>
+<td><a href="http://www.hobbyprojects.com/useful_site_links.html">Resources Links</a></td>
+<td><a href="http://www.hobbyprojects.com/sitemap.html">Sitemap</a></td>
+<td><a href="http://www.hobbyprojects.com/disclaimer.html">Disclaimer/T&amp;C</a></td>
+</tr>
+</tbody></table>
+</div>
+</td>
+</tr>
+<tr>
+<td colspan="3" bgcolor="#FF0000" valign="top">
+					
+<object classid="clsid:D27CDB6E-AE6D-11CF-96B8-444553540000" id="obj3" codebase="http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=6,0,40,0" border="0" height="20" width="100%">
+<param name="movie" value="../flash-menu.swf">
+<param name="quality" value="High">
+<param name="wmode" value="transparent">
+<param name="menu" value="false">
+<embed src="tutorial11_files/flash-menu.swf" pluginspage="http://www.macromedia.com/go/getflashplayer" type="application/x-shockwave-flash" name="obj3" quality="High" wmode="transparent" menu="false" height="20" width="100%"></object>
+					
+</td>
+</tr>
+<tr>
+<td colspan="3" bgcolor="#000000" valign="top">
+<p align="center"><font color="#FFFFFF" size="2">Copyright © 
+1999-2011 <a href="http://www.hobbyprojects.com/">
+<font color="#FF8800">www.hobbyprojects.com</font></a>&nbsp; 
+(All rights reserved)</font></p></td>
+</tr>
+</tbody></table>
+</td>
+</tr>
+</tbody></table>
+</div>
+
+
+
+
+</body></html>

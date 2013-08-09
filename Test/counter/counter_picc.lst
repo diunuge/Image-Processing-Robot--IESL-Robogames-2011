@@ -1,0 +1,115 @@
+CCS PCM C Compiler, Version 4.013, 28193               17-Sep-11 23:21
+
+               Filename: counter_picc.lst
+
+               ROM used: 72 words (1%)
+                         Largest free fragment is 2048
+               RAM used: 8 (2%) at main() level
+                         10 (3%) worst case
+               Stack:    2 locations
+
+*
+0000:  MOVLW  00
+0001:  MOVWF  0A
+0002:  GOTO   031
+0003:  NOP
+.................... #include "16f877a.h " 
+.................... //////// Standard Header file for the PIC16F877A device //////////////// 
+.................... #device PIC16F877A 
+.................... #list 
+....................  
+.................... #use delay(clock =20000000) 
+0004:  MOVLW  24
+0005:  MOVWF  04
+0006:  BCF    03.7
+0007:  MOVF   00,W
+0008:  BTFSC  03.2
+0009:  GOTO   017
+000A:  MOVLW  06
+000B:  MOVWF  78
+000C:  CLRF   77
+000D:  DECFSZ 77,F
+000E:  GOTO   00D
+000F:  DECFSZ 78,F
+0010:  GOTO   00C
+0011:  MOVLW  7B
+0012:  MOVWF  77
+0013:  DECFSZ 77,F
+0014:  GOTO   013
+0015:  DECFSZ 00,F
+0016:  GOTO   00A
+0017:  RETLW  00
+.................... #fuses HS,NOWDT,NOLVP 
+....................  
+.................... void ssdecode(int i) 
+.................... { 
+....................       
+....................         output_high(PIN_B7); 
+0018:  BSF    03.5
+0019:  BCF    06.7
+001A:  BCF    03.5
+001B:  BSF    06.7
+.................... 		delay_ms(300); 
+001C:  MOVLW  02
+001D:  MOVWF  23
+001E:  MOVLW  96
+001F:  MOVWF  24
+0020:  CALL   004
+0021:  DECFSZ 23,F
+0022:  GOTO   01E
+.................... 		output_low(PIN_B7); 
+0023:  BSF    03.5
+0024:  BCF    06.7
+0025:  BCF    03.5
+0026:  BCF    06.7
+.................... 		delay_ms(300); 
+0027:  MOVLW  02
+0028:  MOVWF  23
+0029:  MOVLW  96
+002A:  MOVWF  24
+002B:  CALL   004
+002C:  DECFSZ 23,F
+002D:  GOTO   029
+....................       
+.................... } 
+002E:  BCF    0A.3
+002F:  BCF    0A.4
+0030:  GOTO   046 (RETURN)
+....................  
+.................... void main(){ 
+0031:  CLRF   04
+0032:  BCF    03.7
+0033:  MOVLW  1F
+0034:  ANDWF  03,F
+0035:  BSF    03.5
+0036:  BSF    1F.0
+0037:  BSF    1F.1
+0038:  BSF    1F.2
+0039:  BCF    1F.3
+003A:  MOVLW  07
+003B:  MOVWF  1C
+.................... 	int number = 0; 
+003C:  BCF    03.5
+003D:  CLRF   21
+.................... 	while (1) 
+....................      { 
+....................            if(input(PIN_A0) == 0) 
+003E:  BSF    03.5
+003F:  BSF    05.0
+0040:  BCF    03.5
+0041:  BTFSC  05.0
+0042:  GOTO   046
+....................                        ssdecode(number); 
+0043:  MOVF   21,W
+0044:  MOVWF  22
+0045:  GOTO   018
+....................            //if(number>9) number=0; 
+....................             
+....................            //Delay_ms(100); 
+....................      } 
+0046:  GOTO   03E
+.................... } 
+0047:  SLEEP
+
+Configuration Fuses:
+   Word  1: 3F72   HS NOWDT PUT NODEBUG NOPROTECT BROWNOUT NOLVP NOCPD NOWRT

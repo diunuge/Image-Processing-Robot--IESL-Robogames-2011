@@ -1,0 +1,1110 @@
+/**************************************************************************************/
+/*
+/*	  Designed by 'AS Designing'
+/*	  http://www.asdesigning.com
+/*
+/*	  
+/*	  This template/design is released under the Creative Commons Attribution 3.0 license. 
+/*	  This means that it can be used for private and commercial purposes, edited freely 
+/*	  or redistributed as long as you keep the link back to AS Designing. 
+/*
+/**************************************************************************************/
+
+/**************************************************************************************/
+/**************************************************************************************/
+/*   Elements
+/**************************************************************************************/
+/**************************************************************************************/
+
+* {padding:0; margin:0; border: 0px;}
+
+body
+{
+	font-family: Verdana, Geneva, sans-serif;
+	font-style: normal;
+	font-weight: normal;
+	color: #555046;
+	text-align: center;
+	vertical-align: top;
+	line-height: 17px;
+}
+
+
+table
+{
+	width: 100%;
+}
+
+img
+{
+    border: 0;
+    vertical-align: top;     
+}
+
+p
+{
+	margin: 0px 0px 0px 0px;
+	padding: 0px 0px 10px 0px;	
+}
+
+p img
+{
+	margin: 0px 15px 15px 0px;
+	padding: 0px 0px 0px 0px;		
+}
+
+a
+{
+	text-decoration: none;
+	outline-style: none;
+	color: #555046;
+}
+
+a:hover
+{
+	color: #529D01;
+	cursor: pointer;
+}
+
+ul
+{
+	list-style: none;
+}
+
+li
+{
+	list-style: none;
+}
+
+form
+{
+	padding: 0px 0px 0px 0px;
+}
+
+fieldset 
+{
+	margin: 5px 0px 5px 0px;
+	padding: 2px 0px 2px 0px;
+}
+
+input
+{
+	margin: 0px 0px 0px 0px;
+	font-size: 11px;
+	color: #555046;
+	border: 1px;
+	border-color: #DDDDDD;
+	border-style: solid;
+}
+
+select
+{
+	width: 226px;
+	margin: 2px 0px 0px 0px;
+	padding: 0px 0px 0px 0px;
+	font-size: 11px;
+    color: #555046;
+	border: 1px;
+	border-color: #DDDDDD;
+	border-style: solid;
+	vertical-align: bottom;
+}
+
+option
+{
+	background-color: #FFF;
+}
+
+textarea
+{
+	width: 450px;
+	margin: 2px 2px 10px 0px;
+	padding: 2px 2px 2px 2px;
+	font-size: 11px;
+	border: 1px;
+	border-color: #DDDDDD;
+	border-style: solid;
+	background-color: transparent;
+	color: #555046;
+	vertical-align: bottom;
+}
+
+label
+{
+	width: 110px;
+	line-height: 20px;
+    font-weight: normal;
+}
+
+
+/**************************************************************************************/
+/*   Main Menu
+/**************************************************************************************/
+
+#mainmenu
+{
+	float: right;
+	width: 200px;
+	height: 309px;
+	margin: 30px 25px 0px 0px;
+	text-align: left;
+}
+
+#mainmenu ul
+{
+	float: left;	
+}
+
+#mainmenu li
+{
+	width: 200px;
+	margin: 20px 0px 0px 0px;
+	padding: 0px 0px 30px 0px;
+	font-size: 17px;
+	font-weight: normal;
+	border-bottom: 1px;
+	border-bottom-style: dotted;
+	border-color: #ACA393;
+}
+
+#mainmenu li a
+{
+	padding: 0px 0px 10px 40px;
+	color: #555046;
+	background-image: url(../images/menumark_of.png);
+	background-repeat: no-repeat;
+	background-position: top left;
+}
+
+#mainmenu li:hover,
+#mainmenu li a:hover
+{
+	color: #529D01;
+	background-image: url(../images/menumark_on.png);
+	background-repeat: no-repeat;
+	background-position: top left;
+}
+
+#submenu
+{
+	float: right;
+	width: 69px;
+	height: 21px;
+	margin: 80px 20px 0px 0px;
+}
+
+#submenu #home a
+{
+	float: left;
+	width: 19px;
+	height: 21px;
+	margin: 0px 2px 0px 2px;
+	background: url('../images/btnof_home.png');
+	background-repeat: no-repeat;
+	border-style: none;	
+}
+
+#submenu #home a:hover
+{
+	float: left;	
+	width: 19px;
+	height: 21px;
+	margin: 0px 2px 0px 2px;
+	background: url('../images/btnon_home.png');
+	border-style: none;	
+	background-repeat: no-repeat;		
+	border-style: none;	
+}
+
+#submenu #contact a
+{
+	float: left;
+	width: 19px;
+	height: 21px;
+	margin: 0px 2px 0px 2px;
+	background: url('../images/btnof_contact.png');
+	background-repeat: no-repeat;				
+	border-style: none;	
+}
+
+#submenu #contact a:hover
+{
+	float: left;
+	width: 19px;
+	height: 21px;
+	margin: 0px 2px 0px 2px;
+	background: url('../images/btnon_contact.png');	
+	background-repeat: no-repeat;	
+	border-style: none;		
+}
+
+#submenu #sitemap a
+{
+	float: left;
+	width: 19px;
+	height: 21px;
+	margin: 0px 2px 0px 2px;
+	background: url('../images/btnof_map.png');			
+	background-repeat: no-repeat;
+	border-style: none;		
+}
+
+#submenu #sitemap a:hover
+{
+	float: left;
+	width: 19px;
+	height: 21px;
+	margin: 0px 2px 0px 2px;
+	background: url('../images/btnon_map.png');	
+	background-repeat: no-repeat;	
+	border-style: none;		
+}
+
+/**************************************************************************************/
+/*   Header
+/**************************************************************************************/
+/**************************************************************************************/
+
+#header
+{
+	width: 940px;
+	height: 520px;
+	margin-left: auto;
+	margin-right: auto;	
+}
+
+#headertop
+{
+	width: 100%;
+	height: 150px;
+	margin: 0px 0px 5px 0px;
+	background-image: url(../images/header_bg.jpg);
+	background-repeat: repeat-x;
+	border-bottom: 1px;
+	border-bottom-style: solid;
+	border-bottom-color: #5A5A5A;	
+}
+
+#headerbottom
+{
+	width: 100%;
+	height: 350px;
+	margin: 0px 0px 0px 0px;
+	clear: both;
+}
+
+.headercolleft
+{
+	float: left;
+	width: 685px;
+}
+
+.headercolright
+{
+	float: right;
+	width: 255px;
+	height: 350px;
+	background-color: #F8F8F8;
+}
+
+
+
+/**************************************************************************************/
+/*   Content
+/**************************************************************************************/
+/**************************************************************************************/
+
+#content
+{
+	width: 940px;
+	margin: 0px auto;
+}
+
+/**************************************************************************************/
+/*   Column Left 
+/**************************************************************************************/
+
+/**************************************************************************************/
+/*   Column Main 
+/**************************************************************************************/
+
+#colmain
+{
+	float: left;
+	margin: 0px 0px 0px 0px;		
+	padding: 0px 30px 0px 0px;
+	text-align: left;
+	background-image: url(../images/colmain_bg.jpg);
+	background-repeat: repeat-y;
+	background-position: left;			
+}
+
+#colmain h1,
+#colmain h2,
+#colmain h3,
+#colmain h1 a,
+#colmain h2 a,
+#colmain h3 a
+{
+	clear: both;
+	margin: 20px 0px 15px 0px;
+	padding: 0px 0px 10px 0px;
+	color: #ACA393;
+	font-size: 22px;	
+	font-weight: normal;
+	border-bottom: 2px;
+	border-bottom-style: solid;
+	border-color: #F8F8F8;	
+}
+
+
+#colmain h4,
+#colmain h5,
+#colmain h4 a,
+#colmain h5 a
+{
+	clear: both;
+	margin: 15px 0px 10px 0px;
+	padding: 0px 0px 5px 0px;
+	color: #ACA393;
+	font-size: 15px;	
+	font-weight: normal;
+	border-bottom: 2px;
+	border-bottom-style: solid;
+	border-color: #F8F8F8;	
+}
+
+#colmain h1 a,
+#colmain h2 a,
+#colmain h3 a
+{
+	border: none;	
+}
+
+#colmain p
+{
+	margin: 0px 0px 20px 0px;
+	font-weight: normal;
+	text-align: justify;
+}
+
+#colmain ul 
+{
+	margin: 0px 0px 20px 0px;
+	padding: 0px 0px 0px 0px;
+}
+
+#colmain li  
+{
+	margin: 5px 0px 2px 0px;
+	list-style: inside;
+	list-style-image: url(../images/mark.png);
+}
+
+#colmain .txtblock
+{
+	margin: 20px 0px 30px 0px;
+	padding: 0px 0px 0px 0px;
+}
+
+#colmainbottom_bg
+{
+	float: right;
+	width: 745px;
+	height: 50px;
+}
+
+#colmainbottom_bgleft
+{
+	float: left;
+	width: 20px;
+	height: 50px;
+	background-image: url(../images/shadow_bottomleft.jpg);
+	background-repeat: no-repeat;
+	background-position: left;		
+}
+
+#colmainbottom_bgright
+{
+	float: right;
+	width: 20px;
+	height: 50px;
+	background-image: url(../images/shadow_bottomright.jpg);
+	background-repeat: no-repeat;
+	background-position: right;		
+}
+
+#colmain input
+{
+	float: left;
+	width: 220px;
+	margin: 5px 5px 0px 0px;	
+	border: 1px;
+	border-color: #DDDDDD;
+	border-style: solid;	
+}
+
+#colmain input[type="checkbox"],
+#colmain input[type="radio"]
+{
+	float: left;
+	width: 15px;
+	border: none;
+	background-color: transparent;	
+}
+
+#colmain input[type="radio"]
+{
+	float: left;
+	width: 15px;
+	border: none;
+	background-color: transparent;	
+	margin-right: 10px;
+}
+
+#colmain label
+{
+	float: left;
+	width: 150px;
+}
+
+
+#colmain .txtblock
+{
+	margin: 20px 0px 30px 0px;
+	padding: 0px 0px 0px 0px;
+}
+
+#colmain #article img
+{
+	margin: 0px 10px 10px 0px;
+	padding: 0px 0px 0px 0px;	
+}
+
+#colmain .textblock
+{
+    margin: 20px 10px 0px 20px;
+    padding: 0px 0px 0px 0px;
+}
+
+#colmain .readmore
+{
+	clear: both;
+	margin: 0px 0px 10px 0px;
+}
+
+#colmain .banner
+{
+	margin: 20px 0px 10px 0px;
+}
+
+#colmain .readmore button,
+#colmain .readmore .button
+{
+	margin: 0px 0px 10px 0px;
+	background-image: none;
+	font-weight: normal;
+	color: #555046;
+}
+
+#colmain .readmore button:hover, 
+#colmain .readmore .button:hover
+{
+	margin: 0px 0px 10px 0px;
+	background-image: none;
+	font-weight: normal;
+	color: #529D01;
+}
+
+#colmain button, 
+#colmain .button
+{
+    width: 215px;
+    height: 25px;
+	margin: 25px 10px 20px 0px;
+	padding: 0px 0px 2px 0px;
+	text-align: center;
+	color: #FFFFFF;
+	font-size: 12px;
+	background-color: transparent;
+	background-image: url(../images/colmain_btnoff.png);
+	background-repeat: no-repeat;
+	border: none;	
+}
+
+#colmain button:hover, 
+#colmain .button:hover
+{
+	cursor: pointer;
+	text-align: center;
+	color: #FFFFFF;
+	background-color: transparent;
+	background-image: url(../images/colmain_btnon.png);
+	background-repeat: no-repeat;
+	border: none;
+}
+
+
+#colmain .adsense
+{
+	clear: both;
+	width: 100%;
+	min-height: 75px;
+	margin: 35px 0px 30px 0px;
+	padding: 15px 0px 0px 0px;
+	text-align: left;
+	background-color: transparent;
+	border-top: 2px #F8F8F8 solid;
+	border-bottom: 2px #F8F8F8 solid;
+}
+	
+/**************************************************************************************/
+/*   Column Right 
+/**************************************************************************************/
+
+#colright
+{
+	float: right;
+	width: 215px;
+	text-align: left;
+	margin: 0px 0px 0px 0px;
+	padding: 0px 20px 0px 20px;
+	background-color: #F8F8F8;
+}
+
+#colright h1, 
+#colright h2, 
+#colright h3
+{
+	color: #555046;
+	font-size: 17px;
+	font-weight: normal;
+	margin: 20px 0px 25px 0px;
+	padding: 0px 0px 0px 0px;
+}
+
+#colright h4,
+#colright .bannerheader
+{
+	color: #555046;
+	font-size: 12px;
+	font-weight: bold;
+	margin: 20px 20px 20px 0px;
+	padding: 0px 0px 0px 0px;
+}
+
+#colright p
+{
+    padding: 0px 0px 5px 0px;   
+}
+
+#colright ul 
+{
+    margin: 0px 0px 0px 0px;
+    padding: 0px 0px 0px 0px;
+}
+
+#colright li  
+{
+    margin: 5px 0px 0px 5px;
+    text-align: justify;
+	list-style: inside;
+	list-style-image: url(../images/mark.png);
+}
+
+#colright a
+{
+}
+
+#colright a:hover
+{
+	color: #666666; 
+}
+
+#colright button, 
+#colright .button
+{
+	width: 150px;
+	height: 25px;
+	margin: 20px 0px 10px 0px;
+	padding: 0px 0px 2px 0px;
+	text-align: center;
+	color: #FFF;
+	font-size: 12px;
+	background-color: transparent;
+	background-image: url(../images/btnoff.png);
+	background-repeat: no-repeat;
+	border: none;
+}
+
+#colright button:hover, 
+#colright .button:hover
+{
+	cursor: pointer;
+	color: #FFFFFF;
+	background-color: transparent;
+	background-image: url(../images/btnon.png);
+	background-repeat: no-repeat;
+	border: none;
+}
+
+#colright input
+{
+	width: 194px;
+	border: 1px;
+	border-color: #ACA393;
+	border-style: solid;	
+}
+
+#colright input[type="checkbox"],
+#colright input[type="radio"]
+{
+	float: left;
+	width: 15px;
+	height: 15px;
+	margin: 0px 5px 0px 0px;	
+	border: none;
+	background-color: transparent;
+}
+
+/**************************************************************************************/
+/*   Footer
+/**************************************************************************************/
+/**************************************************************************************/
+
+#footer
+{	
+	width: 940px;
+	min-height: 100px;
+	margin-left: auto;
+	margin-right: auto;	
+	text-align: left;
+	color: #999999;	
+}
+
+
+#footer h1, 
+#footer h2, 
+#footer h3
+{
+	clear: both;
+	color: #999999;
+	font-size: 15px;
+	font-weight: normal;
+	margin: 0px 0px 15px 0px;
+	padding: 0px 0px 7px 0px;	
+	background-image: url(../images/sep_hor.png);
+	background-repeat: repeat-x;
+	background-position: bottom;	
+}
+
+#footer a
+{
+	color: #999999;
+	border-bottom: 1px #999999 dotted;
+}
+
+#footer a:hover
+{
+	color: #1A0000;
+	border: none;
+}
+
+#footer ul 
+{
+	text-align: left;
+}
+
+#footer li  
+{
+    padding: 0px 10px 0px 0px;
+}
+
+#footer li a
+{
+	color: #999999;
+	border: none;
+}
+
+#footer li a:hover
+{
+	color: #1A0000;
+	border: none;	
+}
+
+#footertopborder
+{
+	height: 12px;	
+	margin: 0px 0px 0px 0px;
+	background-image: url(../images/footer_border.jpg);	
+	background-position: top;
+	background-repeat: repeat-x;
+}
+
+#footercontent
+{
+	width: 900px;
+	height: 100%;
+	margin: 0px 0px 0px 0px;
+	padding: 20px 20px 20px 20px;
+	background-color: #F8F8F8;
+	background-image: url(../images/bg.jpg);	
+}
+
+#footermenu
+{
+}
+
+#footertrademark
+{
+	text-align: right;
+	height: 30px;
+	margin: 20px 0px 30px 0px;
+	padding: 15px 0px 0px 0px;
+	background-image: url(../images/sep_hor.png);
+	background-repeat: repeat-x;
+	background-position: top;		
+}
+
+#footertrademark #trade
+{
+	margin: 5px 0px 3px 0px;
+}
+
+#footertrademark a
+{
+	text-decoration: none;
+	border: none;
+}
+
+#footertrademark a:hover
+{
+	color: #666666;
+	border: none;
+}
+
+#footer #search input
+{
+	width: 200px;
+	background-image: url(../images/search.png);
+	background-position: right;
+	background-repeat: no-repeat;		
+}
+
+#footer #social
+{
+	text-align: right;
+}
+
+#footer #social p img
+{
+	margin: 0px 0px 0px 0px;
+	padding: 0px 0px 0px 0px;		
+}
+
+#footer #social a
+{
+	border: none;	
+}
+
+#footer #getintouch
+{
+	clear: both;
+	padding: 0px 0px 20px 0px;
+}
+
+/**************************************************************************************/
+/**************************************************************************************/
+/*   General Element IDs and classes
+/**************************************************************************************/
+/**************************************************************************************/
+
+#general
+{
+	width: 940px;
+	margin: 0px auto 0px auto;
+	padding: 30px;
+	background-color: #FFF;		
+}
+
+#companyname
+{
+	float: left;
+	width: 625px;
+	height: 75px;
+	margin: 20px 0px 0px 5px;
+	padding: 0px 0px 0px 0px;	
+	text-align: left;
+}
+
+#companyname a
+{
+	float: left;
+	width: 625px;
+	height: 70px;
+	margin: 0px 0px 0px 0px;
+	padding: 0px 0px 0px 0px;	
+	text-align: left;
+    border: none;
+}
+
+#companylogo,
+#companylogo a
+{
+    border: none;
+}
+
+#mainbanner
+{
+}
+
+#adsense
+{
+	clear: both;
+	float: right;
+	margin: 30px 0px 0px 0px;
+}
+
+#adsense a
+{
+	border: none;
+}
+
+#search
+{
+	clear: both;
+	min-height: 95px;
+    margin: 0px 0px 0px 0px;
+    padding: 0px 0px 0px 0px;
+	text-align: left;
+}
+
+.alignleft
+{
+	text-align: left;
+}
+
+.alignright
+{
+	text-align: right;
+}
+
+.center
+{
+    padding: 10px;
+    text-align: center;    
+}
+
+.left
+{
+	float: left;
+}
+
+.right
+{
+	float: right;
+}
+
+.clear
+{
+	clear: both;
+}
+
+.spacer
+{
+	width: 1px;
+	height: 40px;
+}
+
+.separator
+{
+	width: 1px;
+	height: 20px;
+	margin: 0px 0px 0px 0px;
+	padding: 0px 0px 0px 0px;	
+}
+
+.separator_5
+{
+	clear: both;
+	width: 5px;
+	height: 5px;
+	margin: 0px 0px 0px 0px;
+	padding: 0px 0px 0px 0px;	
+}
+
+.separator_7
+{
+	clear: both;	
+	width: 7px;
+	height: 7px;
+	margin: 0px 0px 0px 0px;
+	padding: 0px 0px 0px 0px;	
+}
+
+.separator_10
+{
+	clear: both;	
+	width: 10px;
+	height: 10px;
+	margin: 0px 0px 0px 0px;
+	padding: 0px 0px 0px 0px;	
+}
+
+.separator_15
+{
+	clear: both;	
+	width: 15px;
+	height: 15px;
+	margin: 0px 0px 0px 0px;
+	padding: 0px 0px 0px 0px;	
+}
+
+.separator_20
+{
+	clear: both;	
+	width: 20px;
+	height: 20px;
+	margin: 0px 0px 0px 0px;
+	padding: 0px 0px 0px 0px;	
+}
+
+.separator_20_left
+{
+	float: left;
+	width: 20px;
+	height: 20px;
+	margin: 0px 0px 0px 0px;
+	padding: 0px 0px 0px 0px;	
+}
+
+.separator_30
+{
+	clear: both;	
+	width: 30px;
+	height: 30px;
+	margin: 0px 0px 0px 0px;
+	padding: 0px 0px 0px 0px;	
+}
+
+.separator_50
+{
+	clear: both;	
+	width: 50px;
+	height: 50px;
+	margin: 0px 0px 0px 0px;
+	padding: 0px 0px 0px 0px;	
+}
+
+.separatordotted_hor
+{
+	margin: 20px 0px 20px 0px;
+	height: 1px;
+	background-image: url(../images/sep_hor.png);
+	background-repeat: repeat-x;
+	background-position: bottom;
+}
+
+.separatordotted_ver
+{
+	margin: 0px 0px 0px 0px;
+	width: 1px;
+	background-image: url(../images/sep_ver.png);
+	background-repeat: repeat-y;
+	background-position: bottom;
+}
+
+.box1,
+.box2
+{
+	float: left;
+	min-height: 220px;
+	background-image: url(../images/sep_ver.png);
+	background-repeat: repeat-y;
+	background-position: right;	
+}
+
+.box3
+{
+	float: left;	
+}
+
+.txtbox1
+{
+	height: 100%;
+	margin: 0px 25px 0px 0px;
+}
+
+.txtbox2
+{
+	height: 100%;
+	margin: 0px 25px 0px 25px;
+}
+
+.txtbox3
+{
+	height: 100%;
+	margin: 0px 0px 0px 25px; 	
+}
+
+.txtbox_half
+{
+	height: 100%;
+	margin: 0px 0px 0px 0px;
+	padding: 1px 20px 30px 20px;
+	background-color: #F8F8F8;		
+}
+
+.txtbox_full
+{
+	height: 100%;
+	margin: 20px 0px 0px 0px;
+	padding: 1px 20px 30px 20px;
+	background-color: #F8F8F8;		
+}
+
+.border 
+{
+}
+
+.label
+{
+    font-weight: bold;
+}
+
+.asterisk
+{
+	float: left;
+	width: 10px;
+	padding: 0px 0px 0px 3px;
+	color: #666666;	
+}
+
+.bg_brownstrip
+{
+	background-image: url(../images/bg_headerbrown.png);
+	background-repeat: repeat-x;
+    background-attachment: fixed;
+}
+
+.bg_greystrip
+{
+	background-image: url(../images/bg_headergrey.png);
+	background-repeat: repeat-x;
+    background-attachment: fixed;
+}
+
+.bg_brown
+{
+	background-image: url(../images/bg_brown.png);
+}
+
+.bg_grey
+{
+	background-image: url(../images/bg_grey.png);
+}
+
+.leather
+{
+	background-image: url(../images/bg.jpg);
+}

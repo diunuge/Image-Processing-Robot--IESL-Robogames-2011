@@ -1,0 +1,29 @@
+{
+
+var google_ads = new Array();
+var google_ad;
+var google_radlinks = new Array();
+var google_radlink;
+var google_info = new Object();
+google_ad = new Object(); 
+google_ad.n = 1; 
+google_ad.type = "text"; 
+google_ad.bidtype = "CPC"; 
+google_ad.targeting_type = "contextual"; 
+google_ad.url = "http://googleads.g.doubleclick.net/aclk?sa=L&amp;ai=BBZLLyZiCToaBDuKCiAe_rvXKB-jPrvMBwO-10QPAjbcBwJXPBhABGAEgj6r1ATgAUOfQ8b8DYJGB7ASyAQ93d3cuZGFuaXdlYi5jb226AQk3Mjh4OTBfanPIAQHaAT1odHRwOi8vd3d3LmRhbml3ZWIuY29tL3NvZnR3YXJlLWRldmVsb3BtZW50L2NwcC90aHJlYWRzLzU2MzI5qQLcpUnKd9ZtPqgDAegDH-gD2wXoAwX1AwABAMQ&amp;num=1&amp;sig=AOD64_1hMZE-URE81dNJh8cAGDyaSmikgg&amp;client=ca-pub-8426641637123945&amp;adurl=http://tools.asix.net/dbg_sigma.htm"; 
+google_ad.visible_url = "tools.asix.net"; 
+google_ad.line1 = "SIGMA - Logic Analyzer"; 
+google_ad.line2 = "256 Mbit memory, 16 inputs, USB"; 
+google_ad.line3 = "flexible \x26amp; reconfigurable, \x26#8364; 298.-"; 
+google_ad.regionname = ""; 
+google_ads[0] = google_ad; 
+google_info.feedback_url = "http://www.google.com/url?ct\x3dabg\x26q\x3dhttps://www.google.com/adsense/support/bin/request.py%3Fcontact%3Dabg_afc%26url%3Dhttp://www.daniweb.com/software-development/cpp/threads/56329%26hl%3Den%26client%3Dca-pub-8426641637123945%26adU%3Dtools.asix.net%26adT%3DSIGMA%2B-%2BLogic%2BAnalyzer%26gl%3DLK\x26usg\x3dAFQjCNFJkEmidO6dt912jA_sbGpm3msSHw";
+var google_attribution_text = "AdChoices";
+var google_is_rtl = false;
+if (window.google_ad_request_done) {
+google_ad_request_done(google_ads);
+}
+if (window.google_radlink_request_done) {
+google_radlink_request_done(google_radlinks);
+}
+}

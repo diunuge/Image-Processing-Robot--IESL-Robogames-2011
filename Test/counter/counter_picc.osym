@@ -1,0 +1,31 @@
+_RETURN_
+CCP_1
+CCP_1_LOW
+CCP_1_HIGH
+CCP_2
+CCP_2_LOW
+CCP_2_HIGH
+PSP_DATA
+C1OUT
+C2OUT
+
+Project Files:
+    C:\Users\Robot\Desktop\brainstorm\Test\counter\counter_picc.c
+    C:\PROGRA~2\PICC\devices\16f877a.h 
+
+Units:
+    counter_picc.c (main)
+
+Compiler Settings:
+    Processor:      PIC16F877A
+    Pointer Size:   16
+    ADC Range:      0-255
+    Opt Level:      9
+    Short,Int,Long: 1,8,16
+    Output file:    Relocatable
+
+Output Files:
+    Errors:      C:\Users\Robot\Desktop\brainstorm\Test\counter\counter_picc.err
+    Ext Symbols: C:\Users\Robot\Desktop\brainstorm\Test\counter\counter_picc.esym
+    Object:      C:\Users\Robot\Desktop\brainstorm\Test\counter\counter_picc.o
+    Symbols:     C:\Users\Robot\Desktop\brainstorm\Test\counter\counter_picc.osym

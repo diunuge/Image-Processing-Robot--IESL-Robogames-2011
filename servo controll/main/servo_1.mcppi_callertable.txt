@@ -1,0 +1,7 @@
+main
+	__CC2DW
+	initialize
+	ADC_Read
+		Delay_22us
+	servo_turn_anti_clockwise
+	servo_turn_clockwise

@@ -1,0 +1,270 @@
+DIV.box > H4 {
+	FONT-WEIGHT: bold
+}
+.box H1 {
+	MARGIN-BOTTOM: 0px
+}
+.box H2 {
+	MARGIN-BOTTOM: 0px
+}
+.box H3 {
+	MARGIN-BOTTOM: 0px
+}
+.box H4 {
+	MARGIN-BOTTOM: 0px
+}
+.box H5 {
+	MARGIN-BOTTOM: 0px
+}
+DIV.box > H4 {
+	PADDING-LEFT: 0px
+}
+LI.announcement H4 {
+	PADDING-BOTTOM: 0px; PADDING-LEFT: 0px; PADDING-RIGHT: 0px; PADDING-TOP: 0px
+}
+LI.category > H2 {
+	PADDING-LEFT: 0px; MARGIN-BOTTOM: 0px
+}
+LI.category .categoryName > H2 {
+	PADDING-LEFT: 0px; MARGIN-BOTTOM: 0px
+}
+LI.category .categoryName > H2 > A {
+	COLOR: #260859
+}
+LI.categoryHome > H2 {
+	PADDING-LEFT: 0px; MARGIN-BOTTOM: 0px
+}
+LI.announcement H4 {
+	BACKGROUND: none transparent scroll repeat 0% 0%
+}
+LI.forum {
+	MARGIN: 1em
+}
+LI.forumHome {
+	MARGIN: 0px
+}
+DIV.box {
+	BACKGROUND-IMAGE: none; BORDER-BOTTOM: medium none; BORDER-LEFT: medium none; MARGIN-BOTTOM: 0px; BORDER-TOP: medium none; BORDER-RIGHT: medium none
+}
+LI.box {
+	BACKGROUND-IMAGE: none; BORDER-BOTTOM: medium none; BORDER-LEFT: medium none; MARGIN-BOTTOM: 0px; BORDER-TOP: medium none; BORDER-RIGHT: medium none
+}
+DIV.box > .help {
+	BACKGROUND-COLOR: #260859
+}
+LI.category > H2 > A:hover {
+	COLOR: #260859; TEXT-DECORATION: none
+}
+LI.category > H2 > A:active {
+	COLOR: #260859; TEXT-DECORATION: none
+}
+LI.category > H2 > A:focus {
+	COLOR: #260859; TEXT-DECORATION: none
+}
+LI.categoryHome > H2 > A:hover {
+	COLOR: #260859; TEXT-DECORATION: none
+}
+LI.categoryHome > H2 > A:active {
+	COLOR: #260859; TEXT-DECORATION: none
+}
+LI.categoryHome > H2 > A:focus {
+	COLOR: #260859; TEXT-DECORATION: none
+}
+#forumsSearch INPUT[type='text'] {
+	WIDTH: 75%; FONT-SIZE: 1em
+}
+.discover A.btn {
+	MAX-WIDTH: 35%; WHITE-SPACE: nowrap; FONT-SIZE: 1.1em
+}
+.discover .search {
+	MIN-WIDTH: 45%; MAX-WIDTH: 60%
+}
+#rail > DIV {
+	MARGIN-BOTTOM: 0px
+}
+A.help {
+	FONT-SIZE: 1.1em
+}
+DIV#announcement {
+	FONT-SIZE: 90%
+}
+DIV.box > .content {
+	MARGIN: 2px 2px 2px 1px
+}
+.forum H3 {
+	MARGIN-BOTTOM: 0px; BACKGROUND: #fff; PADDING-TOP: 0px
+}
+.forumHome H5 {
+	MARGIN-BOTTOM: 0px; BACKGROUND: #fff; PADDING-TOP: 0px
+}
+LI.forum A {
+	COLOR: #06d
+}
+LI.forum A:link {
+	COLOR: #06d
+}
+LI.forum A:visited {
+	COLOR: #06d
+}
+LI.forum A:hover {
+	COLOR: #06d
+}
+LI.forum A:focus {
+	COLOR: #06d
+}
+LI.forum A:active {
+	COLOR: #06d
+}
+LI.forumHome A {
+	COLOR: #06d
+}
+LI.forumHome A:link {
+	COLOR: #06d
+}
+LI.forumHome A:visited {
+	COLOR: #06d
+}
+LI.forumHome A:hover {
+	COLOR: #06d
+}
+LI.forumHome A:focus {
+	COLOR: #06d
+}
+LI.forumHome A:active {
+	COLOR: #06d
+}
+LI.forum A.lastReply {
+	POSITION: relative; FONT-STYLE: inherit; FONT-FAMILY: inherit; FONT-SIZE: 10px; TOP: -1px; FONT-WEIGHT: inherit
+}
+LI.thread A.lastReply {
+	FONT-STYLE: inherit; FONT-FAMILY: inherit; FONT-SIZE: inherit; FONT-WEIGHT: inherit
+}
+.myForumsHeader {
+	PADDING-BOTTOM: 1.5em; WIDTH: 100%
+}
+.myForumsHeaderName {
+	WIDTH: 69%; FLOAT: right
+}
+.myForumsStatsCol {
+	WIDTH: 31%; FLOAT: right
+}
+.myForumsStatsCol .myForumStatsHeader {
+	TEXT-ALIGN: left; WIDTH: 100%; COLOR: #333; FONT-SIZE: 84%; FONT-WEIGHT: normal
+}
+.myForumsStatsCol .myForumStatsHeader .threadsHeader {
+	WIDTH: 62%; FLOAT: right
+}
+.myForumsStatsCol .myForumStatsHeader .messagesHeader {
+	WIDTH: 38%; FLOAT: right
+}
+LI.forum DIV.statsHeaderMyForum {
+	PADDING-BOTTOM: 1.7em
+}
+LI.forum DIV.statsHeader {
+	PADDING-BOTTOM: 1em
+}
+LI.category .categoryName {
+	WIDTH: 69%; FLOAT: right
+}
+LI.category .categoryStatsCol {
+	WIDTH: 31%; FLOAT: right
+}
+LI.category .categoryStatsCol .statsCategoryHeader {
+	TEXT-ALIGN: left; WIDTH: 100%; COLOR: #333; FONT-SIZE: 60%; FONT-WEIGHT: normal
+}
+LI.category .categoryStatsCol .statsCategoryHeader .threadsHeader {
+	WIDTH: 58%
+}
+LI.category .categoryStatsCol .statsCategoryHeader .messagesHeader {
+	WIDTH: 42%; FLOAT: right
+}
+LI.category .categoryName H2.categoryH {
+	PADDING-BOTTOM: 0.75em
+}
+LI.thread > H3 {
+	DISPLAY: inline; MARGIN-LEFT: 0px; FONT-SIZE: 110%; MARGIN-RIGHT: 1em
+}
+A.author SPAN {
+	DISPLAY: inline; COLOR: green
+}
+LI.thread IMG.icon {
+	CLEAR: left
+}
+LI.thread > H3 {
+	FONT-FAMILY: inherit; CLEAR: none
+}
+.IE7 LI.message {
+	OVERFLOW: hidden
+}
+.IE7 LI.message DIV.head {
+	OVERFLOW: visible
+}
+UL.announcement LI.announcement H4 {
+	BORDER-BOTTOM: medium none; BORDER-LEFT: medium none; LINE-HEIGHT: normal; WIDTH: 88%; WHITE-SPACE: normal; HEIGHT: auto; CLEAR: none; OVERFLOW: visible; BORDER-TOP: medium none; BORDER-RIGHT: medium none
+}
+UL.announcement LI.announcement A[name='deleteAnnouncement'] {
+	CLEAR: right
+}
+.IE7 UL.announcement LI.announcement {
+	CLEAR: both
+}
+#content .announcement > A[name='createAnnouncement'] {
+	TOP: 10px
+}
+.IE7 #content .announcement > A[name='deleteAnnouncement'] {
+	CLEAR: right
+}
+.IE7 UL.announcement LI.announcement H4 {
+	FLOAT: left; CLEAR: left
+}
+#content UL.categoryHome {
+	PADDING-TOP: 0px
+}
+#content UL.category {
+	PADDING-TOP: 0px
+}
+TABLE.users TR.userstitle TD.lastactivedate {
+	WIDTH: 25%
+}
+.IE7 DIV.replies LI.children {
+	MARGIN-TOP: -1em
+}
+UL.categoryHome UL.forumHome LI.forumHome H5 {
+	LINE-HEIGHT: 130%; WHITE-SPACE: normal; HEIGHT: auto
+}
+UL.category UL.forum LI.forum H3 {
+	LINE-HEIGHT: 130%; WHITE-SPACE: normal; HEIGHT: auto
+}
+LI.thread H3 A {
+	WIDTH: 58%; DISPLAY: inline-block
+}
+#content LI.thread A.expcol {
+	WIDTH: 20px; VERTICAL-ALIGN: top
+}
+#content LI.thread IMG.icon {
+	WIDTH: 20px; VERTICAL-ALIGN: top
+}
+.IE8 #content LI.thread A.expcol {
+	MARGIN-TOP: -2px
+}
+.IE8 #content LI.thread IMG.icon {
+	MARGIN-TOP: -2px
+}
+SPAN.fullbadge .affil {
+	VERTICAL-ALIGN: inherit
+}
+TD.displayname SPAN.fullbadge {
+	WIDTH: 60%
+}
+DIV.head SPAN.fullbadge {
+	WIDTH: 55%
+}
+SPAN.fullbadge SPAN.name {
+	LINE-HEIGHT: 125%; DISPLAY: block; WHITE-SPACE: normal; HEIGHT: auto; WORD-BREAK: break-all
+}
+UL.threads LI.thread DIV.stats {
+	HEIGHT: 20px
+}
+UL.categoryHome LI.categoryHome UL.forumHome LI.forumHome H5 {
+	PADDING-TOP: 0.5em
+}

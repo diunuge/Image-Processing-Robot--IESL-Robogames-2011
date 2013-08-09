@@ -1,0 +1,49 @@
+﻿ul			{ line-height: 150%; margin: 5px 0px 0px 20px; padding:0px 0px 0px 0px;}
+
+h1          { font-family: arial; color: white; font-size: 18pt; margin-top: 5px; margin-bottom: 5px; text-align: center; }
+h2          { font-family: arial; color: #a40000; font-size: 12pt; margin-top: 5px; margin-bottom: 5px; }
+h3          { font-family: arial; color: #000000; font-size: 10pt; margin-top: 5px; margin-bottom: 5px; text-align: left; }
+
+.maintable  { width: 998px; cellspacing: 0; cellpadding: 0; }
+
+.menubutton { background-color: #ffffff; text-align: center; }
+.menubutton a:hover { text-decoration: blink;}
+
+.circuitmenu tr td { width: 40px;  height: 25px; background-color:#f4f4f4; text-align: center;}
+
+.tableh1    { font-family: arial; font-weight: bold; color: white; font-size: 18pt; margin-top: 5px; margin-bottom: 5px; text-align: center; background-color: #a40000; }
+
+.computer h1 { font-family: arial; color: white; font-size: 18pt; margin-top: 5px; margin-bottom: 5px; text-align: center; }
+
+p			{ margin-bottom: 20px; font-size: 10pt; }
+
+body { background-image: url('images/hobby-background.gif'); background-position:center; background-attachment:fixed; }
+
+a:link      { font-family: arial; font-weight: bold; font-size: 10pt; color: #000000 }
+a:hover     { font-family: arial; font-weight: bold; font-size: 10pt; color: #FF0000 }
+a:visited   { font-family: arial; font-weight: bold; font-size: 10pt; color: #A40000 }
+
+img.imgright { float: right; border: solid 1px; margin: 0px 0px 0px 15px; }
+
+.maintextcircuits { line-height: 10%; font-size: 8pt; text-align: justify; vertical-align: top; font-family: arial; color: #a40000;}
+.maintext	{ line-height: 150%; font-size: 10pt; text-align: justify; vertical-align: top; font-family: arial; color: maroon;}
+
+.maintext li { margin-bottom: 5px; }
+
+.maintextcircuits { line-height: 10%; font-size: 8pt; text-align: justify; vertical-align: top; font-family: arial; color: #a40000;}
+.maintextcircuits p { font-size: 8pt; }
+.maintextcircuits a:link      { font-family: arial; font-weight: bold; font-size: 8pt; color: #000000 }
+.maintextcircuits a:hover     { font-family: arial; font-weight: bold; font-size: 8pt; color: #FF0000 }
+.maintextcircuits a:visited   { font-family: arial; font-weight: bold; font-size: 8pt; color: #A40000 }
+
+.texthome	{ line-height: 120%; font-size: 10pt; text-align: justify; vertical-align: top;}
+
+table  		{ font-family: arial; font-size: 10pt; }
+th			{ font-family: arial; font-size: 10pt; }
+tr			{ font-family: arial; font-size: 10pt; }
+td			{ font-family: arial; font-size: 10pt; }
+
+.ads 		{ text-align: center; background-color: #ff8800; background-image: url('images/ads-background.gif'); background-position:center; background-attachment:fixed; }
+
+.tutorialtable  { width: 95%; cellspacing: 1; cellpadding: 8; text-align: center; vertical-align: top;}
+.tutorialtable  tr td {background-color: #f4f4f4; text-align: center;}

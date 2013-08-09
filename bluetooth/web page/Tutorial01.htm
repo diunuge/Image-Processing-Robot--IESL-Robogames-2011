@@ -1,0 +1,462 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8"><link media="all" href="Tutorial01_files/widget66.css" type="text/css" rel="stylesheet">
+  <title>Arduino playground - Tutorial01 </title>
+  <link rel="shortcut icon" type="image/x-icon" href="http://arduino.cc/playground/favicon.png">
+  <link rel="stylesheet" href="Tutorial01_files/arduinoWide.css" type="text/css">
+  <script src="Tutorial01_files/sso_bar_js_2.php"></script>
+  <link rel="stylesheet" type="text/css" media="screen" href="Tutorial01_files/sso_bar.css">
+<!--HeaderText--><style type="text/css"><!--
+  ul, ol, pre, dl, p { margin-top:0px; margin-bottom:0px; }
+  code { white-space: nowrap; }
+  .vspace { margin-top:1.33em; }
+  .indent { margin-left:40px; }
+  .outdent { margin-left:40px; text-indent:-40px; }
+  a.createlinktext { text-decoration:none; border-bottom:1px dotted gray; }
+  a.createlink { text-decoration:none; position:relative; top:-0.5em;
+    font-weight:bold; font-size:smaller; border-bottom:none; }
+  img { border:0px; }
+  .editconflict { color:green; 
+  font-style:italic; margin-top:1.33em; margin-bottom:1.33em; }
+
+  table.markup { border: 2px dotted #ccf; width:90%; }
+  td.markup1, td.markup2 { padding-left:10px; padding-right:10px; }
+  td.markup1 { border-bottom: 1px solid #ccf; }
+  div.faq { margin-left:2em; }
+  div.faq p.question { margin: 1em 0 0.75em -2em; font-weight:bold; }
+  div.faq hr { margin-left: -2em; }
+   
+    .frame 
+      { border:1px solid #cccccc; padding:4px; background-color:#f9f9f9; }
+    .lfloat { float:left; margin-right:0.5em; }
+    .rfloat { float:right; margin-left:0.5em; }
+a.varlink { text-decoration:none; }
+
+--></style>  <meta name="robots" content="index,follow">
+
+</head>
+<body><div id="_atssh" style="visibility: hidden; height: 1px; width: 1px; position: absolute; z-index: 100000;"><iframe src="Tutorial01_files/sh53.htm" style="height: 1px; width: 1px; position: absolute; z-index: 100000; border: 0pt none; left: 0pt; top: 0pt;" title="AddThis utility frame" id="_atssh399"></iframe></div>
+  
+		<div id="ssotoolbar">
+		  <div id="al">
+			<nobr><div id="ssoNavBar"><a class="t0" href="http://arduino.cc/en/">Main Site</a> <a class="t0" href="http://arduino.cc/blog/">Blog</a> <a class="t1" href="http://arduino.cc/playground/">Playground</a> <a class="t0" href="http://arduino.cc/forum/">Forum</a> <a class="t0" href="http://labs.arduino.cc/">Labs</a> <a class="t0" href="http://store.arduino.cc/ww/">Store</a> </div></nobr>
+		  </div>
+		  <div id="ar">
+			<nobr>
+			  <div id="loginInfo"><div class="lo gh"><a class="t0" href="http://arduino.cc/help/">Help</a></div> <div class="lo sep">|</div> <div class="lo"><a href="https://id.arduino.cc/auth/login/?returnurl=http%3A%2F%2Fwww.arduino.cc%2Fplayground%2FMain%2FInterfacingWithHardware">Sign in</a> or <a href="https://id.arduino.cc/auth/register/?returnurl=http%3A%2F%2Fwww.arduino.cc%2Fplayground%2FMain%2FInterfacingWithHardware">Register</a></div></div>
+			</nobr>
+		  </div>
+		</div>
+		<script>ssoGenerateNavigationBar('');</script>
+<div id="page">
+<!--PageHeaderFmt-->
+<div id="pageheader">
+  <div class="title"><a href="http://arduino.cc/"><div id="logo"></div></a> <a href="http://arduino.cc/playground"><div id="logo_tagline"></div></a></div>
+  <div class="search">
+    <!-- SiteSearch Google -->
+    <form method="GET" action="http://www.google.com/search">
+    <input name="ie" value="UTF-8" type="hidden">
+    <input name="oe" value="UTF-8" type="hidden">
+    <input name="q" size="25" maxlength="255" type="text">
+    <input name="btnG" value="search" type="submit">
+    <input name="domains" value="http://arduino.cc/playground" type="hidden">
+    <input name="sitesearch" value="http://arduino.cc/playground" type="hidden">
+    </form>
+    <!-- SiteSearch Google -->
+  </div>
+</div>
+<!--/PageHeaderFmt-->
+<!--PageLeftFmt-->
+<div id="pagenav">
+  <p><em>The <a class="wikilink" href="http://arduino.cc/playground/Main/HomePage">playground</a> is a publicly-editable wiki about <a class="urllink" href="http://www.arduino.cc/" rel="nofollow">Arduino</a>.</em>
+</p>
+<p class="vspace"></p><p class="sidehead"><a class="wikilink" href="http://arduino.cc/playground/Main/ManualsAndCurriculum">Manuals and Curriculum</a>
+</p>
+<p class="vspace"></p><p class="sidehead"><a class="wikilink" href="http://arduino.cc/playground/Main/ArduinoCoreHardware">Board Setup and Configuration</a>
+</p>
+<p class="vspace"></p><p class="sidehead"><a class="wikilink" href="http://arduino.cc/playground/Main/DevelopmentTools">Development Tools</a>
+</p>
+<p class="vspace"></p><p class="sidehead"><a class="wikilink" href="http://arduino.cc/playground/Main/InterfacingWithHardware">Interfacing With Hardware</a>
+</p><ul><li><a class="wikilink" href="http://arduino.cc/playground/Main/InterfacingWithHardware#Output">Output</a>
+</li><li><a class="wikilink" href="http://arduino.cc/playground/Main/InterfacingWithHardware#InputTOC">Input</a>
+</li><li><a class="wikilink" href="http://arduino.cc/playground/Main/InterfacingWithHardware#ui">User Interface</a>
+</li><li><a class="wikilink" href="http://arduino.cc/playground/Main/InterfacingWithHardware#Storage">Storage</a>
+</li><li><a class="wikilink" href="http://arduino.cc/playground/Main/InterfacingWithHardware#Communication">Communication</a> 
+</li><li><a class="wikilink" href="http://arduino.cc/playground/Main/IntWithHW-PwrSup">Power supplies</a> 
+</li><li><a class="wikilink" href="http://arduino.cc/playground/Main/InterfacingWithHardware#General">General</a> 
+</li></ul><p class="vspace"></p><p class="sidehead"><a class="wikilink" href="http://arduino.cc/playground/Main/InterfacingWithSoftware">Interfacing with Software</a>
+</p>
+<p class="vspace"></p><p class="sidehead"><a class="wikilink" href="http://arduino.cc/playground/Main/GeneralCodeLibrary">User Code Library</a>
+</p><ul><li><a class="wikilink" href="http://arduino.cc/playground/Main/SketchList">Snippets and Sketches</a>
+</li><li><a class="wikilink" href="http://arduino.cc/playground/Main/LibraryList">Libraries</a>
+</li><li><a class="wikilink" href="http://arduino.cc/playground/Main/TutorialList">Tutorials</a>
+</li></ul><p class="vspace"></p><p class="sidehead"><a class="urllink" href="http://code.google.com/p/arduino/issues/list" rel="nofollow">Suggestions &amp; Bugs</a>
+</p>
+<p class="vspace"></p><p class="sidehead"><a class="wikilink" href="http://arduino.cc/playground/Main/ElectroInfoResources">Electronics Technique</a>
+</p>
+<p class="vspace"></p><p class="sidehead"><a class="wikilink" href="http://arduino.cc/playground/Main/Resources">Sources for Electronic Parts</a>
+</p>
+<p class="vspace"></p><p class="sidehead"><a class="wikilink" href="http://arduino.cc/playground/Main/SimilarBoards">Related Hardware and Initiatives</a>
+</p>
+<p class="vspace"></p><p class="sidehead"><a class="urllink" href="http://www.arduino.cc/playground/Main/People" rel="nofollow">Arduino People/Groups &amp; Sites</a>
+</p>
+<p class="vspace"></p><p class="sidehead"><a class="urllink" href="http://www.arduino.cc/playground/Projects/ArduinoUsers" rel="nofollow">Exhibition</a>
+</p>
+<p class="vspace"></p><p class="sidehead"><a class="urllink" href="http://www.arduino.cc/playground/Projects/Ideas" rel="nofollow">Project Ideas</a>
+</p>
+<p class="vspace"></p><p class="sidehead"><a class="wikilink" href="http://arduino.cc/playground/Main/Languages">Languages</a>
+</p>
+<p class="vspace"></p><hr>
+<p class="vspace"></p><p class="sidehead"> <a class="wikilink" href="http://arduino.cc/playground/Main/Participate">PARTICIPATE</a>
+</p><ul><li><a class="urllink" href="http://code.google.com/p/arduino/issues/list" rel="nofollow">Suggestions</a>
+</li><li><a class="wikilink" href="http://arduino.cc/playground/Main/Participate#contribrules">Formatting guidelines</a>
+</li><li><a class="wikilink" href="http://arduino.cc/playground/Site/AllRecentChanges">All recent changes</a>
+</li><li><a class="wikilink" href="http://arduino.cc/playground/PmWiki/PmWiki">PmWiki</a>
+</li><li><a class="wikilink" href="http://arduino.cc/playground/Main/WikiSandbox">WikiSandBox training</a>
+</li><li><a class="wikilink" href="http://arduino.cc/playground/PmWiki/BasicEditing">Basic Editing</a>
+</li><li> <a target="_blank" class="urllink" href="http://www.pmwiki.org/wiki/Cookbook/CookbookBasics" rel="nofollow">Cookbook (addons)</a>
+</li><li> <a target="_blank" class="urllink" href="http://www.pmwiki.org/wiki/PmWiki/DocumentationIndex" rel="nofollow">Documentation index</a>
+</li></ul><p class="vspace"></p><hr>
+<p style="text-align: right;"> <span style="font-size:83%"><a class="wikilink" href="http://arduino.cc/playground/Site/SideBar?action=edit">edit SideBar</a></span>
+</p>
+
+</div>
+<!--/PageLeftFmt-->
+<!--PageActionFmt-->
+<div id="pageactions">
+  <!--Learning.PageActions--> <!--Site.PageActions-->
+  
+</div>
+<!--/PageActionFmt-->
+<div id="pagetext">
+  <!--PageText-->
+<div id="wikitext">
+<h3><span style="color: red;">Note: this is not about the official Arduino Bluetooth board. You can find the official tutorials here: <a style="color: red;" class="urllink" href="http://www.arduino.cc/en/Main/ArduinoBoardBluetooth" rel="nofollow">http://www.arduino.cc/en/Main/ArduinoBoardBluetooth</a></span></h3>
+<p class="vspace"></p><h2>Wireless communication with PC and Arduino board using bluetooth</h2>
+<p>By Mitchell Page
+Mpag5967 [at] mail.usyd.edu.au
+Key Centre of Design Computing and Cognition
+University of Sydney, Australia<br><small> &gt;&gt; back to <a class="urllink" href="http://www.arduino.cc/playground/Learning/Tutorials" rel="nofollow">tutorials page</a></small>
+</p>
+<p class="vspace"></p><p>PLEASE NOTE: this tutorial was written for 
+Wiring but can easily be translated to arduino, just remember the rx and
+ tx pins in arduino are 0 and 1 respectively.
+</p>
+<p class="vspace"></p><p><em>See also this <a class="urllink" href="http://www.mitchellpage.com.au/research/?p=263" rel="nofollow">tutorial for using the BlueSmirf bluetooth device</a> with Arduino.</em>
+</p>
+<p class="vspace"></p><p>Normally you would use a serial USB cable 
+connected from your computer to your Wiring board for receiving data 
+sent from a computer running processing to your board.
+This tutorial demonstrates how to execute this same process, but 
+wirelessly using Bluetooth. We will test this by being able to turn an 
+LED on/off wirelessly. You will need to use an adaptor to power your 
+board for this tutorial. This tutorial covers communication from the 
+computer to the board; not from the board to the computer.
+</p>
+<p class="vspace"></p><p><strong>Equipment:</strong> 
+</p>
+<p class="vspace"></p><p>You will need Bluetooth Dongle for you computer
+ and Bluetooth Modem for connecting to Wiring board. We specifically 
+used the following
+(<a class="urllink" href="http://www.sparkfun.com/commerce/product_info.php?products_id=150" rel="nofollow">http://www.sparkfun.com/commerce/product_info.php?products_id=150</a> and <a class="urllink" href="http://www.sparkfun.com/commerce/product_info.php?products_id=158" rel="nofollow">http://www.sparkfun.com/commerce/product_info.php?products_id=158</a>).
+This
+ tutorial was developed for a computer running Windows XP Service Pack 2
+ (which has included Bluetooth support). It has not been tested on Mac�s
+ or Linux.
+</p>
+<p class="vspace"></p><p><strong>Process:</strong>
+</p>
+<p class="vspace"></p><p>Step 1. We firstly need to install the 
+Bluetooth module onto the computer and install the drivers. If the 
+module came with a CD, put this into your CD-ROM drive and then plug the
+ module into one of your spare USB ports. Windows should automatically 
+detect the device and if it asks for drivers, point to the CD-ROM drive.
+ Once the drivers have been installed, Windows may need to reboot.
+</p>
+<p class="vspace"></p><p>Step 2. Once your computer has rebooted, plug 
+your Bluetooth module in (if it isn�t already). A Bluetooth icon should 
+appear in your taskbar (Windows XP <span class="wikiword">SP2</span> has
+ this Bluetooth support feature). Your Bluetooth module is not set up 
+and running as a serial port. Now we need to set up the modem on the 
+wiring board.
+</p>
+<p class="vspace"></p><p>Step 3. We are going to create the setup in 
+Figure 1. First of all connect your LED to your wiring board on 
+whichever pin you want EXCEPT pins 2 or 3 (we have used Pin 8 in this 
+tutorial). See this example for how to connect an LED (<a class="urllink" href="http://www.wiring.org.co/learning/examples/led_blinks.html" rel="nofollow">http://www.wiring.org.co/learning/examples/led_blinks.html</a>).
+ Once you have connected your LED to the board it is time to connect 
+your Bluetooth modem. The Bluetooth modem we are dealing with has 4 
+labeled pins, PWR, GND, Rx and Tx. It is pretty straight forward: 
+connect the PWR pin to the 5V pin on Wiring, connect the GND pin to the 
+GROUND pin on wiring. Then connect the Rx pin to the Tx pin of Wiring 
+(digital pin 3) and connect the Tx pin to the Rx pin of Wiring (digital 
+pin 2). Once it is connected then plug your AC adaptor into the board, 
+if everything is connected right a small green LED will start blinking 
+on the Bluetooth modem.
+</p>
+<p class="vspace"></p><div><img src="Tutorial01_files/bluetooth.gif" alt="" title=""></div>
+<p class="vspace"></p><p>Step 4. Now we need to set up a connection from
+ the computer to the Bluetooth modem. With your Bluetooth module plugged
+ in, double click the Bluetooth icon in the task bar and select �ADD� a 
+device. It should find a device called <span class="wikiword">BlueRadios</span>
+ � which is your modem. Select to connect to it. It will ask you for a 
+passkey. The passkey for the Bluetooth modem we used is �default� (see <a class="urllink" href="http://www.sparkfun.com/datasheets/RF/BlueSMiRF_v1.pdf" rel="nofollow">http://www.sparkfun.com/datasheets/RF/BlueSMiRF_v1.pdf</a>).
+ If you used a different Bluetooth modem to the one we used, you will 
+need to consult the product documentation to find the passkey. Once you 
+have entered that passkey your computer will now remember that Bluetooth
+ modem and be able to communicate with it now and in the future.
+</p>
+<p class="vspace"></p><p>Step 5. We need to now find out which COM port 
+our Bluetooth communication is on. Double click on the Bluetooth icon in
+ the taskbar again and select the <span class="wikiword">BlueRadios</span>
+ device from the devices tab, then click the COM Ports tab and take note
+ of the port number the Bluetooth connection is using. In our case, the 
+COM port is <span class="wikiword">COM7</span>
+</p>
+<p class="vspace"></p><p>Step 6. Now that you have connected all your 
+components, you need to upload your program to the Wiring board. YOU 
+NEED TO USE A SERIAL CABLE TO UPLOAD YOUR PROGRAM � YOU CANNOT USE 
+BLUETOOTH WIRELESS TO UPLOAD PROGRAMS TO THE BOARD. YOU ALSO NEED TO 
+DISCONNECT THE RX AND TX WIRES FROM THE BLUETOOTH MODEM WHILE YOU 
+UPLOAD. The code for the program we use is attached below. Once you have
+ connected the serial USB cable, upload your program. Once it has 
+uploaded successfully, reset your board and remove the cable.
+</p>
+<p class="vspace"></p><p>Step 7. Now we need to configure the processing
+ code. The code we used is attached below. You need to find out which 
+number in the array the Bluetooth COM port is. Run the code once and 
+take not of the COM ports which appear in the output pane. 
+Eg. 
+<span class="wikiword">COM1</span>
+<span class="wikiword">COM3</span>
+<span class="wikiword">COM7</span>
+In our case, the Bluetooth was connected to <span class="wikiword">COM7</span>, which is the number 2 position in our serial array (<span class="wikiword">COM1</span> = 0, <span class="wikiword">COM3</span> = 1, <span class="wikiword">COM7</span>
+ = 2). So we update the processing code to the following so it will use 
+the Bluetooth connection to send serial data. Once you have updated this
+ code, run the program again (see Step 8).
+</p>
+<p class="vspace"></p><p>Step 8. After you first run the program, the 
+computer will establish a connection with the Bluetooth modems � you 
+will see a red light begin to blink on the modem � it will finally stay 
+red once it has established a connection but may take about a further 10
+ seconds before it can receive data. The connection process will take 
+about 15 seconds all up. After about 15 to 20 seconds, your processing 
+program will now be connected to the Wiring board wirelessy. Now press 
+the buttons on the processing interface and watch the LED turn on and 
+off.
+</p>
+<p class="vspace"></p><p><strong>Code:</strong>
+</p>
+<p class="vspace"></p><p><em>Wiring code</em> � this code will wait for 
+signals from processing. When it receives a H signal, the LED on pin 8 
+will turn on. When it receives an L signal the LED on pin 8 will turn 
+off.
+</p>
+<p class="vspace"></p>
+<table align="center" bgcolor="#cccc99" border="0" cellpadding="5" cellspacing="0" width="80%"><tbody><tr><td valign="top"> <strong>Wiring code</strong>
+</td></tr><tr><td valign="top">
+<p>char val;         // variable to receive data from the serial port<br>int ledpin = 8;  // LED connected to pin 48 (on-board LED)
+</p>
+<p class="vspace"></p><p>void setup() 
+{
+</p><pre>  pinMode(ledpin, OUTPUT);  // pin 48 (on-board LED) as OUTPUT
+  Serial.begin(9600);       // start serial communication at 9600bps
+</pre><p>}
+</p>
+<p class="vspace"></p><p>void loop() {
+</p><pre>  if( Serial.available() )       // if data is available to read
+  {
+    val = Serial.read();         // read it and store it in 'val'
+  }
+  if( val == 'H' )               // if 'H' was received
+  {
+    digitalWrite(ledpin, HIGH);  // turn ON the LED
+  } else { 
+    digitalWrite(ledpin, LOW);   // otherwise turn it OFF
+  }
+  delay(100);                    // wait 100ms for next reading
+</pre><p>}
+</p></td></tr></tbody></table>
+<p class="vspace"></p><p><em>Processing code</em> � this code creates 
+two buttons. When the left button is clicked it will send an H signal to
+ the board and turn the LED on. Or if the right button is clicked it 
+will send an L signal to Wiring board to turn the LED off.
+</p>
+<p class="vspace"></p>
+<table align="center" bgcolor="#cccc99" border="0" cellpadding="5" cellspacing="0" width="80%"><tbody><tr><td valign="top"> <strong>Processing code</strong>
+</td></tr><tr><td valign="top">
+<p>//import class to set up serial connection with wiring board<br>import processing.serial.*;
+</p>
+<p class="vspace"></p><p>Serial port; 
+</p>
+<p class="vspace"></p><p>//button setup<br>color currentcolor;<br><span class="wikiword">RectButton</span> rect1, rect2;<br>boolean locked = false;<br>
+void setup()
+{
+</p><pre>  //set up window
+  size(200, 200);
+  color baseColor = color(102, 102, 102);
+  currentcolor = baseColor;
+</pre>
+<p class="vspace"></p><pre>  // List all the available serial ports in the output pane. 
+  // You will need to choose the port that the Wiring board is 
+  // connected to from this list. The first port in the list is 
+  // port #0 and the third port in the list is port #2. 
+  println(Serial.list()); 
+</pre>
+<p class="vspace"></p><pre>  // Open the port that the Wiring board is connected to (in this case 1
+  // which is the second open port in the array) 
+  // Make sure to open the port at the same speed Wiring is using (9600bps) 
+  port = new Serial(this, Serial.list()[2], 9600);
+</pre>
+<p class="vspace"></p><pre>  // Define and create rectangle button #1
+  int x = 30;
+  int y = 100;
+  int size = 50;
+  color buttoncolor = color(153, 102, 102);
+  color highlight = color(102, 51, 51); 
+  rect1 = new <span class="wikiword">RectButton</span>(x, y, size, buttoncolor, highlight);
+</pre>
+<p class="vspace"></p><pre>  // Define and create rectangle button #2
+  x = 90;
+  y = 100; 
+  size = 50;
+  buttoncolor = color(153, 153, 153);
+  highlight = color(102, 102, 102); 
+  rect2 = new <span class="wikiword">RectButton</span>(x, y, size, buttoncolor, highlight);
+</pre><p>}
+</p>
+<p class="vspace"></p><p>void draw()
+{
+</p><pre>  background(currentcolor);
+  stroke(255);
+  update(mouseX, mouseY);
+  rect1.display();
+  rect2.display();
+</pre><p>}
+</p>
+<p class="vspace"></p><p>void update(int x, int y)
+{
+</p><pre>  if(locked == false) {
+</pre>
+<p class="vspace"></p><pre>    rect1.update();
+    rect2.update();
+  } else {
+    locked = false;
+  }
+</pre>
+<p class="vspace"></p><pre>  //Turn LED on and off if buttons pressed where
+  //H = on (high) and L = off (low)
+  if(mousePressed) {
+    if(rect1.pressed()) {            //ON button
+      currentcolor = rect1.basecolor;
+      port.write('H');
+    } else if(rect2.pressed()) {    //OFF button
+      currentcolor = rect2.basecolor;
+      port.write('L');
+    }
+  }
+</pre><p>}
+</p>
+<p class="vspace"></p><p>class Button
+{
+</p><pre>  int x, y;
+  int size;
+  color basecolor, highlightcolor;
+  color currentcolor;
+  boolean over = false;
+  boolean pressed = false;   
+</pre>
+<p class="vspace"></p><pre>  void update() 
+  {
+    if(over()) {
+      currentcolor = highlightcolor;
+    } else {
+      currentcolor = basecolor;
+    }
+  }
+</pre>
+<p class="vspace"></p><pre>  boolean pressed() 
+  {
+    if(over) {
+      locked = true;
+      return true;
+    } else {
+      locked = false;
+      return false;
+    }    
+  }
+</pre>
+<p class="vspace"></p><pre>  boolean over() 
+  { 
+    return true; 
+  }
+</pre>
+<p class="vspace"></p><pre>  void display() 
+  { 
+</pre>
+<p class="vspace"></p><pre>  }
+</pre><p>}
+</p>
+<p class="vspace"></p><p>class <span class="wikiword">RectButton</span> extends Button
+{
+</p><pre>  <span class="wikiword">RectButton</span>(int ix, int iy, int isize, color icolor, color ihighlight) 
+  {
+    x = ix;
+    y = iy;
+    size = isize;
+    basecolor = icolor;
+    highlightcolor = ihighlight;
+    currentcolor = basecolor;
+  }
+</pre>
+<p class="vspace"></p><pre>  boolean over() 
+  {
+    if( overRect(x, y, size, size) ) {
+      over = true;
+      return true;
+    } else {
+      over = false;
+      return false;
+    }
+  }
+</pre>
+<p class="vspace"></p><pre>  void display() 
+  {
+    stroke(255);
+    fill(currentcolor);
+    rect(x, y, size, size);
+  }
+</pre><p>}
+</p>
+<p class="vspace"></p><p>boolean overRect(int x, int y, int width, int height) 
+{
+</p><pre>  if (mouseX &gt;= x &amp;&amp; mouseX &lt;= x+width &amp;&amp; 
+      mouseY &gt;= y &amp;&amp; mouseY &lt;= y+height) {
+    return true;
+  } else {
+    return false;
+  }
+</pre><p>}
+</p></td></tr></tbody></table>
+<p class="vspace"></p><p>link to <span class="newpage"><a class="urllink" href="http://www.mitchellpage.com.au/research/" rel="nofollow">mitchell's blog</a></span>
+</p>
+</div>
+
+
+<!-- AddThis Button BEGIN -->       
+<script type="text/javascript">var addthis_language = "en";      
+</script>       
+<div class="addthis_container addthis_toolbox addthis_default_style" addthis:url="http://arduino.cc/playground/Learning/Tutorial01" addthis:title="Arduino Playground">
+<a href="http://www.addthis.com/bookmark.php?v=250&amp;username=arduinoteam" class="addthis_button_compact at300m"><span class="at300bs at15nc at15t_compact"></span>Share</a><span class="addthis_separator">|</span><a href="#" title="Email" class="addthis_button_email at300b"><span class="at300bs at15nc at15t_email"></span></a><a href="#" title="Save to Favorites" class="addthis_button_favorites at300b"><span class="at300bs at15nc at15t_favorites"></span></a><a href="#" title="Print" class="addthis_button_print at300b"><span class="at300bs at15nc at15t_print"></span></a><a href="#" title="Send to Facebook" class="addthis_button_facebook at300b"><span class="at300bs at15nc at15t_facebook"></span></a><a href="#" title="Tweet This" class="addthis_button_twitter at300b"><span class="at300bs at15nc at15t_twitter"></span></a><script type="text/javascript" src="Tutorial01_files/addthis_widget.js"></script><div class="atclear"></div></div>       
+<!-- AddThis Button END -->       
+
+
+</div>
+<!--PageFooterFmt-->
+<div id="pagefooter">
+</div>
+<!--/PageFooterFmt-->
+</div>
+
+
+</body></html>

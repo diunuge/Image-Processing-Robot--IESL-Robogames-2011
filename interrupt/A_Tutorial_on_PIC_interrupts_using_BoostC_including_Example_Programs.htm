@@ -1,0 +1,697 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" dir="ltr" lang="en"><head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		<meta http-equiv="Content-Style-Type" content="text/css">
+		<meta name="generator" content="MediaWiki 1.15.1">
+		<meta name="keywords" content="A Tutorial on PIC interrupts using BoostC including Example Programs,Experimenting with IR Remotes using a PIC running BoostC Project,PIC based Stepper Motor Dancing Analog Clock">
+		<link rel="alternate" type="application/x-wiki" title="Edit" href="http://www.opencircuits.com/index.php?title=A_Tutorial_on_PIC_interrupts_using_BoostC_including_Example_Programs&amp;action=edit">
+		<link rel="edit" title="Edit" href="http://www.opencircuits.com/index.php?title=A_Tutorial_on_PIC_interrupts_using_BoostC_including_Example_Programs&amp;action=edit">
+		<link rel="shortcut icon" href="http://www.opencircuits.com/favicon.ico">
+		<link rel="search" type="application/opensearchdescription+xml" href="http://www.opencircuits.com/opensearch_desc.php" title="Open Circuits (en)">
+		<link title="Creative Commons" type="application/rdf+xml" href="http://www.opencircuits.com/index.php?title=A_Tutorial_on_PIC_interrupts_using_BoostC_including_Example_Programs&amp;action=creativecommons" rel="meta">
+		<link rel="copyright" href="http://creativecommons.org/licenses/by-sa/2.5/">
+		<link rel="alternate" type="application/rss+xml" title="Open Circuits RSS Feed" href="http://www.opencircuits.com/index.php?title=Special:RecentChanges&amp;feed=rss">
+		<link rel="alternate" type="application/atom+xml" title="Open Circuits Atom Feed" href="http://www.opencircuits.com/index.php?title=Special:RecentChanges&amp;feed=atom">
+		<title>A Tutorial on PIC interrupts using BoostC including Example Programs - Open Circuits</title>
+		<link rel="stylesheet" href="A_Tutorial_on_PIC_interrupts_using_BoostC_including_Example_Programs_files/shared.css" type="text/css" media="screen">
+		<link rel="stylesheet" href="A_Tutorial_on_PIC_interrupts_using_BoostC_including_Example_Programs_files/commonPrint.css" type="text/css" media="print">
+		<link rel="stylesheet" href="A_Tutorial_on_PIC_interrupts_using_BoostC_including_Example_Programs_files/main.css" type="text/css" media="screen">
+		<!--[if lt IE 5.5000]><link rel="stylesheet" href="/skins/monobook/IE50Fixes.css?207" type="text/css" media="screen" /><![endif]-->
+		<!--[if IE 5.5000]><link rel="stylesheet" href="/skins/monobook/IE55Fixes.css?207" type="text/css" media="screen" /><![endif]-->
+		<!--[if IE 6]><link rel="stylesheet" href="/skins/monobook/IE60Fixes.css?207" type="text/css" media="screen" /><![endif]-->
+		<!--[if IE 7]><link rel="stylesheet" href="/skins/monobook/IE70Fixes.css?207" type="text/css" media="screen" /><![endif]-->
+		<link rel="stylesheet" href="A_Tutorial_on_PIC_interrupts_using_BoostC_including_Example_Programs_files/index_002.css" type="text/css">
+		<link rel="stylesheet" href="A_Tutorial_on_PIC_interrupts_using_BoostC_including_Example_Programs_files/index.css" type="text/css" media="print">
+		<link rel="stylesheet" href="A_Tutorial_on_PIC_interrupts_using_BoostC_including_Example_Programs_files/index_003.css" type="text/css">
+		<link rel="stylesheet" href="A_Tutorial_on_PIC_interrupts_using_BoostC_including_Example_Programs_files/index_004.css" type="text/css">
+		<!--[if lt IE 7]><script type="text/javascript" src="/skins/common/IEFixes.js?207"></script>
+		<meta http-equiv="imagetoolbar" content="no" /><![endif]-->
+
+		<script type="text/javascript">/*<![CDATA[*/
+		var skin = "monobook";
+		var stylepath = "/skins";
+		var wgArticlePath = "/$1";
+		var wgScriptPath = "";
+		var wgScript = "/index.php";
+		var wgVariantArticlePath = false;
+		var wgActionPaths = {};
+		var wgServer = "http://www.opencircuits.com";
+		var wgCanonicalNamespace = "";
+		var wgCanonicalSpecialPageName = false;
+		var wgNamespaceNumber = 0;
+		var wgPageName = "A_Tutorial_on_PIC_interrupts_using_BoostC_including_Example_Programs";
+		var wgTitle = "A Tutorial on PIC interrupts using BoostC including Example Programs";
+		var wgAction = "view";
+		var wgArticleId = "2952";
+		var wgIsArticle = true;
+		var wgUserName = null;
+		var wgUserGroups = null;
+		var wgUserLanguage = "en";
+		var wgContentLanguage = "en";
+		var wgBreakFrames = false;
+		var wgCurRevisionId = 19342;
+		var wgVersion = "1.15.1";
+		var wgEnableAPI = true;
+		var wgEnableWriteAPI = true;
+		var wgSeparatorTransformTable = ["", ""];
+		var wgDigitTransformTable = ["", ""];
+		var wgRestrictionEdit = [];
+		var wgRestrictionMove = [];
+		/*]]>*/</script>
+
+		<script type="text/javascript" src="A_Tutorial_on_PIC_interrupts_using_BoostC_including_Example_Programs_files/wikibits.js"><!-- wikibits js --></script>
+		<!-- Head Scripts -->
+		<script type="text/javascript" src="A_Tutorial_on_PIC_interrupts_using_BoostC_including_Example_Programs_files/ajax.js"></script>
+		<script type="text/javascript" src="A_Tutorial_on_PIC_interrupts_using_BoostC_including_Example_Programs_files/index.php"><!-- site js --></script>
+	</head>
+<body class="mediawiki ltr ns-0 ns-subject page-A_Tutorial_on_PIC_interrupts_using_BoostC_including_Example_Programs skin-monobook">
+	<div id="globalWrapper">
+		<div id="column-content">
+	<div id="content">
+		<a name="top" id="top"></a>
+				<h1 id="firstHeading" class="firstHeading">A Tutorial on PIC interrupts using BoostC including Example Programs</h1>
+		<div id="bodyContent">
+			<h3 id="siteSub">From Open Circuits</h3>
+			<div id="contentSub"></div>
+									<div id="jump-to-nav">Jump to: <a href="#column-one">navigation</a>, <a href="#searchInput">search</a></div>			<!-- start content -->
+			<table id="toc" class="toc" summary="Contents"><tbody><tr><td><div id="toctitle"><h2>Contents</h2> <span class="toctoggle">[<a href="javascript:toggleToc()" class="internal" id="togglelink">hide</a>]</span></div>
+<ul>
+<li class="toclevel-1"><a href="#A_Tutorial_on_PIC_interrupts_using_BoostC_including_Example_Programs"><span class="tocnumber">1</span> <span class="toctext">A Tutorial on PIC interrupts using BoostC including Example Programs</span></a>
+<ul>
+<li class="toclevel-2"><a href="#What_is_an_interrupt.3F"><span class="tocnumber">1.1</span> <span class="toctext">What is an interrupt?</span></a></li>
+<li class="toclevel-2"><a href="#Example_Time_keeping_for_a_Clock"><span class="tocnumber">1.2</span> <span class="toctext">Example Time keeping for a Clock</span></a>
+<ul>
+<li class="toclevel-3"><a href="#The_problem:"><span class="tocnumber">1.2.1</span> <span class="toctext">The problem:</span></a></li>
+<li class="toclevel-3"><a href="#Solution:"><span class="tocnumber">1.2.2</span> <span class="toctext">Solution:</span></a>
+<ul>
+<li class="toclevel-4"><a href="#The_program_design:"><span class="tocnumber">1.2.2.1</span> <span class="toctext">The program design:</span></a>
+<ul>
+<li class="toclevel-5"><a href="#Setup:"><span class="tocnumber">1.2.2.1.1</span> <span class="toctext">Setup:</span></a></li>
+<li class="toclevel-5"><a href="#The_interrupt:"><span class="tocnumber">1.2.2.1.2</span> <span class="toctext">The interrupt:</span></a></li>
+<li class="toclevel-5"><a href="#Post_interrupt:"><span class="tocnumber">1.2.2.1.3</span> <span class="toctext">Post interrupt:</span></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toclevel-2"><a href="#Example_Interrupt_Driven_Infra_Red_.28_IR_.29_Receiver"><span class="tocnumber">1.3</span> <span class="toctext">Example Interrupt Driven Infra Red ( IR ) Receiver</span></a>
+<ul>
+<li class="toclevel-3"><a href="#The_problem:_2"><span class="tocnumber">1.3.1</span> <span class="toctext">The problem:</span></a></li>
+<li class="toclevel-3"><a href="#Solution:_2"><span class="tocnumber">1.3.2</span> <span class="toctext">Solution:</span></a>
+<ul>
+<li class="toclevel-4"><a href="#Issues_for_IR_receive"><span class="tocnumber">1.3.2.1</span> <span class="toctext">Issues for IR receive</span></a></li>
+<li class="toclevel-4"><a href="#The_program_design"><span class="tocnumber">1.3.2.2</span> <span class="toctext">The program design</span></a></li>
+<li class="toclevel-4"><a href="#Main_Loop"><span class="tocnumber">1.3.2.3</span> <span class="toctext">Main Loop</span></a>
+<ul>
+<li class="toclevel-5"><a href="#Setup:_2"><span class="tocnumber">1.3.2.3.1</span> <span class="toctext">Setup:</span></a></li>
+<li class="toclevel-5"><a href="#Interrupt:"><span class="tocnumber">1.3.2.3.2</span> <span class="toctext">Interrupt:</span></a></li>
+<li class="toclevel-5"><a href="#Post_Interrupt:_2"><span class="tocnumber">1.3.2.3.3</span> <span class="toctext">Post Interrupt:</span></a></li>
+</ul>
+</li>
+<li class="toclevel-4"><a href="#Getting_In:"><span class="tocnumber">1.3.2.4</span> <span class="toctext">Getting In:</span></a>
+<ul>
+<li class="toclevel-5"><a href="#Setup:_3"><span class="tocnumber">1.3.2.4.1</span> <span class="toctext">Setup:</span></a></li>
+<li class="toclevel-5"><a href="#Interrupt:_2"><span class="tocnumber">1.3.2.4.2</span> <span class="toctext">Interrupt:</span></a></li>
+</ul>
+</li>
+<li class="toclevel-4"><a href="#Getting_Out"><span class="tocnumber">1.3.2.5</span> <span class="toctext">Getting Out</span></a></li>
+<li class="toclevel-4"><a href="#Breaking_Out"><span class="tocnumber">1.3.2.6</span> <span class="toctext">Breaking Out</span></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</td></tr></tbody></table><script type="text/javascript"> if (window.showTocToggle) { var tocShowText = "show"; var tocHideText = "hide"; showTocToggle(); } </script>
+<a name="A_Tutorial_on_PIC_interrupts_using_BoostC_including_Example_Programs" id="A_Tutorial_on_PIC_interrupts_using_BoostC_including_Example_Programs"></a><h1><span class="editsection">[<a href="http://www.opencircuits.com/index.php?title=A_Tutorial_on_PIC_interrupts_using_BoostC_including_Example_Programs&amp;action=edit&amp;section=1" title="Edit section: A Tutorial on PIC interrupts using BoostC including Example Programs">edit</a>]</span> <span class="mw-headline"> A Tutorial on PIC interrupts using BoostC including Example Programs </span></h1>
+<p><b>This is still a draft, but mostly right</b>
+</p><p>A nice feature of many ( probably all that you want to use ) PICs
+ is the interrupt feature.  This makes some programming tasks much 
+easier, and make make the impossible possible.  This article will give 
+some tips on the why and how of using interrupts.  Please let me know if
+ you find areas for improvement, or just make them.  The code here is 
+extracted from real working projects.  Normally it has been somewhat 
+simplified, and some of the declarations and setup are not shown.  In 
+all cases there are links to the actual project where all the code is, 
+and, as far as we know works.
+</p><p><br>
+</p>
+<a name="What_is_an_interrupt.3F" id="What_is_an_interrupt.3F"></a><h2><span class="editsection">[<a href="http://www.opencircuits.com/index.php?title=A_Tutorial_on_PIC_interrupts_using_BoostC_including_Example_Programs&amp;action=edit&amp;section=2" title="Edit section: What is an interrupt?">edit</a>]</span> <span class="mw-headline"> What is an interrupt? </span></h2>
+<p>An interrupt is a function in a microcontroller where some event ( 
+change of an input, count or time measured from a timer, character 
+received from a UART ) causes the microcontroller to stop what it is 
+doing and go to a special subroutine designed to “service” the 
+interrupt.  It then goes back to where it was “interrupted” and “goes on
+ like nothing ever happened”.  It is very useful for tasks that are time
+ critical, that is where something has to happen fast or at an exact 
+time.
+</p>
+<a name="Example_Time_keeping_for_a_Clock" id="Example_Time_keeping_for_a_Clock"></a><h2><span class="editsection">[<a href="http://www.opencircuits.com/index.php?title=A_Tutorial_on_PIC_interrupts_using_BoostC_including_Example_Programs&amp;action=edit&amp;section=3" title="Edit section: Example Time keeping for a Clock">edit</a>]</span> <span class="mw-headline"> Example Time keeping for a Clock </span></h2>
+<p><a href="http://www.opencircuits.com/PIC_based_Stepper_Motor_Dancing_Analog_Clock" title="PIC based Stepper Motor Dancing Analog Clock">PIC based Stepper Motor Dancing Analog Clock</a> to link to the whole project.
+</p><p>Obviously time keeping is an important task for a clock.  99% 
+accuracy is not very good, it goes off time by about 10 minutes a day.
+</p>
+<a name="The_problem:" id="The_problem:"></a><h3><span class="editsection">[<a href="http://www.opencircuits.com/index.php?title=A_Tutorial_on_PIC_interrupts_using_BoostC_including_Example_Programs&amp;action=edit&amp;section=4" title="Edit section: The problem:">edit</a>]</span> <span class="mw-headline"> The problem: </span></h3>
+<p>In this solution we will use the power line as a source of time 
+keeping.  The power company normally does a very good job keeping the 
+long term average very accurate.  In the power supply we clip the 60 Hz 
+ac to an approximate square wave and feed it into the RB0 external 
+interrupt.  The key is to make sure that every transition from low to 
+high is counted toward the time.  Since the clock also has to move the 
+clock hands we could have a problem if the microcontroller is busy 
+moving the hands and “forgets” to count.
+</p>
+<a name="Solution:" id="Solution:"></a><h3><span class="editsection">[<a href="http://www.opencircuits.com/index.php?title=A_Tutorial_on_PIC_interrupts_using_BoostC_including_Example_Programs&amp;action=edit&amp;section=5" title="Edit section: Solution:">edit</a>]</span> <span class="mw-headline"> Solution: </span></h3>
+<p>The RB0 input can generate an interrupt if it is set up and enabled. 
+ This will jump the control to the subroutine named interrupt() where we
+ will count the 60 Hz signal.
+</p><p>Features of the external interrupt that we will use.  
+</p><p>The interrupt is trigger by input on RB0, either ( depending on 
+how we set it up ) as the signal goes from 0 to 1, called the rising 
+edge, or as the signal goes from 1 to 0, called the falling edge.  This 
+sets the interrupt flag, and if the interrupt is enabled ( and we are 
+not already in an interrupt ) the microcontroller goes to the interrupt 
+subroutine.  
+</p><p><br>
+</p>
+<a name="The_program_design:" id="The_program_design:"></a><h4><span class="editsection">[<a href="http://www.opencircuits.com/index.php?title=A_Tutorial_on_PIC_interrupts_using_BoostC_including_Example_Programs&amp;action=edit&amp;section=6" title="Edit section: The program design:">edit</a>]</span> <span class="mw-headline"> The program design: </span></h4>
+<p>All the timing will take place in the interrupt service routine ( isr
+ ).  A flag ( global variable ) will be set any time the minute changes 
+and individual global variables will hold the time in seconds, 
+minutes...
+</p><p>With most interrupt program there is the setup, the interrupt itself, and post interrupt processing.  Here we go.
+</p>
+<a name="Setup:" id="Setup:"></a><h5><span class="editsection">[<a href="http://www.opencircuits.com/index.php?title=A_Tutorial_on_PIC_interrupts_using_BoostC_including_Example_Programs&amp;action=edit&amp;section=7" title="Edit section: Setup:">edit</a>]</span> <span class="mw-headline"> Setup: </span></h5>
+<p>Setup occurs in the main-line code, before the main loop.
+</p><p>The RBO interrupt -- Clear the flag, set for rising edge, and enable the interrupt. 
+</p>
+<pre>   int main(void){
+       ....
+</pre>
+<pre>	clear_bit( intcon, INTF ); 
+	set_bit( option_reg, INTEDG );  	// set for rising edge
+	set_bit( intcon, INTE );		// set to enable the interrupt
+</pre>
+<pre>       ....
+</pre>
+<pre>       // main loop
+       while(1){ // forever
+           ....
+       };
+   }
+</pre>
+<p>Here we assume the interrupt is originally off ( or the global 
+interrupt is off ).  If you are not sure then turn them off at the 
+beginning.
+</p>
+<a name="The_interrupt:" id="The_interrupt:"></a><h5><span class="editsection">[<a href="http://www.opencircuits.com/index.php?title=A_Tutorial_on_PIC_interrupts_using_BoostC_including_Example_Programs&amp;action=edit&amp;section=8" title="Edit section: The interrupt:">edit</a>]</span> <span class="mw-headline"> The interrupt: </span></h5>
+<p>In interrupts we almost always make sure that the interrupt is the 
+one we think it is, clear the flag, and do the processing.  A key to the
+ post processing is setting the counts and the  MinAct flag.
+</p><p>The interrupt routine handles stuff we absolutely must deal with immediately during the interrupt (the "foreground task").
+</p>
+<pre>     if ( intf ) {  // are we in the external interrupt.
+            clear_bit( intcon, INTF );    // set on interrupt, need to reset 
+
+            SubSecCount  ++;
+
+        if ( SubSecCount &gt;= 60 )  {       
+           SubSecCount = 0;
+           SecCount    ++;
+           SecAct      = 1;
+               
+           if ( SecCount &gt;= 60 )  {
+               SecCount    = 0;
+               MinCount    ++;
+               MinAct  = 1;
+           
+               if ( MinCount &gt;= 60 )  {
+                   MinCount    = 0;
+                   HrCount     ++;
+                   HrCount24   ++;
+                   
+                   if ( HrCount &gt;= 13 )  {
+                       HrCount     = 1;
+                                               
+                   }
+               }
+           }
+       }
+   }
+</pre>
+<a name="Post_interrupt:" id="Post_interrupt:"></a><h5><span class="editsection">[<a href="http://www.opencircuits.com/index.php?title=A_Tutorial_on_PIC_interrupts_using_BoostC_including_Example_Programs&amp;action=edit&amp;section=9" title="Edit section: Post interrupt:">edit</a>]</span> <span class="mw-headline"> Post interrupt: </span></h5>
+<p>When you get around to it ( but at least every minute ) check the 
+MinAct flag, then do what you have to.  We assume that this process 
+takes a bit of time, and you always try to take as little time in the 
+interrupt as possible ( this usually makes the interrupts work better 
+and lets you use more than one interrupt at a time).  In fact if you do 
+not get around to executing your code within a minute it may not matter 
+much, the time will still be kept correctly and the flag MinAct will 
+still be set, you will miss executing "what you have to do" once but 
+that may not matter.
+</p><p>Post-interrupt processing occurs in the main loop (the "background task").
+</p>
+<pre>   int main(void){
+       ...
+</pre>
+<pre>       // main loop
+       while(1){ // forever
+           ....
+</pre>
+<pre>           if ( MinAct == 1 ) {
+               MinAct = 0;   // clear the flag
+               ........ what you have to do .....
+           };
+</pre>
+<pre>           ....
+</pre>
+<pre>       };
+   }
+</pre>
+<p>In the full code you also have to have code to move the hands of the clock, set it, etc.  It is in there: <a href="http://www.opencircuits.com/PIC_based_Stepper_Motor_Dancing_Analog_Clock" title="PIC based Stepper Motor Dancing Analog Clock">PIC based Stepper Motor Dancing Analog Clock</a>
+</p><p>Note:  not show here ( but present in the full code ) is the use 
+of the global interrupt enable.  It is one instruction that can turn off
+ all interrupts.  It has to be turned on before any interrupts will take
+ place.  Also in the full code an interrupt is used to support the RS232
+ receiver.
+</p>
+<a name="Example_Interrupt_Driven_Infra_Red_.28_IR_.29_Receiver" id="Example_Interrupt_Driven_Infra_Red_.28_IR_.29_Receiver"></a><h2><span class="editsection">[<a href="http://www.opencircuits.com/index.php?title=A_Tutorial_on_PIC_interrupts_using_BoostC_including_Example_Programs&amp;action=edit&amp;section=10" title="Edit section: Example Interrupt Driven Infra Red ( IR ) Receiver">edit</a>]</span> <span class="mw-headline"> Example Interrupt Driven Infra Red ( IR ) Receiver </span></h2>
+<p><a href="http://www.opencircuits.com/Experimenting_with_IR_Remotes_using_a_PIC_running_BoostC_Project" title="Experimenting with IR Remotes using a PIC running BoostC Project">Experimenting with IR Remotes using a PIC running BoostC Project</a> to link to the whole project.
+</p>
+<a name="The_problem:_2" id="The_problem:_2"></a><h3><span class="editsection">[<a href="http://www.opencircuits.com/index.php?title=A_Tutorial_on_PIC_interrupts_using_BoostC_including_Example_Programs&amp;action=edit&amp;section=11" title="Edit section: The problem:">edit</a>]</span> <span class="mw-headline"> The problem: </span></h3>
+<p>An IR transmitter sends bursts of infra red to a receiver.  This 
+receiver converts the IR to pulses which ( in the case we will consider 
+the NEC protocol ) consists of about 70 transition over a period of time
+ of about .1 seconds.  We want to measure these transitions and 
+determine what button was pressed on the IR transmitter.  Note that the 
+code here is a bit simplified, the better to show the essential ideas.  
+To make it work go to the project and get the full code.  Email me if 
+you are having problems.
+</p>
+<a name="Solution:_2" id="Solution:_2"></a><h3><span class="editsection">[<a href="http://www.opencircuits.com/index.php?title=A_Tutorial_on_PIC_interrupts_using_BoostC_including_Example_Programs&amp;action=edit&amp;section=12" title="Edit section: Solution:">edit</a>]</span> <span class="mw-headline"> Solution: </span></h3>
+<p>The receive goes through several states all of which are interrupt driven. 
+</p><p>First we need to wait for a quiet time in the IR signal.  To do 
+this we set two interrupts one on timer1 and one on the IR signal.  If 
+the IR signal is quiet then the timer1 interrupt will go off first and 
+we are ready to receive, if the timer goes off first then the IR signal 
+is not quiet.  We track all of this with a state variable IRState = 
+IRSTATE_WAIT while we are waiting, and  IRState = IRSTATE_BUSY    
+IRState = IRSTATE_READY  if the IR was quiet and we are now ready to 
+receive.
+</p>
+<a name="Issues_for_IR_receive" id="Issues_for_IR_receive"></a><h5><span class="editsection">[<a href="http://www.opencircuits.com/index.php?title=A_Tutorial_on_PIC_interrupts_using_BoostC_including_Example_Programs&amp;action=edit&amp;section=13" title="Edit section: Issues for IR receive">edit</a>]</span> <span class="mw-headline"> Issues for IR receive </span></h5>
+<ul><li> Issue: How do we avoid tying up the CPU during the receive?
+</li></ul>
+<p>Response 1: It only takes about .1 sec, so what is the problem? 
+A tenth of a second can be a long time on a PIC and actually if you are 
+waiting to receive something this can take the CPU forever ( until the 
+transmitter decides to send something )
+</p><p>Response 2: Use interrupts that occur when the state of the IR 
+signal changes, process quickly and go back to other less time critical 
+tasks.
+</p>
+<ul><li> Issue:  How do we know when to start receiving?
+</li></ul>
+<p>Response 1: If the IR signal has been quite for a period of time over
+ about .1 sec then the next transition must  be the beginning of the 
+signal.
+Response 2: If the signal has error checking built in: start receiving 
+wherever check if the data is good.  If it is then you must have started
+ at the beginning.  In any case you are now at the end and start 
+receiving the next burst at the beginning.   
+</p>
+<ul><li> Issue:  How do we no when a received message is finished.
+</li></ul>
+<p>Response 1:  Count the number of transitions in the received signal, 
+done when get up to the required count.  But if we miss a transition we 
+could be stuck.
+Response 2: Wait until a quiet period signals the end of the signal.
+Response 3:  Some protocols have a special “pulse” or something that we 
+can detect at the end.
+</p>
+<ul><li>Issue:  How do we know the data is good
+</li></ul>
+<p>Response 1:  It usually is, hope for the best.
+Response 2:  Many protocols have a fixed number of transition, count and
+ compare.
+Response 3:  Some protocols have error checking built in.  For the nec 
+protocol the data in the third byte is repeated, inverted in the fourth 
+byte.  If you exclusive or ( xor ) the bytes together you should get FF 
+or 11111111.
+</p>
+<a name="The_program_design" id="The_program_design"></a><h5><span class="editsection">[<a href="http://www.opencircuits.com/index.php?title=A_Tutorial_on_PIC_interrupts_using_BoostC_including_Example_Programs&amp;action=edit&amp;section=14" title="Edit section: The program design">edit</a>]</span> <span class="mw-headline"> The program design </span></h5>
+<p>We could have the program go in a tight loop counting the number of 
+times it loops and checking the input port for the transition in the IR 
+signal.  Each time it changes we record the count and restart at 0.  
+This is how the program IR.c works.  It is called a blocking routine 
+because it blocks the microcontroller from doing any other operation ( 
+except for interrupts ) during the receive.  So we will make our routine
+ interrupt driven to end this blocking.
+</p><p>In some interrupt driven programming you can do almost all the 
+work required in the interrupt ( blinking a led for example ).  But many
+ like this one requires that the work be distributed between the 
+interrupt and non-interrupt processing.  And since we jump in and out of
+ the interrupt ( in the interrupt for as short a time as we can ) we can
+ not keep track of what we are doing by where we are in the program, 
+instead we will introduce global state variables.  Global because any 
+routine anywhere can access the variables, and state because they tell 
+the state of the processing.  One of the most important of these is 
+called  IRState.  The states that are define for this are:
+</p>
+<ul><li>Waiting for the beginning of the receive, perhaps because a 
+signal began before we tried to receive.  In the program this value is 
+the #define  IRSTATE_WAIT
+</li></ul>
+<ul><li>Busy meaning that we were waiting for a quiet period, but found 
+that the signal was present, thus busy.  We could continue to wait, but 
+that might put us in a tight loop of waiting, thus keeping the 
+microcontroller busy. We enter this state so the program know that we 
+could not begin the receive, and to try again when we get around to it. 
+   In the program this value is the #define   IRSTATE_BUSY
+</li></ul>
+<ul><li>Ready meaning that we waited for no signal, found it, and are 
+now ready to receive.  In the program this value is the #define   
+IRSTATE_BUSY
+</li></ul>
+<ul><li>Reading meaning that we are in the process of receiving, the 
+data should be complete in about a tenth of a second.  In the program 
+this value is the #define  IRSTATE_READ.
+</li></ul>
+<ul><li>Got meaning that we have completed the reading of the signal.  In the program this value is the #define IRSTATE_GOT
+</li></ul>
+<ul><li>Not applicable is a special state that means that we are not trying to receive anything.
+</li></ul>
+<p>So in a normal receive we go through the states in the order wait -&gt; ready -&gt;read-&gt;got and then around again.
+</p><p>OK so how do we do the programming?  I am going to take a bit of 
+an odd approach to the explanation here by focusing on the main part of 
+the receive loop, this is where most of the action occurs, so I think 
+that is a good place to start. Later I will have to explain how we get 
+into and out of this loop.  The plan here is to set up an interrupt on 
+the port for the IR receive ( this is port RB0 ) while at the same time a
+ timer is running.  When the interrupt occurs we will measure the time 
+by reading the timer.  
+</p><p>Features of the external interrupt that we will use.  
+</p><p>The interrupt is trigger by input on RB0, either ( depending on 
+how we set it up ) as the signal goes from 0 to 1, called the rising 
+edge, or as the signal goes from 1 to 0, called the falling edge.  This 
+sets the interrupt flag, and if the interrupt is enables ( and we are 
+not already in an interrupt ) the microcontroller goes to the interrupt 
+subroutine.  Since we want to time all transitions we will sometimes set
+ the interrupt for the falling edge, sometimes for the rising edge.
+</p><p>Features of the counter/timer we will use.
+</p><p>The timer can be connected to crystal clock to count up.  It is a
+ two byte counter.  We will use only the high byte because we are timing
+ fairly long values.  The timer can be turned off or on.  We can also 
+divide, or pre-scale the clock, before counting it.  This is useful 
+because it allows us to count longer times, but with less precision.
+</p><p>A feature of the C compiler is that all values of the controller 
+that it needs to return to the place where the interrupt occurs are 
+automatically saved at the beginning of the interrupt ( called the 
+“context save” ) and restored at the end.  In assembler you need to 
+write the code yourself to do this.
+</p>
+<a name="Main_Loop" id="Main_Loop"></a><h5><span class="editsection">[<a href="http://www.opencircuits.com/index.php?title=A_Tutorial_on_PIC_interrupts_using_BoostC_including_Example_Programs&amp;action=edit&amp;section=15" title="Edit section: Main Loop">edit</a>]</span> <span class="mw-headline"> Main Loop </span></h5>
+<p>With most interrupt program there is the setup, the interrupt itself, and post interrupt processing.  Here we go.
+</p>
+<a name="Setup:_2" id="Setup:_2"></a><h6><span class="editsection">[<a href="http://www.opencircuits.com/index.php?title=A_Tutorial_on_PIC_interrupts_using_BoostC_including_Example_Programs&amp;action=edit&amp;section=16" title="Edit section: Setup:">edit</a>]</span> <span class="mw-headline"> Setup: </span></h6>
+<p>Since we are looking at the main loop of the reading we are assuming 
+that the interrupt is already set up, we are in the IRSTATE_READ, and 
+will set up for the next interrupt inside the processing of this one at 
+the end. 
+</p>
+<a name="Interrupt:" id="Interrupt:"></a><h6><span class="editsection">[<a href="http://www.opencircuits.com/index.php?title=A_Tutorial_on_PIC_interrupts_using_BoostC_including_Example_Programs&amp;action=edit&amp;section=17" title="Edit section: Interrupt:">edit</a>]</span> <span class="mw-headline"> Interrupt: </span></h6>
+<p>The first thing to remember is that there are several reasons that 
+the program can end up in the interrupt routine, that is because there 
+are different reasons that cause an interrupt.  So the first thing to 
+check is that you are in for the reason you think.  In the case of the 
+RB0 external interrupt that is usually done by checking the interrupt 
+flag.  I have discover however that the flag may be set even if the 
+interrupt is not enabled and another interrupt has be triggered.  Thus 
+you should consider checking that not only is the flag set but also that
+ the interrupt is enabled.  If this is true we next stop the timer ( 
+TIMER0 ) and read it.  Then we reset it for the next count.  To get 
+ready for the next interrupt we need to reset the interrupt flag ( set 
+by the processor when the interrupt is triggered ) set the edge we are 
+triggering on to rising if it was falling and vise versa. 
+</p>
+<a name="Post_Interrupt:_2" id="Post_Interrupt:_2"></a><h6><span class="editsection">[<a href="http://www.opencircuits.com/index.php?title=A_Tutorial_on_PIC_interrupts_using_BoostC_including_Example_Programs&amp;action=edit&amp;section=18" title="Edit section: Post Interrupt:">edit</a>]</span> <span class="mw-headline"> Post Interrupt: </span></h6>
+<p>Again since we are in the middle of the processing there is no code for this.
+</p><p>The code in the interrupt subroutine, also know as the interrupt service routine or isr:
+</p>
+<pre>	if  ( ( test_bit( intcon, INTE ) ) &amp;&amp;  ( test_bit( intcon, INTF ) ) ) {
+		clear_bit( intcon, INTF );  // the flag 
+
+
+		unsigned char 			period 		= 0;   // time from last transition
+		clear_bit( intcon, INTF );     // the flag 
+	
+		// read the timer1	
+		clear_bit( t1con, TMR1ON	);      
+			// T1CON: Timer1 On  1 = Enables Timer1 0 = Stops Timer1
+ 		
+		period		= tmr1h;    // just use the high byte
+	
+		// reset timer1
+		tmr1l		= 0;
+		tmr1h		= 0;
+	
+		set_bit( t1con, TMR1ON	);      // Timer1 On  1 = Enables Timer1 0 = Stops Timer1	
+	
+		// store in the log
+ 		logData[ logIx ] = period;
+ 
+		// set up for next interrupt
+	
+		if ( iRLow ) {
+			set_bit( option_reg, INTEDG ); 	// set  rising edge  clear falling edge
+		} else {
+			clear_bit( option_reg, INTEDG ); 	// set  rising edge  clear falling edge
+		}		
+		iRLow =&nbsp;!iRLow;
+	
+		set_bit( intcon, INTE );   // set = enable
+	
+			
+	}
+	return;
+}
+</pre>
+<p>Note that:
+</p>
+<ul><li>we save the period in a ( global ) array, logData[ logIx ],  for later use,
+</li><li>set the interrupt edge to the opposite it was,  
+</li><li>and keep a ( global ) variable, iRLow, to tell us if the next state will be high or low ( iRLow )
+</li></ul>
+<p><br>
+OK that is the heart of the routine, how do we get in and how do we get out?
+</p>
+<a name="Getting_In:" id="Getting_In:"></a><h5><span class="editsection">[<a href="http://www.opencircuits.com/index.php?title=A_Tutorial_on_PIC_interrupts_using_BoostC_including_Example_Programs&amp;action=edit&amp;section=19" title="Edit section: Getting In:">edit</a>]</span> <span class="mw-headline"> Getting In: </span></h5>
+<p>Getting In:
+For this code ( and I am not sure this is a great way, but it works and 
+uses more interrupt programming ) I chose to wait for a period of no 
+signal.  My basic idea is this.  Set two interrupts, one based on time, 
+and one based on getting an IR signal.  If the time interrupt goes off 
+first then there was no IR if the IR interrupt goes off first then there
+ is an IR signal.  While I am waiting for the interrupt I can have the 
+processor do something else.
+</p><p>Setup:
+Turn off the timer and the interrupts.  Set the timer to 0.  Set the 
+expected state of the next IR signal ( it is normally high when there is
+ not IR so the next expected is low.  The next transition will also be 
+on the falling edge so set that up.  Make the IRState = IRSTATE_WAIT.  
+Finally turn on the timer, turn on the interrupts and let the race 
+begin.  
+</p><p><br>
+The code:
+</p>
+<a name="Setup:_3" id="Setup:_3"></a><h6><span class="editsection">[<a href="http://www.opencircuits.com/index.php?title=A_Tutorial_on_PIC_interrupts_using_BoostC_including_Example_Programs&amp;action=edit&amp;section=20" title="Edit section: Setup:">edit</a>]</span> <span class="mw-headline"> Setup: </span></h6>
+<pre>	iRLow 		= true;
+	clear_bit( option_reg, INTEDG ); 	// set  rising edge  clear falling edge
+	clear_bit( intcon, INTF );			// the interrupt flag
+	logIx 		= 0;  						// reset the log
+	
+	// turn off all the interrupts we are using
+ 	
+ 	clear_bit( pie1, TMR1IE ); 	    	// TMR1IE = timer 1 interrupt enable / set = enable 	
+ 	clear_bit( pir1, TMR1IF ); 			// clear timer 1 interrupt flag bit
+ 
+ 	clear_bit( intcon, INTE ); 			// INTE = external int erupt enable / set = enable
+	clear_bit( intcon, INTF ); 			// INTF = external int erupt flag / clear = clear
+
+	
+	IRState		= IRSTATE_WAIT;
+	// clear timer0 flag and enable
+
+	// set counter to something low ( do we need to mess with the prescaler )
+	
+	clear_bit( t1con, TMR1ON	);      // Timer1 On  1 = Enables Timer1 0 = Stops Timer1	
+	tmr1l		= 0;
+	tmr1h		= 0;
+ 	set_bit( t1con, TMR1ON	);          // Timer1 On  1 = Enables Timer1 0 = Stops Timer1	
+	
+ 	// now turn them both on and let the race begin 
+	
+	set_bit( pie1, TMR1IE ); 	    	// TMR1IE = timer 1 interrupt enable / set = enable 	
+	set_bit( intcon, INTE ); 			// INTE = external interrupt enable / set = enable
+	
+</pre>
+<a name="Interrupt:_2" id="Interrupt:_2"></a><h6><span class="editsection">[<a href="http://www.opencircuits.com/index.php?title=A_Tutorial_on_PIC_interrupts_using_BoostC_including_Example_Programs&amp;action=edit&amp;section=21" title="Edit section: Interrupt:">edit</a>]</span> <span class="mw-headline"> Interrupt: </span></h6>
+<p>We need to use our state variables, flags etc to distinguish between 
+the earlier interrupt and then to figure out who won the race.  If the 
+signal was absent we set up for the ready state. If the signal was 
+present we enter the busy and turn off the interrupts.
+</p>
+<pre>	if  ( ( test_bit( intcon, INTE ) ) &amp;&amp;  ( test_bit( intcon, INTF ) ) ) {
+		clear_bit( intcon, INTF );  // the flag 
+		
+ 		if ( ( IRState   == IRSTATE_READY ) ||  ( IRState   == IRSTATE_READ )) {
+		
+			..... this is the code we have already covered 
+	
+			}
+		} else {   // should be state wait 
+			// bad, we got ir before time out
+			IRState   = IRSTATE_BUSY;
+...... both interrupts off 
+
+
+		}
+	}
+	   
+	//Handle timer1 interrupt 
+	if( pir1 &amp; (1&lt;&lt;TMR1IF) )  {
+	
+		// timer interrupted before ir began 
+		IRState 		= IRSTATE_READY;
+		clear_bit( pie1, 	TMR1IE ); 	 // done with the time interrupt   
+	
+		clear_bit( intcon,  INTF );  // the flag 
+		set_bit( intcon, 	INTE );   	    
+				// inte = interrupt enable, think just rb0, set = enable
+			
+	}
+
+	return;
+</pre>
+<p>Note:  not show here ( but present in the full code ) is the use of 
+the global interrupt enable.  It is one instruction that can turn off 
+all interrupts.  It has to be turned on before any interrupts will take 
+place. Also in the full code an interrupt is used to support the RS232 
+receiver.
+</p>
+<a name="Getting_Out" id="Getting_Out"></a><h5><span class="editsection">[<a href="http://www.opencircuits.com/index.php?title=A_Tutorial_on_PIC_interrupts_using_BoostC_including_Example_Programs&amp;action=edit&amp;section=22" title="Edit section: Getting Out">edit</a>]</span> <span class="mw-headline"> Getting Out </span></h5>
+<p>My way of detecting the end of transmission is to wait a while for 
+the IR signal to "go out".  How do I do this?  It is based on another 
+race between the RB0 and Timer interrupt.  If the Timer goes off then 
+the IR signal is out and the signal is over.  As a slight additional 
+trick I do not start the timer at 0 so I still control how long the 
+delay of no IR is.  So after checking why we are in the timer interrupt:
+</p>
+<pre>    clear_bit( intcon, 	INTE );   	    // inte = interrupt enable, think just rb0, set = enable
+    clear_bit( pie1, 	TMR1IE ); 	    // TMR1IE = timer 1 interrupt enable	set = eanble 	
+    IRState 		= IRSTATE_GOT;
+    serial_printf( "irstate=got\r" );
+</pre>
+<a name="Breaking_Out" id="Breaking_Out"></a><h5><span class="editsection">[<a href="http://www.opencircuits.com/index.php?title=A_Tutorial_on_PIC_interrupts_using_BoostC_including_Example_Programs&amp;action=edit&amp;section=23" title="Edit section: Breaking Out">edit</a>]</span> <span class="mw-headline"> Breaking Out </span></h5>
+<p>On receiving the&nbsp;! character the program should "break out" of 
+the reading IIR routine.  The problem is that it is not really in a 
+routine, it is almost always waiting for interrupts.  The key is to get 
+the interrupts off.  That is pretty much it.  Do not turn on again 
+untill you are all set up.
+</p>
+<!-- 
+NewPP limit report
+Preprocessor node count: 24/1000000
+Post-expand include size: 0/2097152 bytes
+Template argument size: 0/2097152 bytes
+Expensive parser function count: 0/100
+-->
+
+<!-- Saved in parser cache with key opencircuits-mw_:pcache:idhash:2952-0!1!0!!en!2 and timestamp 20110916042820 -->
+<div class="printfooter">
+Retrieved from "<a href="http://www.opencircuits.com/A_Tutorial_on_PIC_interrupts_using_BoostC_including_Example_Programs">http://www.opencircuits.com/A_Tutorial_on_PIC_interrupts_using_BoostC_including_Example_Programs</a>"</div>
+			<div id="catlinks" class="catlinks"><div id="mw-normal-catlinks"><a href="http://www.opencircuits.com/Special:Categories" title="Special:Categories">Categories</a>: <span dir="ltr"><a href="http://www.opencircuits.com/Category:Microcontroller" title="Category:Microcontroller">Microcontroller</a></span> | <span dir="ltr"><a href="http://www.opencircuits.com/Category:PIC" title="Category:PIC">PIC</a></span></div></div>			<!-- end content -->
+						<div class="visualClear"></div>
+		</div>
+	</div>
+		</div>
+		<div id="column-one">
+	<div id="p-cactions" class="portlet">
+		<h5>Views</h5>
+		<div class="pBody">
+			<ul>
+	
+				 <li id="ca-nstab-main" class="selected"><a href="http://www.opencircuits.com/A_Tutorial_on_PIC_interrupts_using_BoostC_including_Example_Programs" title="View the content page [alt-shift-c]" accesskey="c">Page</a></li>
+				 <li id="ca-talk" class="new"><a href="http://www.opencircuits.com/index.php?title=Talk:A_Tutorial_on_PIC_interrupts_using_BoostC_including_Example_Programs&amp;action=edit&amp;redlink=1" title="Discussion about the content page [alt-shift-t]" accesskey="t">Discussion</a></li>
+				 <li id="ca-edit"><a href="http://www.opencircuits.com/index.php?title=A_Tutorial_on_PIC_interrupts_using_BoostC_including_Example_Programs&amp;action=edit" title="You can edit this page.
+Please use the preview button before saving [alt-shift-e]" accesskey="e">Edit</a></li>
+				 <li id="ca-history"><a href="http://www.opencircuits.com/index.php?title=A_Tutorial_on_PIC_interrupts_using_BoostC_including_Example_Programs&amp;action=history" title="Past revisions of this page [alt-shift-h]" accesskey="h">History</a></li>			</ul>
+		</div>
+	</div>
+	<div class="portlet" id="p-personal">
+		<h5>Personal tools</h5>
+		<div class="pBody">
+			<ul>
+				<li id="pt-login"><a href="http://www.opencircuits.com/index.php?title=Special:UserLogin&amp;returnto=A_Tutorial_on_PIC_interrupts_using_BoostC_including_Example_Programs" title="You are encouraged to log in; however, it is not mandatory [alt-shift-o]" accesskey="o">Log in / create account</a></li>
+			</ul>
+		</div>
+	</div>
+	<div class="portlet" id="p-logo">
+		<a style="background-image: url(&quot;/skins/common/images/logo.png&quot;);" href="http://www.opencircuits.com/Main_Page" title="Visit the main page [alt-shift-z]" accesskey="z"></a>
+	</div>
+	<script type="text/javascript"> if (window.isMSIE55) fixalpha(); </script>
+	<div class="generated-sidebar portlet" id="p-navigation">
+		<h5>Navigation</h5>
+		<div class="pBody">
+			<ul>
+				<li id="n-mainpage-description"><a href="http://www.opencircuits.com/Main_Page">Main Page</a></li>
+				<li id="n-portal"><a href="http://www.opencircuits.com/Open_Circuits:Community_Portal" title="About the project, what you can do, where to find things">Community portal</a></li>
+				<li id="n-currentevents"><a href="http://www.opencircuits.com/Open_Circuits:Current_events" title="Find background information on current events">Current events</a></li>
+				<li id="n-recentchanges"><a href="http://www.opencircuits.com/Special:RecentChanges" title="The list of recent changes in the wiki [alt-shift-r]" accesskey="r">Recent changes</a></li>
+				<li id="n-randompage"><a href="http://www.opencircuits.com/Special:Random" title="Load a random page [alt-shift-x]" accesskey="x">Random page</a></li>
+				<li id="n-help"><a href="http://www.opencircuits.com/Help:Contents" title="The place to find out">Help</a></li>
+			</ul>
+		</div>
+	</div>
+	<div id="p-search" class="portlet">
+		<h5><label for="searchInput">Search</label></h5>
+		<div id="searchBody" class="pBody">
+			<form action="/index.php" id="searchform"><div>
+				<input name="title" value="Special:Search" type="hidden">
+				<input id="searchInput" name="search" title="Search Open Circuits [alt-shift-f]" accesskey="f" type="text">
+				<input name="go" class="searchButton" id="searchGoButton" value="Go" title="Go to a page with this exact name if exists" type="submit">&nbsp;
+				<input name="fulltext" class="searchButton" id="mw-searchButton" value="Search" title="Search the pages for this text" type="submit">
+			</div></form>
+		</div>
+	</div>
+	<div class="portlet" id="p-tb">
+		<h5>Toolbox</h5>
+		<div class="pBody">
+			<ul>
+				<li id="t-whatlinkshere"><a href="http://www.opencircuits.com/Special:WhatLinksHere/A_Tutorial_on_PIC_interrupts_using_BoostC_including_Example_Programs" title="List of all wiki pages that link here [alt-shift-j]" accesskey="j">What links here</a></li>
+				<li id="t-recentchangeslinked"><a href="http://www.opencircuits.com/Special:RecentChangesLinked/A_Tutorial_on_PIC_interrupts_using_BoostC_including_Example_Programs" title="Recent changes in pages linked from this page [alt-shift-k]" accesskey="k">Related changes</a></li>
+<li id="t-specialpages"><a href="http://www.opencircuits.com/Special:SpecialPages" title="List of all special pages [alt-shift-q]" accesskey="q">Special pages</a></li>
+				<li id="t-print"><a href="http://www.opencircuits.com/index.php?title=A_Tutorial_on_PIC_interrupts_using_BoostC_including_Example_Programs&amp;printable=yes" rel="alternate" title="Printable version of this page [alt-shift-p]" accesskey="p">Printable version</a></li>				<li id="t-permalink"><a href="http://www.opencircuits.com/index.php?title=A_Tutorial_on_PIC_interrupts_using_BoostC_including_Example_Programs&amp;oldid=19342" title="Permanent link to this revision of the page">Permanent link</a></li>			</ul>
+		</div>
+	</div>
+		</div><!-- end of the left (by default at least) column -->
+			<div class="visualClear"></div>
+			<div id="footer">
+				<div id="f-poweredbyico"><a href="http://www.mediawiki.org/"><img src="A_Tutorial_on_PIC_interrupts_using_BoostC_including_Example_Programs_files/poweredby_mediawiki_88x31.png" alt="Powered by MediaWiki"></a></div>
+				<div id="f-copyrightico"><a href="http://creativecommons.org/licenses/by-sa/2.5/"><img src="A_Tutorial_on_PIC_interrupts_using_BoostC_including_Example_Programs_files/somerights20.png" alt="Attribution-ShareAlike 2.5"></a></div>
+			<ul id="f-list">
+					<li id="lastmod"> This page was last modified on 23 March 2010, at 13:42.</li>
+					<li id="viewcount">This page has been accessed 6,368 times.</li>
+					<li id="copyright">Content is available under <a href="http://creativecommons.org/licenses/by-sa/2.5/" class="external " title="http://creativecommons.org/licenses/by-sa/2.5/">Attribution-ShareAlike 2.5</a>.</li>
+					<li id="privacy"><a href="http://www.opencircuits.com/Open_Circuits:Privacy_policy" title="Open Circuits:Privacy policy">Privacy policy</a></li>
+					<li id="about"><a href="http://www.opencircuits.com/Open_Circuits:About" title="Open Circuits:About">About Open Circuits</a></li>
+					<li id="disclaimer"><a href="http://www.opencircuits.com/Open_Circuits:General_disclaimer" title="Open Circuits:General disclaimer">Disclaimers</a></li>
+			</ul>
+		</div>
+</div>
+
+		<script type="text/javascript">if (window.runOnloadHook) runOnloadHook();</script>
+<!-- Served in 0.289 secs. -->
+</body></html>

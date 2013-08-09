@@ -1,0 +1,1404 @@
+<html><head>
+<meta http-equiv="Content-Language" content="en-us">
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+<title>The Watchdog Timer - PIC Microcontroller Tutorials - PIC Tutorial 
+Resource - Connect to the PIC</title>
+<meta name="keywords" content="Connect to the PIC Microcontroller, Introduction to PIC Microcontroller, Pic Microcontroller Tutorials, PiC Microcontroller Resources, PIC Microcontroller, Connect to the PIC, About PIC Microcontroller, PIC Microcontroller Projects, PIC Microcontroller Kits, Microcontroller Tutorials, PIC Microcontroller Diagram, PIC Microcontroller Pins, PIC Microcontoller Programming Techniques, PIC Microcontroller Registers, PIC Microcontroller Writing to the Ports, PIC Microcontroller Delay Loop, PIC Microcontroller Subroutines, PIC Microcontroller Reading from the I/O Ports, PIC Microcontroller Logical And Arithmetic Operators, PIC Micrcontroller Bit Operations, PIC Microcontroller Data Tables, PIC Microcontroller Interrupts, PIC Microcontroller Interrupts Writing The Code, PIC Microcontroller Watchdog Timer, Overview of Cybot Robot, Cybot Robot">
+<meta name="description" content="The Watchdog Timer - PIC Microcontroller Tutorials - We are now going to look at an internal timer, called a Watchdog Timer, So what is a Watchdog Timer? Suppose you have written a program that is continuously running on a PIC. Now, you want to make sure that this program is always running, and that no matter what happens it will never stop.">
+<meta name="author" content="Hobby Projects">
+<meta name="robots" content="index, follow">
+<meta name="robots" content="all">
+<meta name="rating" content="general">
+<meta name="revisit-after" content="18 days">
+<meta name="expires" content="never">
+<meta name="classification" content="Electronics Hobby Projects Circuits and Tutorials">
+<link href="tutorial13_files/design-style.css" rel="stylesheet" type="text/css">
+<style>
+<!--
+ table.MsoNormalTable
+	{mso-style-parent:"";
+	font-size:10.0pt;
+	font-family:"Times New Roman";
+	}
+-->
+</style>
+</head>
+
+<body>
+<div align="center">
+<table class="maintable">
+<tbody><tr>
+<td bgcolor="#000000">
+<table border="0" cellpadding="2" width="100%">
+<tbody><tr>
+<td bgcolor="#000000" width="216">
+<table border="0" cellpadding="5" width="100%">
+<tbody><tr>
+<td align="center">
+<a href="http://www.hobbyprojects.com/">
+<img src="tutorial13_files/hobby-projects-logo.jpg" alt="Electronics Circuits &amp; Tutorials" border="0" height="104" width="205"></a></td>
+</tr>
+<tr>
+<td align="center" bgcolor="#FF0000">
+<font color="#FFFFFF"><b>Electronics Circuits &amp; 
+Tutorials</b></font></td>
+</tr>
+</tbody></table>
+</td>
+<td>
+<div align="center">
+<table border="0" cellpadding="4" width="100%">
+<tbody><tr>
+<td align="center" valign="top">
+<object classid="clsid:D27CDB6E-AE6D-11CF-96B8-444553540000" id="obj4" codebase="http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=6,0,40,0" border="0" height="18" width="745">
+<param name="movie" value="../images/ad-banner-top.swf">
+<param name="quality" value="High">
+<param name="menu" value="false">
+<embed src="tutorial13_files/ad-banner-top.swf" pluginspage="http://www.macromedia.com/go/getflashplayer" type="application/x-shockwave-flash" name="obj4" quality="High" menu="false" height="18" width="745"></object>
+</td>
+</tr>
+<tr>
+<td valign="top">
+<p align="center">
+<script type="text/javascript"><!--
+google_ad_client = "ca-pub-5584687688693767";
+google_ad_slot = "1014171837";
+google_ad_width = 728;
+google_ad_height = 90;
+//-->
+</script>
+<script type="text/javascript" src="tutorial13_files/show_ads.js">
+</script><ins style="display:inline-table;border:none;height:90px;margin:0;padding:0;position:relative;visibility:visible;width:728px"><ins id="aswift_0_anchor" style="display:block;border:none;height:90px;margin:0;padding:0;position:relative;visibility:visible;width:728px"><iframe allowtransparency="true" hspace="0" marginwidth="0" marginheight="0" onload="var i=this.id,s=window.google_iframe_oncopy,H=s&amp;&amp;s.handlers,h=H&amp;&amp;H[i],w=this.contentWindow,d;try{d=w.document}catch(e){}if(h&amp;&amp;d&amp;&amp;(!d.body||!d.body.firstChild)){if(h.call){i+='.call';setTimeout(h,0)}else if(h.match){i+='.nav';w.location.replace(h)}s.log&amp;&amp;s.log.push(i)}" vspace="0" id="aswift_0" name="aswift_0" style="left: 0pt; position: absolute; top: 0pt;" scrolling="no" frameborder="0" height="90" width="728"></iframe></ins></ins></p></td>
+</tr>
+</tbody></table>
+</div>
+</td>
+</tr>
+</tbody></table>
+</td>
+</tr>
+<tr>
+<td>
+<div align="center">
+<table border="0" cellpadding="5" width="95%">
+<tbody><tr class="menubutton">
+<td><a href="http://www.hobbyprojects.com/">Home</a></td>
+<td><a href="http://www.hobbyprojects.com/aboutus.html">About us</a></td>
+<td><a href="http://www.hobbyprojects.com/electronics-circuits.html">Electronic Circuits</a></td>
+<td><a href="http://www.hobbyprojects.com/tutorial.html">Electronic Tutorials</a></td>
+<td><a href="http://www.hobbyprojects.com/engineering-projects.html">Engineering Hobby Projects</a></td>
+<td><a href="http://www.hobbyprojects.com/dictionaries.html">Online Dictionaries</a></td>
+<td><a href="http://www.hobbyprojects.com/contactus.html">Contact us</a></td>
+</tr></tbody></table>
+</div>
+</td>
+</tr>
+<tr>
+<td align="center" bgcolor="#000000" height="20">
+<script type="text/javascript"><!--
+google_ad_client = "ca-pub-5584687688693767";
+google_ad_slot = "1064764123";
+google_ad_width = 728;
+google_ad_height = 15;
+//-->
+</script>
+<script type="text/javascript" src="tutorial13_files/show_ads.js">
+</script><ins style="display:inline-table;border:none;height:15px;margin:0;padding:0;position:relative;visibility:visible;width:728px"><ins id="aswift_1_anchor" style="display:block;border:none;height:15px;margin:0;padding:0;position:relative;visibility:visible;width:728px"><iframe allowtransparency="true" hspace="0" marginwidth="0" marginheight="0" onload="var i=this.id,s=window.google_iframe_oncopy,H=s&amp;&amp;s.handlers,h=H&amp;&amp;H[i],w=this.contentWindow,d;try{d=w.document}catch(e){}if(h&amp;&amp;d&amp;&amp;(!d.body||!d.body.firstChild)){if(h.call){i+='.call';setTimeout(h,0)}else if(h.match){i+='.nav';w.location.replace(h)}s.log&amp;&amp;s.log.push(i)}" vspace="0" id="aswift_1" name="aswift_1" style="left: 0pt; position: absolute; top: 0pt;" scrolling="no" frameborder="0" height="15" width="728"></iframe></ins></ins></td>
+</tr>
+<tr>
+<td bgcolor="#FF0000">
+<object classid="clsid:D27CDB6E-AE6D-11CF-96B8-444553540000" id="obj2" codebase="http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=6,0,40,0" border="0" height="20" width="100%">
+<param name="movie" value="../flash-menu.swf">
+<param name="quality" value="High">
+<param name="wmode" value="transparent">
+<param name="menu" value="false">
+<embed src="tutorial13_files/flash-menu.swf" pluginspage="http://www.macromedia.com/go/getflashplayer" type="application/x-shockwave-flash" name="obj2" quality="High" wmode="transparent" menu="false" height="20" width="100%"></object>
+</td>
+</tr>
+<tr>
+<td>
+<table border="0" cellpadding="4">
+<tbody><tr>
+<td bgcolor="#000000" valign="top" width="20%">
+<table border="0" cellpadding="5" width="100%">
+<tbody><tr>
+<td class="tableh1">Tutorials</td>
+</tr>
+<tr>
+<td bgcolor="#FFFFFF">
+<ul>
+<li>
+<a href="http://www.hobbyprojects.com/tutorial.html#electronics-for-beginners">
+Basic/Beginners</a></li>
+<li>
+<a href="http://www.hobbyprojects.com/tutorial.html#intermediate-electronics">
+Intermediate/Advance</a></li>
+<li>
+<a href="http://www.hobbyprojects.com/microcontroller_tutorials.html">
+Microcontrollers</a></li>
+<li><a href="http://www.hobbyprojects.com/microprocessor_tutorials.html">
+Microprocessors</a></li>
+<li>
+<a href="http://www.hobbyprojects.com/schematics_circuits_symbols.html">Electronics 
+Symbols</a></li>
+<li>
+<a href="http://www.hobbyprojects.com/electronic_formula.html">Electronics Formulas</a></li>
+<li>
+<a href="http://www.hobbyprojects.com/dictionary_of_units.html">Dictionary of Units</a></li>
+</ul>
+<p align="left">
+&nbsp;&nbsp;&nbsp;&nbsp;
+<a href="http://www.hobbyprojects.com/tutorial.html">more....</a></p></td>
+</tr>
+<tr>
+<td class="ads">
+<script type="text/javascript"><!--
+google_ad_client = "ca-pub-5584687688693767";
+google_ad_slot = "5635722485";
+google_ad_width = 160;
+google_ad_height = 600;
+//-->
+</script>
+<script type="text/javascript" src="tutorial13_files/show_ads.js">
+</script><ins style="display:inline-table;border:none;height:600px;margin:0;padding:0;position:relative;visibility:visible;width:160px"><ins id="aswift_2_anchor" style="display:block;border:none;height:600px;margin:0;padding:0;position:relative;visibility:visible;width:160px"><iframe allowtransparency="true" hspace="0" marginwidth="0" marginheight="0" onload="var i=this.id,s=window.google_iframe_oncopy,H=s&amp;&amp;s.handlers,h=H&amp;&amp;H[i],w=this.contentWindow,d;try{d=w.document}catch(e){}if(h&amp;&amp;d&amp;&amp;(!d.body||!d.body.firstChild)){if(h.call){i+='.call';setTimeout(h,0)}else if(h.match){i+='.nav';w.location.replace(h)}s.log&amp;&amp;s.log.push(i)}" vspace="0" id="aswift_2" name="aswift_2" style="left: 0pt; position: absolute; top: 0pt;" scrolling="no" frameborder="0" height="600" width="160"></iframe></ins></ins></td>
+</tr>
+<tr>
+<td class="tableh1">Dictionaries</td>
+</tr>
+<tr>
+<td bgcolor="#FFFFFF">
+<ul>
+<li>
+<a href="http://www.hobbyprojects.com/dictionary/electronics-terms.html">Electronics Terms</a></li>
+<li>
+<a href="http://www.hobbyprojects.com/abbreviations/electronics-abbreviations.html">Abbreviations</a></li>
+<li><a href="http://www.hobbyprojects.com/online-dictionary.html">Computer Terms</a></li>
+<li><a href="http://www.hobbyprojects.com/physics-glossary-terms-dictionary.html">
+Physics Glossary</a></li>
+<li><a href="http://www.hobbyprojects.com/science-glossary-terms-dictionary.html">
+Science Glossary</a></li>
+<li>
+<a href="http://www.hobbyprojects.com/space-solor-glossary-terms-dictionary-definitions.html">
+Space &amp; Solar Terms</a></li>
+<li>
+<a href="http://www.hobbyprojects.com/semiconductor_symbols_abbreviations.html">
+Semiconductor Symbols / Abbreviation</a></li>
+<li><a href="http://www.hobbyprojects.com/radio_terminology.html">Radio Terminology 
+Bibliography</a></li>
+</ul>
+<p align="left">
+&nbsp;&nbsp;&nbsp;&nbsp;
+<a href="http://www.hobbyprojects.com/dictionaries.html">more....</a></p></td>
+</tr>
+<tr>
+<td class="tableh1">Projects</td>
+</tr>
+<tr>
+<td bgcolor="#FFFFFF">
+<ul>
+<li><a href="http://www.hobbyprojects.com/engineering-projects.html">Engineering 
+Projects</a></li>
+</ul>
+</td>
+</tr>
+</tbody></table>
+</td>
+<td bgcolor="#FFFFFF" valign="top">
+<table border="0" cellpadding="5" width="100%">
+<tbody><tr>
+<td align="center">
+
+<form action="http://www.hobbyprojects.com/search-result.html" id="cse-search-box">
+<div>
+<input name="cx" value="partner-pub-5584687688693767:3801644741" type="hidden">
+<input name="cof" value="FORID:10" type="hidden">
+<input name="ie" value="ISO-8859-1" type="hidden">
+<input style="border: 1px solid rgb(126, 157, 185); padding: 2px; background: url(&quot;http://www.google.com/cse/intl/en/images/google_custom_search_watermark.gif&quot;) no-repeat scroll left center rgb(255, 255, 255);" name="q" size="55" type="text">
+<input name="sa" value="Search" type="submit">
+</div>
+<input value="www.hobbyprojects.com/pic_tutorials/tutorial13.html" name="siteurl" type="hidden"></form>
+<script type="text/javascript" src="tutorial13_files/brand"></script>
+</td>
+</tr>
+</tbody></table>
+<table border="0" cellpadding="5" width="100%">
+<tbody><tr>
+<td bgcolor="#F4F4F4"> 
+<p style="line-height: 150%; margin-bottom: 0"> 
+<a href="http://www.hobbyprojects.com/index.html">Home</a> &gt; <a href="http://www.hobbyprojects.com/tutorial.html">
+Electronic Tutorials</a> &gt; 
+<a href="http://www.hobbyprojects.com/microcontroller_tutorials.html">Microcontroller Tutorials - PIC</a> 
+&gt; PIC Tutorial 13 - <span lang="EN-GB">The Watchdog Timer</span></p></td>
+</tr>
+<tr>
+<td align="center" bgcolor="#FF8800"> 
+<b><font size="5">PIC Microcontroller Tutorial</font></b></td>
+</tr>
+<tr>
+<td align="center" bgcolor="#A40000"> 
+<h1>PIC Tutorial 13 - <span lang="EN-GB">The Watchdog Timer</span></h1>
+</td>
+</tr>
+<tr>
+<td align="center">
+<script type="text/javascript"><!--
+google_ad_client = "ca-pub-5584687688693767";
+google_ad_slot = "8687342286";
+google_ad_width = 468;
+google_ad_height = 15;
+//-->
+</script>
+<script type="text/javascript" src="tutorial13_files/show_ads.js">
+</script><ins style="display:inline-table;border:none;height:15px;margin:0;padding:0;position:relative;visibility:visible;width:468px"><ins id="aswift_3_anchor" style="display:block;border:none;height:15px;margin:0;padding:0;position:relative;visibility:visible;width:468px"><iframe allowtransparency="true" hspace="0" marginwidth="0" marginheight="0" onload="var i=this.id,s=window.google_iframe_oncopy,H=s&amp;&amp;s.handlers,h=H&amp;&amp;H[i],w=this.contentWindow,d;try{d=w.document}catch(e){}if(h&amp;&amp;d&amp;&amp;(!d.body||!d.body.firstChild)){if(h.call){i+='.call';setTimeout(h,0)}else if(h.match){i+='.nav';w.location.replace(h)}s.log&amp;&amp;s.log.push(i)}" vspace="0" id="aswift_3" name="aswift_3" style="left: 0pt; position: absolute; top: 0pt;" scrolling="no" frameborder="0" height="15" width="468"></iframe></ins></ins></td>
+</tr>
+<tr>
+<td class="maintext">
+<h2><span lang="EN-GB">The Watchdog Timer</span></h2>
+<p>We are now going to look at an internal timer, called a Watchdog Timer</p>
+<h3>So what is a Watchdog Timer?</h3>
+<p>Suppose you have written a program that is continuously running on a 
+PIC.&nbsp;Now, you want to make sure that this program is always 
+running, and that no matter what happens it will never stop.&nbsp;The 
+first thing you would have, of course, is a loop back at the end of the 
+program that brings us back to the start of the program.&nbsp;But 
+consider this case.&nbsp;Let us say that the PIC is monitoring an 
+input.&nbsp;When this input goes high, it jumps to another part of the 
+program and waits for another pin to go high.&nbsp;If the second pin 
+doesn’t go high, the PIC will just sit there and wait.&nbsp;It will only
+ exit if the second pin goes high. Let us consider another 
+example.&nbsp;Suppose you have written a program. You have compiled it 
+successfully, and you have even simulated it over and over again using a
+ simulator such as MPLAB.&nbsp;Everything seems to work fine.&nbsp;You 
+program the PIC and place it into a circuit.&nbsp;However after a long 
+period of time, the program gets stuck somewhere and the PIC gets caught
+ in a loop.&nbsp;What’s needed in both cases is some kind of&nbsp; reset
+ if the program gets stuck. This is the purpose of a watchdog circuit.</p>
+<p>A watchdog circuit is nothing new. Many microprocessors and 
+microcontrollers have them.&nbsp;But how does it work?&nbsp;Well, inside
+ the PIC there is a resistor/capacitor network.&nbsp;This provides a 
+unique clock, which is independent of any external clock that you 
+provide in your circuit.&nbsp;Now, when the Watchdog Timer (abbreviated 
+to WDT) is enabled, a counter starts at 00 and increments by 1 until it 
+reaches FF.&nbsp;When it goes from FF to 00 (which is FF + 1) then the 
+PIC will be reset, irrespective of what it is doing.&nbsp;The only way 
+we can stop the WDT from resetting the PIC is to periodically reset the 
+WDT back to 00 throughout our program.&nbsp;Now you can see that if our 
+program does get stuck for some reason, then the WDT will not be 
+set.&nbsp;The WDT will then reset the PIC, causing our program to 
+restart from the beginning.</p>
+<p>In order to use the WDT, we need to know three things. First, how 
+long have we got before we need to reset the WDT, secondly how do we 
+clear it.&nbsp;Finally, we have to tell the PIC programming software to 
+enable the WDT inside the PIC.&nbsp;Let’s look at these separately.</p>
+<h3>WDT Times</h3>
+<p>The PIC data sheet specifies that the WDT has a period from start to 
+finish of 18mS.&nbsp;This is dependant several factors, such as the 
+supply voltage, temperature of the PIC etc.&nbsp;The reason for the 
+approximation is because the WDT clock is supplied by an internal RC 
+network.&nbsp;The time for an RC network to charge depends on the supply
+ voltage.&nbsp;It also depends on the component values, which will 
+change slightly depending on their temperature.&nbsp;So, for the sake of
+ simplicity, just take it that the WDT will reset every 18mS.&nbsp;We 
+can, however, make this longer.&nbsp;Inside the PIC is a thing called a 
+Prescaler.&nbsp;We can program this prescaler to divide the RC 
+clock.&nbsp;The 
+more we divide the RC clock by, the longer it takes for the WDT to 
+reset.</p>
+<p>The prescaler is located in the OPTION register at address 81h, bits 0
+ to 2 inclusive.&nbsp;Below is a table showing the bit assignments with 
+the division rates and the time for the WDT to time out:</p><table class="MsoNormalTable" style="margin-left: 6.75pt; margin-right: 6.75pt;" id="table23" align="left" border="0" cellpadding="0" cellspacing="0" width="526"><tbody><tr>
+	<td style="width: 154px; border: 1pt solid windowtext; padding: 0in 5.4pt;" align="center" valign="top">
+	<b>Bit</b><p><font color="#FF0000"><b>2,1,0</b></font></p></td>
+	<td style="width: 97px; border-left: medium none; border-right: 1pt solid windowtext; border-width: 1pt 1pt 1pt medium; border-style: solid solid solid none; border-color: windowtext windowtext windowtext -moz-use-text-color; padding: 0in 5.4pt;" align="center" valign="top">
+	<b>Rate</b></td>
+	<td style="width: 229px; border-left: medium none; border-right: 1pt solid windowtext; border-width: 1pt 1pt 1pt medium; border-style: solid solid solid none; border-color: windowtext windowtext windowtext -moz-use-text-color; padding: 0in 5.4pt;" align="center" valign="top">
+	<b>WDT Time</b></td></tr><tr>
+		<td style="width: 154px; border-left: 1pt solid windowtext; border-right: 1pt solid windowtext; border-width: medium 1pt 1pt; border-style: none solid solid; border-color: -moz-use-text-color windowtext windowtext; padding: 0in 5.4pt;" align="center" valign="top">0,0,0</td>
+		<td style="width: 97px; border-left: medium none; border-right: 1pt solid windowtext; border-width: medium 1pt 1pt medium; border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; padding: 0in 5.4pt;" align="center" valign="top">1:1</td>
+		<td style="width: 229px; border-left: medium none; border-right: 1pt solid windowtext; border-width: medium 1pt 1pt medium; border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; padding: 0in 5.4pt;" align="center" valign="top">18mS</td></tr><tr>
+			<td style="width: 154px; border-left: 1pt solid windowtext; border-right: 1pt solid windowtext; border-width: medium 1pt 1pt; border-style: none solid solid; border-color: -moz-use-text-color windowtext windowtext; padding: 0in 5.4pt;" align="center" valign="top">0,0,1</td>
+			<td style="width: 97px; border-left: medium none; border-right: 1pt solid windowtext; border-width: medium 1pt 1pt medium; border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; padding: 0in 5.4pt;" align="center" valign="top">1:2</td>
+			<td style="width: 229px; border-left: medium none; border-right: 1pt solid windowtext; border-width: medium 1pt 1pt medium; border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; padding: 0in 5.4pt;" align="center" valign="top">36mS</td></tr><tr>
+				<td style="width: 154px; border-left: 1pt solid windowtext; border-right: 1pt solid windowtext; border-width: medium 1pt 1pt; border-style: none solid solid; border-color: -moz-use-text-color windowtext windowtext; padding: 0in 5.4pt;" align="center" valign="top">0,1,0</td>
+				<td style="width: 97px; border-left: medium none; border-right: 1pt solid windowtext; border-width: medium 1pt 1pt medium; border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; padding: 0in 5.4pt;" align="center" valign="top">1:4</td>
+				<td style="width: 229px; border-left: medium none; border-right: 1pt solid windowtext; border-width: medium 1pt 1pt medium; border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; padding: 0in 5.4pt;" align="center" valign="top">72mS</td></tr><tr>
+					<td style="width: 154px; border-left: 1pt solid windowtext; border-right: 1pt solid windowtext; border-width: medium 1pt 1pt; border-style: none solid solid; border-color: -moz-use-text-color windowtext windowtext; padding: 0in 5.4pt;" align="center" valign="top">0,1,1</td>
+					<td style="width: 97px; border-left: medium none; border-right: 1pt solid windowtext; border-width: medium 1pt 1pt medium; border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; padding: 0in 5.4pt;" align="center" valign="top">1:8</td>
+					<td style="width: 229px; border-left: medium none; border-right: 1pt solid windowtext; border-width: medium 1pt 1pt medium; border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; padding: 0in 5.4pt;" align="center" valign="top">144mS</td></tr><tr>
+						<td style="width: 154px; border-left: 1pt solid windowtext; border-right: 1pt solid windowtext; border-width: medium 1pt 1pt; border-style: none solid solid; border-color: -moz-use-text-color windowtext windowtext; padding: 0in 5.4pt;" align="center" valign="top">1,0,0</td>
+						<td style="width: 97px; border-left: medium none; border-right: 1pt solid windowtext; border-width: medium 1pt 1pt medium; border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; padding: 0in 5.4pt;" align="center" valign="top">1:16</td>
+						<td style="width: 229px; border-left: medium none; border-right: 1pt solid windowtext; border-width: medium 1pt 1pt medium; border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; padding: 0in 5.4pt;" align="center" valign="top">288mS</td></tr><tr>
+							<td style="width: 154px; border-left: 1pt solid windowtext; border-right: 1pt solid windowtext; border-width: medium 1pt 1pt; border-style: none solid solid; border-color: -moz-use-text-color windowtext windowtext; padding: 0in 5.4pt;" align="center" valign="top">1,0,1</td>
+							<td style="width: 97px; border-left: medium none; border-right: 1pt solid windowtext; border-width: medium 1pt 1pt medium; border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; padding: 0in 5.4pt;" align="center" valign="top">1:32</td>
+							<td style="width: 229px; border-left: medium none; border-right: 1pt solid windowtext; border-width: medium 1pt 1pt medium; border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; padding: 0in 5.4pt;" align="center" valign="top">576mS</td></tr><tr>
+								<td style="width: 154px; border-left: 1pt solid windowtext; border-right: 1pt solid windowtext; border-width: medium 1pt 1pt; border-style: none solid solid; border-color: -moz-use-text-color windowtext windowtext; padding: 0in 5.4pt;" align="center" valign="top">1,1,0</td>
+								<td style="width: 97px; border-left: medium none; border-right: 1pt solid windowtext; border-width: medium 1pt 1pt medium; border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; padding: 0in 5.4pt;" align="center" valign="top">1:64</td>
+								<td style="width: 229px; border-left: medium none; border-right: 1pt solid windowtext; border-width: medium 1pt 1pt medium; border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; padding: 0in 5.4pt;" align="center" valign="top">1.1Seconds</td></tr><tr>
+									<td style="width: 154px; border-left: 1pt solid windowtext; border-right: 1pt solid windowtext; border-width: medium 1pt 1pt; border-style: none solid solid; border-color: -moz-use-text-color windowtext windowtext; padding: 0in 5.4pt;" align="center" valign="top">1,1,1</td>
+									<td style="width: 97px; border-left: medium none; border-right: 1pt solid windowtext; border-width: medium 1pt 1pt medium; border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; padding: 0in 5.4pt;" align="center" valign="top">1:128</td>
+									<td style="width: 229px; border-left: medium none; border-right: 1pt solid windowtext; border-width: medium 1pt 1pt medium; border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; padding: 0in 5.4pt;" align="center" valign="top">2.3Seconds</td></tr></tbody></table><p><br clear="all">
+									<br>
+									Remember these times are irrespective of your external clock 
+frequency. Think of these times as real time, rather than clock 
+times.&nbsp;To help make this clear, let us suppose we want the WDT to 
+reset our PIC after about half a second as a failsafe. The nearest we 
+have is 576mS, or 0.576 seconds.&nbsp;All we do is send b’101’ to our 
+OPTION register, as follows:</p>
+									<p>movlw&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ b’101’&nbsp;&nbsp;&nbsp; ;This is 0x05 in Hex<br>
+									
+movwf&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ 81h&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ;This is the Option Register</p>
+									<p>Simple, really.<span lang="EN-GB">&nbsp;</span>Now,&nbsp; 
+there is a catch.&nbsp;By default the prescaler is assigned to the other
+ internal timer.&nbsp;This means that we have to change the prescaler 
+over to the WDT.&nbsp;First, we have to reset the other counter to 0 
+first.&nbsp;We then have to change to Bank 1 to assign the prescaler to 
+the WDT and to set up the time, and then come back to Bank 0.&nbsp;The 
+code is below, where xx is the prescaler time:</p>
+									<p><span lang="EN-GB">bcf</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ STATUS,0&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ;make sure we are in bank 0<span lang="EN-GB"><br>
+									clrf</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span lang="EN-GB">&nbsp;&nbsp; </span>&nbsp;01h&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;;address
+ of the other timer – TMR0<span lang="EN-GB"><br>
+									bsf</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ STATUS,0&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ;switch to bank 1<span lang="EN-GB"><br>
+									clrwdt</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span lang="EN-GB">&nbsp;&nbsp;&nbsp; </span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;;reset
+ the WDT and prescaler<span lang="EN-GB"><br>
+									movlw</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span lang="EN-GB">&nbsp; </span>&nbsp;&nbsp; b’1xxx’&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp; &nbsp;;Select the new prescaler value and assign<span lang="EN-GB"><br>
+									movwf</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; OPTION&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span lang="EN-GB">&nbsp; </span>&nbsp; ;it to WDT<span lang="EN-GB"><br>
+									bcf</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ STATUS,0&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ;come back to bank 0</p>
+									<p>The CLRWDT command above is how we clear the WDT before it 
+resets the PIC.&nbsp;So, all we need to do is calculate where in our 
+program the WDT will time out, and then enter the CLRWDT command just 
+before this point to ensure the PIC doesn’t reset.&nbsp;If your program 
+is long, bear in mind that you may need more than one CLRWDT.&nbsp;For 
+example, if we use the default time of 18mS, then we need to make sure 
+that the program will see CLRWDT every 18mS.</p>
+									<p>So now we come to the point where we need to work out how 
+long our code takes in real time.&nbsp;The principle is very simple, but
+ could cause you to pull your hair out!</p>
+									<h3>Instruction Timing</h3>
+									<p>As you are probably already aware, the PIC takes the 
+external clock timing and divides it by 4. This internal time is called 
+an instruction cycle.&nbsp;Now if we have, say, a 4MHz xtal connected to
+ the PIC, internally the PIC will run at 1MHz.&nbsp;In timing terms, 
+this is <span lang="EN-GB">1/(</span>4MHz<span lang="EN-GB">/4)</span> = <span lang="EN-GB">1</span>uS.&nbsp;Now, some instructions take just one instruction cycle to complete, i.e. <span lang="EN-GB">1</span>uS using a 4MHz crystal, while others take two cycles – <span lang="EN-GB">2</span>uS
+ – to complete.&nbsp;The data sheet tells us how many cycles each 
+instruction takes.&nbsp;The easiest way to remember this is quite 
+simple.&nbsp;Assume ALL instructions take 1 cycle.&nbsp;But, if an 
+instruction causes the program to go somewhere else, then it will take 2
+ cycles.&nbsp;Let me give you a couple of examples. The movwf command 
+takes only one cycle, because it is only moving data from one place to 
+another.&nbsp;The goto command takes 2 cycles, because it is causing the
+ Program Counter (PC) to go elsewhere in the program.&nbsp;The RETURN 
+command takes 2 cycles, because it is causing the PC to go back in the 
+program.&nbsp;We think you can see the pattern here.&nbsp;However, there
+ are four commands which can take 1 or 2 cycles.&nbsp;These are DECFSZ, 
+INCFSZ, BTFSC and BTFSS.&nbsp;These commands have one thing in 
+common.&nbsp;They will skip the next instruction is a certain condition 
+is met.&nbsp;If that condition is not met, then the next instruction 
+will be carried out.&nbsp;For example, the DECFSZ 
+									command will decrement the value stored in 
+									the F register by 1.&nbsp;If the result is 
+									not 0, then the next instruction will be 
+									executed.&nbsp;This instruction therefore 
+									takes 1 cycle.&nbsp;If the result is 0, 
+									then the next instruction will be skipped, 
+									and the one following that will be executed.&nbsp;
+									In this instance the instruction takes 2 
+									cycles.&nbsp;The reason is that the 
+									instruction alters the value of the PC.&nbsp;
+									It needs one cycle to carry out the 
+									function, and it will need another to alter 
+									the PC by an extra one.</p>
+									<p>To clarify this, let us look at a sample 
+									code, and work out how many instruction 
+									cycles it takes.</p>
+									<p>movlw&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 02<span lang="EN-GB"><br>
+									</span>movwf&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;COUNT<br>
+									loop&nbsp;&nbsp;&nbsp; decfsz&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; COUNT<span lang="EN-GB"><br>
+									</span>goto&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;loop<br>
+									end</p>
+									<p>Our first instruction simply moves the value 02 into 
+w.&nbsp;This does not cause the program to off course, therefore it is 
+only 1 cycle.&nbsp;The next instruction is similar, in as much that it 
+moves the contents of the w register into COUNT.&nbsp;Again, this will 
+be 1 cycle.&nbsp;Now, the next instruction will first decrement COUNT by
+ 1.&nbsp;This is 1 cycle.&nbsp;It will then do a test to see if COUNT is
+ equal to 0.&nbsp;At this stage it doesn’t, and so we move onto the next
+ instruction.&nbsp;The next instruction is a goto statement, and so is 2
+ cycles long.&nbsp;We come back to our decfsz instruction, which 
+decrements COUNT by 1 again.&nbsp;This is another instruction 
+cycle.&nbsp;It does a test to see if COUNT is equal to 0.&nbsp;This time
+ it does, and so the next instruction is skipped.&nbsp;To skip the next 
+instruction requires another cycle.&nbsp;We reach the end of the 
+program.&nbsp;So in total, with the value 02 placed into COUNT, this 
+program will take a total of 7 cycles.&nbsp;If we were using a 4MHz 
+crystal for our clock, then the program will take:</p>
+									<p>1/<span lang="EN-GB">(</span>4MHz<span lang="EN-GB">/4)</span> = <span lang="EN-GB">1</span>uS per cycle, therefore 7 cycles takes 7 x <span lang="EN-GB">1</span>uS = <span lang="EN-GB">7</span>uS.</p>
+									<p>So you can see that it can get a little confusing when you have instructions like DECFSZ.</p>
+									<h3>Programmer Software</h3>
+									<p>Inside the PIC there are things called ‘Fuses’.&nbsp;These 
+are not the same as the fuses you would find in a mains plug, but 
+electronic switches which are ‘blown’ by the programmer.&nbsp;Now, one 
+of these fuses has to be ‘blown’ in order&nbsp; for the WDT to 
+operate.&nbsp;There are two ways of doing this.&nbsp;One way is to write
+ a couple of lines at the beginning of your program to tell the PIC 
+programming software to enable or disable certain fuses.&nbsp;The other 
+way is to tell the PIC programming software manually which fuses to 
+enable.&nbsp;We will look at getting your program to instruct the 
+programming software in a later tutorial, when we look at including 
+other files and macros.&nbsp;To tell the programming software manually, 
+varies from program to program.&nbsp;The documentation that came with 
+the programmer should tell you how to do this.&nbsp;As We are using the 
+PICALLW software, which is linked on my main page, We will explain how 
+to do change fuses within this program.&nbsp;The fuses are configured by
+ pressing the F3 key, or clicking on the ‘Config’ button.&nbsp;Then you 
+can select the fuse you want enabled, in this case the WDT, by clicking 
+on the box next to it.</p>
+									<h3>Sample Program</h3>
+									<p>Let us write a program, where we will turn on the WDT, and 
+let the PIC perform a function.&nbsp;We will first of all periodically 
+clear the WDT, to show that the program works, and then remove the 
+CLRWDT 
+									command to show that the PIC will indeed 
+									reset.</p>
+									<p>The program We have chosen is the one used in tutorial 9 
+where we cause a row of LEDs to light up one at a time from left to 
+right, then right to left.&nbsp;The circuit is shown below, and with the
+ RC values shown will give us a clock frequency of 8KHz.&nbsp;This clock
+ speed will allow us to actually see the LEDs moving one by one.&nbsp;We
+ chose this program because it is slow enough for us to play with the 
+WDT, and you can easily see when the PIC is reset.&nbsp;We have removed 
+the original comments, and We have replaced them with a description of 
+the WDT lines, a running total of the time from the start (assuming a 
+8KHz clock), and the number of clock cycles at each line.</p>
+									<p style="text-align: center">
+									<img src="tutorial13_files/pic_timer.gif" alt="PIC Timer Circuit Diagram" border="0"></p>
+									<p><span lang="EN-GB">TI</span>ME&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;equ
+ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+9FH&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ ; Variable for the delay loop.<br>
+									PORTB &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; equ 
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+06H&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ ; Port B address.<br>
+									TRISB 
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;equ 
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+86H&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ ; Port B Tristate address.<br>
+									PORTA &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp; equ 
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+05H&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ ; Port A address.<br>
+									TRISA 
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;equ 
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+85H&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ ; Port A Tristate address.<br>
+									STATUS &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; equ 
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+03H&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ ; Page select register.<br>
+									COUNT1 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; equ 
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+0CH&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ ; Loop register.<br>
+									COUNT2 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; equ&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+									0DH&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+									; Loop register.</p>
+									<p>bsf&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; STATUS,5&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ; 1 cycle, 0.5mS<br>
+									movlw&nbsp; <span lang="EN-GB">&nbsp;</span> 00H&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ; 1 cycle, 1.0mS<br>
+									movwf&nbsp; &nbsp;TRISB&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ; 1 cycle, 1.5mS<br>
+									movlw&nbsp; &nbsp; 
+00H&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;;
+ 1 cycle, 2.0mS<br>
+									movwf&nbsp; &nbsp;TRISA&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span lang="EN-GB">&nbsp;&nbsp;&nbsp;</span> ; 1 cycle, 2.5mS<br>
+									bcf&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span lang="EN-GB">&nbsp; </span>STATUS,5&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ; 1 cycle, 3.0mS<br>
+									movlw&nbsp; <span lang="EN-GB">&nbsp;</span> 00H&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;; 1 cycle, 3.5mS<br>
+									movwf&nbsp; <span lang="EN-GB">&nbsp;</span>PORTA&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span lang="EN-GB">&nbsp; </span>&nbsp;&nbsp;&nbsp;&nbsp;; 1 cycle, 4.0mS</p>
+									<p>; Start of main program</p>
+									<p>RUN</p>
+									<p>movlw <span lang="EN-GB">&nbsp;</span>&nbsp; 
+01H&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ &nbsp;&nbsp;; 1 cycle, 4.5mS<br>
+									movwf <span lang="EN-GB">&nbsp;</span> 
+PORTB&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ ; 1 cycle, 5.0mS<br>
+									call&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+DELAY&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span lang="EN-GB">&nbsp; </span>&nbsp;&nbsp; ; 2 cycles, 486mS<br>
+									call&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+DELAY&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span lang="EN-GB">&nbsp; </span>&nbsp;&nbsp;&nbsp; ; 2 cycles, 967mS</p>
+									<p>; Move the bit on Port B left, then pause.</p>
+									<p>rlf&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+PORTB,1&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ ; 1 cycle, 967.5mS<br>
+									call&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;DELAY&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span lang="EN-GB">&nbsp; </span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ; 2 cycles, 1.45S<br>
+									call&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; DELAY&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span lang="EN-GB">&nbsp; </span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ; 2 cycles, 1.93S<br>
+									rlf&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+PORTB,1&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ ; 1 cycle, 1.93S<br>
+									call&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; DELAY&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span lang="EN-GB">&nbsp; </span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ; 2 cycles, 2.41S<br>
+									call&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+DELAY&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ; 2 cycles, 
+2.89S<br>
+									rlf&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp; 
+PORTB,1&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ ; 1 cycle, 2.89S<br>
+									call&nbsp;&nbsp;&nbsp; &nbsp; DELAY&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span lang="EN-GB">&nbsp; </span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ; 2 cycles, 3.37S<br>
+									call&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; DELAY&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span lang="EN-GB">&nbsp; </span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ; 2 cycles, 3.85S<br>
+									rlf&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+PORTB,1&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ ; 1 cycle, 3.85S<br>
+									call&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+DELAY&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+&nbsp;&nbsp;&nbsp;&nbsp; ; 2 cycles, 4.34S<br>
+									call&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; DELAY&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span lang="EN-GB">&nbsp; </span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ; 2 cycles, 4.82S<br>
+									rlf&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+PORTB,1&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ ; 1 cycle, 4.82S<br>
+									call&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; DELAY&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span lang="EN-GB">&nbsp; </span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ; 2 cycles, 5.30S<br>
+									call&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; DELAY&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span lang="EN-GB">&nbsp; </span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ; 2 cycles, 5.78S<br>
+									rlf&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+PORTB,1&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ ; 1 cycle, 5.78S<br>
+									call&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; DELAY&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span lang="EN-GB">&nbsp; </span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ; 2 cycles, 6.26S<br>
+									call&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; DELAY&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span lang="EN-GB">&nbsp; </span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ; 2 cycles, 6.74S<br>
+									rlf&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+PORTB,1&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ; 1 cycle, 6.74S<br>
+									call&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; DELAY&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span lang="EN-GB">&nbsp; </span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ; 2 cycles, 7.22S<br>
+									call&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+DELAY&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span lang="EN-GB">&nbsp; </span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ; 2 cycles, 7.70S<br>
+									rlf&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+PORTB,1&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ ; 1 cycle, 7.70S</p>
+									<p>; Now move onto Port A, and move the bit left.</p>
+									<p>rlf&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+PORTA,1&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ; 1 cycle, 7.70S<br>
+									call&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+DELAY&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ; 2 cycles, 8.19S<br>
+									call&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+DELAY&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ; 2 
+cycles, 8.67S<br>
+									rlf&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+PORTA,1&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ ; 1 cycle, 8.67S<br>
+									call&nbsp;&nbsp;&nbsp;&nbsp; 
+&nbsp;DELAY&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span lang="EN-GB">&nbsp; </span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ; 2 cycles, 9.15S<br>
+									
+call&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;DELAY&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span lang="EN-GB">&nbsp; </span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ; 2 cycles, 9.63S<br>
+									rlf&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+PORTA,1&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ; 1 cycle, 9.63S<br>
+									call&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; DELAY&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span lang="EN-GB">&nbsp; </span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ; 2 cycles, 10.11S<br>
+									call&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; DELAY&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span lang="EN-GB">&nbsp; </span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ; 2 cycles, 10.59S<br>
+									rlf&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+PORTA,1&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ; 1 
+cycle, 10.59S<br>
+									call&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; DELAY&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span lang="EN-GB">&nbsp; </span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ; 2 cycles, 11.07S<br>
+									call&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; DELAY&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span lang="EN-GB">&nbsp; </span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+									; 2 cycles, 11.55S</p>
+									<p>; Move the bit back on Port A</p>
+									<p>rrf&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+PORTA,1&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ ; 1 cycle, 11.55S<br>
+									call&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+DELAY&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ ; 2 cycles, 12.04S<br>
+									call&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+DELAY&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ ; 2 cycles, 12.52S<br>
+									rrf&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+PORTA,1&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ ; 1 cycle, 12.52S<br>
+									call&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+DELAY&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ ; 2 cycles, 12.99S<br>
+									call&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+DELAY&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ ; 2 cycles, 13.48S<br>
+									rrf&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+PORTA,1&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ ; 1 cycle, 13.48S<br>
+									call&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+DELAY&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ ; 2 cycles, 13.96S<br>
+									call&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+DELAY&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ ; 2 cycles, 14.44S<br>
+									rrf&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+PORTA,1&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ ; 1 cycle, 14.44S</p>
+									<p>; Now move the bit back on Port B</p>
+									<p>rrf&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+PORTB,1&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ ; 1 cycle, 14.44S<br>
+									call 
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;DELAY&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ; 2 cycles, 14.92S<br>
+									call&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+DELAY&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ &nbsp;&nbsp;&nbsp;&nbsp; ; 2 cycles, 15.40S<br>
+									rrf&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+PORTB,1&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ ; 1 cycle, 15.40S<br>
+									call&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+DELAY&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ; 2 cycles, 15.89S<br>
+									call&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+DELAY&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ &nbsp;&nbsp; ; 2 cycles, 16.37S<br>
+									rrf&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+PORTB,1&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ ; 1 cycle, 16.37S<br>
+									call&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+DELAY&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ &nbsp;&nbsp; ; 2 cycles, 16.84S<br>
+									call&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+DELAY&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ &nbsp;&nbsp;&nbsp;&nbsp; ; 2 cycles, 17.33S<br>
+									rrf&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+PORTB,1&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ ; 1 cycle, 17.33S<br>
+									call&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+DELAY&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; ; 2 
+cycles, 17.81S<br>
+									call&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+DELAY&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ ; 2 cycles, 18.29S<br>
+									rrf&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+PORTB,1&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ ; 1 cycle, 18.29S<br>
+									call&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+DELAY&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ; 2 cycles, 18.77S<br>
+									call&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+DELAY&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ ; 2 cycles, 19.25S<br>
+									rrf&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+PORTB,1&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ ; 1 cycle, 19.25S<br>
+									call&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+DELAY&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ; 2 cycles, 19.73S<br>
+									call&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+DELAY&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ; 2 cycles, 
+20.22S<br>
+									rrf&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+PORTB,1&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ ; 1 cycle, 20.22S<br>
+									call&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+DELAY&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ; 2 
+cycles, 20.70S<br>
+									call&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+DELAY&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ; 2 
+cycles, 21.18S</p>
+									<p>goto&nbsp;&nbsp;&nbsp;&nbsp; RUN&nbsp;&nbsp;&nbsp; 
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ; 2 
+cycles, 21.18S</p>
+									<p>; Subroutine to give a delay between bit 
+									movements.</p>
+									<p>;Total of 957 cycles, 480mS</p>
+									<p>DELAY<span lang="EN-GB"><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>movlw&nbsp;
+ TIME&nbsp; 
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ ; 1 cycle<span lang="EN-GB"><br>
+									&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>movwf&nbsp;
+ COUNT1&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ; 1 
+cycle</p>
+									<p>LOOP1&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ 
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ ;<span lang="EN-GB"><br>
+									&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>decfsz&nbsp;&nbsp;
+ COUNT1&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ; 9F x
+ 1 cycle + 1 cycle = 160 cycles<span lang="EN-GB"><br>
+									&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>goto&nbsp;&nbsp;&nbsp;&nbsp;
+ 
+LOOP1&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ ; 9E x 2 cycles = 316 cycles<span lang="EN-GB"><br>
+									&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; m</span>ovwf COUNT1&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span lang="EN-GB">&nbsp; </span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ; 1 cycle</p>
+									<p>LOOP2&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ 
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ ;<span lang="EN-GB"><br>
+									&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>decfsz&nbsp;&nbsp;
+ 
+COUNT1&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ ; 9F x 1 cycle + 1 cycle = 256 cycles<span lang="EN-GB"><br>
+									&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>goto&nbsp;&nbsp;&nbsp;&nbsp;
+ 
+LOOP2&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ ;&nbsp;9E x 2 cycles = 316 cycles</p>
+									<p>return&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ 
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ ; 2 cycles</p>
+									<p>END&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;;</p>
+									<p>With an 8KHz clock, it takes just under 1 second for the 
+next LED illuminates, and it takes a total of about 21 seconds to run 
+from one end to the other and back again i.e. to go through the routine 
+once only.&nbsp;The delay routine takes 480mS, and we are calling it 
+twice before moving the bit on the ports.&nbsp;Now, we need to 
+periodically reset the WDT.&nbsp;The largest time we can set the WDT is 
+2.3 seconds, and the next one down form this is 1.1 seconds.&nbsp;We 
+have two options here.&nbsp;&nbsp; We could make a call to a subroutine 
+to clear the WDT after the two delays have finished, or we could 
+incorporate the CLRWDT within the delay itself.&nbsp;We have decided, 
+for no real reason at all, to incorporate the CLRWDT within the delay 
+loop.</p>
+									<p>TIME&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;equ
+ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+9FH&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ ; Variable for the delay loop.<br>
+									PORTB 
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; equ 
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+06H&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ ; Port B address.<br>
+									TRISB 
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; equ 
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+86H&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ ; Port B Tristate address.<br>
+									PORTA &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+&nbsp;equ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+05H&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ ; Port A address.<br>
+									TRISA 
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; equ 
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+85H&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ ; Port A Tristate address.<br>
+									STATUS &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; equ 
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+03H&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ ; Page select register.<br>
+									COUNT1 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <span lang="EN-GB">&nbsp;</span>
+ equ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+0CH&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ ; Loop register.<br>
+									COUNT2 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp; equ 
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+0DH&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ; Loop register.</p>
+									<p>OPT&nbsp;&nbsp;&nbsp;&nbsp; 
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+equ&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+81h&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ ; Option Register to control the WDT</p>
+									<p>;*************Set up the ports, WDT and prescaler******************</p><p>&nbsp;<span lang="EN-GB">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>clrf&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ 01h&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;;Clear TMR0<span lang="EN-GB"><br>
+									&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>bsf&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ STATUS,5&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;;Switch to bank
+ 1<span lang="EN-GB"><br>
+									&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>clrwdt&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;;reset
+ the WDT and prescaler<span lang="EN-GB"><br>
+									&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>movlw&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ b’1101’&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;;Select the new 
+prescaler value and assign<span lang="EN-GB"><br>
+									&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>movwf&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; OPT&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;
+ ;it to WDT</p>
+									<p>movlw&nbsp; 
+00H&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ &nbsp;&nbsp;&nbsp;&nbsp; ; Now set up the ports<br>
+									movwf&nbsp; 
+TRISB&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ &nbsp;&nbsp;&nbsp;&nbsp; ;
+									<br>
+									movlw&nbsp; 
+00H&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ &nbsp;&nbsp; ;
+									<br>
+									movwf&nbsp; TRISA&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span lang="EN-GB">&nbsp;&nbsp;&nbsp; </span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;;<br>
+									bcf&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+STATUS,5&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ &nbsp;&nbsp;&nbsp;&nbsp; ;Come back to bank 0</p>
+									<p>movlw&nbsp; 
+00H&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;;<br>
+									movwf&nbsp; PORTA&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span lang="EN-GB">&nbsp; </span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp; ;&nbsp;</p>
+									<p>;*************Start of main 
+									program*****************************</p><p>&nbsp;RUN</p>
+									<p>movlw&nbsp;&nbsp; 
+01H&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ 
+									;<br>
+									movwf&nbsp; 
+PORTB&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ &nbsp;&nbsp; ;<span lang="EN-GB"><br>
+									</span>call&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;DELAY&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ &nbsp;&nbsp; ;<br>
+									
+call&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;DELAY&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ &nbsp; ;</p>
+									<p>; *************Move the bit on Port B left, then pause.**************</p>
+									<p>&nbsp;<span lang="EN-GB">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>rlf&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ 
+PORTB,1&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ ;
+									<span lang="EN-GB"><br>
+									&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>call&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ 
+DELAY&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ ; 
+									<span lang="EN-GB"><br>
+									&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>call&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ 
+DELAY&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ ; 
+									<span lang="EN-GB"><br>
+									&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>rlf&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ 
+PORTB,1&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ ;
+									<span lang="EN-GB"><br>
+									&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;c</span>all&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ 
+DELAY&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ ; 
+									<span lang="EN-GB"><br>
+									&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>call&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ 
+DELAY&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ ; 
+									<span lang="EN-GB"><br>
+									&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; r</span>lf&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ 
+PORTB,1&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ ; 
+									<span lang="EN-GB"><br>
+									&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>call&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ 
+DELAY&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ ; 
+									<span lang="EN-GB"><br>
+									&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>call&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ 
+DELAY&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ ; 
+									<span lang="EN-GB"><br>
+									&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>rlf&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ 
+PORTB,1&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ ;
+									<span lang="EN-GB"><br>
+									&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>call&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ 
+DELAY&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ ; 
+									<span lang="EN-GB"><br>
+									&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>call&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ 
+DELAY&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ ; 
+									<span lang="EN-GB"><br>
+									&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>rlf&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ 
+PORTB,1&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ ;
+									<span lang="EN-GB"><br>
+									&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>call&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ 
+DELAY&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ ; 
+									<span lang="EN-GB"><br>
+									&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>call&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ 
+DELAY&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ ; 
+									<span lang="EN-GB"><br>
+									&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>rlf&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ 
+PORTB,1&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ ;
+									<span lang="EN-GB"><br>
+									&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>call&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ 
+DELAY&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ ; 
+									<span lang="EN-GB"><br>
+									&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>call&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ DELAY&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ; 
+									<span lang="EN-GB"><br>
+									&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>rlf&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ 
+PORTB,1&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ ;
+									<span lang="EN-GB"><br>
+									&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>call&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ 
+DELAY&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ ; 
+									<span lang="EN-GB"><br>
+									&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>call&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ 
+DELAY&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ ; 
+									<span lang="EN-GB"><br>
+									&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>rlf&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ 
+									
+PORTB,1&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ 
+									;</p>
+									<p>; *************Now move onto Port A, and move the bit left.***********</p>
+									<p>&nbsp;<span lang="EN-GB">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>rlf&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ 
+PORTA,1&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ ;
+									<span lang="EN-GB"><br>
+									&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>call&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ 
+DELAY&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ ; 
+									<span lang="EN-GB"><br>
+									&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>call&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ 
+DELAY&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ ; 
+									<span lang="EN-GB"><br>
+									&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>rlf&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ 
+PORTA,1&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ ;
+									<span lang="EN-GB"><br>
+									&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>call&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ 
+DELAY&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ ; 
+									<span lang="EN-GB"><br>
+									&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>call&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ 
+DELAY&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ ; 
+									<span lang="EN-GB"><br>
+									&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>rlf&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ 
+PORTA,1&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ ;
+									<span lang="EN-GB"><br>
+									&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>call&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ 
+DELAY&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ ; 
+									<span lang="EN-GB"><br>
+									&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>call&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ 
+DELAY&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ ; 
+									<span lang="EN-GB"><br>
+									&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>rlf&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ 
+PORTA,1&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ ;
+									<span lang="EN-GB"><br>
+									&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>call&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ 
+DELAY&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ ; 
+									<span lang="EN-GB"><br>
+									&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>call&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ 
+DELAY&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ ; </p>
+									<p>;************** Move the bit back on Port A************************</p>
+									<p>&nbsp;<span lang="EN-GB">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>rrf&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;PORTA,1&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ ;<span lang="EN-GB"><br>
+									&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>call&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ 
+DELAY&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ ;<span lang="EN-GB"><br>
+									&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>call&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ 
+DELAY&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ ; 
+									<span lang="EN-GB"><br>
+									&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>rrf&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;PORTA,1&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ ;
+									<span lang="EN-GB"><br>
+									&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>call&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ 
+DELAY&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ ; 
+									<span lang="EN-GB"><br>
+									&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>call&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ 
+DELAY&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ ; 
+									<span lang="EN-GB"><br>
+									&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>rrf&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;PORTA,1&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ ;
+									<span lang="EN-GB"><br>
+									&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>call&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ 
+DELAY&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ ; 
+									<span lang="EN-GB"><br>
+									&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>call&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ 
+DELAY&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ ; 
+									<span lang="EN-GB"><br>
+									&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>rrf&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;PORTA,1&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ ; </p>
+									<p>;****************** Now move the bit back on Port B******************</p>
+									<p>&nbsp;<span lang="EN-GB">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>rrf&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ 
+PORTB,1&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ ;<span lang="EN-GB"><br>
+									&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>call&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ 
+DELAY&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ ; 
+									<span lang="EN-GB"><br>
+									&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>call&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ 
+DELAY&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ ; 
+									<span lang="EN-GB"><br>
+									&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>rrf&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ 
+PORTB,1&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ ;<span lang="EN-GB"><br>
+									&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>call&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ 
+DELAY&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ ; 
+									<span lang="EN-GB"><br>
+									&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>call&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ 
+DELAY&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ ; 
+									<span lang="EN-GB"><br>
+									&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>rrf&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ 
+PORTB,1&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ ;
+									<span lang="EN-GB"><br>
+									&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>call&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ 
+DELAY&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ ; 
+									<span lang="EN-GB"><br>
+									&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>call&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ 
+DELAY&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ ; 
+									<span lang="EN-GB"><br>
+									&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>rrf&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ 
+PORTB,1&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ ;
+									<span lang="EN-GB"><br>
+									&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>call&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ 
+DELAY&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ ; 
+									<span lang="EN-GB"><br>
+									&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>call&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ 
+DELAY&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ ; 
+									<span lang="EN-GB"><br>
+									&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>rrf&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ 
+PORTB,1&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ ;
+									<span lang="EN-GB"><br>
+									&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>call&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ 
+DELAY&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ ; 
+									<span lang="EN-GB"><br>
+									&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>call&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ 
+DELAY&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ ; 
+									<span lang="EN-GB"><br>
+									&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>rrf&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ 
+PORTB,1&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ ;
+									<span lang="EN-GB"><br>
+									&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>call&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ 
+DELAY&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ ; 
+									<span lang="EN-GB"><br>
+									&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>call&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ 
+DELAY&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ ; 
+									<span lang="EN-GB"><br>
+									&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>rrf&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ 
+PORTB,1&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ ;
+									<span lang="EN-GB"><br>
+									&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>call&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ 
+DELAY&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ ; 
+									<span lang="EN-GB"><br>
+									&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>call&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ 
+DELAY&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ ; </p>
+									<p><span lang="en-gb">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+									</span>goto&nbsp;&nbsp;&nbsp;&nbsp; 
+RUN&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ ; </p><p>&nbsp;; ******************Subroutine to give a delay between bit movements.******</p>
+									<p>DELAY</p>
+									<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ movlw&nbsp; 
+TIME&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ &nbsp;&nbsp;;<span lang="EN-GB"><br>
+									&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>movwf&nbsp;
+ 
+COUNT1&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ &nbsp;&nbsp; ; </p>
+									<p>LOOP1&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ 
+									;<span lang="EN-GB"><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>decfsz&nbsp;&nbsp;
+ 
+COUNT1&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ ; <br><span lang="EN-GB">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>goto&nbsp;&nbsp;&nbsp;&nbsp;
+ 
+LOOP1&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ ;<span lang="EN-GB"><br>
+									&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; m</span>ovwf COUNT1&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span lang="EN-GB">&nbsp; </span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ; </p>
+									<p>LOOP2&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ ; 
+									<span lang="EN-GB"><br>
+									&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>decfsz&nbsp;&nbsp;
+ 
+COUNT1&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ ;<span lang="EN-GB"><br>
+									&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>goto&nbsp;&nbsp;&nbsp;&nbsp;
+ 
+LOOP2&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ </p>
+									<p>;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;<br>
+									;;&nbsp;This part resets the WDT&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span lang="EN-GB">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;;;<br>
+									;;Comment out or remove this command to see the 
+WDT&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ;;<br>
+									;;&nbsp;&nbsp;&nbsp;&nbsp; in action.&nbsp;It should reset the 
+PIC&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span lang="EN-GB"> ;;<br>
+									</span>;<span lang="EN-GB">;</span>;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;</p>
+									<p>clrwdt&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ ;This simply resets the WDT.</p>
+									<p>;***************Return from our original DELAY routine***************</p>
+									<p>return&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ 
+									;</p>
+									<p>END&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ ;</p>
+									<p>If you comment out, or remove the CLRWDT command, you will 
+find that the PIC will not go past lighting the second LED.&nbsp;This is
+ because the WDT is resetting the PIC.&nbsp;With the CLRWDT 
+									in place, the program works as it should.</p>
+</td>
+</tr>
+<tr>
+<td align="center" valign="top" width="530">
+<script type="text/javascript"><!--
+google_ad_client = "ca-pub-5584687688693767";
+google_ad_slot = "8687342286";
+google_ad_width = 468;
+google_ad_height = 15;
+//-->
+</script>
+<script type="text/javascript" src="tutorial13_files/show_ads.js">
+</script><ins style="display:inline-table;border:none;height:15px;margin:0;padding:0;position:relative;visibility:visible;width:468px"><ins id="aswift_4_anchor" style="display:block;border:none;height:15px;margin:0;padding:0;position:relative;visibility:visible;width:468px"><iframe allowtransparency="true" hspace="0" marginwidth="0" marginheight="0" onload="var i=this.id,s=window.google_iframe_oncopy,H=s&amp;&amp;s.handlers,h=H&amp;&amp;H[i],w=this.contentWindow,d;try{d=w.document}catch(e){}if(h&amp;&amp;d&amp;&amp;(!d.body||!d.body.firstChild)){if(h.call){i+='.call';setTimeout(h,0)}else if(h.match){i+='.nav';w.location.replace(h)}s.log&amp;&amp;s.log.push(i)}" vspace="0" id="aswift_4" name="aswift_4" style="left: 0pt; position: absolute; top: 0pt;" scrolling="no" frameborder="0" height="15" width="468"></iframe></ins></ins></td>
+</tr>
+<tr>
+<td align="center" valign="top">
+
+<font color="#FF0000"><b>Note:</b></font> To report broken links or to submit your projects please send email to <u> <b> <a href="http://www.hobbyprojects.com/contactus.html">Webmaster</a></b></u></td>
+</tr>
+<tr>
+<td align="center" valign="top">
+<hr color="#FF8800"></td>
+</tr>
+</tbody></table>
+</td>
+<td bgcolor="#000000" valign="top" width="20%">
+<table border="0" cellpadding="5" width="100%">
+<tbody><tr>
+<td class="tableh1">Circuits</td>
+</tr>
+<tr>
+<td bgcolor="#FFFFFF">
+<table class="circuitmenu">
+<tbody><tr>
+<td><a href="http://www.hobbyprojects.com/schematics/electronics-circuits-a.html">A</a></td>
+<td><a href="http://www.hobbyprojects.com/schematics/electronics-circuits-b.html">B</a></td>
+<td><a href="http://www.hobbyprojects.com/schematics/electronics-circuits-c.html">C</a></td>
+<td><a href="http://www.hobbyprojects.com/schematics/electronics-circuits-d.html">D</a></td>
+</tr>
+<tr>
+<td><a href="http://www.hobbyprojects.com/schematics/electronics-circuits-e.html">E</a></td>
+<td><a href="http://www.hobbyprojects.com/schematics/electronics-circuits-f.html">F</a></td>
+<td><a href="http://www.hobbyprojects.com/schematics/electronics-circuits-g.html">G</a></td>
+<td><a href="http://www.hobbyprojects.com/schematics/electronics-circuits-h.html">H</a></td>
+</tr>
+<tr>
+<td><a href="http://www.hobbyprojects.com/schematics/electronics-circuits-i.html">I</a></td>
+<td><a href="http://www.hobbyprojects.com/schematics/electronics-circuits-j.html">J</a></td>
+<td><a href="http://www.hobbyprojects.com/schematics/electronics-circuits-k.html">K</a></td>
+<td><a href="http://www.hobbyprojects.com/schematics/electronics-circuits-l.html">L</a></td>
+</tr>
+<tr>
+<td><a href="http://www.hobbyprojects.com/schematics/electronics-circuits-m.html">M</a></td>
+<td><a href="http://www.hobbyprojects.com/schematics/electronics-circuits-n.html">N</a></td>
+<td><a href="http://www.hobbyprojects.com/schematics/electronics-circuits-o.html">O</a></td>
+<td><a href="http://www.hobbyprojects.com/schematics/electronics-circuits-p.html">P</a></td>
+</tr>
+<tr>
+<td><a href="http://www.hobbyprojects.com/schematics/electronics-circuits-q.html">Q</a></td>
+<td><a href="http://www.hobbyprojects.com/schematics/electronics-circuits-r.html">R</a></td>
+<td><a href="http://www.hobbyprojects.com/schematics/electronics-circuits-s.html">S</a></td>
+<td><a href="http://www.hobbyprojects.com/schematics/electronics-circuits-t.html">T</a></td>
+</tr>
+<tr>
+<td><a href="http://www.hobbyprojects.com/schematics/electronics-circuits-u.html">U</a></td>
+<td><a href="http://www.hobbyprojects.com/schematics/electronics-circuits-v.html">V</a></td>
+<td><a href="http://www.hobbyprojects.com/schematics/electronics-circuits-w.html">W</a></td>
+<td><a href="http://www.hobbyprojects.com/schematics/electronics-circuits-x.html">X</a></td>
+</tr>
+<tr>
+<td><a href="http://www.hobbyprojects.com/schematics/electronics-circuits-y.html">Y</a></td>
+<td><a href="http://www.hobbyprojects.com/schematics/electronics-circuits-z.html">Z</a></td>
+<td></td>
+<td></td>
+</tr>
+</tbody></table>
+</td>
+</tr>
+</tbody></table>
+<table border="0" cellpadding="5" width="100%">
+<tbody><tr>
+<td class="ads">
+<script type="text/javascript"><!--
+google_ad_client = "ca-pub-5584687688693767";
+google_ad_slot = "5635722485";
+google_ad_width = 160;
+google_ad_height = 600;
+//-->
+</script>
+<script type="text/javascript" src="tutorial13_files/show_ads.js">
+</script><ins style="display:inline-table;border:none;height:600px;margin:0;padding:0;position:relative;visibility:visible;width:160px"><ins id="aswift_5_anchor" style="display:block;border:none;height:600px;margin:0;padding:0;position:relative;visibility:visible;width:160px"><iframe allowtransparency="true" hspace="0" marginwidth="0" marginheight="0" onload="var i=this.id,s=window.google_iframe_oncopy,H=s&amp;&amp;s.handlers,h=H&amp;&amp;H[i],w=this.contentWindow,d;try{d=w.document}catch(e){}if(h&amp;&amp;d&amp;&amp;(!d.body||!d.body.firstChild)){if(h.call){i+='.call';setTimeout(h,0)}else if(h.match){i+='.nav';w.location.replace(h)}s.log&amp;&amp;s.log.push(i)}" vspace="0" id="aswift_5" name="aswift_5" style="left: 0pt; position: absolute; top: 0pt;" scrolling="no" frameborder="0" height="600" width="160"></iframe></ins></ins></td>
+</tr>
+<tr>
+<td class="tableh1">Discover</td>
+</tr>
+<tr>
+<td bgcolor="#FFFFFF">
+<ul>
+<li><a href="http://www.hobbyprojects.com/c_language_reference_guide.html">C/C++ 
+Language Programming Library</a></li>
+<li>
+<a href="http://www.hobbyprojects.com/conversion_between_electrical_system.html">
+Electronic Conversions</a></li>
+<li>
+<a href="http://www.hobbyprojects.com/history-progression-of-electronics-technology.html">
+History of Electronics</a></li>
+<li>
+<a href="http://www.hobbyprojects.com/history-progression-of-computer-technology.html">
+History of Computers</a></li>
+<li><a href="http://www.hobbyprojects.com/electricity-around-the-world.html">Elec. 
+Power Standards</a></li>
+<li><a href="http://www.hobbyprojects.com/online_calculators_&amp;_conversions.html">
+Online Calculator and Conversions</a></li>
+<li>
+<a href="http://www.hobbyprojects.com/controlling-electrical-hazards-osha.html">
+Electrical Hazards - Health &amp; Safety</a></li>
+<li><a href="http://www.hobbyprojects.com/datasheets.html">Datasheets</a></li>
+<li><a href="http://www.hobbyprojects.com/quick_circuits_reference.html">Quick 
+Reference links</a></li>
+<li><a href="http://www.hobbyprojects.com/electronics-magazines.html">Electronics 
+Magazines</a></li>
+<li><a href="http://www.hobbyprojects.com/career_in_electronics_engineering.html">
+Career in Electronics</a></li>
+<li><a href="http://www.hobbyprojects.com/ems-international-parcel-tracking.html">EMS 
+Post Tracking</a></li>
+</ul>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;
+<a href="http://www.hobbyprojects.com/discover-electronics.html">more......</a></p></td>
+</tr>
+</tbody></table>
+</td>
+</tr>
+<tr>
+<td colspan="3" valign="top">
+<div align="center">
+<table border="0" cellpadding="5" width="95%">
+<tbody><tr class="menubutton">
+<td><a href="http://www.hobbyprojects.com/">Home</a></td>
+<td><a href="http://www.hobbyprojects.com/electronics-circuits.html">Electronic Circuits</a></td>
+<td><a href="http://www.hobbyprojects.com/tutorial.html">Electronic Tutorials</a></td>
+<td><a href="http://www.hobbyprojects.com/engineering-projects.html">Engineering Hobby Projects</a></td>
+<td><a href="http://www.hobbyprojects.com/useful_site_links.html">Resources Links</a></td>
+<td><a href="http://www.hobbyprojects.com/sitemap.html">Sitemap</a></td>
+<td><a href="http://www.hobbyprojects.com/disclaimer.html">Disclaimer/T&amp;C</a></td>
+</tr>
+</tbody></table>
+</div>
+</td>
+</tr>
+<tr>
+<td colspan="3" bgcolor="#FF0000" valign="top">
+					
+<object classid="clsid:D27CDB6E-AE6D-11CF-96B8-444553540000" id="obj3" codebase="http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=6,0,40,0" border="0" height="20" width="100%">
+<param name="movie" value="../flash-menu.swf">
+<param name="quality" value="High">
+<param name="wmode" value="transparent">
+<param name="menu" value="false">
+<embed src="tutorial13_files/flash-menu.swf" pluginspage="http://www.macromedia.com/go/getflashplayer" type="application/x-shockwave-flash" name="obj3" quality="High" wmode="transparent" menu="false" height="20" width="100%"></object>
+					
+</td>
+</tr>
+<tr>
+<td colspan="3" bgcolor="#000000" valign="top">
+<p align="center"><font color="#FFFFFF" size="2">Copyright © 
+1999-2011 <a href="http://www.hobbyprojects.com/">
+<font color="#FF8800">www.hobbyprojects.com</font></a>&nbsp; 
+(All rights reserved)</font></p></td>
+</tr>
+</tbody></table>
+</td>
+</tr>
+</tbody></table>
+</div>
+
+
+
+
+</body></html>

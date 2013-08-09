@@ -1,0 +1,727 @@
+<html><head>
+<meta http-equiv="Content-Language" content="en-us">
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+<title>Interrupts - Writing The Code - PIC Microcontroller Tutorials - PIC 
+Tutorial Resource - Connect to the PIC</title>
+<meta name="keywords" content="Connect to the PIC Microcontroller, Introduction to PIC Microcontroller, Pic Microcontroller Tutorials, PiC Microcontroller Resources, PIC Microcontroller, Connect to the PIC, About PIC Microcontroller, PIC Microcontroller Projects, PIC Microcontroller Kits, Microcontroller Tutorials, PIC Microcontroller Diagram, PIC Microcontroller Pins, PIC Microcontoller Programming Techniques, PIC Microcontroller Registers, PIC Microcontroller Writing to the Ports, PIC Microcontroller Delay Loop, PIC Microcontroller Subroutines, PIC Microcontroller Reading from the I/O Ports, PIC Microcontroller Logical And Arithmetic Operators, PIC Micrcontroller Bit Operations, PIC Microcontroller Data Tables, PIC Microcontroller Interrupts, PIC Microcontroller Interrupts Writing The Code, PIC Microcontroller Watchdog Timer, Overview of Cybot Robot, Cybot Robot">
+<meta name="description" content="Interrupts - Writing The Code - PIC Microcontroller Tutorials - We covered quite a bit of ground in the last tutorial, and so we think it is time that we wrote our first program. The program we are going to write will count the number of times we turn a switch on, and then display the number.">
+<meta name="author" content="Hobby Projects">
+<meta name="robots" content="index, follow">
+<meta name="robots" content="all">
+<meta name="rating" content="general">
+<meta name="revisit-after" content="18 days">
+<meta name="expires" content="never">
+<meta name="classification" content="Electronics Hobby Projects Circuits and Tutorials">
+<link href="tutorial12_files/design-style.css" rel="stylesheet" type="text/css">
+</head>
+
+<body>
+<div align="center">
+<table class="maintable">
+<tbody><tr>
+<td bgcolor="#000000">
+<table border="0" cellpadding="2" width="100%">
+<tbody><tr>
+<td bgcolor="#000000" width="216">
+<table border="0" cellpadding="5" width="100%">
+<tbody><tr>
+<td align="center">
+<a href="http://www.hobbyprojects.com/">
+<img src="tutorial12_files/hobby-projects-logo.jpg" alt="Electronics Circuits &amp; Tutorials" border="0" height="104" width="205"></a></td>
+</tr>
+<tr>
+<td align="center" bgcolor="#FF0000">
+<font color="#FFFFFF"><b>Electronics Circuits &amp; 
+Tutorials</b></font></td>
+</tr>
+</tbody></table>
+</td>
+<td>
+<div align="center">
+<table border="0" cellpadding="4" width="100%">
+<tbody><tr>
+<td align="center" valign="top">
+<object classid="clsid:D27CDB6E-AE6D-11CF-96B8-444553540000" id="obj4" codebase="http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=6,0,40,0" border="0" height="18" width="745">
+<param name="movie" value="../images/ad-banner-top.swf">
+<param name="quality" value="High">
+<param name="menu" value="false">
+<embed src="tutorial12_files/ad-banner-top.swf" pluginspage="http://www.macromedia.com/go/getflashplayer" type="application/x-shockwave-flash" name="obj4" quality="High" menu="false" height="18" width="745"></object>
+</td>
+</tr>
+<tr>
+<td valign="top">
+<p align="center">
+<script type="text/javascript"><!--
+google_ad_client = "ca-pub-5584687688693767";
+google_ad_slot = "1014171837";
+google_ad_width = 728;
+google_ad_height = 90;
+//-->
+</script>
+<script type="text/javascript" src="tutorial12_files/show_ads.js">
+</script><ins style="display:inline-table;border:none;height:90px;margin:0;padding:0;position:relative;visibility:visible;width:728px"><ins id="aswift_0_anchor" style="display:block;border:none;height:90px;margin:0;padding:0;position:relative;visibility:visible;width:728px"><iframe allowtransparency="true" hspace="0" marginwidth="0" marginheight="0" onload="var i=this.id,s=window.google_iframe_oncopy,H=s&amp;&amp;s.handlers,h=H&amp;&amp;H[i],w=this.contentWindow,d;try{d=w.document}catch(e){}if(h&amp;&amp;d&amp;&amp;(!d.body||!d.body.firstChild)){if(h.call){i+='.call';setTimeout(h,0)}else if(h.match){i+='.nav';w.location.replace(h)}s.log&amp;&amp;s.log.push(i)}" vspace="0" id="aswift_0" name="aswift_0" style="left: 0pt; position: absolute; top: 0pt;" scrolling="no" frameborder="0" height="90" width="728"></iframe></ins></ins></p></td>
+</tr>
+</tbody></table>
+</div>
+</td>
+</tr>
+</tbody></table>
+</td>
+</tr>
+<tr>
+<td>
+<div align="center">
+<table border="0" cellpadding="5" width="95%">
+<tbody><tr class="menubutton">
+<td><a href="http://www.hobbyprojects.com/">Home</a></td>
+<td><a href="http://www.hobbyprojects.com/aboutus.html">About us</a></td>
+<td><a href="http://www.hobbyprojects.com/electronics-circuits.html">Electronic Circuits</a></td>
+<td><a href="http://www.hobbyprojects.com/tutorial.html">Electronic Tutorials</a></td>
+<td><a href="http://www.hobbyprojects.com/engineering-projects.html">Engineering Hobby Projects</a></td>
+<td><a href="http://www.hobbyprojects.com/dictionaries.html">Online Dictionaries</a></td>
+<td><a href="http://www.hobbyprojects.com/contactus.html">Contact us</a></td>
+</tr></tbody></table>
+</div>
+</td>
+</tr>
+<tr>
+<td align="center" bgcolor="#000000" height="20">
+<script type="text/javascript"><!--
+google_ad_client = "ca-pub-5584687688693767";
+google_ad_slot = "1064764123";
+google_ad_width = 728;
+google_ad_height = 15;
+//-->
+</script>
+<script type="text/javascript" src="tutorial12_files/show_ads.js">
+</script><ins style="display:inline-table;border:none;height:15px;margin:0;padding:0;position:relative;visibility:visible;width:728px"><ins id="aswift_1_anchor" style="display:block;border:none;height:15px;margin:0;padding:0;position:relative;visibility:visible;width:728px"><iframe allowtransparency="true" hspace="0" marginwidth="0" marginheight="0" onload="var i=this.id,s=window.google_iframe_oncopy,H=s&amp;&amp;s.handlers,h=H&amp;&amp;H[i],w=this.contentWindow,d;try{d=w.document}catch(e){}if(h&amp;&amp;d&amp;&amp;(!d.body||!d.body.firstChild)){if(h.call){i+='.call';setTimeout(h,0)}else if(h.match){i+='.nav';w.location.replace(h)}s.log&amp;&amp;s.log.push(i)}" vspace="0" id="aswift_1" name="aswift_1" style="left: 0pt; position: absolute; top: 0pt;" scrolling="no" frameborder="0" height="15" width="728"></iframe></ins></ins></td>
+</tr>
+<tr>
+<td bgcolor="#FF0000">
+<object classid="clsid:D27CDB6E-AE6D-11CF-96B8-444553540000" id="obj2" codebase="http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=6,0,40,0" border="0" height="20" width="100%">
+<param name="movie" value="../flash-menu.swf">
+<param name="quality" value="High">
+<param name="wmode" value="transparent">
+<param name="menu" value="false">
+<embed src="tutorial12_files/flash-menu.swf" pluginspage="http://www.macromedia.com/go/getflashplayer" type="application/x-shockwave-flash" name="obj2" quality="High" wmode="transparent" menu="false" height="20" width="100%"></object>
+</td>
+</tr>
+<tr>
+<td>
+<table border="0" cellpadding="4">
+<tbody><tr>
+<td bgcolor="#000000" valign="top" width="20%">
+<table border="0" cellpadding="5" width="100%">
+<tbody><tr>
+<td class="tableh1">Tutorials</td>
+</tr>
+<tr>
+<td bgcolor="#FFFFFF">
+<ul>
+<li>
+<a href="http://www.hobbyprojects.com/tutorial.html#electronics-for-beginners">
+Basic/Beginners</a></li>
+<li>
+<a href="http://www.hobbyprojects.com/tutorial.html#intermediate-electronics">
+Intermediate/Advance</a></li>
+<li>
+<a href="http://www.hobbyprojects.com/microcontroller_tutorials.html">
+Microcontrollers</a></li>
+<li><a href="http://www.hobbyprojects.com/microprocessor_tutorials.html">
+Microprocessors</a></li>
+<li>
+<a href="http://www.hobbyprojects.com/schematics_circuits_symbols.html">Electronics 
+Symbols</a></li>
+<li>
+<a href="http://www.hobbyprojects.com/electronic_formula.html">Electronics Formulas</a></li>
+<li>
+<a href="http://www.hobbyprojects.com/dictionary_of_units.html">Dictionary of Units</a></li>
+</ul>
+<p align="left">
+&nbsp;&nbsp;&nbsp;&nbsp;
+<a href="http://www.hobbyprojects.com/tutorial.html">more....</a></p></td>
+</tr>
+<tr>
+<td class="ads">
+<script type="text/javascript"><!--
+google_ad_client = "ca-pub-5584687688693767";
+google_ad_slot = "5635722485";
+google_ad_width = 160;
+google_ad_height = 600;
+//-->
+</script>
+<script type="text/javascript" src="tutorial12_files/show_ads.js">
+</script><ins style="display:inline-table;border:none;height:600px;margin:0;padding:0;position:relative;visibility:visible;width:160px"><ins id="aswift_2_anchor" style="display:block;border:none;height:600px;margin:0;padding:0;position:relative;visibility:visible;width:160px"><iframe allowtransparency="true" hspace="0" marginwidth="0" marginheight="0" onload="var i=this.id,s=window.google_iframe_oncopy,H=s&amp;&amp;s.handlers,h=H&amp;&amp;H[i],w=this.contentWindow,d;try{d=w.document}catch(e){}if(h&amp;&amp;d&amp;&amp;(!d.body||!d.body.firstChild)){if(h.call){i+='.call';setTimeout(h,0)}else if(h.match){i+='.nav';w.location.replace(h)}s.log&amp;&amp;s.log.push(i)}" vspace="0" id="aswift_2" name="aswift_2" style="left: 0pt; position: absolute; top: 0pt;" scrolling="no" frameborder="0" height="600" width="160"></iframe></ins></ins></td>
+</tr>
+<tr>
+<td class="tableh1">Dictionaries</td>
+</tr>
+<tr>
+<td bgcolor="#FFFFFF">
+<ul>
+<li>
+<a href="http://www.hobbyprojects.com/dictionary/electronics-terms.html">Electronics Terms</a></li>
+<li>
+<a href="http://www.hobbyprojects.com/abbreviations/electronics-abbreviations.html">Abbreviations</a></li>
+<li><a href="http://www.hobbyprojects.com/online-dictionary.html">Computer Terms</a></li>
+<li><a href="http://www.hobbyprojects.com/physics-glossary-terms-dictionary.html">
+Physics Glossary</a></li>
+<li><a href="http://www.hobbyprojects.com/science-glossary-terms-dictionary.html">
+Science Glossary</a></li>
+<li>
+<a href="http://www.hobbyprojects.com/space-solor-glossary-terms-dictionary-definitions.html">
+Space &amp; Solar Terms</a></li>
+<li>
+<a href="http://www.hobbyprojects.com/semiconductor_symbols_abbreviations.html">
+Semiconductor Symbols / Abbreviation</a></li>
+<li><a href="http://www.hobbyprojects.com/radio_terminology.html">Radio Terminology 
+Bibliography</a></li>
+</ul>
+<p align="left">
+&nbsp;&nbsp;&nbsp;&nbsp;
+<a href="http://www.hobbyprojects.com/dictionaries.html">more....</a></p></td>
+</tr>
+<tr>
+<td class="tableh1">Projects</td>
+</tr>
+<tr>
+<td bgcolor="#FFFFFF">
+<ul>
+<li><a href="http://www.hobbyprojects.com/engineering-projects.html">Engineering 
+Projects</a></li>
+</ul>
+</td>
+</tr>
+</tbody></table>
+</td>
+<td bgcolor="#FFFFFF" valign="top">
+<table border="0" cellpadding="5" width="100%">
+<tbody><tr>
+<td align="center">
+
+<form action="http://www.hobbyprojects.com/search-result.html" id="cse-search-box">
+<div>
+<input name="cx" value="partner-pub-5584687688693767:3801644741" type="hidden">
+<input name="cof" value="FORID:10" type="hidden">
+<input name="ie" value="ISO-8859-1" type="hidden">
+<input style="border: 1px solid rgb(126, 157, 185); padding: 2px; background: url(&quot;http://www.google.com/cse/intl/en/images/google_custom_search_watermark.gif&quot;) no-repeat scroll left center rgb(255, 255, 255);" name="q" size="55" type="text">
+<input name="sa" value="Search" type="submit">
+</div>
+<input value="www.hobbyprojects.com/pic_tutorials/tutorial12.html" name="siteurl" type="hidden"></form>
+<script type="text/javascript" src="tutorial12_files/brand"></script>
+</td>
+</tr>
+</tbody></table>
+<table border="0" cellpadding="5" width="100%">
+<tbody><tr>
+<td bgcolor="#F4F4F4"> 
+<p style="line-height: 150%; margin-bottom: 0"> 
+<a href="http://www.hobbyprojects.com/index.html">Home</a> &gt; <a href="http://www.hobbyprojects.com/tutorial.html">
+Electronic Tutorials</a> &gt; 
+<a href="http://www.hobbyprojects.com/microcontroller_tutorials.html">Microcontroller Tutorials - PIC</a> 
+&gt; PIC Tutorial 12 - <span lang="EN-GB">Interrupts 
+																		- An 
+																		Introduction</span></p></td>
+</tr>
+<tr>
+<td align="center" bgcolor="#FF8800"> 
+<b><font size="5">PIC Microcontroller Tutorial</font></b></td>
+</tr>
+<tr>
+<td align="center" bgcolor="#A40000"> 
+<h1>PIC Tutorial 12 - <span lang="EN-GB">Interrupts - Writing The Code</span></h1>
+</td>
+</tr>
+<tr>
+<td align="center">
+<script type="text/javascript"><!--
+google_ad_client = "ca-pub-5584687688693767";
+google_ad_slot = "8687342286";
+google_ad_width = 468;
+google_ad_height = 15;
+//-->
+</script>
+<script type="text/javascript" src="tutorial12_files/show_ads.js">
+</script><ins style="display:inline-table;border:none;height:15px;margin:0;padding:0;position:relative;visibility:visible;width:468px"><ins id="aswift_3_anchor" style="display:block;border:none;height:15px;margin:0;padding:0;position:relative;visibility:visible;width:468px"><iframe allowtransparency="true" hspace="0" marginwidth="0" marginheight="0" onload="var i=this.id,s=window.google_iframe_oncopy,H=s&amp;&amp;s.handlers,h=H&amp;&amp;H[i],w=this.contentWindow,d;try{d=w.document}catch(e){}if(h&amp;&amp;d&amp;&amp;(!d.body||!d.body.firstChild)){if(h.call){i+='.call';setTimeout(h,0)}else if(h.match){i+='.nav';w.location.replace(h)}s.log&amp;&amp;s.log.push(i)}" vspace="0" id="aswift_3" name="aswift_3" style="left: 0pt; position: absolute; top: 0pt;" scrolling="no" frameborder="0" height="15" width="468"></iframe></ins></ins></td>
+</tr>
+<tr>
+<td class="maintext">
+<h2><span lang="EN-GB">Interrupts - Writing The Code</span></h2>
+<p>We covered quite a bit of ground in <span lang="EN-GB">the last tutorial</span>,
+ and so we think it is time that we wrote our first program. The program
+ we are going to write will count the number of times we turn a switch 
+on, and then display the number. The program will count from 0 to 9, 
+displayed on 4 LEDs 
+in binary form, and the input or interrupt will be on RB0.</p>
+<p><span lang="EN-GB">T</span>he first thing we need to do is tell the PIC to 
+jump over the address where the Program Counter points to when an interrupt 
+occurs.&nbsp;You will notice that We are using a different way of expressing 
+hexadecimal numbers.&nbsp;Before We used to use F9h where h denoted 
+hexadecimal.&nbsp;We can write this as 0xF9, and this is the format we are 
+going to use from now on.</p>
+<p>org&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;0x00&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;;This
+ is where 
+the PC points to on power up and reset<span lang="EN-GB"><br>
+goto&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>main&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span lang="EN-GB">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>;Goto 
+our main program</p>
+<p>org&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ 0x04&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+;This is where our interrupt routine will start</p>
+<p>retfie&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;;This tells
+ the PIC that the interrupt routine has<span lang="EN-GB"><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>;finished and the PC will point back to the main<span lang="EN-GB"><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>;program</p>
+<p>main&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ ;This is the start of our main program</p>
+<p>Now we need to tell the PIC that we are going to use interrupts, and we are using RB0 pin 6 as an interrupt pin:</p>
+<p>bsf&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ INTCON,7&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ;GIE – Global interrupt enable 
+(1=enable)<br>
+bsf&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+INTCON,4&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ;INTE - RB0 interrupt enable 
+(1=enable)</p>
+<p>We are going to clear the interrupt flag just in case (We never trust anything!)</p>
+<p>bcf&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+INTCON,1&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ;INTF - Clear flag bit just in 
+case</p>
+<p>Now we need to set up our two ports.&nbsp;Remember that as we are 
+using RB0 as an interrupt pin, this must be set up as an input:</p>
+<p>bsf&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;STATUS,5&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ ;Switch to Bank <span lang="EN-GB">1</span></p>
+<p><span lang="EN-GB">m</span>ovw&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;0x01&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ ;</p>
+<p>movwf&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;TRISB&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ ;Set RB0 as input</p>
+<p>movlw&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+0x10&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+;</p>
+<p>movwf&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;TRISA&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ ;Set the first 4 pins on PortA as output</p>
+<p>bcf&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;STATUS,5&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ ;Come back to Bank 0</p>
+<p>We are going to use a variable called COUNT to store the number of switch counts.&nbsp;We could 
+just simply increment the value on Port A, but you will see why we are using a variable when we write our interrupt routine.</p>
+<p>loop</p>
+<p>movf&nbsp;&nbsp;&nbsp;&nbsp; 
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+COUNT,0&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ;Move the 
+contents of COUNT into W</p>
+<p>movwf&nbsp; 
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+PORTA&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ ;Now move it to Port A</p>
+<p>goto&nbsp;&nbsp;&nbsp;&nbsp; 
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+loop&nbsp;&nbsp;&nbsp;&nbsp; 
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ;Keep
+ on doing this</p>
+<p>end&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ 
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;;End
+ of our program</p>
+<p>So, our main program is written, and now we need to tell the PIC what
+ to do when an interrupt happens.&nbsp;In this instance, our interrupt 
+is going to be the switch.&nbsp;What we want the PIC to is add one to 
+the variable COUNT each time the switch is closed.&nbsp;However, we only
+ want to display the number of times the switch closes from 0 to 9. 
+Above, We said we could have just simply incremented the value on Port A
+ each time there was an interrupt.&nbsp;But, Port A has 5 bits, and if 
+we just simply incremented the port, we will have a maximum count of 
+31.&nbsp;There are two reasons why we chose not to go up to 31. First, 
+we are going to use a 7-segment display, which can at the most only go 
+from 0 to 15 (0 to F in hex).&nbsp;Secondly, We also want to show you 
+some of the arithmetic commands that you came across in the last couple 
+of tutorials.</p>
+<p>So lets get on with our interrupt routine.</p>
+<p>Now the first thing we need to do is temporarily store the contents 
+of our w register, as we are using this to transfer the contents of 
+COUNT to PORTA. If we don’t store it, then we could send a completely 
+different number as a 
+result of our arithmetic.&nbsp;So let’s do that first:</p>
+<p>movwf&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+TEMP&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+;Store w register in a temporary location</p>
+<p>Next we want to add 1 to our variable COUNT:</p>
+<p>incf&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ COUNT,1&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ;Increment COUNT by 1, and 
+put the result</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;;back
+ into COUNT</p>
+<p>Next we want to do a check on COUNT to se if we have gone past the value of 
+9.&nbsp;The way we can do this is to subtract it from 10.</p>
+<p><span lang="EN-GB">m</span>ovlw&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ 
+0x0A&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;;Move
+ the value 10 into w</p>
+<p>subwf&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ COUNT,0&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp; ;Subtract w from COUNT, 
+and put the</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;;result
+ in w</p>
+<p>From tutorial 8 we saw that if we subtract a large number from a small number 
+a Carry flag will be set.&nbsp;This flag will also be set if the numbers are 
+equal, and we subtract them.</p>
+<p>btfss&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ STATUS,0&nbsp;&nbsp;&nbsp; ;Check the Carry flag. It will be set if</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;;COUNT
+ is equal to, or is greater than w,</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ ;and will be set as a result of the subwf</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ ;instruction</p>
+<p>Now we know if the value of COUNT is 9 or more.&nbsp;What we want to 
+do now is if COUNT is greater than 9, put it back to 0, otherwise go 
+back to the main program so that we can send it to Port A. The BTFSS 
+command as you know will skip the next instruction if the carry flag is 
+set i.e COUNT = 10:</p>
+<p>goto&nbsp;&nbsp;&nbsp;&nbsp; 
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+carry_on&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ;If COUNT is 
+&lt;10, then we can carry on</p>
+<p>goto&nbsp;&nbsp;&nbsp;&nbsp; 
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+clear&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;;If
+ COUNT is &gt;9, then we need to clear it carry_on</p>
+<p>bcf&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+INTCON,0x01&nbsp;&nbsp;&nbsp;;We need to clear this flag to enable</p>
+<p>&nbsp;&nbsp;&nbsp; 
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;;more interrupts</p><p>movfw&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+TEMP&nbsp; &nbsp;&nbsp;&nbsp;;Restore w to the value before the interrupt</p>
+<p>retfie&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;;Come
+ out of the interrupt routine</p>
+<p>clear</p>
+<p>clrf&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+COUNT&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;;Set
+ COUNT back to 0</p>
+<p>bcf&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+INTCON,1&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;;We need 
+to clear this flag to enable</p><p>;more interrupts</p>
+<p>retfie&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span lang="EN-GB">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>;Come out of the interrupt routine</p>
+<p>All that is left to do now is put everything together and also define
+ values to our constants, which we can do right at the beginning of our 
+program<span lang="EN-GB">.</span></p>
+<p>Below is the complete program listing.&nbsp;The circuit is shown 
+after the program listing.&nbsp;Every time you turn the switch on, the 
+LEDs will count up in binary from 0000 to 1010 then back to 0000.</p>
+<p>org 
+0x00&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ ;This is where we come on power up and reset</p>
+<p>;*******************SETUP CONSTANTS*******************</p>
+<p>INTCON&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;<span lang="EN-GB">&nbsp;&nbsp; </span>&nbsp;EQU 0x0B&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ;Interrupt Control Register</p>
+<p><span lang="EN-GB">P</span>ORTB&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span lang="EN-GB">&nbsp; </span>&nbsp;&nbsp;&nbsp; EQU 0x06&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ;Port B register address</p>
+<p><span lang="EN-GB">P</span>ORTA&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <span lang="EN-GB">&nbsp; </span>EQU 0x05&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ;Port A register address</p>
+<p>TRISA&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp; <span lang="EN-GB">&nbsp;</span>EQU 0x85&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ;TrisA register address</p>
+<p>TRISB&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span lang="EN-GB">&nbsp;&nbsp;</span>&nbsp;EQU 0x86&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ;TrisB register address</p>
+<p>STATUS&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; EQU 0X03&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ;Status register address</p>
+<p>COUNT&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; EQU
+ 0x0c&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp; ;This will be our counting 
+variable</p>
+<p>TEMP&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ EQU 0x0d&nbsp;&nbsp; &nbsp;&nbsp; ;Temporary store for w register</p>
+<p>goto &nbsp;&nbsp; 
+main&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span lang="EN-GB">&nbsp;&nbsp;&nbsp;</span>;Jump over the interrupt address</p>
+<p>;***************INTERRUPT ROUTINE***************</p>
+<p>org&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ 
+0x04&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;;This
+ is where PC points on an interrupt</p>
+<p>movwf <span lang="EN-GB">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>
+TEMP&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+;Store the value of w temporarily</p>
+<p>incf&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ COUNT,1&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ;Increment COUNT by 1, and 
+put the result</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ 
+;back into COUNT</p>
+<p>movlw 0x0A&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span lang="EN-GB">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>&nbsp;&nbsp; &nbsp;&nbsp; ;Move the value 10 into w</p>
+<p>subwf&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ COUNT,0&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ;Subtract w from COUNT, and
+ put the result in w</p>
+<p>btfss&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ STATUS,0&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ;Check the Carry flag. It 
+will be set if</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;;COUNT
+ is equal to, or is greater than w,</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;;and
+ will be set as a result of the subwf</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;;instruction</p>
+<p>goto&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ carry_on&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+;If COUNT is &lt;10, then we can carry on</p>
+<p>goto&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ 
+clear&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ ;If COUNT is &gt;9, then we need to clear it</p>
+<p>carry_on</p>
+<p>bcf&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ INTCON,0x01&nbsp;&nbsp;&nbsp; ;We need to clear this flag to enable</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;;more
+ interrupts</p>
+<p>movfw <span lang="EN-GB">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>TEMP&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ;Restore w to the value before the interrupt</p>
+<p>retfie&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ;Come out of the
+ interrupt routine</p>
+<p>clear</p>
+<p>clrf&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+COUNT&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ;Set COUNT 
+back to 0</p>
+<p>bcf&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+INTCON,1&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ;We need to clear this flag to 
+enable</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ 
+;more interrupts</p>
+<p>retfie&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span lang="EN-GB">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>&nbsp;;Come out of the interrupt routine</p>
+<p>;*******************Main Program*********************</p>
+<p>main</p>
+<p>;*******************Set Up The Interrupt Registers****</p>
+<p>bsf&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ INTCON,7&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ;GIE – Global interrupt enable 
+(1=enable)</p><p>&nbsp;bsf&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+INTCON,4&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ;INTE - RB0 Interrupt Enable 
+(1=enable)</p><p>&nbsp;bcf&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+INTCON,1&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ;INTF - Clear FLag Bit Just In 
+Case</p>
+<p>;*******************Set Up The Ports******************</p>
+<p>bsf&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;STATUS,5&nbsp;&nbsp;&nbsp;&nbsp;
+ ;Switch to Bank 1</p>
+<p>movlw 0x01</p>
+<p>movwf TRISB&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span lang="EN-GB">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>&nbsp;&nbsp;&nbsp;&nbsp; 
+;Set RB0 as input</p>
+<p>movlw 0x10</p>
+<p>movwf TRISA&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span lang="EN-GB">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>&nbsp;&nbsp; ;Set R 0 to RA3 on PortA as output</p>
+<p>bcf&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+STATUS,5&nbsp; ;Come back to Bank 0</p>
+<p>;*******************Now Send The Value Of COUNT To Port A</p>
+<p>loop</p>
+<p>movf&nbsp;&nbsp;&nbsp;&nbsp; 
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+COUNT,0&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ;Move the contents of Count 
+into W</p>
+<p>movwf&nbsp; 
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+PORTA&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ;Now 
+move it to Port A</p>
+<p>goto&nbsp;&nbsp;&nbsp;&nbsp; 
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+loop&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;;Keep
+ on doing this</p>
+<p>end&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;;End Of Program</p>
+<p><b><span lang="EN-GB">The Circuit Diagram</span></b></p>
+<p><span lang="EN-GB">Below is the circuit diagram that will work for 
+the code above.&nbsp;There are two things in the diagram that may throw 
+you.&nbsp;First, We have not included a timing capacitor in the 
+oscillator circuit.&nbsp;This is a clever little trick that you can try 
+if you run out of capacitors.&nbsp;The capacitance comes from the stray 
+capacitance between the oscillator pin and ground.&nbsp;so, with the 
+resistor and the stray capacitance, we have an RC oscillator.&nbsp;Okay,
+ this is not an accurate way of doing it, as the stray capacitance will 
+vary from circuit to circuit.&nbsp;But, We thought you may be interested
+ in seeing this sort of thing.&nbsp;Secondly, We have included a 
+de-bouncing circuit across the switch.&nbsp;This is needed because every
+ time you flick a switch, the contacts will bounce.&nbsp;This will make 
+the PIC think there have been more than one switches.&nbsp;With the 
+de-bouncing circuit, when the switch goes high, the capacitor charges 
+up.&nbsp;no matter how many times the switch goes to +5V, the capacitor 
+will only charge once.&nbsp;The capacitor is discharged when the switch 
+is thrown the other way.&nbsp;If you want to see the effects of switch 
+bounce, then disconnect the capacitor and resistor across the switch.</span></p>
+<p style="text-align: center">
+<img src="tutorial12_files/pic_circuit.gif" alt="Interrupts - Writing The Code Circuit Diagram" border="0"></p>
+<p style="text-align: center">Click here &nbsp;&gt;&gt;&gt;&gt;&nbsp; <a href="http://www.hobbyprojects.com/pic_tutorials/tutorial13.html">Tutorial 13</a></p>
+</td>
+</tr>
+<tr>
+<td align="center" valign="top" width="530">
+<script type="text/javascript"><!--
+google_ad_client = "ca-pub-5584687688693767";
+google_ad_slot = "8687342286";
+google_ad_width = 468;
+google_ad_height = 15;
+//-->
+</script>
+<script type="text/javascript" src="tutorial12_files/show_ads.js">
+</script><ins style="display:inline-table;border:none;height:15px;margin:0;padding:0;position:relative;visibility:visible;width:468px"><ins id="aswift_4_anchor" style="display:block;border:none;height:15px;margin:0;padding:0;position:relative;visibility:visible;width:468px"><iframe allowtransparency="true" hspace="0" marginwidth="0" marginheight="0" onload="var i=this.id,s=window.google_iframe_oncopy,H=s&amp;&amp;s.handlers,h=H&amp;&amp;H[i],w=this.contentWindow,d;try{d=w.document}catch(e){}if(h&amp;&amp;d&amp;&amp;(!d.body||!d.body.firstChild)){if(h.call){i+='.call';setTimeout(h,0)}else if(h.match){i+='.nav';w.location.replace(h)}s.log&amp;&amp;s.log.push(i)}" vspace="0" id="aswift_4" name="aswift_4" style="left: 0pt; position: absolute; top: 0pt;" scrolling="no" frameborder="0" height="15" width="468"></iframe></ins></ins></td>
+</tr>
+<tr>
+<td align="center" valign="top">
+
+<font color="#FF0000"><b>Note:</b></font> To report broken links or to submit your projects please send email to <u> <b> <a href="http://www.hobbyprojects.com/contactus.html">Webmaster</a></b></u></td>
+</tr>
+<tr>
+<td align="center" valign="top">
+<hr color="#FF8800"></td>
+</tr>
+</tbody></table>
+</td>
+<td bgcolor="#000000" valign="top" width="20%">
+<table border="0" cellpadding="5" width="100%">
+<tbody><tr>
+<td class="tableh1">Circuits</td>
+</tr>
+<tr>
+<td bgcolor="#FFFFFF">
+<table class="circuitmenu">
+<tbody><tr>
+<td><a href="http://www.hobbyprojects.com/schematics/electronics-circuits-a.html">A</a></td>
+<td><a href="http://www.hobbyprojects.com/schematics/electronics-circuits-b.html">B</a></td>
+<td><a href="http://www.hobbyprojects.com/schematics/electronics-circuits-c.html">C</a></td>
+<td><a href="http://www.hobbyprojects.com/schematics/electronics-circuits-d.html">D</a></td>
+</tr>
+<tr>
+<td><a href="http://www.hobbyprojects.com/schematics/electronics-circuits-e.html">E</a></td>
+<td><a href="http://www.hobbyprojects.com/schematics/electronics-circuits-f.html">F</a></td>
+<td><a href="http://www.hobbyprojects.com/schematics/electronics-circuits-g.html">G</a></td>
+<td><a href="http://www.hobbyprojects.com/schematics/electronics-circuits-h.html">H</a></td>
+</tr>
+<tr>
+<td><a href="http://www.hobbyprojects.com/schematics/electronics-circuits-i.html">I</a></td>
+<td><a href="http://www.hobbyprojects.com/schematics/electronics-circuits-j.html">J</a></td>
+<td><a href="http://www.hobbyprojects.com/schematics/electronics-circuits-k.html">K</a></td>
+<td><a href="http://www.hobbyprojects.com/schematics/electronics-circuits-l.html">L</a></td>
+</tr>
+<tr>
+<td><a href="http://www.hobbyprojects.com/schematics/electronics-circuits-m.html">M</a></td>
+<td><a href="http://www.hobbyprojects.com/schematics/electronics-circuits-n.html">N</a></td>
+<td><a href="http://www.hobbyprojects.com/schematics/electronics-circuits-o.html">O</a></td>
+<td><a href="http://www.hobbyprojects.com/schematics/electronics-circuits-p.html">P</a></td>
+</tr>
+<tr>
+<td><a href="http://www.hobbyprojects.com/schematics/electronics-circuits-q.html">Q</a></td>
+<td><a href="http://www.hobbyprojects.com/schematics/electronics-circuits-r.html">R</a></td>
+<td><a href="http://www.hobbyprojects.com/schematics/electronics-circuits-s.html">S</a></td>
+<td><a href="http://www.hobbyprojects.com/schematics/electronics-circuits-t.html">T</a></td>
+</tr>
+<tr>
+<td><a href="http://www.hobbyprojects.com/schematics/electronics-circuits-u.html">U</a></td>
+<td><a href="http://www.hobbyprojects.com/schematics/electronics-circuits-v.html">V</a></td>
+<td><a href="http://www.hobbyprojects.com/schematics/electronics-circuits-w.html">W</a></td>
+<td><a href="http://www.hobbyprojects.com/schematics/electronics-circuits-x.html">X</a></td>
+</tr>
+<tr>
+<td><a href="http://www.hobbyprojects.com/schematics/electronics-circuits-y.html">Y</a></td>
+<td><a href="http://www.hobbyprojects.com/schematics/electronics-circuits-z.html">Z</a></td>
+<td></td>
+<td></td>
+</tr>
+</tbody></table>
+</td>
+</tr>
+</tbody></table>
+<table border="0" cellpadding="5" width="100%">
+<tbody><tr>
+<td class="ads">
+<script type="text/javascript"><!--
+google_ad_client = "ca-pub-5584687688693767";
+google_ad_slot = "5635722485";
+google_ad_width = 160;
+google_ad_height = 600;
+//-->
+</script>
+<script type="text/javascript" src="tutorial12_files/show_ads.js">
+</script><ins style="display:inline-table;border:none;height:600px;margin:0;padding:0;position:relative;visibility:visible;width:160px"><ins id="aswift_5_anchor" style="display:block;border:none;height:600px;margin:0;padding:0;position:relative;visibility:visible;width:160px"><iframe allowtransparency="true" hspace="0" marginwidth="0" marginheight="0" onload="var i=this.id,s=window.google_iframe_oncopy,H=s&amp;&amp;s.handlers,h=H&amp;&amp;H[i],w=this.contentWindow,d;try{d=w.document}catch(e){}if(h&amp;&amp;d&amp;&amp;(!d.body||!d.body.firstChild)){if(h.call){i+='.call';setTimeout(h,0)}else if(h.match){i+='.nav';w.location.replace(h)}s.log&amp;&amp;s.log.push(i)}" vspace="0" id="aswift_5" name="aswift_5" style="left: 0pt; position: absolute; top: 0pt;" scrolling="no" frameborder="0" height="600" width="160"></iframe></ins></ins></td>
+</tr>
+<tr>
+<td class="tableh1">Discover</td>
+</tr>
+<tr>
+<td bgcolor="#FFFFFF">
+<ul>
+<li><a href="http://www.hobbyprojects.com/c_language_reference_guide.html">C/C++ 
+Language Programming Library</a></li>
+<li>
+<a href="http://www.hobbyprojects.com/conversion_between_electrical_system.html">
+Electronic Conversions</a></li>
+<li>
+<a href="http://www.hobbyprojects.com/history-progression-of-electronics-technology.html">
+History of Electronics</a></li>
+<li>
+<a href="http://www.hobbyprojects.com/history-progression-of-computer-technology.html">
+History of Computers</a></li>
+<li><a href="http://www.hobbyprojects.com/electricity-around-the-world.html">Elec. 
+Power Standards</a></li>
+<li><a href="http://www.hobbyprojects.com/online_calculators_&amp;_conversions.html">
+Online Calculator and Conversions</a></li>
+<li>
+<a href="http://www.hobbyprojects.com/controlling-electrical-hazards-osha.html">
+Electrical Hazards - Health &amp; Safety</a></li>
+<li><a href="http://www.hobbyprojects.com/datasheets.html">Datasheets</a></li>
+<li><a href="http://www.hobbyprojects.com/quick_circuits_reference.html">Quick 
+Reference links</a></li>
+<li><a href="http://www.hobbyprojects.com/electronics-magazines.html">Electronics 
+Magazines</a></li>
+<li><a href="http://www.hobbyprojects.com/career_in_electronics_engineering.html">
+Career in Electronics</a></li>
+<li><a href="http://www.hobbyprojects.com/ems-international-parcel-tracking.html">EMS 
+Post Tracking</a></li>
+</ul>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;
+<a href="http://www.hobbyprojects.com/discover-electronics.html">more......</a></p></td>
+</tr>
+</tbody></table>
+</td>
+</tr>
+<tr>
+<td colspan="3" valign="top">
+<div align="center">
+<table border="0" cellpadding="5" width="95%">
+<tbody><tr class="menubutton">
+<td><a href="http://www.hobbyprojects.com/">Home</a></td>
+<td><a href="http://www.hobbyprojects.com/electronics-circuits.html">Electronic Circuits</a></td>
+<td><a href="http://www.hobbyprojects.com/tutorial.html">Electronic Tutorials</a></td>
+<td><a href="http://www.hobbyprojects.com/engineering-projects.html">Engineering Hobby Projects</a></td>
+<td><a href="http://www.hobbyprojects.com/useful_site_links.html">Resources Links</a></td>
+<td><a href="http://www.hobbyprojects.com/sitemap.html">Sitemap</a></td>
+<td><a href="http://www.hobbyprojects.com/disclaimer.html">Disclaimer/T&amp;C</a></td>
+</tr>
+</tbody></table>
+</div>
+</td>
+</tr>
+<tr>
+<td colspan="3" bgcolor="#FF0000" valign="top">
+					
+<object classid="clsid:D27CDB6E-AE6D-11CF-96B8-444553540000" id="obj3" codebase="http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=6,0,40,0" border="0" height="20" width="100%">
+<param name="movie" value="../flash-menu.swf">
+<param name="quality" value="High">
+<param name="wmode" value="transparent">
+<param name="menu" value="false">
+<embed src="tutorial12_files/flash-menu.swf" pluginspage="http://www.macromedia.com/go/getflashplayer" type="application/x-shockwave-flash" name="obj3" quality="High" wmode="transparent" menu="false" height="20" width="100%"></object>
+					
+</td>
+</tr>
+<tr>
+<td colspan="3" bgcolor="#000000" valign="top">
+<p align="center"><font color="#FFFFFF" size="2">Copyright © 
+1999-2011 <a href="http://www.hobbyprojects.com/">
+<font color="#FF8800">www.hobbyprojects.com</font></a>&nbsp; 
+(All rights reserved)</font></p></td>
+</tr>
+</tbody></table>
+</td>
+</tr>
+</tbody></table>
+</div>
+
+
+
+
+</body></html>

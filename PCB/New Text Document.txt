@@ -1,0 +1,50 @@
+void initBluetooth(){
+	
+	COMMTIMEOUTS timeouts;
+	COMMCONFIG dcbSerialParams;
+	char *words, *buffRead;
+
+	hSerial = CreateFile(L"COM6",GENERIC_READ | GENERIC_WRITE,0,NULL,OPEN_EXISTING,FILE_ATTRIBUTE_NORMAL,NULL);
+
+	if ( hSerial == INVALID_HANDLE_VALUE)
+	{
+	if (GetLastError() == ERROR_FILE_NOT_FOUND)
+	{
+	printf(" serial port does not exist \n");
+	}
+	printf(" some other error occured. Inform user.\n");
+	}
+
+
+	if (!GetCommState(hSerial, &dcbSerialParams.dcb))
+	{
+	printf("error getting state \n");
+	}
+
+	dcbSerialParams.dcb.DCBlength = sizeof(dcbSerialParams.dcb);
+
+
+	dcbSerialParams.dcb.BaudRate = CBR_38400;
+	dcbSerialParams.dcb.ByteSize = 8;
+	dcbSerialParams.dcb.StopBits = TWOSTOPBITS;
+	dcbSerialParams.dcb.Parity = NOPARITY;
+
+	dcbSerialParams.dcb.fBinary = TRUE;
+	dcbSerialParams.dcb.fDtrControl = DTR_CONTROL_DISABLE;
+	dcbSerialParams.dcb.fRtsControl = RTS_CONTROL_DISABLE;
+	dcbSerialParams.dcb.fOutxCtsFlow = FALSE;
+	dcbSerialParams.dcb.fOutxDsrFlow = FALSE;
+	dcbSerialParams.dcb.fDsrSensitivity= FALSE;
+	dcbSerialParams.dcb.fAbortOnError = TRUE;
+
+	GetCommTimeouts(hSerial,&timeouts);
+
+	timeouts.ReadIntervalTimeout = 50;
+	timeouts.ReadTotalTimeoutConstant = 50;
+	timeouts.ReadTotalTimeoutMultiplier = 10;
+	timeouts.WriteTotalTimeoutConstant = 50;
+	timeouts.WriteTotalTimeoutMultiplier= 10;
+
+	nwrite = 1;
+	printf("connected to robo\n");
+}

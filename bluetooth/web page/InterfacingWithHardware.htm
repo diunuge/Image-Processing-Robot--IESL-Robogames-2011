@@ -1,0 +1,1384 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8"><link media="all" href="InterfacingWithHardware_files/widget66.css" type="text/css" rel="stylesheet">
+  <title>Arduino playground - InterfacingWithHardware </title>
+  <link rel="shortcut icon" type="image/x-icon" href="http://arduino.cc/playground/favicon.png">
+  <link rel="stylesheet" href="InterfacingWithHardware_files/arduinoWide.css" type="text/css">
+  <script src="InterfacingWithHardware_files/sso_bar_js_2.php"></script>
+  <link rel="stylesheet" type="text/css" media="screen" href="InterfacingWithHardware_files/sso_bar.css">
+<!--HeaderText--><style type="text/css"><!--
+  ul, ol, pre, dl, p { margin-top:0px; margin-bottom:0px; }
+  code { white-space: nowrap; }
+  .vspace { margin-top:1.33em; }
+  .indent { margin-left:40px; }
+  .outdent { margin-left:40px; text-indent:-40px; }
+  a.createlinktext { text-decoration:none; border-bottom:1px dotted gray; }
+  a.createlink { text-decoration:none; position:relative; top:-0.5em;
+    font-weight:bold; font-size:smaller; border-bottom:none; }
+  img { border:0px; }
+  .editconflict { color:green; 
+  font-style:italic; margin-top:1.33em; margin-bottom:1.33em; }
+
+  table.markup { border: 2px dotted #ccf; width:90%; }
+  td.markup1, td.markup2 { padding-left:10px; padding-right:10px; }
+  td.markup1 { border-bottom: 1px solid #ccf; }
+  div.faq { margin-left:2em; }
+  div.faq p.question { margin: 1em 0 0.75em -2em; font-weight:bold; }
+  div.faq hr { margin-left: -2em; }
+   
+    .frame 
+      { border:1px solid #cccccc; padding:4px; background-color:#f9f9f9; }
+    .lfloat { float:left; margin-right:0.5em; }
+    .rfloat { float:right; margin-left:0.5em; }
+a.varlink { text-decoration:none; }
+
+--></style>  <meta name="robots" content="index,follow">
+
+</head>
+<body><div id="_atssh" style="visibility: hidden; height: 1px; width: 1px; position: absolute; z-index: 100000;"><iframe src="InterfacingWithHardware_files/sh53.htm" style="height: 1px; width: 1px; position: absolute; z-index: 100000; border: 0pt none; left: 0pt; top: 0pt;" title="AddThis utility frame" id="_atssh828"></iframe></div>
+  
+		<div id="ssotoolbar">
+		  <div id="al">
+			<nobr><div id="ssoNavBar"><a class="t0" href="http://arduino.cc/en/">Main Site</a> <a class="t0" href="http://arduino.cc/blog/">Blog</a> <a class="t1" href="http://arduino.cc/playground/">Playground</a> <a class="t0" href="http://arduino.cc/forum/">Forum</a> <a class="t0" href="http://labs.arduino.cc/">Labs</a> <a class="t0" href="http://store.arduino.cc/ww/">Store</a> </div></nobr>
+		  </div>
+		  <div id="ar">
+			<nobr>
+			  <div id="loginInfo"><div class="lo gh"><a class="t0" href="http://arduino.cc/help/">Help</a></div> <div class="lo sep">|</div> <div class="lo"><a href="https://id.arduino.cc/auth/login/?returnurl=http%3A%2F%2Fwww.arduino.cc%2Fplayground%2FMain%2FInterfacingWithHardware">Sign in</a> or <a href="https://id.arduino.cc/auth/register/?returnurl=http%3A%2F%2Fwww.arduino.cc%2Fplayground%2FMain%2FInterfacingWithHardware">Register</a></div></div>
+			</nobr>
+		  </div>
+		</div>
+		<script>ssoGenerateNavigationBar('');</script>
+<div id="page">
+<!--PageHeaderFmt-->
+<div id="pageheader">
+  <div class="title"><a href="http://www.arduino.cc/"><div id="logo"></div></a> <a href="http://arduino.cc/playground"><div id="logo_tagline"></div></a></div>
+  <div class="search">
+    <!-- SiteSearch Google -->
+    <form method="GET" action="http://www.google.com/search">
+    <input name="ie" value="UTF-8" type="hidden">
+    <input name="oe" value="UTF-8" type="hidden">
+    <input name="q" size="25" maxlength="255" type="text">
+    <input name="btnG" value="search" type="submit">
+    <input name="domains" value="http://arduino.cc/playground" type="hidden">
+    <input name="sitesearch" value="http://arduino.cc/playground" type="hidden">
+    </form>
+    <!-- SiteSearch Google -->
+  </div>
+</div>
+<!--/PageHeaderFmt-->
+<!--PageLeftFmt-->
+<div id="pagenav">
+  <p><em>The <a class="wikilink" href="http://arduino.cc/playground/Main/HomePage">playground</a> is a publicly-editable wiki about <a class="urllink" href="http://www.arduino.cc/" rel="nofollow">Arduino</a>.</em>
+</p>
+<p class="vspace"></p><p class="sidehead"><a class="wikilink" href="http://arduino.cc/playground/Main/ManualsAndCurriculum">Manuals and Curriculum</a>
+</p>
+<p class="vspace"></p><p class="sidehead"><a class="wikilink" href="http://arduino.cc/playground/Main/ArduinoCoreHardware">Board Setup and Configuration</a>
+</p>
+<p class="vspace"></p><p class="sidehead"><a class="wikilink" href="http://arduino.cc/playground/Main/DevelopmentTools">Development Tools</a>
+</p>
+<p class="vspace"></p><p class="sidehead"><a class="selflink" href="http://arduino.cc/playground/Main/InterfacingWithHardware">Interfacing With Hardware</a>
+</p><ul><li><a class="wikilink" href="http://arduino.cc/playground/Main/InterfacingWithHardware#Output">Output</a>
+</li><li><a class="wikilink" href="http://arduino.cc/playground/Main/InterfacingWithHardware#InputTOC">Input</a>
+</li><li><a class="wikilink" href="http://arduino.cc/playground/Main/InterfacingWithHardware#ui">User Interface</a>
+</li><li><a class="wikilink" href="http://arduino.cc/playground/Main/InterfacingWithHardware#Storage">Storage</a>
+</li><li><a class="wikilink" href="http://arduino.cc/playground/Main/InterfacingWithHardware#Communication">Communication</a> 
+</li><li><a class="wikilink" href="http://arduino.cc/playground/Main/IntWithHW-PwrSup">Power supplies</a> 
+</li><li><a class="wikilink" href="http://arduino.cc/playground/Main/InterfacingWithHardware#General">General</a> 
+</li></ul><p class="vspace"></p><p class="sidehead"><a class="wikilink" href="http://arduino.cc/playground/Main/InterfacingWithSoftware">Interfacing with Software</a>
+</p>
+<p class="vspace"></p><p class="sidehead"><a class="wikilink" href="http://arduino.cc/playground/Main/GeneralCodeLibrary">User Code Library</a>
+</p><ul><li><a class="wikilink" href="http://arduino.cc/playground/Main/SketchList">Snippets and Sketches</a>
+</li><li><a class="wikilink" href="http://arduino.cc/playground/Main/LibraryList">Libraries</a>
+</li><li><a class="wikilink" href="http://arduino.cc/playground/Main/TutorialList">Tutorials</a>
+</li></ul><p class="vspace"></p><p class="sidehead"><a class="urllink" href="http://code.google.com/p/arduino/issues/list" rel="nofollow">Suggestions &amp; Bugs</a>
+</p>
+<p class="vspace"></p><p class="sidehead"><a class="wikilink" href="http://arduino.cc/playground/Main/ElectroInfoResources">Electronics Technique</a>
+</p>
+<p class="vspace"></p><p class="sidehead"><a class="wikilink" href="http://arduino.cc/playground/Main/Resources">Sources for Electronic Parts</a>
+</p>
+<p class="vspace"></p><p class="sidehead"><a class="wikilink" href="http://arduino.cc/playground/Main/SimilarBoards">Related Hardware and Initiatives</a>
+</p>
+<p class="vspace"></p><p class="sidehead"><a class="urllink" href="http://www.arduino.cc/playground/Main/People" rel="nofollow">Arduino People/Groups &amp; Sites</a>
+</p>
+<p class="vspace"></p><p class="sidehead"><a class="urllink" href="http://www.arduino.cc/playground/Projects/ArduinoUsers" rel="nofollow">Exhibition</a>
+</p>
+<p class="vspace"></p><p class="sidehead"><a class="urllink" href="http://www.arduino.cc/playground/Projects/Ideas" rel="nofollow">Project Ideas</a>
+</p>
+<p class="vspace"></p><p class="sidehead"><a class="wikilink" href="http://arduino.cc/playground/Main/Languages">Languages</a>
+</p>
+<p class="vspace"></p><hr>
+<p class="vspace"></p><p class="sidehead"> <a class="wikilink" href="http://arduino.cc/playground/Main/Participate">PARTICIPATE</a>
+</p><ul><li><a class="urllink" href="http://code.google.com/p/arduino/issues/list" rel="nofollow">Suggestions</a>
+</li><li><a class="wikilink" href="http://arduino.cc/playground/Main/Participate#contribrules">Formatting guidelines</a>
+</li><li><a class="wikilink" href="http://arduino.cc/playground/Site/AllRecentChanges">All recent changes</a>
+</li><li><a class="wikilink" href="http://arduino.cc/playground/PmWiki/PmWiki">PmWiki</a>
+</li><li><a class="wikilink" href="http://arduino.cc/playground/Main/WikiSandbox">WikiSandBox training</a>
+</li><li><a class="wikilink" href="http://arduino.cc/playground/PmWiki/BasicEditing">Basic Editing</a>
+</li><li> <a target="_blank" class="urllink" href="http://www.pmwiki.org/wiki/Cookbook/CookbookBasics" rel="nofollow">Cookbook (addons)</a>
+</li><li> <a target="_blank" class="urllink" href="http://www.pmwiki.org/wiki/PmWiki/DocumentationIndex" rel="nofollow">Documentation index</a>
+</li></ul><p class="vspace"></p><hr>
+<p style="text-align: right;"> <span style="font-size:83%"><a class="wikilink" href="http://arduino.cc/playground/Site/SideBar?action=edit">edit SideBar</a></span>
+</p>
+
+</div>
+<!--/PageLeftFmt-->
+<!--PageActionFmt-->
+<div id="pageactions">
+  <!--Main.PageActions--> <!--Site.PageActions-->
+  
+</div>
+<!--/PageActionFmt-->
+<div id="pagetext">
+  <!--PageText-->
+<div id="wikitext">
+<h1>Interfacing with Hardware</h1>
+<p>These topics cover the hardware and software setup required to 
+connect an Arduino device with a variety of electronic parts, chips and 
+devices.  A related topic not covered under this section is the <a class="wikilink" href="http://arduino.cc/playground/Main/ArduinoCoreHardware#Shields">shield</a>,
+ boards that plug directly into an Arduino's pin layout.  Information on
+ the creation and use of specific shields belongs in that section.  
+Information on shields in general and their creation belongs <a class="wikilink" href="http://arduino.cc/playground/Main/ArduinoCoreHardware#Shields">here</a>.
+</p>
+<p class="vspace"></p><p>See <a class="wikilink" href="http://arduino.cc/playground/Main/ShieldPinUsage">here</a> for a table of shields and the Arduino pins they use.
+</p>
+<p class="vspace"></p><p>Arduino has limits on how much current can be 
+sourced or sunk by its I/O pins.  When interfacing with hardware you 
+need to be careful not to exceed these limits. For details see <a class="wikilink" href="http://arduino.cc/playground/Main/ArduinoPinCurrentLimitations">ArduinoPinCurrentLimitations</a>. In general, do not exceed 20 mA per pin. In particular, do NOT directly connect <span class="wikiword">LEDs</span> to Arduino outputs! Always use a series resistor (220 ohms is a good value).
+</p>
+<p class="vspace"></p><hr>
+<h2>Navigation</h2>
+<h3><a href="#Output">Output</a></h3>
+<ul><li><a href="#ArduinoasISP">Arduino as ISP</a>
+</li><li><a href="#Visual">Visual</a>
+<ul><li><a href="#LED">LED Lights and Displays</a>
+</li><li><a href="#LCD">LCDs</a>
+</li><li><a href="#Video">Video</a>
+</li><li><a href="#VFD">VFDs</a>
+</li></ul></li><li><a href="#Audio">Audio</a>
+<ul><li><a href="#audio_tutorial">µC Hobby Arduino Sound Tutorial</a>
+</li><li><a href="#audio_processing">Realtime audio processing</a>
+</li><li><a href="#audio_libraries">Tone Generation Libraries</a>
+</li><li><a href="#audio_generation">Synthesizers and sound generation</a>
+</li><li><a href="#gotoSpeech">Speech synthesis / Voice synthesis</a>
+</li><li><a href="#MIDI">MIDI</a>
+</li><li><a href="#Morse">Morse code I/O</a>
+</li></ul><p class="vspace"></p></li><li><a href="#Physical_Mechanical">Physical/Mechanical</a>
+</li><li><a href="#Electrical_High_Power">Electrical / High Power</a>
+</li><li><a href="#MultiplexingOut">Multiplexing outputs</a>
+</li><li><a href="#USB">USB</a>
+</li></ul><p class="vspace"></p><p><a name="InputTOC" id="InputTOC"></a>
+</p><h3><a href="#Input">Input</a></h3>
+<ul><li><a href="#adcdac">ADC / DAC</a>
+</li><li><a href="#arstat">ArduStat</a>- Measures charge in battery
+</li><li><a href="#audio_input">Audio</a>
+</li><li><a href="#gotoBarC">Bar code reading</a>
+</li><li><a href="#capsens">Capacitive Sensing</a>
+</li><li><a href="#DistanceSensing">Distance Sensing</a>
+</li><li><a href="#envtop">Environmental Sensing</a>
+<ul><li>See also Light sensors and images
+</li><li><a href="#envhum">Humidity</a>
+</li><li><a href="#envtture">Temperature</a>
+</li></ul></li><li><a href="#image">Images</a>
+</li><li><a href="#joygame">Joysticks / Gamepads</a>
+</li><li><a href="#keyb">Keyboard/Keypads</a>
+</li><li><a href="#light_sensor">Light Sensors</a> (Visual and IR... levels, not images)
+</li><li><a href="#location">Location</a>- GPS, etc.
+</li><li><a href="#Magnetic">Magnetic</a>
+</li><li><a href="#cards">Magnetic Cards</a>
+</li><li><a href="#Mechanical">Mechanical</a>
+<ul><li><a href="#Encoders">Encoders</a>
+</li><li><a href="#Switches">Switches and Buttons</a>
+</li><li><a href="#Potentiometers">Potentiometers</a>
+</li></ul></li><li><a href="#Morse">Morse code I/O</a>
+</li><li><a href="#mouse">Mice</a>
+</li><li><a href="#motion">Motion Sensors</a>
+</li><li><a href="#multiplin">Multiplexing Inputs</a>
+</li><li><a href="#Electrical">Other voltages/Power</a>- Presence &amp; kiloWatt hours
+</li><li><a href="#positionsens">Position Sensing</a>
+</li><li><a href="#PPM">PPM RC Receivers</a>
+</li><li><a href="#presssens">Pressure Sensors</a>
+</li><li><a href="#gotoRFID">RFID tag reading</a>
+</li><li><a href="#slot">Slotted Detectors / Proximity Sensors</a>
+</li><li><a class="urllink" href="http://www.insanegiantrobots.com/arduino/sensorlib.html" rel="nofollow">General Purpose Sensor abstraction layer</a> One interface to setup and control most Digital and Analog sensors.
+</li><li><a href="#tagtop">Tagging / Labeling</a>- see <a href="#gotoRFID">RFID</a> or <a href="#gotoBarc">Barcodes</a> (Legacy t.o.c. entry)
+</li><li><a href="#time">Time</a>...of day: RTC, clock / calendar chips
+</li><li><a href="#touch">Touch screen</a>
+</li></ul><p class="vspace"></p><h3><a href="#ui">User interface</a></h3>
+<ul><li><a href="#tui">Text-based user interface</a>
+<ul><li><a href="#phi_prompt">Phi_prompt user interface Library</a> 
+</li><li><a class="urllink" href="http://sourceforge.net/projects/arduinowifly/files/MenuSample/" rel="nofollow">MenuSample</a>
+</li><li><a href="#phi_prompt_glcd">Phi_prompt glcd user interface Library</a> This is being planned.
+</li><li><a href="#phi_prompt_pov">Phi_prompt persistence of vision display user interface Library</a> This is being planned. 
+</li><li><a class="urllink" href="http://code.google.com/p/m2tklib/" rel="nofollow">M2tklib</a> (<span class="wikiword">LiquidCrystal</span> Library)
+</li></ul></li><li><a href="#gui">Graphical user interface</a>
+<ul><li><a class="urllink" href="http://code.google.com/p/m2tklib/" rel="nofollow">M2tklib</a> (Requires GLCD or <span class="wikiword">DOGM128</span> Library) 
+</li></ul></li><li><a href="#ui_generic">Hardware-independent layers</a>
+<ul><li><a href="#multi_tap">Multi-tap</a> Code to enable multi-tap input on any keypads 
+</li></ul></li></ul><h3><a href="#Communication">Communication</a></h3>
+<ul><li><a href="#onewire">Dallas 1-Wire</a>
+</li><li><a href="#ethernet">Ethernet</a>
+</li><li><a href="#i2c">I2C/TWI</a>
+</li><li><a href="#spi-usi">SPI/USI</a>
+</li><li><a href="#Serial">Serial</a>
+</li><li><a href="#gsm">GSM/GPRS</a>
+<p class="vspace"></p></li><li><a href="#wifi">WiFi</a>
+</li><li><a href="#wireless">Wire-less... some radio, some non-radio, e.g. IR</a>
+</li></ul><p class="vspace"></p><h3><a href="#General">General</a></h3>
+<ul><li><a href="#pinouts">Common Pinouts</a>
+</li></ul><p class="vspace"></p><hr>
+<p><a name="Output" id="Output"></a>
+</p><h1>Output </h1>
+<p>Examples and information for specific output devices and peripherals: How to connect and wire up devices and code to drive them.
+</p>
+<p class="vspace"></p><p>See also the pages devoted to the <a class="urllink" href="http://www.arduino.cc/playground/Learning/OneWire" rel="nofollow">Dallas One-Wire MicroLan</a>, <span class="wikiword">I2C</span>
+ and ethernet. They enable you connect additional output (etc.) devices 
+across networks controlled by the Arduino. The trouble of controlling a 
+network is repaid if you need to connect many outputs (and/ or inputs), 
+or if your actuators / sensors are not close to your Aruduino.
+Arduino as ISP
+</p>
+<p class="vspace"></p><h2>Arduino as ISP</h2>
+<ul><li><strong>Programming <span class="wikiword">AVRs</span></strong>
+<ul><li><a class="urllink" href="http://themakersworkbench.com/?q=node/431" rel="nofollow">Burning the Sanguino Bootloader to ATmega 644p with an Arduino</a>, This tutorial teaches you how to burn the Sanguino Bootloader to an <span class="wikiword">ATmega</span> 644p which needs an external resonator added to the programming circuit before it will accept any programming. 
+</li></ul></li></ul><h2><a name="Visual" id="Visual"></a>Visual</h2>
+<ul><li><strong>Camera Control - Controlling Cameras</strong>
+<ul><li><a class="urllink" href="http://sebastian.setz.name/arduino/my-libraries/multi-camera-ir-control" rel="nofollow">multiCamereIrControl Library</a>, controlling Nikon, Canon, Sony, Minolta, Olympus and Pentax cameras just with an IR LED.
+</li><li>Remote control a <span class="newin"><a class="urllink" href="http://wordpress.bolanski.com/?p=9" rel="nofollow">Canon EOS</a> to take time lapse photos. The same wiring and interface should work on other cameras.</span>
+</li><li><a class="urllink" href="http://controlyourcamera.blogspot.com/2010/01/infrared-controlled-timelapse.html" rel="nofollow">Infrared controlled timelapse photography with Canon DSLRs</a>. Works with all cameras that are compatible with the Canon RC-1 remote.
+</li><li>Imitating a Nikon IR Remote from <a class="urllink" href="http://www.bemasher.net/archives/114" rel="nofollow">Nikon</a> SLR's.
+</li><li><a class="urllink" href="http://www.arduino.cc/playground/Main/SonyShutterIR" rel="nofollow">Imitating a Sony A230 DSLR Shutter Release IR Remote</a>.
+</li><li>Remote control a <a class="urllink" href="http://www.vonroth.com/Arduino/NikonIrControl/" rel="nofollow">Nikon</a> camera via infrared LED
+</li><li><a class="urllink" href="http://www.mindspring.com/%7Etom2000/Projects/AI-1_Remote/AI-1_Remote.html" rel="nofollow">AI-1 ("All-in-one") Remote</a>
+ - A Photographic Accessory That You Can Build. A fully featured 
+intervalometer by Tom Lackamp. Does a lot, but is also quite a 
+big/complex project.
+</li><li>A device to trigger camera and flash <a class="urllink" href="http://www.arduino.cc/cgi-bin/yabb2/YaBB.pl?num=1191622707/3" rel="nofollow">forum discussion (english)</a> pointing to <a class="urllink" href="http://frikosal.blogspot.com/2007/10/el-controlador-fr2-y-la-medida-del.html" rel="nofollow">this page (not english)</a>.
+</li><li><a class="urllink" href="http://www.arduino.cc/cgi-bin/yabb2/YaBB.pl?num=1178723397/11" rel="nofollow">Controlling camera shutter, flash and more via 3 pin plug</a>. Forum discussion with sample code. Should be quite generic, tested with Canons and Olympus <span class="wikiword">SP510UZ</span>.
+</li><li><a class="urllink" href="http://www.arduino.cc/cgi-bin/yabb2/YaBB.pl?num=1198744543" rel="nofollow">IR remote for canon digital camera</a>. Unresolved forum discussion. Sample code and pointers of how to get it working.
+</li><li><a class="urllink" href="http://controlyourcamera.blogspot.com/2010/01/automatically-resume-video-shooting-on.html" rel="nofollow">Canon RC-1 compatible IR remote</a>. All you need is one IR LED and an Arduino board.
+</li><li><a class="urllink" href="http://www.arduino.cc/cgi-bin/yabb2/YaBB.pl?num=1182979082/0" rel="nofollow">Links to the Sony LANC protocol</a>. This can be used to control video cameras, and a subset of it might be used to control still cameras (<a class="urllink" href="http://furiousgreencloud.blogspot.com/2008/08/arduino-speaks-to-lanc-devices-camera.html" rel="nofollow">Arduino-LANC Code</a>).
+</li><li><a class="urllink" href="http://micro.arocholl.com/index.php?option=com_content&amp;view=section&amp;layout=blog&amp;id=6&amp;Itemid=54" rel="nofollow">LANC Arduino full application + circuit</a>
+ Another approach to implement LANC control with Arduino, including open
+ collector circuit you need to interface with the camera.
+</li><li><a class="urllink" href="http://controlyourcamera.blogspot.com/2011/02/arduino-controlled-video-recording-over.html" rel="nofollow">Arduino controlled video recording using the LANC port</a> Simple and easy to understand  Arduino sketch that starts and stops video recording.
+</li><li><a class="urllink" href="http://controlyourcamera.blogspot.com/2011/02/arduino-powered-lanc-remote.html" rel="nofollow">Arduino powered simple LANC remote</a> Circuit and sketch with rec, zoom and focus buttons.
+</li><li> <a class="urllink" href="http://www.aidandunbar.co.uk/electronics/2011/thintervalometer" rel="nofollow">thIntervalometer</a> Simple stripboard Intervalometer 'shield'. Easy to understand code.
+</li><li><a class="urllink" href="http://www.circuitsathome.com/camera-control/arduino-based-controller-for-canon-eos-cameras" rel="nofollow">USB control of Canon EOS cameras</a> using USB Host Shield - An intervalometer with extended HDR bracketing.
+</li></ul></li></ul><p class="vspace"></p><p><a class="urllink" href="http://blog.makezine.com/archive/2008/03/explody_easter_peeps_high.html" rel="nofollow">High Speed Photography</a>: using an Arduino connected to a microphone and camera flash to capture images of Peeps exploding. <em><a class="urllink" href="http://web.archive.org/web/20080327180058/http://www.synoptic.org/blog/index.php/2008/03/23/explody-easter-peeps/" rel="nofollow">full text of original post</a> via web.archive.org</em>
+</p><dl><dd><ul><li><a class="urllink" href="http://www.glacialwanderer.com/hobbyrobotics/?p=11" rel="nofollow">Triggering a Camera’s Flash with Sound and Light</a> - complete with photos and hand-drawn schematics.
+</li><li><a class="urllink" href="http://timmsuess.com/intervaluino/" rel="nofollow">Intervaluino</a>: An Arduino-powered intervalometer for taking time-lapse photo sequences.
+</li><li><a class="urllink" href="http://canon-hf100.blogspot.com/2009/07/diy-camera-motion-control_09.html" rel="nofollow">DIY camera motion control</a>: An Arduino-controlled stepping motor and an IGUS <span class="wikiword">DryLin</span> W rail allow smooth camera moves.
+</li><li><a class="urllink" href="http://www.openmoco.org/" rel="nofollow">OpenMoco</a>:
+ A complete time-lapse motion control system, integrating 
+intervalometer, multiple motor axes, action scripting, and keyframing in
+ a single Arduino.
+</li><li><a class="urllink" href="http://openmoco.org/node/88" rel="nofollow">Arduino Intervalometer Basics</a>: An introduction to building DIY intervalometers, covering optocouplers, blocking timing, and two forms of non-blocking timing
+</li><li><a class="urllink" href="http://www.zipfelmaus.com/blog/hack-a-canon-camera-and-controll-it-with-an-arduino/" rel="nofollow">Hack a Canon camera and controll it with an Arduino</a>: Hacked Canon Ixus camera, with instructions, code and videos
+</li><li><a class="urllink" href="http://interface.khm.de/index.php/lab/experiments/time-lapse-photography-with-arduino-and-chdk/" rel="nofollow">Long-term time-lapse photo</a>: Run a canon camera with CHDK and a Arduino controller for one year stand-alone
+</li><li><a class="urllink" href="http://www.apcc.tk/" rel="nofollow">APCC Advamced Photo Camera Control</a>: arduino based camera and flash control (IR remote Canon RC-1, RC-5, nikon ML-5, sound and light trigger, intervalometer, etc.)
+</li></ul></dd></dl><p class="vspace"></p><ul><li><strong><a name="LED" id="LED"></a>LED Lights and Displays</strong>
+<p class="vspace"></p><ul><li><strong>Single <span class="wikiword">LEDs</span> of one color</strong>
+<ul><li><a class="urllink" href="http://www.andrewfrueh.com/electronics/?pageContent=fade_LED_with_knob.html" rel="nofollow">Fade an LED with a knob</a> - An example that lets you twist a knob to control the brightness of an LED.
+</li><li><a class="urllink" href="http://www.andrewfrueh.com/electronics/?pageContent=fade_LED_with_button.htm" rel="nofollow">Fade an LED with a button</a>
+ - An example that lets you push a button to make an LED fade on and 
+off. This example uses one of Robert Penner's easing equations to handle
+ the fading.
+</li><li><a class="urllink" href="https://github.com/carlynorama/Arduino-Library-FancyLED" rel="nofollow">FancyLED</a>:
+ Another simple hardware abstraction library that enables blinking "N" 
+times at custom rates, toggling, has a "fuse" example that allows for 
+blinking to start after some lead time...
+</li><li><a class="wikilink" href="http://arduino.cc/playground/Main/LEDPots">Knight Rider extensions</a> - an extension to the <a class="urllink" href="http://arduino.cc/en/Tutorial/Loop" rel="nofollow">learning loops example</a>. Several single <span class="wikiword">LEDs</span> used together to create satisfying visual displays.
+</li><li><a class="wikilink" href="http://arduino.cc/playground/Code/LED">LED</a>: Simple hardware abstraction library. Either use this to simplify(?) working with songle <span class="wikiword">LEDs</span>, or study it as a good example of what you can do by creating a library.
+</li></ul><p class="vspace"></p></li><li><strong>Single <span class="wikiword">LEDs</span>, multi-color</strong>
+<ul><li><a class="urllink" href="http://www.insanegiantrobots.com/arduino/rgbled.html" rel="nofollow">Object Oriented RGB LED abstraction layer</a> Simple setup and control of common RGB <span class="wikiword">LEDs</span>. Works with common cathode and common anode devices and with both PWM and non-PWM digital pins.
+</li><li><a class="urllink" href="http://fightpc.blogspot.com/2008/03/arduino-mood-light.html" rel="nofollow">Arduino mood light</a> with a 3W RGB LED.
+</li><li><a class="wikilink" href="http://arduino.cc/playground/Main/ShiftBriteLib">ShiftBrite:</a> a module with three <span class="wikiword">LEDs</span>.
+ (High brightness red, green, blue.) Library for the module. Module uses
+ a simple clocked serial interface to accept a 10-bit brightness value 
+for each LED's color. 
+</li></ul><p class="vspace"></p></li><li><strong>Multiplexed single <span class="wikiword">LEDs</span>, each a single color</strong>
+ (See also "LED Segmented Displays" sections. Here we have multiplexing 
+done "the hard way", but leaving you with the greatest ctreative 
+control.)
+<ul><li><a class="wikilink" href="http://arduino.cc/playground/Main/LEDCube3x3">3x3 LED Cube Diecimila Shield</a> (Inexpensive version of a fun idea... 27 <span class="wikiword">LEDs</span>, some resistors, some tranistors... and a lot of craftsmanship with your soldering!)
+</li><li>Schematic for driving <a class="urllink" href="http://arduino.cc/playground/uploads/Learning/multiple_leds2.jpg" rel="nofollow">multiple leds</a> from one Arduino pin.
+</li><li><a class="urllink" href="http://effluviaofascatteredmind.blogspot.com/2009/10/lightuino-design-thoughts.html" rel="nofollow">lightuino</a>: Arduino 328 software and shield compatible board drives 70 <span class="wikiword">LEDs</span>
+ through 70 individual channels (i.e. constant drive, not matrix 
+strobing) using the M5451 constant current chip.  FOSS source code 
+available at <a class="urllink" href="http://code.google.com/p/arduino-m5451-current-driver/" rel="nofollow">http://code.google.com/p/arduino-m5451-current-driver/</a>.  Also contains instruction on how to wire up the M5451 chip to Arduino yourself. <a class="urllink" href="http://www.toastedcircuits.com/" rel="nofollow">Buy</a>
+</li><li><a class="wikilink" href="http://arduino.cc/playground/Main/DirectDriveLEDMatrix">Direct driving of an 8x8 LED matrix</a> with no <span class="wikiword">ICs</span> or other components involved. 
+</li><li><a class="wikilink" href="http://arduino.cc/playground/Learning/TLC5940">TLC5940</a>
+ - constant-current LED driver with 16 channels of 12 bit PWM output. 
+Chips can be daisy-chained for &gt;16 PWM channels. Library code and 
+examples available.
+</li></ul><p class="vspace"></p></li><li><strong>Multiplexed single <span class="wikiword">LEDs</span>, each multi-color</strong>
+ (See also "LED Segmented Displays" sections. Here we have multiplexing 
+done "the hard way", but leaving you with the greatest ctreative 
+control.)
+<ul><li><a class="wikilink" href="http://arduino.cc/playground/Main/RGBLEDPWM">RGB LED Color Mixing using 10k potentiometers</a> : Simple tutorial on getting color mixing with 10k pots.
+</li><li><a class="urllink" href="http://www.upwardnotnorthward.com/2008/01/my-first-project-full-colour-rgb-monome.html" rel="nofollow">RGB monome clone</a> - controlling an RGB led / button matrix.
+</li><li><a class="urllink" href="http://blog.spitzenpfeil.org/wordpress/2009/03/31/8%c3%978-rgb-matrix-v3-kicad-smd-%e2%80%94-part-2/" rel="nofollow">8x8 RGB PWM Matrix</a> The driver includes an <span class="wikiword">ATmega168</span> and can be programmed via ICSP or the bootloader + USB/TTL cable. It is code compatible with Halley's shield.
+</li><li><a class="wikilink" href="http://arduino.cc/playground/Main/HT1632C">HT1632C Based LED Matrix Display</a>: Tutorial on how to connect and use an <span class="wikiword">HT1632C</span> based LED Matrix(eg. sureelectronics 3216) with a RTC(<span class="wikiword">DS1307</span>) to display date/time.
+</li></ul></li><li>Using the Sparkfun <span class="wikiword">DS1307</span> Real Time Clock to tell time with your arduino - <a class="urllink" href="http://bildr.org/2011/03/ds1307-arduino/" rel="nofollow">http://bildr.org/2011/03/ds1307-arduino/</a>
+<p class="vspace"></p></li><li><strong>Seven segment displays</strong> 
+(See also the "LED Multiplexing" sections. Here we have displays 
+supplied with character generating control circuitry, minimizing the 
+work you have to do.)
+<ul><li><a class="urllink" href="http://blog.2of1.org/2010/08/27/arduino-library-for-7-segment-displays/" rel="nofollow">Seg7 library</a> for control of 7 segment displays
+</li></ul></li></ul></li><li><strong><span class="wikiword">Multiplex7Seg</span></strong>
+ is a small Arduino library allowing you to multiplex 1, 2, 3 or 4 
+digits using any one of the pins on your Arduino, that's a 9999 digit 
+display. You also have the ability to enable zero leading blanking for 
+low power requirements. Mail me at <em>bester.juan@gmail.com</em> for additional help on using the library. Project is hosted at <a class="urllink" href="http://code.google.com/p/mutiplex7seg/" rel="nofollow">http://code.google.com/p/mutiplex7seg/</a>
+<dl><dd><ul><li><a class="urllink" href="http://www.arunet.co.uk/tkboyd/ec/ec1led4x7ser.htm" rel="nofollow">4 Character 7-segement Display</a> $13+ P&amp;P (8/10). Control with one Arduino digital pin and <span class="wikiword">NewSoftSerial</span>, or SPI.
+</li><li><a class="wikilink" href="http://arduino.cc/playground/Main/DirectDrive88884Digit7SegmentDisplay">Direct Drive 88:88 4 digit 7 segment display</a> using same method as 8x8 matrix.
+</li><li><a class="wikilink" href="http://arduino.cc/playground/ComponentLib/HC4LED-library">hc4led</a> -  A cheap 4-digit seven segment LED display with SPI. No decimals, though. Sample code here: <a class="wikilink" href="http://arduino.cc/playground/ComponentLib/Hc4led">Hc4led</a>.  And here's an easy-to-use Arduino/Wiring <a class="wikilink" href="http://arduino.cc/playground/ComponentLib/HC4LED-library">library</a> for controlling these displays.  The <a class="wikilink" href="http://arduino.cc/playground/ComponentLib/ReactionTimeTester">Reaction Time Tester</a> project uses the <span class="wikiword">HC4LED</span> library.
+</li></ul></dd></dl><p class="vspace"></p><ul><li><strong>Multi-segment displays- more than 7 LED segments per character</strong>
+ (See also "LED Multiplexing" sections. Here we have displays supplied 
+with character generating control circuitry, control circuitry, 
+minimizing the work you have to do.)
+<ul><li>Controlling an Alphanumeric LED Display - <a class="urllink" href="http://17segment.blogspot.com/" rel="nofollow">Library on Blogspot</a>
+</li><li><a class="urllink" href="http://dotmatrixdesign.tumblr.com/" rel="nofollow">Twitter LED Scroller</a> - Twitter API to PHP to Processing to Arduino to 74HC595 to scrolling LED matrix (complete with cool resin case).
+</li><li><a class="urllink" href="http://milesburton.com/index.php/Arduino_%26_the_Sure_2416_Information_Display" rel="nofollow">Sure-Electronics 2416 Display</a> 24x16 LED display. Matrix Display Library (supports multiple displays)
+</li><li><a class="wikilink" href="http://arduino.cc/playground/Main/LEDSign">8 x 8 LED grid</a>: Send commands to the display via SPI. the 64 <span class="wikiword">LEDs</span> then remain as you want them until new commands sent.
+</li><li>Matrix LED backpack - <a class="wikilink" href="http://arduino.cc/playground/Code/RGBBackpack">Code</a> for running the Sparkfun RGB 8x8 matrix LED backpack. Controlled via SPI.
+</li><li><a class="urllink" href="http://www.seeedstudio.com/blog/?page_id=187" rel="nofollow">Rainbowduino</a>: An Arduino-compatible board that can drive an 8x8 RGB matrix, or 192 discrete <span class="wikiword">LEDs</span>.
+</li><li><a class="urllink" href="http://blog.lincomatic.com/?p=148" rel="nofollow">Colorduino</a>: An interface library for <span class="wikiword">ITead</span> Studio's Colorduino and Arduino RGB LED Matrix driver shield.
+</li><li><a class="urllink" href="http://www.arduino.cc/playground/Main/LedDisplay" rel="nofollow">LedDisplay</a>: Library for HP/Agilent/Avago HCMS-29xx LED dot matrix character displays.
+</li></ul><p class="vspace"></p></li><li><strong>Monome 64 clones</strong>... 8x8 matrix of LED illuminated switches, turned into a musical/ lightshow instrument with hardware and software.
+<ul><li><a class="urllink" href="http://unsped.blogspot.com/" rel="nofollow">THE Octinct</a> - Arduino based RGB Monome 64 clone.
+</li><li><a class="urllink" href="http://designthemedia.com/bonome/" rel="nofollow">bonome</a> - Arduino based RGB Monome 64 clone with sparkfun button pads.
+</li><li><a class="urllink" href="http://www.thebox.myzen.co.uk/Hardware/Mini_Monome.html" rel="nofollow">4 by 4 RGB monome clone</a> - controlling an RGB led / button matrix using the <span class="wikiword">TLC5940</span>.
+</li></ul><p class="vspace"></p></li><li><strong>Things that don't (?) fit any of the above categories, or fit in several of them.</strong> 
+<ul><li>POV - Arduino does <span class="newin"><a class="urllink" href="http://i.document.m05.de/?p=127" rel="nofollow">persistence of vision,</a> too.</span>
+</li><li>Controlling an LED matrix with the <a class="wikilink" href="http://arduino.cc/playground/Main/LEDMatrix"><code>MAX7219</code> and <code>MAX7221</code></a>.
+ An extensive collection of articles, schematics and software libraries.
+ Can be used for arrays of "dots" and for driving 7 segment displays.
+</li><li>Controlling arrays of leds or common cathode multi-character 7-segments displays via <span class="wikiword">ICM7218A</span>. <a class="urllink" href="http://ardugonic.blogspot.com/2010/05/driving-8-digits-7-segment-display-with.html" rel="nofollow">Direct way</a> or <a class="urllink" href="http://ardugonic.blogspot.com/2010/06/icm7218a-combined-with-pcf8574-to.html" rel="nofollow">using PCF8574 to save arduino pins</a>.
+</li></ul></li></ul><p class="vspace"></p></li><li><strong><a name="LCD" id="LCD"></a><span class="wikiword">LCDs</span></strong>
+<ul><li>have their <a class="wikilink" href="http://arduino.cc/playground/Code/LCD">own page</a>
+</li></ul><p class="vspace"></p></li><li><strong><a name="dmx" id="dmx"></a>Lighting Control</strong>
+<ul><li><a class="urllink" href="http://www.arduino.cc/playground/Learning/DMX" rel="nofollow">DMX lighting control</a>
+</li><li><a class="urllink" href="http://www.makesomecode.com/2009/12/30/arduino-osc-iphone-and-dmx/" rel="nofollow">Control DMX using iPhone and OSC</a>
+</li></ul><p class="vspace"></p></li><li><strong><a name="oled" id="oled"></a>OLED</strong>
+<ul><li>Some code samples to control output to a small surface-mount OLED with basic hardware-level  <a class="urllink" href="http://antipastohw.blogspot.com/2008/04/touchshield-up-and-running-in-5-minutes.html" rel="nofollow">graphics functions</a>
+</li><li><a class="urllink" href="http://code.google.com/p/uoled-library" rel="nofollow">uOLED Library</a> for the 4D Systems OLED displays.  This is a serial communication with the display. 
+</li></ul><p class="vspace"></p></li><li><strong><a name="Video" id="Video"></a>Video Output</strong>
+<ul><li><a class="wikilink" href="http://arduino.cc/playground/Main/MicroVGA">MicroVGA</a> Library for <span class="wikiword">MicroVGA</span>-TEXT devices, allowing Arduino to display on a VGA (LCD/CRT) monitor or a television and read keystrokes from a PS/2 keyboard.
+</li><li><a class="wikilink" href="http://arduino.cc/playground/Main/TVout">TVout</a>
+ Library for NTSC and PAL composite video output. Video output runs in 
+the background via timers, allowing the sketch to concentrate doing its 
+thing.
+</li><li><a class="wikilink" href="http://arduino.cc/playground/Main/SID-emulator">SID-emulator</a>
+ The shield contains an emulator of the audio chip in a Commodore 64. 
+The systems allows you to create original 8-bit video and sounds 
+programmed and controlled via the Arduino board.
+</li><li><a class="urllink" href="http://antipastohw.blogspot.com/2008/05/touchshield-bitmap-bouncing-ball.html" rel="nofollow">Bitmap picture display</a> on a graphics shield
+</li><li><a class="urllink" href="http://thepotterproject.net/TPPNews/?page_id=39" rel="nofollow">Picaso Library</a> for interfacing with 4D Picaso devices (including the 4D uVGA Picaso <span class="wikiword">MD1</span>)
+</li><li><a class="wikilink" href="http://arduino.cc/playground/Main/Gameduino">Gameduino</a> Library for the Gameduino, VGA display for video games
+</li></ul><p class="vspace"></p></li><li><strong><a name="VFD" id="VFD"></a><span class="wikiword">VFDs</span></strong> Vacuum fluorescent display modules are often used in the same applications where LCD modules are used. <span class="wikiword">VFDs</span> are typically brighter, have more contrast and a greater view angle than <span class="wikiword">LCDs</span>. 
+<ul><li><a class="wikilink" href="http://arduino.cc/playground/Main/Ncr4X20Vfd">Ncr4X20Vfd</a> Library, examples and information for driving the NCR 7454 / Futaba <span class="wikiword">M204SD01B</span> VFD module.
+</li><li><a class="wikilink" href="http://arduino.cc/playground/Main/PrimeVfd">PrimeVfd</a> Library, examples and information for driving the Futaba <span class="wikiword">NA202MD13AA</span> VFD module.
+</li><li><a class="wikilink" href="http://arduino.cc/playground/Main/IeeFlip">IeeFlip</a> &amp; <a class="wikilink" href="http://arduino.cc/playground/Main/IeeFlipNoFrills">IeeFlipNoFrills</a> Libraries, examples and information for driving IEE Flip VFD modules.
+</li><li><a class="wikilink" href="http://arduino.cc/playground/Main/FutabaUsVfd">FutabaUsVfd</a> Library, examples and information for driving Futaba <span class="wikiword">US162SD03CB</span> VFD modules and perhaps other Futaba VFD models.
+</li><li><a class="wikilink" href="http://arduino.cc/playground/Main/M66004Vfd">M66004Vfd</a>
+ Library, examples and information for driving VFD's using the 
+Mitsubishi/Renesas M66004 VFD controller IC. This includes the 
+display/control panel used in many HP <span class="wikiword">LaserJet</span> printers such as the <span class="wikiword">LaserJet</span> 4.
+</li><li><a class="wikilink" href="http://arduino.cc/playground/Main/HpDecVfd">HpDecVfd</a>
+ Library, examples and information for using VFD modules originally 
+intended for the discontinued HP z500 Series Digital Entertainment 
+Center media <span class="wikiword">PCs</span>.
+</li><li><a class="urllink" href="https://github.com/adafruit/SPI_VFD" rel="nofollow">SPI_VFD</a> A library for driving modules that support the standard <a class="urllink" href="http://en.wikipedia.org/wiki/HD44780_Character_LCD" rel="nofollow">HD44780</a>
+ command set but use SPI (clocked serial) instead of parallel 
+communication. This library was created to drive the uPD16314 
+controller, commonly used on Samsung VFD modules. 
+</li></ul><p class="vspace"></p></li><li><strong><a name="Video" id="Video"></a>IR Remote Output</strong>
+<ul><li><a class="urllink" href="http://arcfn.com/2009/08/multi-protocol-infrared-remote-library.html" rel="nofollow">IR remote</a> library to control Sony, NEC, <span class="wikiword">RC5</span>, and <span class="wikiword">RC6</span> devices.
+</li><li><a class="urllink" href="http://interface.khm.de/index.php/lab/experiments/dvd-synchronizer-and-infrared-remote-control/" rel="nofollow">DVD Synchronizer</a> and IR remote-control techniques.
+</li><li><a class="urllink" href="http://www.arduino.cc/playground/Main/MultiIR" rel="nofollow">Multitasked IR transmission</a> for sending Sony remote codes in background.
+</li></ul></li></ul><p class="vspace"></p><h2><a name="Audio" id="Audio"></a>Audio Output</h2>
+<ul><li><strong><a name="audio_tutorial" id="audio_tutorial"></a>µC Hobby Arduino Sound Tutorial</strong>
+<ul><li><a class="urllink" href="http://www.uchobby.com/index.php/2007/11/11/arduino-sound-part-1/" rel="nofollow">Part 1</a>: various strategies to generating sound.
+</li><li><a class="urllink" href="http://www.uchobby.com/index.php/2007/11/14/arduino-sound-part-2-hello-world/" rel="nofollow">Part 2</a>: "hello world", simple tone generation.
+</li><li><a class="urllink" href="http://www.uchobby.com/index.php/2007/11/22/arduino-sound-part-3-playing-a-melody/" rel="nofollow">Part 3</a>: playing a melody. 
+</li></ul><p class="vspace"></p></li><li><strong><a name="audio_libraries" id="audio_libraries"></a>Tone Generation Libraries</strong>
+<ul><li><a class="urllink" href="http://code.google.com/p/rogue-code/wiki/ToneLibraryDocumentation" rel="nofollow">Arduino Tone Library</a>: A library that can be used to generate tones in the background using timers while your Arduino does other things. 
+</li></ul><p class="vspace"></p></li><li><strong><a name="audio_processing" id="audio_processing"></a>Realtime audio processing</strong>
+<ul><li><a class="urllink" href="http://interface.khm.de/index.php/labor/experimente/arduino-realtime-audio-processing/" rel="nofollow">realtime audio</a>: digitizing sound and audio effects.
+</li></ul><p class="vspace"></p></li><li>'''<a class="urllink" href="http://ondryasondra.aspone.cz/Article.aspx?id=18" rel="nofollow">Zvonek</a>: Jak si udelat vlastní zvonek.
+<ul><li><a class="urllink" href="http://www.arduino.cc/cgi-bin/yabb2/YaBB.pl?num=1295340684" rel="nofollow">Playing sampled sounds</a>
+</li></ul><p class="vspace"></p></li><li><strong><a name="audio_generation" id="audio_generation"></a>Synthesizers and sound generation</strong>
+<ul><li><a class="urllink" href="http://www.arduino.cc/playground/Code/PCMAudio" rel="nofollow">8-bit PCM audio using Arduino pulse-width modulation (PWM)</a>
+</li><li><a class="urllink" href="http://www.arduino.cc/playground/Main/Freqout" rel="nofollow">Freqout function in the code library</a>
+</li><li><a class="wikilink" href="http://arduino.cc/playground/Main/ArduinoSynth">Arduino Synth</a> - general page for Arduino synthesizer work
+</li><li>see <a class="urllink" href="http://www.dusseiller.ch/labs/?p=45" rel="nofollow">dusjagr labs</a>
+ for an easy way to control a resistor in a circuitbent toy or a simple 
+analog electronic circuit for lo-fi music (driving a photoresistor with a
+ LED output from the Arduino)
+</li><li><a class="urllink" href="http://itp.nyu.edu/%7Egpv206/2007/10/generating_polyphonic_sound_wi_1.html" rel="nofollow">Arduino Polyphony</a>
+</li><li><a class="urllink" href="http://www.alfakini.com.br/blog/auduino-shield/" rel="nofollow">handmade Arduino Auduino shield</a>
+</li><li><span class="newin"><a class="urllink" href="http://blushingboy.net/p/smapler-v0002/" rel="nofollow">Smapler v2</a> shield for stereo sound generation <a class="urllink" href="http://www.superiorpapers.com/homework.php" rel="nofollow">homework help</a></span>
+</li><li><a target="_blank" class="urllink" href="http://www.shaduzlabs.com/article-8.html" rel="nofollow">arduinOSC</a> library for arbitrary waveform generation
+</li><li><a class="wikilink" href="http://arduino.cc/playground/Code/Summer">Summer</a> simple hardware abstraction library that can playFrequencies and beep
+</li><li><a target="_blank" class="urllink" href="http://interface.khm.de/index.php/lab/experiments/arduino-dds-sinewave-generator/" rel="nofollow">Arduino DDS Sinewave Generator</a>
+</li><li><a target="_blank" class="urllink" href="http://didier.longueville.free.fr/arduinoos/?p=977" rel="nofollow">MicroDDS: an Arduino DDS Sinewave Generator using a R2R ladder</a>
+</li><li><a target="_blank" class="urllink" href="http://www.ginsingsound.com/" rel="nofollow">GinSing</a> Software interface and hardware shield for complex waveform syntehsis, speech, and music using the Babblebot chip.
+</li><li><a class="wikilink" href="http://arduino.cc/playground/Main/Gameduino">Gameduino</a> library for controlling the Gameduino's 64-voice polyphonic synthesizer
+</li></ul><p class="vspace"></p></li><li><strong><a name="gotoSpeech" id="gotoSpeech"></a>Speech/ Voice Synthesis</strong>
+<p class="vspace"></p><ul><li><a class="urllink" href="http://www.arunet.co.uk/tkboyd/ec/ec1speak.htm" rel="nofollow">Using the SpeakJet</a> How to connect to and program the <span class="wikiword">SpeakJet</span>- a $26 (8/10) phoneme based processor. One data line from Arduino. Sound effects as well as speech, and DTMF codes.
+<p class="vspace"></p></li><li><a class="urllink" href="http://babblebot.net/" rel="nofollow">Babblebot | Babblebot</a> Easy to use voice and waveform synthesizer ( <span class="wikiword">SpeakJet</span> variant ). Serial interface with support shield for Arduino.
+</li></ul><p class="vspace"></p></li><li><strong>MIDI</strong>
+<ul><li>see <a href="#MIDI">MIDI</a> under <a href="#Communication">communication section</a>
+</li></ul><p class="vspace"></p></li><li><strong><a name="control" id="control"></a>Audio Device and Module Control</strong>
+<p class="vspace"></p><ul><li><span class="newin"><a class="urllink" href="http://www.jonasolson.se/content/arduino_tutorial/" rel="nofollow">Control an iPod</a> with the Arduino, by Jonas Olson &amp; Robert White. </span>
+</li><li>Connect Arduino to the <span class="newin"><a class="urllink" href="http://www.sport4minus.de/blog/?p=152" rel="nofollow">YAMPP III</a> Industrial <span class="wikiword">MP3</span> player, diagrams by Jens Wunderling. </span>
+</li><li><span class="newin"><a class="urllink" href="http://www.rosiedaniel.com/2007/04/i-have-ipod-mojo.html" rel="nofollow">Some code</a> for controlling an Ipod remote through Processing, by Rosie Daniel.</span>
+</li><li><a class="wikilink" href="http://arduino.cc/playground/Main/VMUSIC">VMUSIC Mp3 Module</a>
+</li><li>Record and play audio with <a class="urllink" href="http://www.arduino.cc/cgi-bin/yabb2/YaBB.pl?num=1234149784" rel="nofollow">ISD1700</a> chipcorders
+</li><li><span class="newin"><a class="wikilink" href="http://arduino.cc/playground/Main/Mediaplayer">Mediaplayer</a> for Adafruit's Waveshield</span>
+</li></ul><p class="vspace"></p></li><li><strong><a name="sid" id="sid"></a>SID</strong>
+<p class="vspace"></p><ul><li><a class="wikilink" href="http://arduino.cc/playground/Main/SID-emulator">SID-emulator</a>
+ The shield contains an emulator of the audio chip in a Commodore 64. 
+The systems allows you to create original 8-bit sounds programmed and 
+controlled via the Arduino board. You can play your sounds over the 
+MIDI-Interface. 
+</li><li><span class="newin"><a class="urllink" href="http://kalshagar.wikispaces.com/Arduino+and+a+YMZ294" rel="nofollow">Vintage Gameboy and SNES</a> -like sound using Yamaha chips (<span class="wikiword">YM294</span>, <span class="wikiword">YM2149</span>)</span>
+</li></ul><p class="vspace"></p></li><li><strong><a name="gakken" id="gakken"></a>Gakken SX-150</strong>
+<p class="vspace"></p><ul><li><a target="_blank" class="urllink" href="http://www.shaduzlabs.com/article-13.html" rel="nofollow">MIDI-to-Gakken</a> using Arduino
+</li></ul><p class="vspace"></p></li><li><strong><a name="Morse" id="Morse"></a>Morse code I/O </strong>
+<p class="vspace"></p><ul><li><a class="urllink" href="http://liudr.wordpress.com/libraries/phi_morse/" rel="nofollow">Phi_Morse library</a>
+ plays Morse code on a speaker and recognizes keyed in Morse code. You 
+can call the library with a string and the function morse_out() plays 
+the string on speaker. If you call morse_in() you can key in Morse code 
+and the returned value is keyed in character. 
+</li></ul></li></ul><p class="vspace"></p><h2><a name="Physical_Mechanical" id="Physical_Mechanical"></a>Physical/Mechanical</h2>
+<ul><li><strong><a name="Motor" id="Motor"></a>3 Motor Driver</strong>
+<p class="vspace"></p><ul><li><a class="urllink" href="http://www.botnroll.com/omni" rel="nofollow">Omni3MD</a>
+ is a 3 motor driver fully compatible with arduino. It may be used in 
+holonomic (3 wheels) platforms as well as other independent motor 
+control systems.
+</li><li>It is a <span class="wikiword">I2C</span> slave board with 4A per output maximum power. Ideal for robotic applications and motor control.
+</li><li>Arduino library download link: <a class="urllink" href="http://www.botnroll.com/omni/Omni3MD.zip" rel="nofollow">Omni3MD library</a>
+</li><li>Please visit <a class="urllink" href="http://www.botnroll.com/omni" rel="nofollow">www.botnroll.com</a> for more information.
+</li></ul><p class="vspace"></p></li><li><strong><a name="Motor" id="Motor"></a>Motor Control</strong>
+<p class="vspace"></p><ul><li><a class="urllink" href="http://arduino.cc/playground/TA7291PDCMOTORCONTROLLER/TA7291PDCMOTORCONTROLLER" rel="nofollow">TA7291P DC MOTOR CONTROLLER</a> Inexpensive motor control circuit made with a breadboard and a toshiba <span class="wikiword">TA7291P</span> h bridge chip
+<p class="vspace"></p></li><li><a class="urllink" href="http://www.contesti.eu/opensource/xyz-dc-motor-controller" rel="nofollow">XYZ-DC Motor Controller</a>
+ is a complete and high-performance board to control three stepper 
+motors and a DC-Motor with external power supplies, heating control and a
+ sophisticated software to manage the board with Arduino through USB 
+serial. This is the electronic core element of XYZ-Stepper Milling 
+Machine. See also this page for <a class="wikilink" href="http://arduino.cc/playground/Main/XYZ-DCMotorController">XYZ-DC Motor Controller</a> project specifications.
+</li><li><a class="urllink" href="http://webzone.k3.mah.se/k3dacu/arduino/shields/motor_control/" rel="nofollow">Eagle files</a> for an L293-based Arduino <a class="urllink" href="http://www.arduino.cc/en/Main/ArduinoShields" rel="nofollow">motor driver shield</a>.
+</li><li><a class="wikilink" href="http://arduino.cc/playground/MotorControlShieldV3/0">Motor Control Shield v3.0</a> Simple motor control shield by David Cuartielles based on a <span class="wikiword">SN754410</span>
+ (almost like L293) that allows to control either a stepper motor or 2 
+DC motors bidirectionally or up to 4 DC motors, coils, ect. 
+unidirectionally.
+</li><li><a class="urllink" href="http://joeyong.com/blog/?page_id=163" rel="nofollow">Code</a> the parallax HB-25 motor controller <a class="urllink" href="http://www.parallax.com/Store/Accessories/MotorServoControllers/tabid/160/CategoryID/35/List/0/Level/a/ProductID/64/Default.aspx?SortField=ProductName%2cProductName" rel="nofollow">item code #29144</a>.
+</li><li><a class="urllink" href="http://itp.nyu.edu/physcomp/Labs/DCMotorControl" rel="nofollow">DC motor control</a> using an H bridge.
+</li><li><a class="urllink" href="http://www.ladyada.net/make/mshield/" rel="nofollow">Adafruit servo/stepper/motor shield</a> - controlling 2 servos, &amp; up to 2 stepper motors or 4 DC motors. (Schematics, layout, and library).
+</li><li><a class="urllink" href="http://sites.google.com/site/analogmc/" rel="nofollow">Analog Motor Control(AMC) Library</a> - AMC is base on Adafruit's Arduino Motor Shield(using 74HCT595N , <span class="wikiword">L293D</span>).
+   It is easy to use and can drive four DC Motors or two Stepper Motors 
+in the same time(does not need to wait the other one finished its 
+stepping loop).   Support Bi-Polar , Unipolar , Unipolar with 3 phases 
+stepper motor.
+</li><li>Datasheet for the <a class="urllink" href="http://www.datasheetcatalog.com/datasheets_pdf/L/2/9/3/L293D.shtml" rel="nofollow">L293 motor driver IC</a>.  Blog <a class="urllink" href="http://gestaltung.fh-wuerzburg.de/blogs/exint_ws06/?p=505" rel="nofollow">diagram</a> of how to connect the L293 to an Arduino. (Peltier Elements are working with this IC, too)
+</li><li><a class="urllink" href="http://antipastohw.blogspot.com/2009/01/remote-controlled-tank.html" rel="nofollow">TankShield</a> - a tank tread shield for the Arduino that shows how to turn an Arduino into a robot
+</li><li>DC Motor Control - <a class="wikilink" href="http://arduino.cc/playground/Main/DCMotorControl">Speed and Direction</a>
+</li><li><a class="urllink" href="http://akashxav.com/2009/04/18/arduino-l293d-dc-motor/" rel="nofollow">DC motor control</a> using <span class="wikiword">L293D</span> /Broken link 7-2-2010
+</li><li><a class="wikilink" href="http://arduino.cc/playground/Main/DirectionalMotorControlWithAL293D">directional motor control with a L293D</a>
+</li><li>PC Fan Speed Control - <a class="wikilink" href="http://arduino.cc/playground/Main/ReadingRPM">Reading RPM</a>
+</li><li><a class="urllink" href="http://code.google.com/p/qik2s9v1arduino/" rel="nofollow">Library</a> for <a class="urllink" href="http://www.pololu.com/catalog/product/1110" rel="nofollow">Pololu Qik2s9v1 controller</a>
+</li><li><a class="wikilink" href="http://arduino.cc/playground/Main/ControllingOSMCBoardsWithAnArduino">Controlling OSMC Boards with an Arduino</a>
+</li><li>Cardboard <a class="urllink" href="http://fightpc.blogspot.com/2010/04/yet-another-laser-cutter.html" rel="nofollow">Laser cutter</a> with an old EPSON printer.
+</li><li><a class="urllink" href="http://www.open.com.au/mikem/arduino/AccelStepper" rel="nofollow">AccelStepper</a>
+ motor controller for 2 and 4 pin stepper motors, with acceleration, 
+deceleration, etc. Never blocks or delays, so supports multiple 
+simultaneous steppers for multi-dimensions, etc.
+</li><li><a class="urllink" href="http://nscadesign.ca/mleblanc/?p=226" rel="nofollow">Interfacing Arduino with SMCC-547 Stepper Motor Controller</a>
+</li><li><a class="urllink" href="http://interface.khm.de/index.php/news/arduino-stepperlab3-motor-library/" rel="nofollow">StepperLab3</a> library with ramp function, speed &amp; torque control, full and half step mode, non blocking operation.
+</li><li><a class="urllink" href="http://home.online.no/%7Etogalaas/ardubot/" rel="nofollow">The Ardubot by Sparkfun</a> Dual DC motor control, speed (pwm) and direction.
+</li></ul><p class="vspace"></p></li><li><strong><a name="floppymotor" id="floppymotor"></a>Bipolar Stepper Motor from Floppy Drives</strong>
+<ul><li>Using the stepper motors from old Floppy Drives <a class="urllink" href="http://www.eminebea.com/content/html/en/motor_list/pm_motor/pdf/pl15s020.pdf" rel="nofollow">PL15S-020</a> bipolar stepper motors <a class="urllink" href="http://www.arduino.cc/cgi-bin/yabb2/YaBB.pl?num=1212576033/0" rel="nofollow">Code Link</a>, using no external chips.
+</li></ul><p class="vspace"></p></li><li><strong><a name="solenoids" id="solenoids"></a>Solenoids</strong>
+<ul><li>Schematic for driving <a class="urllink" href="http://arduino.cc/playground/uploads/Learning/solenoid_driver.pdf" rel="nofollow">DC solenoids</a>, using a transistor connected to an Arduino pin.
+</li><li>A <a class="wikilink" href="http://arduino.cc/playground/Learning/SolenoidTutorial">Solenoid Tutorial</a>.
+</li></ul><p class="vspace"></p></li><li><strong><a name="servos" id="servos"></a>Servos</strong>
+<ul><li>Mega Servo
+<ul><li>Control up to 12 servos with the <a class="wikilink" href="http://arduino.cc/playground/Code/MegaServo">MegaServo library</a>.
+</li></ul><p class="vspace"></p></li><li>Software Servo
+<ul><li>You can control up to 20 hobby servos simultaneously with the <a class="wikilink" href="http://arduino.cc/playground/ComponentLib/Servo">Software Servo Library</a>.
+<ul><li>Example <a class="wikilink" href="http://arduino.cc/playground/Learning/SingleServoExample">controlling a servo</a> with the <a class="wikilink" href="http://arduino.cc/playground/ComponentLib/Servo">Software Servo Library</a>.
+</li><li>Example <a class="wikilink" href="http://arduino.cc/playground/Learning/ServoBells">xylophone with wine glasses</a> built with the <a class="wikilink" href="http://arduino.cc/playground/ComponentLib/Servo">Software Servo Library</a>.
+</li></ul></li></ul><p class="vspace"></p></li><li>Hardware timer Servo
+<ul><li>You can control 2 servos, on pin 9 and 10, very precisely with the <a class="wikilink" href="http://arduino.cc/playground/ComponentLib/Servotimer1">Servo Timer 1 Library</a>.
+</li><li>You can control 2 servos, on pin 9 and 10, with even more precision with the <a class="wikilink" href="http://arduino.cc/playground/ComponentLib/Servotimetimer1">ServoTimeTimer1 Library</a> based on the above.
+</li><li>You can control very large numbers of servos precisely using an
+ external PWM chip. Each chip can control up to 16 servos and can be 
+daisy-chained for &gt; 16 outputs. See <a class="wikilink" href="http://arduino.cc/playground/Learning/TLC5940">PWM Expansion with TLC5940</a> for library code and examples. 
+</li><li><a class="urllink" href="http://www.arduino.cc/playground/ComponentLib/Servotimer1" rel="nofollow">Code and instructions</a> for using the Atmega's internal hardware timers to drive two servos. 
+</li><li>Control up to 12 servos on a standard Arduino or 48 servos using the Mega Board with the <a class="wikilink" href="http://arduino.cc/playground/Code/MegaServo">MegaServo Library</a>
+</li></ul></li><li><a class="urllink" href="http://www.fabiobiondi.com/blog/2009/12/arduino-and-pololu-micro-serial-8-servo-controller/" rel="nofollow">Arduino and Pololu Micro Serial 8 Servo Controller</a>. Video, images and sketch files to manage 6 servos from a joystick
+</li><li><a class="urllink" href="http://www.arduino.cc/cgi-bin/yabb2/YaBB.pl?num=1231053939" rel="nofollow">Controlling up to 8 servos with Pololu Micro Serial Servo Controller</a>. Forum discussion with sample code.  
+</li><li><a class="urllink" href="http://www.fabiobiondi.com/blog/2009/11/manage-two-servos-using-arduino-and-a-protoshield-board/" rel="nofollow">Manage two servos using a joystick and create multiple movements with the Lynx Tilt Kit</a>
+</li><li><a class="wikilink" href="http://arduino.cc/playground/Main/DeltaRobot">A delta robot made of three servo motors</a>
+</li><li>Control up to 32 Servos with <span class="wikiword">SSC32</span> and Arduino <a class="urllink" href="http://blog.martinperis.com/2011/05/libssc32-arduino-ssc32.html" rel="nofollow">LibSSC32</a>
+</li></ul><p class="vspace"></p></li><li><strong><a name="robot" id="robot"></a>Robot Kits</strong>
+<ul><li>Put Arduino in the <a class="wikilink" href="http://arduino.cc/playground/Learning/Asuro">Asuro Robot's</a> brain. 
+</li><li><a class="wikilink" href="http://arduino.cc/playground/Learning/Asurino">Asurino</a> - an Arduino library for the Asuro robot.
+</li><li>Arduino <a class="wikilink" href="http://arduino.cc/playground/Main/RoboSapienIR">takes over RoboSapien V1 with 4 wires.</a>
+</li><li><a class="wikilink" href="http://arduino.cc/playground/Main/RoboSapienServer">RoboSapienServer</a> - A web enabled <span class="wikiword">RoboSapien</span> based on the <a class="wikilink" href="http://arduino.cc/playground/Main/RoboSapienIR">RoboSapienIR</a> project.
+</li><li><a class="wikilink" href="http://arduino.cc/playground/Main/4LegWalker">Custom 4 leg walker</a> from Arduino, 3 Servos, Batteries
+</li><li><a class="urllink" href="http://www.open.com.au/mikem/arduino/Roomba" rel="nofollow">Object Oriented interface for iRobot Roomba and iRobot Create</a>.
+ Includes hints and circuits for reliable comms between Roomba and 
+Arduino, example programs including remote control of a Create from your
+ iPhone with the <a class="urllink" href="http://itunes.apple.com/app/rctx/id377833472?mt=8" rel="nofollow">RCTx app</a>.
+</li><li><a class="wikilink" href="http://arduino.cc/playground/Main/2WDArduinoCompatibleMobilePlatform">2WD Arduino Compatible Mobile Platform</a> - Build notes
+</li></ul><p class="vspace"></p></li><li><strong><a name="other" id="other"></a>Other</strong>
+<ul><li>Control a <a class="urllink" href="http://www.cibomahto.com/?p=174" rel="nofollow">clock movement</a>.
+</li><li><a class="urllink" href="http://web.me.com/bartbakker/saguaro/Arduino_Fast_Clock.html" rel="nofollow">Model Railroad Fast Clock</a>, using an Arduino to drive analog clock hands at selectable speeds. Includes sketch.
+</li><li><span class="wikiword">RCKit</span> <a class="urllink" href="http://www.open.com.au/mikem/arduino/RCKit" rel="nofollow">http://www.open.com.au/mikem/arduino/RCKit</a>
+ implements a Wi-Fi remote-control receiver and drivers for 
+remote-control vehicles using the Remote-Control over IP protocol 
+(RCOIP). Includes support for a large number of remote-control channels,
+ backchannels for telemetry, drivers for servos, motors, steppers, 
+analog and digital inputs and outputs, etc. <span class="wikiword">RCTx</span>, an RCOIP compliant transmitter for iPhone is available on the Apple App Store at <a class="urllink" href="http://itunes.apple.com/app/rctx/id377833472?mt=8" rel="nofollow">http://itunes.apple.com/app/rctx/id377833472?mt=8</a>. See documentation for demo videos. 
+</li><li><a class="urllink" href="http://www.open.com.au/mikem/arduino/IRrc" rel="nofollow">Infra-red remote control for models</a> for controlling a range of infra-red models such as 3 channel Chinese IR helicopters, etc.
+</li><li><a class="urllink" href="http://www.open.com.au/mikem/arduino/Ardrone" rel="nofollow">Class for controlling Parrot AR.Drone quad-copter over WiFi</a>. Requires <span class="wikiword">WiShield</span>/Yellowjacket. Sample code for flying AR.Drone with a USB Joystick/game pad, using the <span class="wikiword">USBJoystick</span> class.
+</li></ul></li></ul><p class="vspace"></p><h2><a name="Electrical_High_Power" id="Electrical_High_Power"></a>Electrical / High Power</h2>
+<ul><li><strong>Relays</strong>
+<ul><li>Schematic for driving <a class="urllink" href="http://arduino.cc/playground/uploads/Main/relays.pdf" rel="nofollow">DC relays</a> using a transistor connected to an Arduino pin.
+</li><li>Schematic for driving <a class="urllink" href="http://crackburg.wordpress.com/2009/08/01/relaistreiber-0-2/" rel="nofollow">5V DC relays</a>
+ using an optical coupler and a transistor connected to an Arduino pin, 
+which is protected by the optical coupler. Based on the schematic above.
+</li><li>PCB and kit for a single channel relay with embedded driver at <a class="urllink" href="http://www.ethermania.com/shop/index.php?main_page=product_info&amp;cPath=91_110&amp;products_id=505" rel="nofollow">EtherMania</a>
+</li><li><a class="urllink" href="http://www.makershed.com/ProductDetails.asp?ProductCode=MKPS01&amp;Show=ExtInfo" rel="nofollow">A "novice-friendly" way to control 110v AC</a> (US style plug/ socket). $19+p&amp;p 8/10. May keep you safe.
+</li><li><a class="urllink" href="http://www.panu.it/ardupower/" rel="nofollow">ArduPower</a>
+ an Arduino based telnet server to control six power supply, with login 
+password, editable tcp/ip parametes, relay status and connected system 
+informations, all parameters saved on eeprom. 
+</li></ul><p class="vspace"></p></li><li><strong>Voltage Boosters</strong>
+<ul><li>A simple regulated DC-DC <a class="urllink" href="http://www.arduino.cc/playground/Main/RegulatedPositiveVoltageBooster" rel="nofollow">booster</a> for up to 60V 1/4W. It uses no special <span class="wikiword">ICs</span>, just basic components and two pins from the Arduino.
+</li></ul></li></ul><p class="vspace"></p><h2><a name="MultiplexingOut" id="MultiplexingOut"></a>Multiplexing Outputs	</h2>
+<ul><li><a class="wikilink" href="http://arduino.cc/playground/Learning/TLC5940">How to use TLC5940s</a> to add more PWM outputs.
+</li><li><a class="urllink" href="http://www.arduino.cc/playground/Learning/4051" rel="nofollow">4051 is an 8 channel analog multiplexer / demultiplexer</a>
+</li><li>PWM
+<ul><li><a class="wikilink" href="http://arduino.cc/playground/Main/PWMallPins">PWM all Arduino pins without extra hardware</a>
+</li><li>[<a class="urllink" href="http://effluviaofascatteredmind.blogspot.com/2010/02/arduino-pwm-on-all-pins.html" rel="nofollow">http://effluviaofascatteredmind.blogspot.com/2010/02/arduino-pwm-on-all-pins.html</a>|A class (i.e. library) to PWM all pins between any 2 states]
+</li></ul></li><li>M5451 Constant current output pin expander
+<ul><li><a class="urllink" href="http://code.google.com/p/arduino-m5451-current-driver/wiki/ArduinoM5451" rel="nofollow">Connecting M5451 to Arduino</a>
+</li><li><a class="urllink" href="http://code.google.com/p/arduino-m5451-current-driver" rel="nofollow">Source code</a>
+</li><li><a class="urllink" href="http://www.makersmarket.com/products/67-lightuino-v20" rel="nofollow">Prebuilt hardware</a>
+</li></ul></li></ul><p class="vspace"></p><h2><a name="USB" id="USB"></a>USB</h2>
+<p>The UNO and Mega2560 use an <span class="wikiword">ATMega8u2</span> to provide the USB interface to the Host PC and it is programmed with USB to serial firmware.  The firmware on the <span class="wikiword">ATMega8u2</span>
+ can be replaced to turn the UNO or Mega2560 into a different USB device
+ such as a Keyboard, Mouse, or MIDI device.  This section has links to 
+different USB firmware resources.
+</p>
+<p class="vspace"></p><ul><li><a class="urllink" href="http://hunt.net.nz/users/darran" rel="nofollow">Keyboard HID, Mouse HID, Joystick HID, and MIDI USB firmware</a>
+</li><li><a class="urllink" href="http://code.google.com/p/hiduino/" rel="nofollow">Hiduino - MIDI firmware</a>
+</li><li><a class="urllink" href="http://arduino.cc/blog/2010/10/24/arduino-uno-as-joystick" rel="nofollow">HID Joystick by ant.b</a> unfortunately details are in the old forum and not accessible.
+</li><li><a class="urllink" href="http://arduino.cc/en/Hacking/MidiWith8U2Firmware" rel="nofollow">MocoLUFA MIDI USB firmware</a>
+</li></ul><p class="vspace"></p><hr>
+<p><a name="Input" id="Input"></a>
+</p><h1>Input </h1>
+<p>Examples and information on specific input devices and peripherals: 
+How to connect and wire up devices and code to get data from them.
+</p>
+<p class="vspace"></p><p>See also the pages devoted to the <a class="urllink" href="http://www.arduino.cc/playground/Learning/OneWire" rel="nofollow">Dallas One-Wire MicroLan</a>, <span class="wikiword">I2C</span>
+ and ethernet. They enable you connect additional input (etc.) devices 
+across networks controlled by the Arduino. The trouble of controlling a 
+network is repaid if you need to connect many inputs (and/ or outputs), 
+or if your actuators / sensors are not close to your Aruduino.
+</p>
+<p class="vspace"></p><h2><a name="gotoBarC" id="gotoBarC"></a>Bar Codes</h2>
+<dl><dd><ul><li>You can hook up a bar code scanner (which simulates a keyboard) or a keyboard to the Arduino. See <a class="wikilink" href="http://arduino.cc/playground/ComponentLib/BarcodeScanner">bar code scanner</a>
+</li></ul></dd></dl><p class="vspace"></p><h2><a name="light_sensor" id="light_sensor"></a>Light sensors... visible, IR, etc. Levels, not images</h2>
+<p>See also: <a href="#ir_remote">the IR section</a> in the Communications section
+</p>
+<p class="vspace"></p><ul><li><strong>Light Sensors</strong>
+<ul><li>Example of how to <a class="wikilink" href="http://arduino.cc/playground/Learning/LEDSensor">use an LED as a light sensor</a> using 2 digital pins.
+</li><li>Example of how to <a class="urllink" href="http://www.thebox.myzen.co.uk/Workshop/LED_Sensing.html" rel="nofollow">use several LEDs as a light sensor</a> and display the results with Processing.
+</li><li>Example of how to <a class="wikilink" href="http://arduino.cc/playground/Learning/Tachometer">Build a simple tachometer using an optoswitch based circuit</a>.
+</li><li>Example of how to <a class="urllink" href="http://www.thebox.myzen.co.uk/Hardware/Sneak_Thief.html" rel="nofollow">use an IR LED and sensor</a> to detect a broken beam. With a simple game of Sneak_Thief.
+</li><li>Tutorial on interfacing <a class="urllink" href="http://roamingdrone.wordpress.com/2008/11/13/arduino-and-the-taos-tsl230r-light-sensor-getting-started/" rel="nofollow">the TSL230R light sensor and the Arduino</a>
+</li><li>Simple sketch interfacing <a class="wikilink" href="http://arduino.cc/playground/Main/TSL235R">TSL235R</a> Light to frequency sensor
+</li><li>Library for directly connecting your Arduino to the Pixart sensor taken from the Wiimote handset. <a class="urllink" href="http://www.stephenhobley.com/arduino/PVision.zip" rel="nofollow">PVision library for Pixart/Wiimote IR sensor</a>
+ Can be used for X/Y blob tracking (at 100Hz) of up to 4 points. Note: 
+you will need to build a harness circuit for the Pixart sensor.
+</li><li>Example of how to use an <a class="urllink" href="http://www.users.waitrose.com/%7Erobinjames/LED_as_light_sensor/LED_as_light_sensor.html" rel="nofollow">LED as a light sensor using the ADC</a> and external circuitry.
+</li></ul></li><li><strong>IR Reflectance/Line Sensors</strong>
+<ul><li>Library for connecting your Arduino or Orangutan to <a class="urllink" href="http://www.pololu.com/docs/0J19/all" rel="nofollow">Pololu QTR reflectance sensors</a>, which can be used for line following, edge detection, or close-proximity obstacle detection/ranging.
+</li><li>Parallax <a class="wikilink" href="http://arduino.cc/playground/Main/QTI">QTI</a> sensor and Arduino
+</li></ul></li></ul><p class="vspace"></p><h2><a name="image" id="image"></a>Images</h2>
+<ul><li><strong>Video</strong>
+<ul><li><a class="urllink" href="http://www.davidchatting.com/arduinoeyeshield" rel="nofollow">read analogue video (PAL or NTSC)</a>
+</li></ul></li></ul><p class="vspace"></p><h2><a name="audio_input" id="audio_input"></a>Audio Input</h2>
+<ul><li><strong>Microphones</strong>
+<ul><li>Example of how to connect a piezo as a <a class="urllink" href="http://www.dtic.upf.edu/%7Ejlozano/interfaces/blow_sensor.html" rel="nofollow">blow sensor</a>, can also be used to read vibrations or as a touch sensor.
+</li><li>Example of how to connect a electret <a class="urllink" href="http://www.dtic.upf.edu/%7Ejlozano/interfaces/microphone.html" rel="nofollow">microphone</a>.
+</li><li><a class="urllink" href="http://didier.longueville.free.fr/arduinoos/?p=1057" rel="nofollow">Sound capture</a>: hardware and code samples
+</li><li><a class="urllink" href="http://didier.longueville.free.fr/arduinoos/?p=1022" rel="nofollow">Fast Fourier Transform</a>: FFT tutorial and code samples
+</li></ul></li><li><strong>Measurement</strong>
+<ul><li><a class="urllink" href="http://interface.khm.de/index.php/lab/experiments/frequency-measurement-library/" rel="nofollow">Frequency Measurement Library</a> for the audio and sub audio range
+</li></ul><p class="vspace"></p></li><li><strong>MIDI</strong>
+<ul><li>see <a href="#MIDI">MIDI</a> under <a href="#Communication">communication section</a>
+</li></ul></li></ul><p class="vspace"></p><h2><a name="Mechanical" id="Mechanical"></a>Mechanical</h2>
+<ul><li><a name="Switches" id="Switches"></a><strong>Switches and Buttons</strong>
+<ul><li><a class="wikilink" href="http://arduino.cc/playground/Code/Debounce">Debounce</a>: a library to debounce switches.
+</li><li><a class="wikilink" href="http://arduino.cc/playground/Learning/SoftwareDebounce">SoftwareDebounce</a>: a simple software input debounce algorithm.
+</li><li><a class="wikilink" href="http://arduino.cc/playground/Code/Buttons">Buttons</a>: a simple library to use hardware debounced buttons, handling one shot and hold.
+</li><li><a class="wikilink" href="http://arduino.cc/playground/Code/HoldButton">HoldButton</a>: a code that makes a single button able to call different functions depending upon how long it it is held.
+</li><li><a class="wikilink" href="http://arduino.cc/playground/Code/Button">Button</a>: simple hardware abstraction library 
+</li><li><a class="urllink" href="https://github.com/carlynorama/Arduino-Library-Button/" rel="nofollow">Button (carlynorama)</a>
+ Another button abstraction library. Event based, also allows for being 
+used with shift registers, debounce, holdDelay (like keyboards) etc.
+</li><li><a class="wikilink" href="http://arduino.cc/playground/Code/AnalogButtons">AnalogButtons</a>:
+ a library to connect more than 1 switch to a single Analgue pin, using 
+different voltage dividing resisters for each switch. Provides register 
+callback functions or over-riding Button class methods to communicate a 
+button press action. Supports configurable holding down of a Button.
+</li><li><a class="wikilink" href="http://arduino.cc/playground/Code/AdvButton">AdvButton</a>: Advanced, yet simple to use, library for registering user input with buttons. Provides an event based interface. 
+</li><li><a class="wikilink" href="http://arduino.cc/playground/Main/M66004Vfd">M66004Vfd</a>: Library includes support for the buttons on the VFD display/control panel salvaged from certain HP <span class="wikiword">LaserJet</span> printers such as the <span class="wikiword">LaserJet</span> 4.
+</li><li><a class="urllink" href="http://arduino.cc/playground/Code/HpLaserJetLcd" rel="nofollow">HpLaserJetLcd</a>: Library includes support for the buttons on the LCD display/control panel salvaged from certain HP <span class="wikiword">LaserJet</span> printers.
+</li></ul><p class="vspace"></p></li><li><a name="Encoders" id="Encoders"></a><strong>Encoders</strong>
+<ul><li>A little sketch for reading <a class="wikilink" href="http://arduino.cc/playground/Main/RotaryEncoders">rotary encoders</a>.
+</li><li><a class="urllink" href="http://interface.khm.de/index.php/lab/experiments/rotary-positionsensor-mlx90316/" rel="nofollow">Magnetic Rotary Position Sensor</a> <span class="wikiword">MLX90316</span>.
+</li><li><a class="urllink" href="http://christian.liljedahl.dk/guides/simple-rotary-encoder" rel="nofollow">Using a DC motor as a simple rotary /rotation encoder</a>
+</li><li><a class="wikilink" href="http://arduino.cc/playground/Main/RotaryEncoderAcceleration">Acceleration support for Rotary Encoders</a>
+</li><li><a class="urllink" href="http://didier.longueville.free.fr/arduinoos/?p=643" rel="nofollow">Rotary encoder in use within a global user interface solution</a>
+</li></ul><p class="vspace"></p></li><li><a name="Potentiometers" id="Potentiometers"></a><strong>Potentiometers</strong>
+<ul><li><a class="wikilink" href="http://arduino.cc/playground/Code/Potentiometer">Potentiometer</a>: simple hardware abstraction library
+</li></ul></li></ul><p class="vspace"></p><h2><a name="Magnetic" id="Magnetic"></a>Magnetic</h2>
+<ul><li>Hall Effect sensors
+<ul><li><a class="wikilink" href="http://arduino.cc/playground/Code/HallEffect">A1301</a> A simple sketch to measure strength and polarity of a magnetic field.
+</li></ul></li><li><a class="urllink" href="http://themakersworkbench.com/?q=node/350" rel="nofollow">Reading PC Fan RPM</a> A simple tutorial on using the Arduino to read the RPM of a common 3 wire PC fan.
+</li><li><a class="urllink" href="http://themakersworkbench.com/?q=node/399" rel="nofollow">Measuring Liquid Flow Rate Using Arduino and Water Flow meter from Seeed Studio</a>
+</li><li><a class="wikilink" href="http://arduino.cc/playground/Main/CurrentSensing">Sensing currents with Allegro ACS714</a>
+</li><li><a class="urllink" href="http://www.zipfelmaus.com/blog/arduino-with-hall-sensor/" rel="nofollow">Simple tutorial to sense an omnipolar magnetic field with the MLX90248</a>
+</li><li><a class="urllink" href="http://nscadesign.ca/mleblanc/?p=430" rel="nofollow">Fun with reed switches</a>
+</li><li><a class="urllink" href="https://github.com/ryantm/LSM303DLH" rel="nofollow">LSM303 Accelerometer + Magnetometer Library</a> -  This library makes it easy to read the raw accelerometer and magnetometer data from the <a class="urllink" href="http://www.pololu.com/catalog/product/1250" rel="nofollow">LSM303</a>, and it can also compute the tilt-compensated heading from the Earth's magnetic field.
+</li></ul><p class="vspace"></p><h2><a name="joygame" id="joygame"></a>Joysticks / Gamepads</h2>
+<ul><li>A good tutorial on how to connect <span class="newin"><a class="urllink" href="http://spd.e-rat.org/packman.manual.php" rel="nofollow">five or more joysticks</a> to the Arduino</span>
+</li><li><span class="wikiword">NESpad</span> library that handles the serial communication between Nintendo NES/SNES game pads and an Arduino (moved from rahji.com) <a class="urllink" href="http://code.google.com/p/nespad/" rel="nofollow">http://code.google.com/p/nespad/</a>
+</li><li>Talking to a Wii Nunchuck.  Adapter and Library at Todbot <a class="urllink" href="http://todbot.com/blog/2008/02/18/wiichuck-wii-nunchuck-adapter-available/" rel="nofollow">http://todbot.com/blog/2008/02/18/wiichuck-wii-nunchuck-adapter-available/</a>
+</li><li>A pair of <a class="urllink" href="http://gitorious.org/randomstuff" rel="nofollow">libraries for talking to a Wii Remote and Nunchuk</a>.  The Wiimote library supports bidirectional communication between Wiimote and Arduino, with two <span class="wikiword">APIs</span>, one for sporadic updates and one for continuous streaming.  Background and commentary can be found <a class="urllink" href="http://nettoyeur.noisepages.com/2011/01/pointless/" rel="nofollow">here</a> and <a class="urllink" href="http://nettoyeur.noisepages.com/2011/02/more-pointlessness/" rel="nofollow">here</a>.
+</li><li>Talking to a <a class="wikilink" href="http://arduino.cc/playground/Main/WiiClassicController">Wii Classic Controller</a>
+</li><li>Another Wii Nunchuck library with more accurate angular pitch and roll data <a class="wikilink" href="http://arduino.cc/playground/Main/WiiChuckClass">WiiChuckClass</a>.
+</li><li>A library to read a standard Playstation controller <a class="wikilink" href="http://arduino.cc/playground/Main/PSXLibrary">PSX Library</a>.
+</li><li>A library to read a standard, wireless, or dualshock 
+Playstation controller in digital or analog mode as well as control 
+feedback<a class="wikilink" href="http://arduino.cc/playground/Main/AnalogPSXLibrary">AnalogPSXLibrary</a>
+</li><li>An easy to use library to read a Playstation 2 controller 
+including full analog mode and rumble control; also tested with Guitar 
+Hero Controllers <a class="urllink" href="http://www.billporter.info/playstation-2-controller-arduino-library-v1-0/" rel="nofollow">PS2X Library</a>
+</li><li>Converting Wii gamepad signals to USB HID, compatible with <span class="wikiword">PS3</span> and Windows : <a class="urllink" href="http://code.google.com/p/wii-ext-to-usb/" rel="nofollow">http://code.google.com/p/wii-ext-to-usb/</a>.
+</li><li>Interfacing Wii Guitar Hero World Tour Drum controller. Interface described at: <a class="urllink" href="http://jamers.netne.net/" rel="nofollow">http://jamers.netne.net</a>.
+</li><li>Wii <span class="wikiword">NunChuck</span>, Arduino and servos (video, images and source code) <a class="urllink" href="http://www.fabiobiondi.com/blog/2009/12/wii-nunchuck-controller-and-arduino/" rel="nofollow">http://www.fabiobiondi.com/blog/2009/12/wii-nunchuck-controller-and-arduino/</a>.
+</li><li>Wiimote and <span class="wikiword">PS3</span> controller on Arduino using USB-Host shield: <a class="urllink" href="http://www.circuitsathome.com/mcu/programming/ps3-and-wiimote-game-controllers-on-the-arduino-host-shield-part-1" rel="nofollow">http://www.circuitsathome.com/mcu/programming/ps3-and-wiimote-game-controllers-on-the-arduino-host-shield-part-1</a>
+</li><li>Using a standard PC joystick or gamepad directly: <a class="urllink" href="http://www.built-to-spec.com/blog/2009/09/10/using-a-pc-joystick-with-the-arduino/" rel="nofollow">http://www.built-to-spec.com/blog/2009/09/10/using-a-pc-joystick-with-the-arduino/</a>
+</li><li>Class for easy interface to USB Joysticks/Gamepads using USB Host Shield <a class="urllink" href="http://www.open.com.au/mikem/arduino/USBJoystick" rel="nofollow">http://www.open.com.au/mikem/arduino/USBJoystick</a>
+</li></ul><p class="vspace"></p><h2><a name="mouse" id="mouse"></a>Mice</h2>
+<ul><li>Read data from a <span class="wikiword">PS2</span> mouse. Useful if you want to use the encoders from an old mouse in a robot or other device. <a class="wikilink" href="http://arduino.cc/playground/ComponentLib/Ps2mouse">PS2 mouse interface</a>
+</li><li><a class="urllink" href="http://thepotterproject.net/TPPNews/?page_id=180" rel="nofollow">PS2 Mouse Library</a> - An updated version of the above library that adds support for scroll wheel mice and easier sketch integration.
+</li><li>Read out the surface movements directly from an optical mouse sensor. <a class="urllink" href="http://www.martijnthe.nl/optimouse/arduino-optical-mouse.html" rel="nofollow">English tutorial and library</a>
+</li><li>Get absolute position from a laptop touchpad. <a class="urllink" href="http://www.instructables.com/id/The-5-Karduinoss-pad/" rel="nofollow">Instructable with an Arduino sketch</a>
+</li></ul><p class="vspace"></p><h2><a name="keyb" id="keyb"></a>Keyboard/Keypads</h2>
+<p>(See also section on <a href="#capsens">capacitive sensing</a> for keypads which will, for instance, work through a window pane.)
+</p>
+<p class="vspace"></p><ul><li><a class="wikilink" href="http://arduino.cc/playground/Main/GkosMain">GKOS Keypad</a> - Enter any text directly into Arduino simply with 6 keys.
+</li><li><a class="wikilink" href="http://arduino.cc/playground/Code/Keypad">Keypad</a> - Read a matrix keypad. See <a class="wikilink" href="http://arduino.cc/playground/Main/KeypadTutorial">Keypad Tutorial</a>.
+</li><li><a class="wikilink" href="http://arduino.cc/playground/Main/PS2Keyboard">PS2Keyboard</a> - A small library that deals with PS/2 based keyboards
+</li><li><a class="wikilink" href="http://arduino.cc/playground/Main/PS2KeyboardExt">PS2KeyboardExt</a> - An extension to the above library to support more keys and functions
+</li><li><a class="wikilink" href="http://arduino.cc/playground/Main/PS2KeyboardExt2">PS2KeyboardExt2</a> - another extension, fast with shift, alt and caps lock and caps_lock light
+</li><li><a class="wikilink" href="http://arduino.cc/playground/Main/I2CPortExpanderAndKeypads">I2C Port expander and Keypads</a> - A small library for use keypads with <span class="wikiword">I2C</span> port expander <span class="wikiword">PCF8574</span>
+</li><li><a class="wikilink" href="http://arduino.cc/playground/Main/I2CPortExpanderAndDecoders">I2C Port expander and Decoders</a> - A library that uses a 74C922 keypad decoder on an <span class="wikiword">I2C</span> port expander
+</li><li>See also <a href="#ir_remote">the entry in the communications section</a>, wireless, IR subsection, about using a domestic (e.g.TV) remote to send "keystrokes".
+</li></ul><p class="vspace"></p><h2><a name="capsens" id="capsens"></a>Capacitive Sensing</h2>
+<ul><li><a class="wikilink" href="http://arduino.cc/playground/Code/CapacitiveSensor">Up to 6 capacitive sensors (touch) without additional hardware</a>
+</li><li><a class="wikilink" href="http://arduino.cc/playground/Main/CapSense">Arduino as capacitive sensor</a>
+</li><li><a class="urllink" href="http://interface.khm.de/index.php/labor/experimente/theremin-as-a-capacitive-sensing-device/" rel="nofollow">Theremin as a capacitive sensing device</a> 
+</li><li><a class="wikilink" href="http://arduino.cc/playground/Main/QTouch1-wireLibrary">QTouch 1-wire Library</a> - Library for the 1 wire interface on Atmel <span class="wikiword">QTouch</span> devices (developed for <span class="wikiword">QT1103</span>)
+</li><li><a class="wikilink" href="http://arduino.cc/playground/Main/CapacitanceMeasurement">Capacitance measurement</a>
+</li><li><a class="urllink" href="http://sheepdogguides.com/arduino/art3capsen.htm" rel="nofollow">Tutorial with sourcecode</a> Information on capacitive sensing, using the library, and the <span class="wikiword">ArduCapSense</span>.com shield
+</li></ul><p class="vspace"></p><h2><a name="cards" id="cards"></a>Magnetic Cards</h2>
+<ul><li><a class="urllink" href="http://code.google.com/p/magstripelib/" rel="nofollow">MagStripe</a> - a library to interface with single-track magnetic card readers
+</li></ul><p class="vspace"></p><h2><a name="positionsens" id="positionsens"></a>Position Sensing</h2>
+<ul><li><a class="urllink" href="http://didier.longueville.free.fr/arduinoos/?p=1389" rel="nofollow">MicroTLT</a>: Tilt Sensor
+</li><li><a class="urllink" href="http://www.den-uijl.nl/gyro.html" rel="nofollow">Playing with an Arduino and sensors</a>: Getting pitch and roll from gyros and accelerometers for Stabilising Stuff
+</li></ul><p class="vspace"></p><h2><a name="presssens" id="presssens"></a>Pressure Sensors</h2>
+<ul><li><a class="urllink" href="http://www.arduino.cc/cgi-bin/yabb2/YaBB.pl?num=1213217330/5#5" rel="nofollow">SCP1000</a>: Code to read the <span class="wikiword">SCP1000</span> barometric pressure/temperature sensor, which uses the SPI interface.
+<p class="vspace"></p></li><li><a class="urllink" href="http://blog.ulrichard.ch/?p=23" rel="nofollow">Intersema MS5607B and MS5534C</a>: Code to read some Intersema barometric pressure/temperature sensors:<br><span class="wikiword">MS5607B</span> uses i2c <br><span class="wikiword">MS5534C</span> uses bit-banging
+<p class="vspace"></p></li><li><a class="urllink" href="http://arduino.cc/forum/index.php/topic,67188.msg522983.html#msg522983" rel="nofollow">Intersema MS5541</a>: Code to read the <span class="wikiword">MS5541</span> or compatible sensor: sketch for reading calibration words and for use.
+</li></ul><p class="vspace"></p><h2><a name="arstat" id="arstat"></a>Ardustat: Galvanostat/Potentiostat</h2>
+<ul><li><a class="urllink" href="http://www.dansteingart.com/ardustat" rel="nofollow">Ardustat</a>:
+ Schematics and code to build an electrochemical characterization 
+devices using an Arduino. Open source successor to Jonny Galvo. Measures
+ charge held by, e.g., a battery.
+</li></ul><p class="vspace"></p><h2><a name="DistanceSensing" id="DistanceSensing"></a>Distance Sensing</h2>
+<ul><li><a class="urllink" href="http://www.arduino.cc/en/Tutorial/UltrasoundSensor" rel="nofollow">http://www.arduino.cc/en/Tutorial/UltrasoundSensor</a>
+ - I just wanted to point out that this code also works for the Maxbotix
+ Max Sonar ultrasonic range finder... which is sold in the USA through <span class="wikiword">SparkFun</span> Electronics...
+<p class="vspace"></p></li><li><a class="urllink" href="http://www.arduino.cc/playground/Main/MaxSonar" rel="nofollow">MaxBotix/MaxSonar tutorial</a>: I have found the above PING code doesn't work with <span class="wikiword">MaxSonar</span> devices so I did a small writeup.
+<p class="vspace"></p></li><li>Parallax Ping - code <a class="urllink" href="http://www.arduino.cc/playground/Main/UltrasonicSensor" rel="nofollow">http://www.arduino.cc/playground/Main/UltrasonicSensor</a>
+- Variant of the code above but returns actual distance.
+<p class="vspace"></p></li><li><span class="wikiword">GP2D12</span> infrared sensor - <a class="wikilink" href="http://arduino.cc/playground/Main/ReadGp2d12Range">read_gp2d12_range</a> is a function that retrieves distance from this sensor in centimeters.
+<p class="vspace"></p></li><li>Simple IR distance sensor using a Panasonic IR sensor and IR led using the IR sensor and led from the boe bot kit. <a class="urllink" href="http://www.arduino.cc/playground/Main/PanasonicIrSensor" rel="nofollow">http://www.arduino.cc/playground/Main/PanasonicIrSensor</a>
+<p class="vspace"></p></li><li><span class="wikiword">URM37</span> Ultrasonic Distance Measurement Library. <a class="urllink" href="http://www.milesburton.com/wiki/index.php?title=URM37_Ultrasonic_Distance_Measurement_Library" rel="nofollow">URM37 Ultrasonic Distance Measurement Library by Miles Burton</a>
+<p class="vspace"></p></li><li><span class="wikiword">SRF08</span> Ultra Sonic Range Finder Code - <a class="urllink" href="http://www.arduino.cc/playground/Main/Sonar_srf08" rel="nofollow">http://www.arduino.cc/playground/Main/Sonar_srf08</a> Communicate with old <span class="wikiword">SRF08</span> sensor via Wire.h protocol. Choose inch or centimeters and change address.
+<p class="vspace"></p></li><li><span class="wikiword">SRF02</span> Ultra Sonic Range Finder Library - <a class="urllink" href="http://www.grapelabs.org/arduino/libraries/srf02-ultrasonic-distance-sensor" rel="nofollow">http://www.grapelabs.org/arduino/libraries/srf02-ultrasonic-distance-sensor</a> Communicates via the <span class="wikiword">I2C</span> protocol and supports multiple sensors.
+</li></ul><p class="vspace"></p><h2><a name="envtop" id="envtop"></a>Environmental</h2>
+<ul><li><a class="urllink" href="http://www.ethermania.com/shop/index.php?main_page=product_info&amp;cPath=91_104&amp;products_id=612" rel="nofollow">WeatherShield1</a> A Weather Shield for Arduino. Pressure, temperature and relative humidity in a easy to use shield.
+<p class="vspace"></p></li><li><strong><a name="envhum" id="envhum"></a>Humidity</strong>
+<ul><li><a class="urllink" href="http://tushev.org/articles/electronics/46-interfacing-hh10d-with-arduino" rel="nofollow">HH10D</a> Simple, frequency-output relative air humidity sensor
+</li><li><a class="urllink" href="http://g7nbp.blogspot.com/2011/09/arduino-htf3223-humidity-sensor.html" rel="nofollow">HTF3223</a> Inexpensive Humidity sensor example code
+</li><li><a class="urllink" href="http://goo.gl/uy1fV" rel="nofollow">DHT22 Library</a> Easy to use library with example code
+</li><li><a class="urllink" href="http://sheepdogguides.com/arduino/ar3ne1humDHT11.htm" rel="nofollow">DHT11 DHT22 AM2302</a> Humidity &amp; Temperature: $12+p&amp;p and one signal pin. No special libraries needed.
+</li><li><a class="wikilink" href="http://arduino.cc/playground/Main/DHT11Lib">DHT11_lib</a> Yet another <span class="wikiword">DHT11</span> Library.
+</li><li><a class="wikilink" href="http://arduino.cc/playground/Main/DHTLib">DHT_lib</a> One library that supports both <span class="wikiword">DHT11</span> and DHT 22
+</li><li><a class="wikilink" href="http://arduino.cc/playground/Code/Sensirion">Sensirion SHT1x &amp; SHT7x</a> series temperature / humidity sensors: Version 2.0 <a class="urllink" href="http://www.arduino.cc/playground/uploads/Code/Sensirion_10Dec2010.zip" rel="nofollow">(Sensirion_10Dec2010.zip)</a>
+ of this library is now available.  Features include: Temperature, 
+humidity, and dew point calculations (optionally via non-blocking 
+calls); CRC checking; Status Register write and read capability; plus 
+other enhancements.  See the <a class="wikilink" href="http://arduino.cc/playground/Code/Sensirion">Sensirion</a> page for additional information.
+</li><li>Check this project too:  Arduino for datacenter monitoring:  <a class="urllink" href="http://marco.guardigli.it/2010/05/arduino-in-datacenter-rack.html" rel="nofollow">http://marco.guardigli.it/2010/05/arduino-in-datacenter-rack.html</a>
+</li></ul><p class="vspace"></p></li><li><strong><a name="envtture" id="envtture"></a>Temperature</strong>
+<ul><li><a class="urllink" href="http://www.australianrobotics.com.au/node/266" rel="nofollow">http://www.australianrobotics.com.au/node/266</a> Pachube Client With Watchdog Timer (Round 2)
+</li><li><a class="urllink" href="http://sheepdogguides.com/arduino/ar3ne1tt.htm" rel="nofollow">DS18B20</a>
+ Accurate digital sensor. Simple code, could the basis for reading other
+ 1-Wire devices. No special libraries needed, not even Arduino "<span class="wikiword">OneWire</span>".
+</li><li><a class="urllink" href="http://tushev.org/articles/electronics/42-how-it-works-ds18b20-and-arduino" rel="nofollow">An article about DS18B\S20 &amp; Arduino</a> Describes command interface for sensors (good for advanced users), provides Wiring function for handling the sensors
+</li><li><a class="wikilink" href="http://arduino.cc/playground/Main/Kty81-110">KTY 81-*</a> KTY (NTC) Temperature sensor with Arduino
+</li><li><a class="urllink" href="http://www.milesburton.com/Dallas_Temperature_Control_Library" rel="nofollow">Dallas Temperature Control Library</a>. A very simple library to interface with the <span class="wikiword">DS18B20</span>, <span class="wikiword">DS18S20</span> or <span class="wikiword">DS1820</span> IC.
+</li><li>A library for interfacing with the <span class="wikiword">DS1621</span> temperature sensor <a class="urllink" href="https://github.com/martinhansdk/DS1621-temperature-proble-library-for-Arduino" rel="nofollow">(Code)</a>
+</li><li>A simple lookup table method of getting Celcius numbers from a 10k thermistor. Code &amp; calculating spreadsheet here: <a class="wikilink" href="http://arduino.cc/playground/ComponentLib/Thermistor">thermistor</a>
+</li><li>Reading a thermistor using an equation instead of a lookup table.  <a class="wikilink" href="http://arduino.cc/playground/ComponentLib/Thermistor2">thermistor2</a>
+</li><li>Single line of code to read thermistor from 1C to 44C: <a class="wikilink" href="http://arduino.cc/playground/ComponentLib/Thermistor3">thermistor3</a>
+</li><li>Universal and flexible NTC thermistor library using Steinhart-Hart equations: <a class="wikilink" href="http://arduino.cc/playground/ComponentLib/Thermistor4">Thermistor4</a>
+</li><li>There are also ways to access the excellent Dallas 1-Wire temperature sensors.<a class="wikilink" href="http://arduino.cc/playground/Learning/OneWire">OneWire</a>
+</li><li>Simple <a class="wikilink" href="http://arduino.cc/playground/Main/MAX6675Library">Library</a> to interface a Maxim <a class="urllink" href="http://www.maxim-ic.com/quick_view2.cfm/qv_pk/3149" rel="nofollow">MAX6675</a> Thermocouple to Digital Temp Converter. (<a class="urllink" href="http://code.google.com/p/max6675-arduino-library/" rel="nofollow">Google Code</a>
+</li><li>Reading from <a class="wikilink" href="http://arduino.cc/playground/Code/SMT16030">SMT16030</a> digital temperature sensors
+</li><li><span class="wikiword">LM75A</span> i2c <a class="urllink" href="http://www.netstuff.org/arduino_libs/lm75a/" rel="nofollow">temperature library</a>
+</li><li><span class="wikiword">LM75</span> with using temperature alarm and interrupt. Take a look at <a class="urllink" href="http://arduino.cc/forum/index.php/topic,38058.msg282026.html#msg282026" rel="nofollow">Arduino forum entry</a>
+</li><li>Microchip <span class="wikiword">MCP9700A</span> Temperature Sensor  <a class="urllink" href="http://n9puz.blogspot.com/2009/11/mcp9700a-temperature-sensor-arduino.html" rel="nofollow">Library</a> -40C to +125C for $0.36US!
+</li><li><a class="urllink" href="http://www.australianrobotics.com.au/?q=node/116" rel="nofollow">Web Data Logging With Pachube and LM335Z</a>
+</li><li><span class="wikiword">LM335A</span> Temperature Sensor  <a class="urllink" href="http://greenrobotics.net/files/lm335a.zip" rel="nofollow">Library</a>
+</li><li><a class="urllink" href="http://sirleech.wordpress.com/2010/06/02/making-a-usb-temperature-sensor-journal-with-the-arduino-and-lm335/" rel="nofollow">Arduino with LM335 Temperature Sensor, Schematics and Code</a>
+</li><li><a class="urllink" href="http://www.arduino.cc/playground/Code/Tsic" rel="nofollow">Tsic 206/306 digital Temperature Sensor</a>
+</li><li><a class="urllink" href="http://www.arduino.cc/playground/Code/TMP102" rel="nofollow">TMP102 I2C Temperature sensor (sparkfun BOB)</a>
+</li><li><a class="urllink" href="http://interface.khm.de/index.php/lab/experiments/infrared-thermometer-mlx90614/" rel="nofollow">Infrared Thermometer MLX90614</a>
+</li><li><a class="wikilink" href="http://arduino.cc/playground/Main/DS7505Library">Library</a> to interface a Maxim <a class="urllink" href="http://www.maxim-ic.com/datasheet/index.mvp/id/5730/t/al" rel="nofollow">DS7505</a> Digital Thermometer and Thermostat Sensor. (<a class="urllink" href="http://bazaar.launchpad.net/%7Egnome-sage/%2Bjunk/arduino/files/head%3A/libraries/DS7505/" rel="nofollow">Code</a>)
+</li><li><a class="urllink" href="http://www.kerrywong.com/2011/03/11/interfacing-ds7505/" rel="nofollow">DS7505 Digital Temperature Sensor/Thermostat Library</a> Another guide on how to use the <span class="wikiword">DS7505</span> temperature sensor with Arduino.
+</li><li><a class="urllink" href="http://openenergymonitor.org/emon/node/75" rel="nofollow">PT1000 RTD Temperature sensing</a> A guide on how to build a 4 input multiplexed RTD sensing module for <span class="wikiword">PT1000</span> will work with <span class="wikiword">PT100</span> too
+</li><li><span class="wikiword">TMP102</span> <span class="wikiword">I2C</span> Thermometer Tutorial Code+Schematic <a class="urllink" href="http://bildr.org/2011/01/tmp102-arduino/" rel="nofollow">http://bildr.org/2011/01/tmp102-arduino/</a>
+</li><li><span class="wikiword">MLX90614</span> IR thermometer Tutorial  Code+Schematic <a class="urllink" href="http://bildr.org/2011/02/mlx90614-arduino/" rel="nofollow">http://bildr.org/2011/02/mlx90614-arduino/</a>
+</li></ul><p class="vspace"></p></li><li><strong>See also</strong>
+<ul><li><a class="urllink" href="http://www.arduino.cc/playground/Learning/OneWire" rel="nofollow">Dallas One-Wire Interface:</a> <span class="wikiword">MicroLans</span>-
+ networks of 1-Wire chips- have been popular for many years with weather
+ station hobbyists. In the "outside world" beyond our own Arduino 
+community there is a great deal of information on connecting rainfall, 
+wind, temperature, (etc., etc.!) sensors... little of it Arduino 
+specific, but all of it Arduino useable once you master the basic 
+techniques of communicating with the 1-Wire chips at the heart of all of
+ the already-invented wheels. The basic techniques are not terribly 
+complicated, and they open up many possibilities.
+<p class="vspace"></p></li><li><a href="#light_sensor">Sensors for Light</a> (Visual and IR... levels, not images)
+</li></ul></li></ul><p class="vspace"></p><h2><a name="tagtop" id="tagtop"></a>Tagging / Labeling</h2>
+<p>This section a legacy... Bar Codes and RFID now have their own sections. (From 29 Jun 2011)
+</p>
+<p class="vspace"></p><ul><li><a href="#gotoBarC">Bar code reading</a>
+<p class="vspace"></p></li><li><a href="#gotoRFID">RFID tag reading</a>
+</li></ul><p class="vspace"></p><h2><a name="location" id="location"></a>Location</h2>
+<ul><li><strong>Compass</strong>
+<ul><li><a class="urllink" href="https://github.com/ryantm/LSM303DLH" rel="nofollow">LSM303 Tilt-Compensated Compass Library</a> - The <a class="urllink" href="http://www.pololu.com/catalog/product/1250" rel="nofollow">LSM303</a>
+ is an inexpensive 3-axis accelerometer combined with a 3-axis 
+magnetometer.  This library makes it easy to read the raw accelerometer 
+and magnetometer data, and it contains a function that performs the 
+non-trivial math to compute the tilt-compensated heading using the 
+Earth's magnetic field.
+</li><li><span class="wikiword">HMC6352</span> <span class="wikiword">I2C</span> Compass Sensor - Read heading from a compass sensor, using the Wire library.  Here's the sketch: <a class="wikilink" href="http://arduino.cc/playground/Learning/Hmc6352">Learning.hmc6352</a>
+</li><li><a class="urllink" href="http://www.arduino.cc/cgi-bin/yabb2/YaBB.pl?num=1170973485" rel="nofollow">Forum posting</a> on controlling the <span class="wikiword">HMC6352</span> with the Wire library.
+</li><li>Parallax <span class="wikiword">HM55B</span> Compass Sensor - get angle to North here is all you need: <a class="wikilink" href="http://arduino.cc/playground/Main/HM55B">HM55B</a>
+</li><li>Using the <span class="wikiword">HMC6352</span> <span class="wikiword">I2C</span> Digital Compass - Code &amp; Schematic <a class="urllink" href="http://bildr.org/2011/01/hmc6352/" rel="nofollow">http://bildr.org/2011/01/hmc6352/</a>
+</li><li><span class="wikiword">CMPS03</span> Compass Module - <a class="urllink" href="http://www.grapelabs.org/arduino/libraries/cmps03-compass-module" rel="nofollow">http://www.grapelabs.org/arduino/libraries/cmps03-compass-module</a> Communicates via the <span class="wikiword">I2C</span> protocol.
+</li></ul><p class="vspace"></p></li><li><strong>GPS</strong>
+<ul><li>Arduino code for parsing data from the <a class="urllink" href="http://www.arduino.cc/cgi-bin/yabb2/YaBB.pl?num=1166042147/" rel="nofollow">EM-406 GPS module,</a> by bigengineer. 
+</li><li><a class="wikilink" href="http://arduino.cc/playground/Tutorials/GPS">How to connect a Parallax GPS module</a>
+ to the Arduino, and read its $GPRMC string. Tutorial translated from 
+Igor González Martín's  original Spanish tutorial. This allows you to 
+get date, heading, latitude and longitude from the GPS module.
+</li><li><a class="urllink" href="http://www.maartenlamers.com/nmea/" rel="nofollow">GPS library for Arduino/Wiring</a>
+ by Maarten Lamers is a library for decoding (NMEA) data from any GPS 
+receiver. It extracts all information types, such as speed, direction, 
+location. Supports $GPRMC and all possible sentence types. Includes 
+example programs and routines for calculating distances and directions 
+over Earth's surface.  NOTE: this library does not work on 1K Arduinos: 
+Duemilanova, etc.
+</li><li><a class="urllink" href="http://www.sundial.org/arduino/?page_id=3" rel="nofollow">TinyGPS</a>,
+ a new GPS/NMEA parser by Mikal Hart is a resource stingy library for 
+decoding (NMEA) data from any GPS receiver. It extracts speed, 
+direction, location, course, date, and time, but consumes only about 100
+ bytes of RAM.
+</li><li><a class="wikilink" href="http://arduino.cc/playground/Acoustic/GPS">Acoustic.GPS</a> A GPS homebrew "GPS" system that uses sound to determine distance to three known points using off the shelf components.
+</li></ul></li></ul><p class="vspace"></p><h2><a name="motion" id="motion"></a>Motion</h2>
+<ul><li><strong>Accelerometers</strong>
+<ul><li>Connect the Arduino to an <a class="urllink" href="https://github.com/ryantm/LSM303DLH" rel="nofollow">LSM303 3-axis accelerometer &amp; 3-axis magnetometer</a> -  get raw accelerometer and magnetometer data, or put it together for a tilt-compensated compass heading
+</li><li>Connect the Arduino to the <span class="newin"><a class="urllink" href="http://interactive.usc.edu/members/jbleecker/archives/006915.html" rel="nofollow">LIS3LV02DQ Triple Axis Accelerometer</a></span>
+</li><li>Connect and read the Parallax 2-axis Memsic 2125 accelerometer - <a class="urllink" href="http://antipastohw.blogspot.com/2007/12/arduino-with-radio-shack-parallax.html" rel="nofollow">instructions, video, and source code</a>
+</li><li>Connect Arduino to a Parallax <span class="wikiword">H48C</span> 3-axis accelerometer <span class="newin"><a class="urllink" href="http://sage.medienkunst.ch/tiki-index.php?page=HowTo_Arduino_Parallax_H48C_Accelerometer" rel="nofollow">H48C Triple Axis Accelerometer (DE/EN)</a> <a class="wikilink" href="http://arduino.cc/playground/Main/ParallaxH48C">Parallax H48C</a> </span>
+</li><li>Interface to the Parallax visual motion sensor - <a class="urllink" href="http://antipastohw.blogspot.com/2007/12/arduino-with-radion-shack-parallax.html" rel="nofollow">some instructions and code samples</a>
+</li><li>Library and documentation for the <a class="urllink" href="http://code.google.com/p/loguino/wiki/Lis331Driver" rel="nofollow">LIS332h accelerometer.</a>
+</li><li><a class="urllink" href="https://bitbucket.org/dcm684/mma7361/src" rel="nofollow">Library and example</a> for a Freescale <span class="wikiword">MMA7361</span> Triple Axis Accelerometer.
+</li></ul></li><li><strong>Gyros</strong>
+<ul><li><a class="wikilink" href="http://arduino.cc/playground/Main/Gyro">Connect and read a standard Gyro</a>
+</li></ul></li><li><strong>Compass</strong>
+<ul><li>Using <span class="wikiword">CMPS03</span> compass module on Arduino connected through <span class="wikiword">I2C</span> - <a class="urllink" href="http://www.grapelabs.de/index.php?id=52" rel="nofollow">Manuals</a>
+</li><li><span class="wikiword">ADXL3453</span> axis accelerometer special features - sense tap, free-fall, and activity  - Code/Schematic <a class="urllink" href="http://bildr.org/2011/03/adxl345-arduino/" rel="nofollow">http://bildr.org/2011/03/adxl345-arduino/</a>
+</li></ul></li><li><strong>IMU</strong>
+<ul><li>using vectornav vn-100 IMU (with extended kalman filter) and an arduino. based on <a class="urllink" href="https://sourceforge.net/p/vectorduino/home/Home/" rel="nofollow">vectorduino</a>, a parsing lib for the mega. here is a video of a project and revised lib with example code in the description <a class="urllink" href="http://vimeo.com/27606367" rel="nofollow">video</a>.
+</li></ul></li></ul><p class="vspace"></p><h2><a name="Electrical" id="Electrical"></a>Other voltages / Power (kiloWatt hours)</h2>
+<ul><li><strong>DC</strong>
+<ul><li>Arduino can only sense 0-5V inputs. <a class="urllink" href="http://arduino.cc/playground/uploads/Learning/Level_shifting_4_arduino.pdf" rel="nofollow">Here's a schematic explanation</a> of how to interface to 5V or higher.  
+</li></ul><p class="vspace"></p></li><li><strong>120V/240V AC</strong>
+<ul><li><a class="urllink" href="http://openenergymonitor.org/emon/node/56" rel="nofollow">How to build an energy monitor</a>
+ / power meter that can measure whole house energy use, using a current 
+transformer to measure current and AC-AC power adapter to measure 
+voltage plus a few resistors and capacitors. Calculates Real Power, 
+Apparent Power, Power Factor, RMS Voltage, RMS Current, frequency and 
+kwh.
+</li><li><a class="urllink" href="http://openenergymonitor.org/emon/node/79" rel="nofollow">12 Input pulse counter</a>
+</li></ul><p class="vspace"></p></li><li><strong><span class="wikiword">KWh</span> Monitoring</strong>
+<ul><li>Small sketch for interfacing with a <a class="wikilink" href="http://arduino.cc/playground/Main/EEM12L-32AKWhMonitoring">EEM12L-32A KWh Monitoring</a> device. 
+</li></ul><p class="vspace"></p></li><li><strong>Energy meter readout</strong>
+<ul><li><a class="urllink" href="http://sebastians-blog.wangnick.de/index.php?/archives/2-Solaranlage-und-Eigenstromverbrauch.html" rel="nofollow">Energy consumption monitor</a>
+ project reading out precise solar production and public grid 
+consumption values from recent electrical power meters via serial 
+infrared port and blinking LED, and generating pulses to feed the S0 
+port of an attached Solarlog 500 recording device with the current home 
+consumption (in german).
+</li></ul></li></ul><p class="vspace"></p><h2><a name="time" id="time"></a>Time</h2>
+<ul><li><a class="urllink" href="http://www.arduino.cc/playground/Code/Time" rel="nofollow">Time</a> library for dates and times that can be used with and without external hardware 
+</li><li>A tutorial for a <span class="newin"><a class="urllink" href="http://gonium.net/md/2006/11/05/arduino-dcf77-radio-clock-receiver/" rel="nofollow">DCF77-based radio clock</a></span>
+<ul><li>Tutorial <a class="urllink" href="http://gonium.net/md/2007/01/06/arduino-dcf77-v02-released/" rel="nofollow">Arduino DCF77 v0.2 Code</a>
+</li></ul></li><li>Use the <span class="newin"><a class="urllink" href="http://www.nearfuturelaboratory.com/?p=276" rel="nofollow">Dallas/Maxim DS1306 Real-time Clock</a> chip with Arduino.</span>
+</li><li><a class="urllink" href="http://combustory.com/wiki/index.php/RTC1307%20-%20Real%20Time%20Clock" rel="nofollow">I2C for RTC DS1307 Real Time Clock</a> - Interfacing with the <span class="wikiword">DS1307</span> date/time keeping clock - Great for logging events. 
+</li><li>Library to control the RTC <span class="wikiword">DS1307</span> with Arduino. Also an example is supplied and <a class="urllink" href="http://flickr.com/photos/sjunnesson/3344651050/" rel="nofollow">how to connect it.</a> <a class="urllink" href="http://code.google.com/p/sjunnesson/downloads/list" rel="nofollow">RTC DS1307 Library</a> 
+</li><li><a class="urllink" href="https://github.com/davidhbrown/RealTimeClockDS1307" rel="nofollow">RealTimeClockDS1307</a>: Yet another (more elaborate) library for working with the <span class="wikiword">DS1307</span>.
+ Includes methods for access to the battery-backed RAM, square wave 
+generator, correct 24h-AM/PM conversion, etc. Example sketch allows 
+interactive control of most functions via Serial Monitor. 
+</li><li>Use the <a class="urllink" href="http://duinolab.blogspot.com/search/label/C-MAX%20CMMR-6P-60" rel="nofollow">CMax CMMR-6P WWVB Receiver</a> with Arduino
+</li><li><span class="wikiword">DS1302</span> RTC (spi based with supercap backup) <a class="urllink" href="http://www.netstuff.org/arduino_libs/ds1302/" rel="nofollow">library</a>
+</li><li>Sleep and Watchdog functions for battery operated equipment <span class="newin"><a class="urllink" href="http://interface.khm.de/index.php/labor/experimente/sleep_watchdog_battery/" rel="nofollow">Nightingale example</a> </span>
+</li><li>Interface to IBM AT RTC bq3287 and compatable with 8bit bi-directional bus <a class="urllink" href="http://fritzing.org/projects/ibm-rtc-on-arduino/" rel="nofollow">code and description</a>
+</li><li>Interface to a Maxim-IC <a class="urllink" href="http://code.google.com/p/gfb/source/browse/arduino/DS3231/DS3231.pde" rel="nofollow">DS3231</a> <span class="wikiword">I2C</span> chip
+</li><li>Guide for beginners to <a class="urllink" href="http://sheepdogguides.com/arduino/ar3ne1rtc.htm" rel="nofollow">using the DS1302 RTC</a> in the nuelectronics.com datalogging shield. Could help other users of the <span class="wikiword">DS1302</span> also.
+</li><li>Sketch to set the <a class="wikilink" href="http://arduino.cc/playground/Main/DS1307OfTheLogshieldByMeansOfNTP">DS1307 of the logshield by means of NTP</a>.
+</li><li><a class="urllink" href="http://www.inmojo.com/r/rtc-module-arduino-library/" rel="nofollow">Library</a> for the <span class="wikiword">DS1340Z</span>
+ RTC with sample sketch to read and write time code. (Low voltage 
+operation supported). For more information please check out the <a class="urllink" href="http://www.inmojo.com/store/inmojo-market/item/rtc-module-ds1340z/" rel="nofollow">DS1340Z Inmojo Arduino Shield</a> product page. 
+</li><li><span class="wikiword">PCF8563</span> RTC <a class="wikilink" href="http://arduino.cc/playground/Main/RTC-PCF8563">Library</a> with examples.
+</li><li>Library for the <span class="wikiword">I2C</span> <a class="urllink" href="http://code.google.com/p/ds1307new" rel="nofollow">DS1307 RTC</a>
+ with NV-RAM support. With v1.20 you can calculate with the time and a 
+program has been added to modify the RTC over the serial port.
+</li><li><a class="urllink" href="http://didier.longueville.free.fr/arduinoos/?p=715" rel="nofollow">MicroCLK</a>: A stand alone RTC controlled clock with LCD display 
+</li><li>Syncing an RTC to your computers time using python <a class="urllink" href="http://myarduinoproject.wordpress.com/2011/06/19/syncing-a-ds1307-automatically-using-python/" rel="nofollow">Syncing RTC using python</a>
+</li><li>Setting the time on your <span class="wikiword">DS1307</span> RTC using a Windows application. <a class="urllink" href="http://gadjetsblog.blogspot.com/2011/04/set-time-on-your-ds1307-with-arduino.html" rel="nofollow">Set RTC time from PC App</a>
+</li><li>Using <span class="wikiword">I2C</span> RTC <span class="wikiword">PCF8563</span> at <span class="wikiword">I2C</span> fast mode (400 kbit/s) with an optimized code. <a class="urllink" href="http://variecose.wordpress.com/2011/09/01/i2c-rtc-pcf8563-basic-usage-with-arduino/" rel="nofollow">I2C RTC PCF8563: basic usage with Arduino</a>
+</li></ul><p class="vspace"></p><h2><a name="touch" id="touch"></a>Touch screen</h2>
+<ul><li><a class="urllink" href="http://antipastohw.blogspot.com/2008/04/circles-squares-and-lines-oh-my.html" rel="nofollow">Schematics and source code</a> available for interfacing to a small touchscreen (mounted on the <span class="wikiword">TouchShield</span>) - and <a class="urllink" href="http://antipastohw.blogspot.com/2008/05/touchshield-softled.html" rel="nofollow">another</a> example
+</li><li><a class="urllink" href="http://kalshagar.wikispaces.com/Arduino+and+a+Nintendo+DS+touch+screen" rel="nofollow">Schema + sources</a> to plug DS Touchscreen with an Arduino (from A to Z)
+</li></ul><p class="vspace"></p><h2><a name="slot" id="slot"></a>Slotted Detectors/ Proximity Sensors</h2>
+<p>See also other references to "proximity" elsewhere on page, including the material in <a href="#DistanceSensing">distance sensing</a>. There may be discussion of these devices in the "encoders" section, for intstance. Set up xrefs? <span class="wikiword">SEe</span>, for instance, the material here in "IR Reflectance/Line Sensors" under "Light sensors"
+</p><ul><li>Someone please do a write up of the useful slotted and reflective detectors which DO exist, and can be plugged into Arduinos!
+</li></ul><p class="vspace"></p><h2><a name="multiplin" id="multiplin"></a>Multiplexing Inputs</h2>
+<ul><li>read the <a class="urllink" href="http://www.arduino.cc/cgi-bin/yabb2/YaBB.pl?num=1138666403" rel="nofollow">forum post</a> on analog multiplexers
+</li><li>learn how to use the Motorola <span class="wikiword">MC14067BCP</span> Analog multiplexer/demultiplexer through the <a class="wikilink" href="http://arduino.cc/playground/Projects/ArduinoUsers#fluidforms">fluidforms tutorial</a>
+</li><li><a class="wikilink" href="http://arduino.cc/playground/Code/MUX151">The 74XX151 digital multiplexer</a>
+</li><li><a class="urllink" href="http://www.arduino.cc/playground/Learning/4051" rel="nofollow">4051 is an 8 channel analog multiplexer / demultiplexer</a>
+</li><li>Want to learn how to make your own force-sensors and how to connect hundreds of them with multiplexers? look at <a class="wikilink" href="http://arduino.cc/playground/Projects/ArduinoUsers#fluidforms">fluidforms' great tutorial and post</a> in the <a class="wikilink" href="http://arduino.cc/playground/Projects/ArduinoUsers">Arduino users projects</a> section of this wiki. Tutorial by fluidforms.at. 
+</li><li><a class="urllink" href="http://interface.khm.de/index.php/labor/experimente/experimente/input-channel-extender/" rel="nofollow">Build a 24/48/72 Channel Input Extender</a> 
+</li><li><a class="wikilink" href="http://arduino.cc/playground/Code/ShiftRegSN74HC165N">The SN74HC165N 8-bit parallel-in/serial-out shift register</a>. Read the state of 16 (or more) digital pins using only 4 Arduino digital pins.
+</li><li>Expand the digital outputs. Chainable with individual pin access using the 74HC595 <a class="urllink" href="http://bildr.org/2011/02/74hc595/" rel="nofollow">http://bildr.org/2011/02/74hc595/</a> 
+</li><li>Serial to Parallel using 74HC595 Shift Register <a class="urllink" href="http://www.arduino.cc/en/Tutorial/ShiftOut" rel="nofollow">http://www.arduino.cc/en/Tutorial/ShiftOut</a>
+</li><li>Using the <span class="wikiword">CD74HC4067</span> is a 16-Channel Analog Multiplexer - Expand your analog pins - <a class="urllink" href="http://bildr.org/2011/02/cd74hc4067-arduino/" rel="nofollow">http://bildr.org/2011/02/cd74hc4067-arduino/</a>
+</li><li>The <a class="urllink" href="http://www.sparkfun.com/commerce/product_info.php?products_id=9832" rel="nofollow">Mux Shield</a> expands your Arduino to 48 analog or digital inputs.
+</li></ul><p class="vspace"></p><h2><a name="adcdac" id="adcdac"></a>ADC/DAC</h2>
+<ul><li>Need more, or more accurate, analogue input and output? Use an ADC or DAC.
+</li><li><a class="urllink" href="http://sites.google.com/site/alternativarduino/english/librarys/adc" rel="nofollow">A library for interfacing with various SPI ADCs</a>
+</li><li>The <a class="wikilink" href="http://arduino.cc/playground/Code/MCP3208">MCP3208</a> is a 12bit 8 channel SPI ADC.
+</li><li>The R/2R ladder is a simple and inexpensive alternative to DAC <span class="wikiword">ICs</span> - <a class="urllink" href="http://blog.makezine.com/archive/2008/05/makeit_protodac_shield_fo.html?CMP=OTC-0D6B48984890" rel="nofollow">photo-tutorial</a> for construction on a protoshield.
+</li><li><a class="urllink" href="http://interface.khm.de/index.php/labor/experimente/connect-a-ltc2400-high-precision-24-bit-analog-to-digital-converter/" rel="nofollow">Connect a LTC2400 High Precision 24 Bit Analog to Digital Converter</a>
+</li><li><a class="urllink" href="http://sites.google.com/site/adifferentlemming/Home/projects/arduino" rel="nofollow">Tutorial on rolling your own voltage dividers</a> as a PDF document (with optional data files)
+</li><li> Using a <a target="_blank" class="urllink" href="http://www.shaduzlabs.com/article-12.html" rel="nofollow">AD420 Serial Input 16 bit DAC</a> with Arduino
+</li><li><a class="urllink" href="http://blog.geekcowboy.net/2008/09/sparkfun-dac-breakout-board-tutorial_8918.html" rel="nofollow">Connect a MCP4725, I2C-based ADC with Arduino.</a>
+</li><li> Arduino <a target="_blank" class="urllink" href="http://code.google.com/p/i2c-adc-ads7828/" rel="nofollow">library</a> for the Texas Instruments <span class="wikiword">ADS7828</span> 12-bit, 8-channel <span class="wikiword">I2C</span> A/D converter (i2c-adc-ads7828)
+</li><li><a class="urllink" href="http://www.arduino.cc/cgi-bin/yabb2/YaBB.pl?num=1273055713" rel="nofollow">Simple 10 bit DAC</a>
+</li><li><a class="urllink" href="http://didier.longueville.free.fr/arduinoos/?p=1134" rel="nofollow">Fast ADC</a>: Fast ADC, autotuned
+</li><li><a class="urllink" href="http://didier.longueville.free.fr/arduinoos/?p=64" rel="nofollow">MicroDDS</a>: Stand alone 6 bits Direct Digital Synthesizer (DDS)
+</li></ul><p class="vspace"></p><h2><a name="gotoRFID" id="gotoRFID"></a>RFID devices for input</h2>
+<ul><li><strong>RFID- Sparkfun/ Innovations</strong>
+<ul><li><a class="wikilink" href="http://arduino.cc/playground/Code/ID12">Innovations ID-12 RFID Reader (from sparkfun)</a>
+</li><li><a class="urllink" href="http://sheepdogguides.com/arduino/art3rfid1.htm" rel="nofollow">Sparkfun/ Innovations Readers</a> "Getting started" guide from <span class="wikiword">SheepdogGuides</span>... Introduction followed by full code for door lock, and PCB design, and information on electro-mechanical strike plate.
+</li><li><a class="urllink" href="http://blog.formatlos.de/2008/12/08/arduino-id-12/" rel="nofollow">Innovations ID-12 RFID Reader</a> using software serial and detecting removed RFID tags
+</li><li>ID-12 / ID-20 RFID readers - ID tags in arduino code. - Code &amp; Schematic <a class="urllink" href="http://bildr.org/2011/02/rfid-arduino/" rel="nofollow">http://bildr.org/2011/02/rfid-arduino/</a>
+</li></ul></li></ul><p class="vspace"></p><p>Sparkfun offer several RFID
+ readers suitable for Arduinos. There are useful discussions on the use 
+of them in the Sparkfun pages, and in the forum.
+</p>
+<p class="vspace"></p><ul><li><strong>RFID- Parallax</strong>
+<ul><li><span class="wikiword">GumboLabs</span> write-up on how to get the best out of your Parallax RFID reader and how to account for noise. <a class="urllink" href="http://www.gumbolabs.org/2009/10/17/parallax-rfid-reader-arduino/" rel="nofollow">Using the Parallax reader and accounting for noise</a>.
+</li><li><a class="createlinktext" rel="nofollow" href="http://arduino.cc/playground/Main/UsingTheParallaxRFIDReader?action=edit">Code for using the Parallax RFID</a><a rel="nofollow" class="createlink" href="http://arduino.cc/playground/Main/UsingTheParallaxRFIDReader?action=edit">?</a> reader with Arudino.  Based on the <span class="newin"><a class="urllink" href="http://wiring.org.co/learning/examples/rfid_reading.html" rel="nofollow">Wiring tutorial</a>.</span>
+</li><li><a class="wikilink" href="http://arduino.cc/playground/Learning/PRFID">Code for using the Parallax RFID</a> reader with Arudino.  Based on the 
+</li></ul><p class="vspace"></p></li><li><strong>RFID- General points and other readers</strong>
+<ul><li><a class="urllink" href="http://www.balua.org/RFID_lock.html" rel="nofollow">RFID door lock</a> Using the <span class="wikiword">SL018</span> low-cost <span class="wikiword">I2C</span> reader 
+</li></ul></li></ul><p><a class="urllink" href="http://wiring.org.co/learning/examples/rfid_reading.html" rel="nofollow">Wiring tutorial</a>.
+</p>
+<p class="vspace"></p><p>At 1/2011, a <a class="urllink" href="http://www.arduino.cc/cgi-bin/yabb2/YaBB.pl?num=1294104422" rel="nofollow">useful discussion</a> was unfolding in the forum on how to connect a Wavetrend active reader capable of reading cards at distances in excess of 2m.
+</p>
+<p class="vspace"></p><p>The USB Phidgets RFID reader you may encounter 
+for sale on eBay is not suitable for Arduino work, as to use it you need
+ a proprietary .DDL
+</p>
+<p class="vspace"></p><hr>
+<p><a name="ui" id="ui"></a>
+</p><h1>User Interface </h1>
+<p>Graphical or text - based user interface (UI) or human machine 
+interface (HMI) on Arduino: How to ask a user to input information 
+(number, choose from a list, enter text, etc.) on an Arduino using 
+display (LCD, LED matrix etc.) and buttons, keypads or other devices.
+</p>
+<p class="vspace"></p><h2><a name="tui" id="tui"></a>Text-based user interface</h2>
+<ul><li><a name="phi_prompt" id="phi_prompt"></a><a class="urllink" href="http://liudr.wordpress.com/libraries/phi_prompt/" rel="nofollow">Phi_prompt user interface Library</a> Interactive user interface for your projects. Library functions use an <span class="wikiword">HD44780</span>
+ character display and one to six push buttons. You can use the library 
+to construct a user interface to ask your user to enter numbers, select 
+from a list, navigate a menu (multi-level), enter text strings, display 
+multi-line and multi-page long texts from main memory and PROGMEM, ideal
+ for introductions and outputting multi-line results. You can also call 
+simple functions such as ok_dialog and yn_dialog to ask user for 
+information. Lists/menus have lots of features, scroll bar, auto-scroll 
+long list items like on an <span class="wikiword">MP3</span> player, centering on item, flashing cursor or arrow to highlight item, current/total index or 0-9 index etc. <a class="urllink" href="http://liudr.wordpress.com/libraries/phi_prompt/" rel="nofollow">http://liudr.wordpress.com/libraries/phi_prompt/</a>
+</li><li><a class="urllink" href="http://sourceforge.net/projects/arduinowifly/files/MenuSample/" rel="nofollow">MenuSample</a>
+ - an interactive terminal-based menu interface for your projects.  
+Allows multi-level menus, uses PROGMEM space, and lets you control your 
+Arduino interactively. <a class="urllink" href="http://sourceforge.net/projects/arduinowifly/files/MenuSample/" rel="nofollow">http://sourceforge.net/projects/arduinowifly/files/MenuSample/</a>
+</li><li><a name="phi_prompt_glcd" id="phi_prompt_glcd"></a><a class="wikilink" href="http://arduino.cc/playground/Main/PhiPromptGlcdUserInterfaceLibrary">Phi_prompt_glcd user interface Library</a> This is being planned.
+</li><li><a name="phi_prompt_pov" id="phi_prompt_pov"></a><a class="createlinktext" rel="nofollow" href="http://arduino.cc/playground/Main/PhiPromptPersistenceOfVisionDisplayUserInterfaceLibrary?action=edit">Phi_prompt persistence of vision display user interface Library</a><a rel="nofollow" class="createlink" href="http://arduino.cc/playground/Main/PhiPromptPersistenceOfVisionDisplayUserInterfaceLibrary?action=edit">?</a> This is being planned.
+</li><li><a class="urllink" href="http://code.google.com/p/m2tklib/" rel="nofollow">M2tklib</a> (<span class="wikiword">LiquidCrystal</span> Library)
+</li></ul><p class="vspace"></p><h2><a name="gui" id="gui"></a>Graphical user interface</h2>
+<ul><li>Monochromatic dot-matrix display implementations
+<ul><li><a class="urllink" href="http://code.google.com/p/m2tklib/" rel="nofollow">M2tklib</a> (Requires GLCD or <span class="wikiword">DOGM128</span> Library) 
+</li></ul></li><li>Color dot-matrix display implementations
+</li></ul><h2><a name="ui_generic" id="ui_generic"></a>Hardware independent layers</h2>
+<ul><li><a name="multi_tap" id="multi_tap"></a><a class="urllink" href="http://liudr.wordpress.com/2011/09/04/multi-tap-function/" rel="nofollow">Multi-tap input</a>
+ This code accepts any type of keypads such as standard arduino keypads 
+library result and interprets it with a pre-defined multi-tap mapping. 
+It has cap key and space key for 12 key pad and more functions for 16 
+key pad. The instructions are embedded as comments in the front of the 
+code.
+</li></ul><p class="vspace"></p><p><a name="Storage" id="Storage"></a>
+</p><h1>Storage </h1>
+<p>Various options for storing data from your Arduino board.
+</p>
+<p class="vspace"></p><h3>Built-In EEPROM / Built-In Flash</h3>
+<ul><li>The <a class="urllink" href="http://www.arduino.cc/en/Reference/EEPROM" rel="nofollow">EEPROM library</a> give you access to 512 bytes of non-volatile memory (that is, it retains its value when you turn the board off).
+</li><li>Mikal Hart's <a class="urllink" href="http://www.arduiniana.org/libraries/flash" rel="nofollow">Flash library</a>
+ allows you to easily store strings, arrays, and tables in read-only 
+memory without the hassle and complexity of learning PROGMEM 
+programming.
+</li><li><a class="wikilink" href="http://arduino.cc/playground/Code/Bitlash">Bitlash</a> lets you define and store new Bitlash functions in EEPROM.
+</li></ul><p class="vspace"></p><h3>Dallas 1-Wire</h3>
+<ul><li>There are <span class="wikiword">EEPROMs</span> in the 1-Wire chip family from Dallas Semiconductor. They can connect to the Arduino via a <span class="wikiword">MicroLan</span>, or more directly. The <a class="urllink" href="http://www.arduino.cc/playground/Learning/OneWire" rel="nofollow">techniques for using MicroLans from an Arduino</a> have already been developed. (And give you access to input and output options, too.)
+</li></ul><p class="vspace"></p><h3><span class="wikiword">DataFlash</span> Memory</h3>
+<ul><li><a class="wikilink" href="http://arduino.cc/playground/Code/Dataflash">Dataflash memory library</a> 
+</li></ul><p class="vspace"></p><h3><span class="wikiword">I2C</span> EEPROM</h3>
+<ul><li><a class="wikilink" href="http://arduino.cc/playground/Code/I2CEEPROM">Interfacing an I2C EEPROM</a>
+</li><li><a class="wikilink" href="http://arduino.cc/playground/Code/I2CEEPROM24LC512">24LC512 I2C EEPROM Driver</a>
+</li><li><a class="wikilink" href="http://arduino.cc/playground/Code/I2CEEPROM24C1024">24C1024 I2C EEPROM Library</a>
+</li><li><a class="wikilink" href="http://arduino.cc/playground/Code/I2CEEPROMBANK">I2C EEProm Bank</a>
+</li><li>A small <a class="wikilink" href="http://arduino.cc/playground/Main/LibraryForI2CEEPROM">library for I2C EEPROM</a> to read and write blocks of 'any' size.
+</li><li><a class="urllink" href="http://maniacbug.github.com/M24LC256/classM24LC256.html" rel="nofollow">M24LC256 I2C EEPROM Library</a> high-speed page-writing EEPROM library
+</li></ul><p class="vspace"></p><h3>SD / MMC Card</h3>
+<ul><li><a class="urllink" href="http://www.chipstobits.com/blog/storage-shield/" rel="nofollow">Chips To Bits Storage Shield</a> – Examples of how to use a SD card while using very little memory or processing power of the Arduino. 
+</li><li><a class="wikilink" href="http://arduino.cc/playground/Learning/SDMMC">Interfacing SD / MMC Card with SPI</a>
+</li><li><a class="urllink" href="http://www.scenelight.nl/?p=468" rel="nofollow">Implementing a standalone SDcard server over I2C and Rf12b</a>
+</li><li><a class="wikilink" href="http://arduino.cc/playground/Main/EthernetShieldSDHardwareSPIMod">Using the EthernetShields SD Slot with HardwareSPI</a>
+</li><li><a class="urllink" href="http://code.google.com/p/sdfatlib/" rel="nofollow">sdfatlib Library to Interface with SD-Cards</a>
+</li><li><a class="wikilink" href="http://arduino.cc/playground/Code/SDCARD">Talking to your SD CARD without a library</a>
+</li><li><a class="urllink" href="http://sheepdogguides.com/arduino/ar3ne1sd.htm" rel="nofollow">Using an SD card with Petit FAT File System and NuElectronics shield, ($16)</a>
+</li><li><a class="urllink" href="http://didier.longueville.free.fr/arduinoos/?p=51" rel="nofollow">PlainSDC</a>: SD Card driver library; 
+</li></ul><p class="vspace"></p><h3>Spi RAM</h3>
+<ul><li><a class="wikilink" href="http://arduino.cc/playground/Main/SpiRAM">Library to interface with a 23K256 Spi SRAM chip</a>
+</li><li><a class="wikilink" href="http://arduino.cc/playground/Main/SpiRAMandEhernetShield">Use a 23K256 Spi SRAM chip together with the Ethernetshield</a>
+</li></ul><p class="vspace"></p><h3>USB Memory Stick</h3>
+<ul><li>Datalogging to a USB memory stick with ftdi board <a class="wikilink" href="http://arduino.cc/playground/Main/UsbMemory">usb memory</a> <a class="wikilink" href="http://arduino.cc/playground/Profiles/Nick">nick</a>
+</li></ul><p class="vspace"></p><hr>
+<p><a name="Communication" id="Communication"></a>
+</p><h1>Communication </h1>
+<p>Information on communication protocols often used to talk with other devices.  Please refer to <a class="wikilink" href="http://arduino.cc/playground/Main/InterfacingWithSoftware">Interfacing with Software</a>
+ for information on linking with various PC based applications.  This 
+listing may contain cross-listings with device type listings above.
+</p>
+<p class="vspace"></p><h2><a name="Serial" id="Serial"></a>Serial</h2>
+<ul><li>Simple Soft Serial, No library <a class="urllink" href="http://www.arduino.cc/en/Tutorial/SoftwareSerial" rel="nofollow">http://www.arduino.cc/en/Tutorial/SoftwareSerial</a>
+</li><li><span class="wikiword">SimpleTX</span> configuration USART <a class="wikilink" href="http://arduino.cc/playground/Main/SimpleTX">SimpleTX</a>
+</li><li><a class="urllink" href="http://www.billporter.info/easytransfer-arduino-library/" rel="nofollow">EasyTransfer</a>, easy communications between Arduinos via Serial 
+</li><li>See also <a class="wikilink" href="http://arduino.cc/playground/Main/InterfacingWithSoftware">InterfacingWithSoftware</a> -  Specifically <a class="wikilink" href="http://arduino.cc/playground/Interfacing/LinuxTTY">interfacing Arduino as a Linux TTY</a>
+</li><li><a class="urllink" href="http://arduiniana.org/libraries/newsoftserial" rel="nofollow">NewSoftSerial</a> - Mikal Hart's replacement for <span class="wikiword">SoftwareSerial</span> -- derived from ladyada's <a class="urllink" href="http://www.ladyada.net/make/eshield/AFSoftSerial.zip" rel="nofollow">AFSoftSerial</a>. (Has a Serial.available, among other virtues.)
+</li><li><a class="urllink" href="http://combustory.com/wiki/index.php/Arduino_Communications" rel="nofollow">Communication through files</a> - A really quick and easy way to communicate with any software of your choice.
+</li><li><a class="wikilink" href="http://arduino.cc/playground/Code/Messenger">Messenger</a>: Send, receive and parse characters, integers and lists. It is the new <a class="wikilink" href="http://arduino.cc/playground/Code/SimpleMessageSystem">SimpleMessageSystem</a>.
+</li><li><a class="wikilink" href="http://arduino.cc/playground/Code/CmdMessenger">CmdMessenger</a>: A small extension of Messenger above.
+</li><li><a class="wikilink" href="http://arduino.cc/playground/Code/SimpleMessageSystem">SimpleMessageSystem</a>: Send, receive and parse characters, integers and lists between Arduino and Max/Msp or Pure Data
+</li><li><a class="urllink" href="http://userwww.sfsu.edu/%7Einfoarts/technical/arduino/wilson.arduinoresources.html" rel="nofollow">General
+ purpose program to control most Arduino functions via serial 
+communication with a computer- reads state on dig &amp; analog input 
+pins and sends data to the output pins</a>
+</li><li><a class="urllink" href="http://antipastohw.blogspot.com/2008/12/passing-large-values-between-arduino-to.html" rel="nofollow">How
+ to pass large multi-byte values between two Arduinos, or shields. If 
+Serial.Print doesn't do the job, try these functions to bit shift 
+multiple bytes together to reconstruct integers or floats</a>
+</li><li><a class="wikilink" href="http://arduino.cc/playground/Code/PrintFloats">A standalone printFloat function with no library imports</a>
+</li><li><a class="urllink" href="http://sites.google.com/site/jpmzometa" rel="nofollow">Modbus RTU Master/Slave</a> implementation of the functions <em>read holding registers</em> <em>preset single register</em>, and <em>preset multiple registers</em> (function codes 3, 6, and 16 respectively). Available as .pde sketch written in C, or Arduino library written in C++.
+</li><li><a class="wikilink" href="http://arduino.cc/playground/Code/ModbusMaster">ModbusMaster</a>: This is an Arduino library for communicating with Modbus slaves over <span class="wikiword">RS232</span>/485 (via RTU protocol). Discrete functions 0x01 - <em>Read Coils</em>, 0x02 - <em>Read Discrete Inputs</em>, 0x05 - <em>Write Single Coil</em>, 0x0F - <em>Write Multiple Coils</em> and register functions 0x03 - <em>Read Holding Registers</em>, 0x04 - <em>Read Input Registers</em>, 0x06 - <em>Write Single Register</em>, 0x10 - <em>Write Multiple Registers</em>, 0x16 - <em>Mask Write Register</em>, and 0x17 - <em>Read Write Multiple Registers</em> implemented. Project is hosted at <a class="urllink" href="http://code.google.com/p/modbusmaster/" rel="nofollow">Google Code</a>.
+</li><li><strong><span class="wikiword">SimpleModbusSlave</span></strong> and <strong><span class="wikiword">SimpleModbusMaster</span></strong>
+ are small Arduino libraries that will enable you to communicate with 
+devices that use the Modicon Modbus protocol. The libraries were tested 
+extensively on PLC's (LS Industrial, Siemens &amp; Schneider) and other 
+devices using half &amp; full duplex communication. The libraries are at
+ version 8. Functions implemented are 3, 4 &amp; 16. Mail me at <em>bester.juan@gmail.com</em> for any help on using the libraries. Project is hosted at <a class="urllink" href="http://code.google.com/p/arduino-modbus/" rel="nofollow">Google Code</a>
+</li><li><strong>Modbusino</strong> is a thin library to response to Modbus requests from your Arduino (slave). The library is based on code from <a class="urllink" href="http://libmodbus.org/" rel="nofollow">libmodbus.org</a> and is designed to be robust, non-blocking and with a very low footprint. The code is under LGPL v3 license and available on <a class="urllink" href="https://github.com/stephane/modbusino" rel="nofollow">https://github.com/stephane/modbusino</a>.
+</li><li>The <a class="urllink" href="http://www.jeelabs.org/2009/03/27/the-muxshield-is-working/" rel="nofollow">MuxShield</a> collects serial output from up to 5 slaves vis software and sends it out to the serial hardware port.
+</li><li><a class="wikilink" href="http://arduino.cc/playground/Code/SerialControl">SerialControl</a> remotely controls Arduinos (usable in a <span class="wikiword">XBee</span> peer2peer network!)
+</li><li><a class="urllink" href="http://github.com/finsprings/arduinaap" rel="nofollow">iPodSerial</a> Library to interact with iPods over serial through their dock connector. Supports Simple Remote and Advanced Remote modes.
+</li><li><a class="urllink" href="http://sheepdogguides.com/arduino/art4SeIntro.htm" rel="nofollow">General Points, serial interfacing</a> General skills and ideas for using Arduinos connected to each other or other devices via serial port. From Sheepdog
+</li><li><a class="urllink" href="http://sheepdogguides.com/dt4q.htm" rel="nofollow">Talking to Windows</a>
+ Writing Windows programs to deal with data from, or send data to 
+Arduinos over serial link. Written in Delphi, but little "Delphi 
+cleverness"... mostly just calls of Windows <span class="wikiword">APIs</span>. From Sheepdog.
+</li><li><a class="urllink" href="http://www.tuxbrain.com/en/content/arduinoben-nanonote-howto-video-clip-p" rel="nofollow">Ben NanoNote and Arduino talking each other through serial</a>
+</li><li><a class="urllink" href="http://www.tuxbrain.com/en/content/%E6%9C%AC-ben-nanonote-editingcompilingflashing-arduino-sketch" rel="nofollow">Compiling and flashing through serial with Ben NanoNote</a>
+</li><li><a class="urllink" href="http://www.cutedigi.com/product_info.php?cPath=284&amp;products_id=4329" rel="nofollow">CuteDigi RS232 Shield for Arduino</a>
+</li><li><a class="urllink" href="http://playwithmyled.com/insek" rel="nofollow">Insek Internet to Serial Proxy</a>
+ Open source Mac application which facilitate the communication between a
+ Web API and an Arduino connected to an USB Serial Port without any 
+specific hardware.
+</li><li><a class="wikilink" href="http://arduino.cc/playground/Code/Bitlash">Bitlash</a> is a serial port command shell and interpreted language for Arduino.
+</li><li><a class="urllink" href="http://code.google.com/p/loguino/wiki/MegaSquirtDriver" rel="nofollow">Megasquirt Serial Driver</a> is a library around the <span class="wikiword">MegaSquirt</span> 2 ECU, providing an interface from Arduino to the controller with a high level of abstraction.
+</li><li><a class="wikilink" href="http://arduino.cc/playground/Main/DynamicConfig">Dynamic config</a>
+</li></ul><p class="vspace"></p><h2><a name="spi" id="spi"></a>SPI</h2>
+<ul><li><a class="wikilink" href="http://arduino.cc/playground/Code/Spi">Spi library</a> for Serial Peripheral Interface.
+</li></ul><p class="vspace"></p><h2><a name="spi-usi" id="spi-usi"></a>SPI/USI</h2>
+<ul><li><a class="urllink" href="http://arduino.cc/playground/Code/USI-SPI" rel="nofollow">ATtiny2313 as SPI master using the USI module</a>
+</li><li><a class="urllink" href="http://tronixstuff.wordpress.com/2011/05/13/tutorial-arduino-and-the-spi-bus/" rel="nofollow">Two-part</a> SPI tutorial for beginners with various device examples
+</li></ul><p class="vspace"></p><h2><a name="pwm" id="pwm"></a>PWM</h2>
+<ul><li><a class="wikilink" href="http://arduino.cc/playground/Code/PwmFrequency">Modifying the PWM frequency</a>
+</li><li><a class="urllink" href="http://didier.longueville.free.fr/arduinoos/?p=2193" rel="nofollow">Making any pin a PWM output at (almost) any frequency</a>
+</li></ul><p class="vspace"></p><h2>uM-FPU V3.1 Floating Point Coprocessor</h2>
+<ul><li><a class="wikilink" href="http://arduino.cc/playground/Code/Fpu">Fpu library</a> for using the uM-FPU V3.1 Floating Point Coprocessor.
+</li></ul><p class="vspace"></p><h2>2B</h2>
+<ul><li><a class="wikilink" href="http://arduino.cc/playground/Code/2B">2B</a> is a simple protocol used to receive and send messages to Arduino
+</li></ul><p class="vspace"></p><h2><span class="wikiword">PS2</span></h2>
+<ul><li><a class="wikilink" href="http://arduino.cc/playground/ComponentLib/Ps2mouse">PS2 mouse interface</a>
+</li></ul><p class="vspace"></p><p><a name="gsm" id="gsm"></a>
+</p><h2>GSM/GPRS <span class="wikiword">M2M</span> modules</h2>
+<ul><li><a class="urllink" href="http://wiki.groundlab.cc/doku.php?id=gsm_arduino_library" rel="nofollow">A GSM/GPRS Library and Tutorials</a> for using Telit and all Hayes AT compatible modules with Arduino and <span class="wikiword">AVRs</span>, for more details please visit the <a class="urllink" href="http://wiki.groundlab.cc/" rel="nofollow">GROUND Lab Wiki</a>. 
+</li><li><a class="urllink" href="http://wiki.groundlab.cc/doku.php?id=gsm_library" rel="nofollow">A GSM/GPRS Library and Tutorials</a> for using Telit and all Hayes AT compatible modules with Arduino and <span class="wikiword">AVRs</span> without the Arduino IDE, for more details please visit the <a class="urllink" href="http://wiki.groundlab.cc/" rel="nofollow">GROUND Lab Wiki</a>. 
+</li><li><a class="urllink" href="http://tronixstuff.wordpress.com/2011/01/19/tutorial-arduino-and-gsm-cellular-part-one/" rel="nofollow">Beginners' Guide</a> to using Sparkfun GSM shield (Spreadtrum <span class="wikiword">SM5100B</span> module) and Arduino. Learn to create remote control, SMS transmission and so on, part of the Arduino tutorials at <a class="urllink" href="http://tronixstuff.com/tutorials" rel="nofollow">tronixstuff.com</a>.
+</li><li><a class="urllink" href="http://users.skynet.be/moustic/PduEncoder.zip" rel="nofollow">PduEncoder</a> is a small library which encode a message into PDU format needed for some phones.
+</li></ul><p class="vspace"></p><h2>Phones</h2>
+<ul><li><a class="wikilink" href="http://arduino.cc/playground/Code/SymbianS60Python">Symbian 60 Phones</a>
+</li><li><a class="wikilink" href="http://arduino.cc/playground/Main/SonyEricsson">SonyEricsson</a>]Send/receive SMS with with older Sony Ericsson phones
+</li><li><a class="wikilink" href="http://arduino.cc/playground/Code/HTCDesire">hTC Desire </a>
+</li><li><a class="urllink" href="http://ehube.blogspot.com/2011/01/connecting-nokia-phone-to-arduino-cable.html" rel="nofollow">Connecting Nokia phone to Arduino using USB Host shield</a>
+</li><li>[<a class="urllink" href="http://romfont.com/2011/05/15/microbridge-adb-support-for-arduino/" rel="nofollow">http://romfont.com/2011/05/15/microbridge-adb-support-for-arduino/</a>|Arduino/Android connectivity using a USB Host shield. Uses ADB, works with Android 1.5 and up.]]
+</li></ul><p class="vspace"></p><h2>HDMI-CEC</h2>
+<ul><li><a class="urllink" href="http://code.google.com/p/cec-arduino/" rel="nofollow">HDMI CEC Library</a> communication with HDMI CEC capable devices (TV, DVD, Receivers, BR) : power on/power off/input selector.
+</li></ul><p class="vspace"></p><h2><a name="ethernet" id="ethernet"></a>Ethernet</h2>
+<ul><li>Nimbits - an open source data historian service for Google App 
+Engine shows how to record Temperature data into a Data Point Channel 
+directly from an Ethernet Shield onto Google's infrastructure. <a class="urllink" href="http://www.nimbits.com/" rel="nofollow">Nimbits - free, social and open source data services</a> 
+<p class="vspace"></p></li><li>Australian Robotics blogger explains how 
+to use Web Services (Pachube.com) to upload XML temperature data from 
+Arduino Ethernet Shield and the Thermistor.
+</li></ul><p><a class="urllink" href="http://www.australianrobotics.com.au/node/266" rel="nofollow">Web Data Logging With Pachube</a>
+</p>
+<p class="vspace"></p><ul><li><span class="wikiword">GumboLabs</span> write-up on how to get the best out of the Ethernet shield. Also explains connecting to a Rails app. <a class="urllink" href="http://www.gumbolabs.org/2010/02/05/rfid-ethernet-shield-client-rails/" rel="nofollow">Arduino Ethernet Shield and Rails</a>. 
+<p class="vspace"></p></li><li>The "official" <a class="urllink" href="http://arduino.cc/en/Guide/ArduinoEthernetShield" rel="nofollow">Arduino Ethernet Shield</a> uses the w5100 chip from <span class="wikiword">WizNet</span>. 
+<p class="vspace"></p></li><li><a class="urllink" href="http://gkaindl.com/software/arduino-ethernet" rel="nofollow">Arduino Ethernet Library by gkaindl</a> enabling DHCP, DNS and Bonjour on Arduino
+<p class="vspace"></p></li><li><a class="urllink" href="http://arduserver.com/" rel="nofollow">ArduServer.com</a> A "getting started" guide. Shows how you can set up an Arduino to serve a web page with two buttons: <span class="wikiword">LEDon</span>, <span class="wikiword">LEDoff</span>.
+ Click a button, and an LED on the Arduino serving the page goes on or 
+off... and shines (or not!) on a light sensor. What the light sensor is 
+seeing reported on the page the Arduino serves. Issues of static vs 
+dynamic IP address covered. <span class="wikiword">DynDns</span>.org 
+solution. Router and firewall issues covered. Full code presented. Done 
+on RBBB ($15), but information needed to move to other presented. Parts 
+of essay depend on fact that a <span class="wikiword">NuElectronics</span> Ethernet shield ($25), an <span class="wikiword">ENC28J60</span>
+ device, used... but most of tutorial is about issues that would arise 
+if you were using a W5100 chip. How to pass the data from the light 
+sensor to Pachube is addressed, by reference to other materials. When 
+buying an Ethernet interface, if you don't have a ready source of 3.3v, 
+watch out for whether your shield can create it from the system's 5v, if
+ you are on a 5v system. (The <span class="wikiword">NuElectonics</span> shield can, many can't.)
+<p class="vspace"></p></li><li><a class="urllink" href="http://sheepdogguides.com/arduino/art5serv1.htm" rel="nofollow">ArduServer2</a> The full code for something similar to the first <span class="wikiword">ArduServer</span>
+ (see above) is tacked on at the bottom of the page the link will bring 
+you to. This version of the Arduserver runs in an Arduino Uno with an 
+"official" Arduino Ethernet shield... one with a W5100 chip.
+<p class="vspace"></p></li><li>Here is a blog describing how to <span class="newin"><a class="urllink" href="http://hypnalogic.wordpress.com/networked-objects/networked-pong-controller/" rel="nofollow">connect to an internet chat server</a> using the Arduino and a Lantronix ethernet module. </span>
+<p class="vspace"></p></li><li>Nuelectronics has developed an Ethernet shield for the Arduino with <a class="urllink" href="http://www.nuelectronics.com/estore/index.php?main_page=project_eth" rel="nofollow">schematic, open-source ethershield library and webserver demo</a> using Microchip's <span class="wikiword">ENC28J60</span>
+ SPI ethernet controller.  The open-source TCP/IP stack is in the 
+Arduino library format, easy to use and available for downloading.
+<p class="vspace"></p></li><li><a class="urllink" href="https://github.com/turicas/Ethernet_ENC28J60/" rel="nofollow">Ethernet_ENC28J60</a> Álvaro Justen is working on a library what is compatible with <span class="wikiword">ENC28J60</span>
+ modules/shields and have the same API as Arduino's standard Ethernet 
+library, so it is more easy to use than other libraries (as 
+nuelectronics').
+<p class="vspace"></p></li><li><a class="urllink" href="http://www.ladyada.net/make/eshield/" rel="nofollow">Adafruit XPort/Ethernet shield</a> - How to connect a Lantronix <span class="wikiword">XPort</span> to an Arduino, includes schematic &amp; library. Examples of reading POP email, webserver, sending &amp; receiving twitters...
+<p class="vspace"></p></li><li><a class="urllink" href="http://tronixstuff.wordpress.com/2011/03/08/moving-forward-with-arduino-%e2%80%93-chapter-30-%e2%80%93-twitter/" rel="nofollow">Beginners' guide</a> to tweeting with Arduino and Ethernet shield.
+<p class="vspace"></p></li><li>a  <a class="wikilink" href="http://arduino.cc/playground/Code/WebServer">Web Server</a> example, made using an <a class="urllink" href="http://arduino.cc/en/Guide/ArduinoEthernetShield" rel="nofollow">Ethernet Shield</a>. 
+<p class="vspace"></p></li><li><a class="urllink" href="http://webduino.googlecode.com/" rel="nofollow">the Webduino library</a>, a modular web server for the Arduino Ethernet Shield and <span class="wikiword">AdaFruit</span> shield using the Wiznet module that can be integrated into your sketches.  It comes with several examples.
+<p class="vspace"></p></li><li><a class="urllink" href="http://www.webweavertech.com/ovidiu/weblog/archives/000484.html" rel="nofollow">TinyWebServer</a>,
+ a small web server for the new Arduino Ethernet shield with microSD. It
+ allows your web server files to be stored on a microSD card, giving 
+your Arduino more memory for your program. You can even update the files
+ directly over HTTP, making it easier to change your HTML interface 
+after the project is finished.
+<p class="vspace"></p></li><li><a class="urllink" href="http://www.open.com.au/mikem/arduino/Radius" rel="nofollow">RADIUS Client</a>, Classes for creating, sending and receiving RADIUS requests as per RFC 2187 and 2188. For <span class="wikiword">ArduinoMega</span> and  Ethernet shield.
+<p class="vspace"></p></li><li><a class="urllink" href="http://knolleary.net/arduino-client-for-mqtt/" rel="nofollow">MQTT Client</a>, provides a client for doing simple publish/subscribe messaging with a server that supports <a class="urllink" href="http://mqtt.org/" rel="nofollow">MQTT v3</a>. For the Arduino Ethernet Shield. For more information about MQTT, visit <a class="urllink" href="http://mqtt.org/" rel="nofollow">http://mqtt.org</a>.
+<p class="vspace"></p></li><li><a class="urllink" href="http://www.arduino.cc/playground/Code/TextFinder" rel="nofollow">TextFinder</a> library for extracting information  (parsing) using Ethernet or Serial data
+<p class="vspace"></p></li><li>The <a class="wikilink" href="http://arduino.cc/playground/Code/Bitlash">Bitlash</a> 2.0 release includes <span class="wikiword">BitChi</span>, a web and telnet server that serves dynamic content with Bitlash as the scripting language.
+<p class="vspace"></p></li><li>Jee Labs' <a class="urllink" href="http://jeelabs.net/projects/cafe/wiki/EtherCard" rel="nofollow">EtherCard</a> is a library for <span class="wikiword">ENC28J60</span> that is in active development, and solves a lot of the instability problems in other implementations.
+<p class="vspace"></p></li><li><a class="urllink" href="http://code.google.com/p/pachubelibrary/" rel="nofollow">PachubeLibrary</a>
+ encapsulates the communication with the Pachube server. It simplifies 
+the work to connect the Arduino based device into the Internet of 
+Things.
+</li></ul><p class="vspace"></p><h2><a name="wifi" id="wifi"></a><span class="wikiword">WiFi</span></h2>
+<p>See also <a href="#wireless">the "wire-less" section</a> for other comminications channels without wires, e.g. IR.
+</p>
+<p class="vspace"></p><ul><li>La Fonera routers have got a serial ttl interface that you can easily use with Arduino.
+<p class="vspace"></p></li><li><a class="urllink" href="http://www.asynclabs.com/" rel="nofollow">AsyncLabs</a> has the <span class="wikiword">WiShield</span> <em>(Out of Business as of 2011-03-26, shields may still be available)</em> which uses <span class="wikiword">ZeroG</span> Wireless's <span class="wikiword">ZG2100</span> <span class="wikiword">WiFi</span> device. It comes with a <span class="wikiword">WiShield</span>
+ library which includes the driver source code, a TCP/IP stack and a 
+bunch of sample sketches demonstrating the use of the Arduino as a web 
+server and a web client. More information about using the sketches can 
+be found on the <a class="urllink" href="http://asynclabs.com/wiki/" rel="nofollow">AsyncLabs wiki</a> page.
+</li><li><a class="urllink" href="http://store.weburban.com/" rel="nofollow">Weburban</a> has a low cost <a class="urllink" href="http://store.weburban.com/store-weburban/wifi.html" rel="nofollow">WiFi</a> breakout board which uses a <a class="urllink" href="http://www.microchip.com/stellent/idcplg?IdcService=SS_GET_PAGE&amp;nodeId=2884" rel="nofollow">Microchip 80211b/g/n device</a> and connects via a simple, labeled header. It's compatible with <span class="wikiword">WiShield</span> and other Arduino <span class="wikiword">WiFi</span> libraries. 
+</li><li><span class="wikiword">SparkFun</span> has the <a class="urllink" href="http://www.sparkfun.com/products/9954" rel="nofollow">WiFly Shield</a>.  It is fairly new but does have 802.11 b/g.  They use the <span class="wikiword">SC16IS750</span> to communicate via SPI to Uart for much faster speeds.  Documentation is there for the actual <span class="wikiword">WiFly</span> GSX module and the <span class="wikiword">SC16IS750</span> but the only real code is from a <span class="wikiword">SparkFun</span> project called the <a class="urllink" href="http://www.sparkfun.com/commerce/tutorial_info.php?tutorials_id=158" rel="nofollow">Talking Wireless Server Tutorial</a>. (Actually there's also a <a class="urllink" href="http://forum.sparkfun.com/viewtopic.php?p=115626#p115626" rel="nofollow">mostly-Ethernet library compatible WiFly library</a>.)
+<p class="vspace"></p></li><li><span class="wikiword">SparkFun</span> also has <a class="urllink" href="http://www.sparkfun.com/products/10050" rel="nofollow">WiFly Breakout Boards</a> which use just 4 connections (RX, TX, VBATT, GND), a serial <span class="wikiword">WiFly</span> driver library is available through <a class="urllink" href="http://arduinology.tumblr.com/" rel="nofollow">http://arduinology.tumblr.com</a> and <a class="urllink" href="http://sourceforge.net/projects/arduinowifly/files/" rel="nofollow">http://sourceforge.net/projects/arduinowifly/files/</a>. 
+<p class="vspace"></p></li><li>Watterott makes the <a class="urllink" href="http://www.watterott.com/en/Arduino-RedFly-Shield" rel="nofollow">RedFly-Shield</a> with <span class="wikiword">WiFi</span> module from <a class="urllink" href="http://www.redpinesignals.com/" rel="nofollow">Redpine Signals</a>. A library is available at <a class="urllink" href="http://www.watterott.net/projects/redfly-shield" rel="nofollow">http://www.watterott.net/projects/redfly-shield</a>
+</li></ul><p class="vspace"></p><h2><a name="flash" id="flash"></a>Flash / Flex</h2>
+<ul><li><a class="urllink" href="http://www.fabiobiondi.com/blog/2009/11/arduino-and-flash-modify-your-existent-flash-games-to-work-with-a-joystick/" rel="nofollow">Arduino and Flash: modify your existent Flash games to work with a joystick</a>
+</li><li><a class="urllink" href="http://www.fabiobiondi.com/blog/2009/10/arduino-and-flex-connect-a-joystick-to-your-application/" rel="nofollow">Arduino and Flex: connect a joystick to your application</a>
+</li></ul><p class="vspace"></p><h2><a name="dmx" id="dmx"></a> DMX</h2>
+<ul><li><a class="wikilink" href="http://arduino.cc/playground/Learning/DMX">DMX</a> (Digital <span class="wikiword">MultipleXed</span>) is a protocol used for connecting lighting controllers, dimmers, scrollers, scanners, etc.. 
+</li></ul><p class="vspace"></p><h2><a name="canbus" id="canbus"></a> CAN-Bus</h2>
+<ul><li><a class="urllink" href="http://www.skpang.co.uk/catalog/product_info.php?cPath=140_142&amp;products_id=706" rel="nofollow">Arduino CAN-Bus Shield</a> OBDII project.
+</li><li><a class="urllink" href="http://www.arduino.cc/cgi-bin/yabb2/YaBB.pl?num=1289195675" rel="nofollow">Another Arduino CAN-Bus Shield</a> This one with simple code for <span class="wikiword">MCP2515/MCP2551</span>
+</li></ul><p class="vspace"></p><h2><a name="i2c" id="i2c"></a><span class="wikiword">I2C</span> / TWI</h2>
+<ul><li><a class="wikilink" href="http://arduino.cc/playground/Learning/I2C">Learning I2C / TWI (Two-Wire Interface)</a>
+</li><li><a class="urllink" href="http://www.neufeld.newton.ks.us/electronics/?p=241" rel="nofollow">Arduino I2C Expansion I/O</a>: detailed tutorial on getting <span class="wikiword">I2C</span> working.
+</li><li><a class="urllink" href="http://www.nearfuturelaboratory.com/2007/01/11/arduino-and-twi/" rel="nofollow">Arduino and the Two-Wire Interface (TWI/I2C)</a> interfacing with a <span class="wikiword">LIS3LV02DQ</span> accelerometer.
+</li><li><a class="urllink" href="http://combustory.com/wiki/index.php/X9241A_-_Digital_Potentiometer" rel="nofollow">I2C for X9241 Digital Potentiometer</a> - Interfacing with the X9241 Digital Potentiometer 
+</li><li><a class="urllink" href="http://combustory.com/wiki/index.php/RTC1307%20-%20Real%20Time%20Clock" rel="nofollow">I2C for RTC DS1307 Real Time Clock</a> - Interfacing with the <span class="wikiword">DS1307</span> date/time keeping clock - Great for logging events.
+</li><li><a class="wikilink" href="http://arduino.cc/playground/Code/LCDi2c">Using i2c Based LCD displays, including library and suggested API</a>
+</li><li><a class="wikilink" href="http://arduino.cc/playground/Code/USIi2c">I2C on the ATtiny85 - Libraries for using I2C (both master and slave) on the ATtiny processors.</a>
+</li><li><a class="urllink" href="http://tronixstuff.wordpress.com/2010/10/20/tutorial-arduino-and-the-i2c-bus/" rel="nofollow">I2C and Arduino tutorials</a> - Beginners' guides to using <span class="wikiword">I2C</span> bus with Arduino, including worked examples to follow; part of the Arduino tutorials at <a class="urllink" href="http://tronixstuff.com/tutorials" rel="nofollow">tronixstuff.com</a>
+</li><li>Library for the <span class="wikiword">I2C</span> <a class="urllink" href="http://code.google.com/p/ds1307new" rel="nofollow">DS1307 RTC</a>
+ with NV-RAM support. With v1.20 you can calculate with the time and a 
+program has been added to modify the RTC over the serial port.
+</li><li><a class="urllink" href="http://arduino.cc/playground/Code/ATMELTWI" rel="nofollow">Atmel Two Wire Interface</a>: Detailed description of how the Wire library accomplishes <span class="wikiword">I2C</span> communication via a deep dive into the source code.
+</li><li><a class="wikilink" href="http://arduino.cc/playground/Main/WireLibraryDetailedReference">Wire Library Detailed Reference</a>.  An indepth reference manual on the Wire Library.  Expands upon the official library documentation.
+</li></ul><p class="vspace"></p><h2><a name="onewire" id="onewire"></a>Dallas One-Wire / <span class="wikiword">MicroLan</span></h2>
+<ul><li><a class="urllink" href="http://www.balua.org/Ibutton_lock.html" rel="nofollow">iButton door lock</a>: Use small iButton devices to enter your room
+</li><li><a class="urllink" href="http://www.arduino.cc/playground/Learning/OneWire" rel="nofollow">OneWire Interface</a>: Tutorial on the Arduino's interface to Dallas's 1-wire chips, e.g. <span class="wikiword">DS1820</span> series temperature probes
+</li><li><a class="urllink" href="http://github.com/paeaetech/paeae/tree/master/Libraries/ds2482/" rel="nofollow">DS2482 library</a>: Library for using Maxim <a class="urllink" href="http://www.maxim-ic.com/quick_view2.cfm/qv_pk/4382/t/al" rel="nofollow">DS2482-100/800</a> to interface with one-wire devices
+</li><li><a class="urllink" href="http://www.inmojo.com/r/1-wire-driver-arduino-library/" rel="nofollow">DS2482-800 library</a>:
+ Improved Library for using Maxim 1 Wire 8-Channel driver Ds2482-800 and
+ sample code for reading 64-bit unique ID of any 1Wire device. Please 
+refer to <a class="urllink" href="http://www.inmojo.com/store/inmojo-market/item/1-wire-driver-ds2482-800/" rel="nofollow">Inmojo 1Wire Arduino shield</a> for more details. 
+</li><li><a class="urllink" href="http://code.google.com/p/gfb/wiki/OneWireShield" rel="nofollow">OneWire Shield</a>
+</li><li><a class="urllink" href="http://tushev.org/articles/electronics/35-reading-ibutton-with-arduino" rel="nofollow">Reading iButton keys with Arduino</a> A sketch that reads iButton key code, transforms it to human-readable format and displays it on LCD.
+</li></ul><p class="vspace"></p><h2><a name="MIDI" id="MIDI"></a>MIDI</h2>
+<p><br><a class="wikilink" href="http://arduino.cc/playground/Main/MIDILibrary">MIDI Library</a> - Simple and fast way to send and receive MIDI messages with the Arduino.
+</p>
+<p class="vspace"></p><h3>MIDI-out (sending midi data to another device)</h3>
+<ul><li><a class="urllink" href="http://blog.georgmill.de/2011/03/22/e-drumset-selbst-gebaut/" rel="nofollow">A 52 parts drumset</a>:
+ Yet Another Arduino Midi Drumhead. An invitation to build your own midi
+ drumhead with an Arduino UNO, a mux shield and one infrared sensor 
+optical hihat. 48 velocity sensitive piezos and 4 chokeable cymbals.
+</li><li><a class="urllink" href="http://code.google.com/p/ardrumo/" rel="nofollow">Ardrumo</a>: software to convert serial data coming from the Arduino into Mac OS X MIDI drum data (i.e. how to get Arduino talking to <span class="wikiword">GarageBand</span> without buying any extra hardware).
+</li><li><a class="urllink" href="http://www.memeteam.net/2007/s2midi/" rel="nofollow">S2MIDI</a> - Windows (.NET) program for converting serial data from Arduino into MIDI messages (<a class="urllink" href="http://code.google.com/p/s2midi/" rel="nofollow">hosted on Google Code</a>)
+</li><li><a class="urllink" href="http://www.stephenhobley.com/blog/2010/02/15/serial-port-midi-relay/" rel="nofollow">MIDI Relay</a> - Very similar to <span class="wikiword">S2MIDI</span> - copies all note on / note off and controller messages to the default MIDI port.Useful for quick testing of MIDI applications(<a class="urllink" href="http://www.stephenhobley.com/blog/2010/02/15/serial-port-midi-relay/" rel="nofollow">MIDI Relay</a>)
+</li><li><a class="urllink" href="http://www.varal.org/ttymidi/" rel="nofollow">ttymidi</a>
+ - a GPL-licensed program that allows an Arduino board to interface with
+ Linux ALSA MIDI applications without any additional hardware.
+</li><li><a class="urllink" href="http://blipbox.wordpress.com/projects/midiserial/" rel="nofollow">MidiSerial</a> - another GPL-licensed program for interfacing MIDI over serial. Multi-platform.
+</li><li>Make your Arduino into a MIDI drum controller with <span class="newin"><a class="urllink" href="http://todbot.com/blog/2006/10/29/spooky-arduino-projects-4-and-musical-arduino" rel="nofollow">Todobot's tutorial</a></span>
+</li><li>The <span class="newin"><a class="urllink" href="http://itp.nyu.edu/physcomp/Labs/MIDIOutput" rel="nofollow">Midi Out</a> tutorial from the fine folks at ITP. </span>
+</li><li>A blog on building a <span class="newin"><a class="urllink" href="http://roy.vanegas.org/itp/nime/the_midi_pick.html" rel="nofollow">midi guitar pick</a> using the Arduino.</span>
+</li><li>read six sensors and send their values as <a class="urllink" href="http://www.arduino.cc/cgi-bin/yabb2/YaBB.pl?num=1165833586" rel="nofollow">Midi CC messages</a> 
+</li><li><a class="wikilink" href="http://arduino.cc/playground/Learning/MidiFoot">Effects Processor Controller via MIDI</a>
+</li><li><a class="urllink" href="http://scott.dd.com.au/wiki/Instrument1" rel="nofollow">MIDI Touchpad</a> hardware and software using <span class="wikiword">PS2</span> Touchpad as a MIDI Device. Real MIDI, not translated by Desktop app.
+</li><li><a class="urllink" href="http://tomscarff.110mb.com/midi_16drums/midi_16drums.htm" rel="nofollow">16 MIDI Drums</a> 10 switched and 6 velocity sensitive drums
+</li><li><a class="urllink" href="http://tomscarff.110mb.com/products_prices.htm" rel="nofollow">MIDI Projects</a>
+</li><li>Wii Guitar Hero World Tour Drums MIDI Out interface at <a class="urllink" href="http://jamers.netne.net/" rel="nofollow">http://jamers.netne.net</a>.
+</li><li><a class="urllink" href="http://hunt.net.nz/users/darran/weblog/5b7f8/Arduino_UNO_USB_MIDI_firmware.html" rel="nofollow">USB MIDI firmware for UNO and Mega2560</a> Turn your UNO into a USB MIDI device.
+</li></ul><p class="vspace"></p><h3>MIDI-in (receiving and interpreting midi data with an Arduino)</h3>
+<ul><li><a class="urllink" href="http://www.arduino.cc/cgi-bin/yabb2/YaBB.pl?num=1187962258" rel="nofollow">Forum link, basic code and setup. Control LEDs with a midi keyboard.</a>
+</li><li><a class="urllink" href="http://tomscarff.110mb.com/midi_analyser/midi_analyser.htm" rel="nofollow">MIDI Analyser</a> Simple MIDI Analyser, using LED's to display MIDI status.
+</li><li><a class="urllink" href="http://www.thebox.myzen.co.uk/Hardware/Glockenspiel.html" rel="nofollow">MIDI Glockenspiel</a> Toy Glockenspiel MIDI driven, using solenoids.
+</li><li><a class="urllink" href="http://wolf.schuster.ws/?page_id=156" rel="nofollow">MIDI2CV Controller</a> Converts MIDI Messages from an MIDI Device (Keyboard, Computer) to Controlvoltages for an analog synthesizer.
+</li><li><a class="wikilink" href="http://arduino.cc/playground/Main/SID-emulator">SID-emulator</a> play your <span class="wikiword">SIDuino</span> i2c-Shield with your MIDI equipment. Sample code with Midi-In function for your own projects. 
+</li></ul><p class="vspace"></p><h2><a name="wireless" id="wireless"></a>Wireless... including radio-less "wire-less" channels, e.g. IR</h2>
+<p>See also: <a href="#wifi">the WiFi section</a>.
+</p>
+<p class="vspace"></p><ul><li><a name="bluetooth" id="bluetooth"></a><strong>Bluetooth</strong>
+<ul><li><a class="wikilink" href="http://arduino.cc/playground/Learning/Tutorial01">Wireless communication</a> with PC and Arduino board using bluetooth, by Mitchell Page.
+</li><li><a class="urllink" href="http://www.mitchellpage.com.au/research/?p=263" rel="nofollow">http://www.mitchellpage.com.au/research/?p=263</a>
+</li><li>Wireless communication with Cell phone and Arduino board using bluetooth, by Bakalski Page <a class="urllink" href="http://www.microcontroller-bg.com/btterm" rel="nofollow">http://www.microcontroller-bg.com/btterm</a> This is a bluetooth cell phone terminal software (like <span class="wikiword">HyperTerminal</span> but for Cell phones) 
+</li><li>A Tutorial on <a class="wikilink" href="http://arduino.cc/playground/Learning/BtMacSetup">setting up Arduino BT on Mac OS X Tiger</a>
+</li><li>How to <a class="wikilink" href="http://arduino.cc/playground/Main/BtPCSetup">set up the BT ON Windows XP</a>  with an external BT adapter.
+</li><li>If you have the rare need to reprogram your <span class="wikiword">BlueGiga</span> module, here's a <a class="urllink" href="http://www.arduino.cc/playground/Learning/BTWT11Interface" rel="nofollow">tutorial</a> on how to build adapter. 
+</li><li>See also 
+</li><li>Weburban Blue Olive <a class="urllink" href="http://store.weburban.com/store-weburban/blue-olivw.html" rel="nofollow">Bluetooth Adapter</a> connects via UART to a USB breakout connector. 
+</li></ul><p class="vspace"></p></li><li><strong><span class="wikiword">EasyRadio</span></strong>
+<ul><li>Connect Arduino to the <span class="newin"><a class="urllink" href="http://www.sport4minus.de/blog/?p=152" rel="nofollow">EasyRadio</a> transceiver module, diagrams by Jens Wunderling. </span>
+</li></ul><p class="vspace"></p></li><li><a name="spectrum" id="spectrum"></a><strong>Handheld 2.4GHz Spectrum Analyzer</strong>
+<ul><li>Shows the RSSI of different frequencies in the 2.4GHz band. The <span class="wikiword">CYWM6935</span> radio and a display from a nokia cellphone are connected via SPI. <a class="urllink" href="http://blog.ulrichard.ch/?p=39" rel="nofollow">here</a>.
+</li></ul><p class="vspace"></p></li><li><a name="homeeasy" id="homeeasy"></a><strong><span class="wikiword">HomeEasy</span></strong>
+<ul><li><a class="urllink" href="http://www.homeeasy.eu/home.php" rel="nofollow">HomeEasy</a> is a 433MHz AM based home automation range. <a class="wikilink" href="http://arduino.cc/playground/Code/HomeEasy">Beginnings of instructions and code for using the Arduino with HomeEasy controllers and devices</a>. (Work in progress.)
+</li></ul><p class="vspace"></p></li><li><a name="hoperf" id="hoperf"></a><strong><span class="wikiword">HopeRF</span> / Hope RF <span class="wikiword">RF12</span> <span class="wikiword">RF22</span> <span class="wikiword">RFM22</span></strong>
+<ul><li>Interface Arduino to <span class="wikiword">HopeRF</span> <span class="wikiword">RF22</span>, <span class="wikiword">RFM22</span>
+ and compatible transceivers. Includes classes for node addressed, 
+unreliable and reliable datagrams. Now also supports mesh networks and 
+automatic route discovery. Rock solid, flexible, high speed. Circuit 
+diagrams, documentation and download instructions <a class="urllink" href="http://www.open.com.au/mikem/arduino/RF22" rel="nofollow">here</a>.
+<p class="vspace"></p></li><li>Interface Arduino to <span class="wikiword">HopeRF</span>
+ 433MHZ serial transceivers and other 'transparent' serial RF 
+transceivers. Includes classes for node addressed, unreliable and 
+reliable datagrams. Circuit diagrams, documentation and download 
+instructions <a class="urllink" href="http://www.open.com.au/mikem/arduino/HopeRF/HopeRF.pdf" rel="nofollow">here</a>.
+<p class="vspace"></p></li><li>The <a class="urllink" href="http://www.hoperf.com/rf_fsk.asp" rel="nofollow">RFM12/RFM12B/RFM12BP</a> modules for the 433/868/915 <span class="wikiword">MHz</span> frequency bands are connected via SPI. There's a driver for it <a class="urllink" href="http://www.jeelabs.org/2009/02/10/rfm12b-library-for-arduino/" rel="nofollow">here</a>.
+</li></ul><p class="vspace"></p></li><li><strong><span class="wikiword">HT12E</span></strong>
+<ul><li><span class="wikiword">HT12E</span> is a 12-bit encoder IC 
+suited for remote control applications. The serial stream generated by 
+this IC can be transmitted via RF or infrared to an Arduino running a 
+specific decoding library available at <a class="urllink" href="http://arduino.cc/forum/index.php/topic,54788.0.html" rel="nofollow">this source</a>.
+</li></ul><p class="vspace"></p></li><li><a name="ir_remote" id="ir_remote"></a><strong>Infrared</strong>
+<ul><li><a class="urllink" href="http://arcfn.com/2009/08/multi-protocol-infrared-remote-library.html" rel="nofollow">IR remote</a> library for transmitting and receiving multiple infrared remote protocols.
+</li><li><a class="urllink" href="http://tthheessiiss.wordpress.com/2009/08/05/dirt-cheap-wireless/" rel="nofollow">dirt cheap wireless: serial communication via infrared light</a>
+</li><li><a class="wikilink" href="http://arduino.cc/playground/Code/InfraredReceivers">Infrared remote receivers</a>
+</li><li><a class="urllink" href="http://www.fabiobiondi.com/blog/2009/11/control-your-arduino-using-an-infrared-remote-and-the-ik38khz-sensor/" rel="nofollow">Control your Arduino using an Infrared Remote and the IK38khz sensor</a>
+</li><li><a class="urllink" href="http://sheepdogguides.com/arduino/ar3ne1ir.htm" rel="nofollow">Simple "how to" for beginnners:</a>
+ Take a $3 sensor, a library, a domestic (e.g. TV) remote control, and 
+14 lines of code and you can use the remote to send commands to your 
+Arduino. From <span class="wikiword">SheepdogGuides</span>.
+</li></ul><p class="vspace"></p></li><li><strong>Nordic Nrf2401</strong>
+<ul><li>A wireless communication <a class="wikilink" href="http://arduino.cc/playground/InterfacingWithHardware/Nrf2401">library</a> for using the small, fast and bi-directional Nordic's Nrf2401 radio transceiver.
+</li><li>A simple <a class="wikilink" href="http://arduino.cc/playground/InterfacingWithHardware/Nrf24L01">library</a> for the nRF24L01(+).
+</li><li><a class="urllink" href="http://maniacbug.github.com/RF24/" rel="nofollow">RF24</a>: Another library for driving the nRF24L01.  Uses standard SPI library.  Supports up to 6 radios at once.  Copious examples.
+</li></ul><p class="vspace"></p></li><li><strong>PCR-1000</strong>
+<ul><li>A icom PCR-1000 controlled by a Arduino<a class="urllink" href="http://ve2cuy.wordpress.com/arduino/" rel="nofollow">- here</a> 
+</li></ul><p class="vspace"></p></li><li><a name="radio" id="radio"></a><strong>Radio Signal Strength Sensor</strong>
+<ul><li>This sensor measures radio signals from 50MHz to 3GHz.  FM,TV,GSM,<span class="wikiword">WiFi</span>,Bluetooth <a class="urllink" href="http://interface.khm.de/index.php/lab/experiments/radio-signal-strength-sensor/" rel="nofollow">here</a>.
+</li></ul><p class="vspace"></p></li><li><a class="urllink" href="http://lietaer.be.dotnet39.hostbasket.com/arduino/Dcf77.zip" rel="nofollow">DCF77</a>: <span class="wikiword">DCF77</span>, a local <a class="urllink" href="http://en.wikipedia.org/wiki/DCF77" rel="nofollow">radio time</a> signal Library and sketch
+<p class="vspace"></p></li><li><strong><span class="wikiword">RCSwitch</span></strong>
+<ul><li>Send and receive 433MHz radio signals to operate popular low 
+cost remote control devices like power outlet switches. Handy for most 
+devices with these chipsets: <span class="wikiword">SC5262</span>, <span class="wikiword">HX2262</span>, <span class="wikiword">PT2262</span>, <span class="wikiword">EV1527</span>, <span class="wikiword">RT1527</span>, <span class="wikiword">FP1527</span> or <span class="wikiword">HS1527</span>. <a class="urllink" href="http://code.google.com/p/rc-switch/" rel="nofollow">here</a>.
+</li></ul><p class="vspace"></p></li><li><a name="PPM" id="PPM"></a><strong>Reading PPM from a hobby RC Receiver</strong>
+<ul><li><a class="urllink" href="http://www.arduino.cc/en/Reference/PulseIn" rel="nofollow">PulseIn</a> can be used to measure one or two channels
+</li><li><a class="wikilink" href="http://arduino.cc/playground/Code/ReadReciver">ReadReciver</a>
+ uses standard RC hobby transmitters and receivers to communicate with 
+the arduino.  Can read a nearly unlimited number of channels using <a class="wikilink" href="http://arduino.cc/playground/Main/PinChangeInt">PinChangeInt</a> and <a class="wikilink" href="http://arduino.cc/playground/Code/Timer1">Timer1</a> libraries.
+</li></ul><p class="vspace"></p></li><li><a name="Wixel" id="Wixel"></a><strong>Wixel</strong>
+<ul><li>The <a class="urllink" href="http://www.pololu.com/catalog/product/1336" rel="nofollow">Pololu Wixel</a> is a general-purpose programmable module based on the TI <span class="wikiword">CC2511F32</span> microcontroller that features a 2.4 <span class="wikiword">GHz</span> radio and USB.  Open-source, pre-compiled apps like the Wireless Serial App make it easy to add <span class="wikiword">XBee</span>-like
+ wireless functionality to your project, or you can write your own Wixel
+ apps to take advantage of the Wixel's I/O lines and hardware 
+peripherals.
+</li><li>The <a class="urllink" href="http://www.pololu.com/catalog/product/2500" rel="nofollow">Wixel Shield for Arduino</a>
+ is an easy and affordable way to add wireless functionality to your 
+Arduino or Arduino clone.  With the Wixel shield, you get more than just
+ a general-purpose wireless serial link between your Arduino and a 
+remote computer or embedded system: you can also wirelessly program the 
+Arduino using the standard Arduino computer software and wirelessly 
+debug your sketches with the Arduino serial monitor.  For more 
+information, see the <a class="urllink" href="http://www.pololu.com/docs/0J47" rel="nofollow">Wixel Shield User's Guide</a>
+</li></ul><p class="vspace"></p></li><li><a name="virtualwire" id="virtualwire"></a><strong><span class="wikiword">VirtualWire</span></strong>
+<ul><li>Interface Arduino to low cost RF wireless modules to provide 
+high performance transmitters, receivers and transceivers for data. 
+Circuit diagrams and documentation  <a class="urllink" href="http://www.open.com.au/mikem/arduino/VirtualWire.pdf" rel="nofollow">here</a>, download <a class="urllink" href="http://www.open.com.au/mikem/arduino/" rel="nofollow">here</a>.
+</li></ul><p class="vspace"></p></li><li><a name="x10_wireless" id="x10_wireless"></a><strong>X10 Wireless</strong>
+<ul><li>Arduino interface to the <span class="wikiword">CM17A</span> "<span class="wikiword">FireCracker</span>". The <span class="wikiword">CM17A</span>
+ is a "serial" dongle that sends RF signals to X10 receivers which in 
+turn send signals down the house wiring to control lights and 
+appliances. Documentation and code <a class="urllink" href="http://www.arduino.cc/playground/X10/CM17A" rel="nofollow">here</a>.
+</li></ul><p class="vspace"></p></li><li><a name="x10_reciever" id="x10_reciever"></a><strong>X10 Receiver</strong>
+<ul><li>Arduino interface to the <span class="wikiword">PSC05/TW523</span>.
+ The Arduino IDE includes the X10 library that lets you transmit. This 
+example shows how to receive X10 commands. Documentation and code <a class="urllink" href="http://www.arduino.cc/playground/X10/ReceiveX10" rel="nofollow">here</a>.
+</li></ul><p class="vspace"></p></li><li><a name="x10_library" id="x10_library"></a><strong>X10 Send/Receive Library</strong>
+<ul><li>Incorporates the original X10 sending code with the receive code above into an <a class="urllink" href="https://docs.google.com/a/creatrope.com/leaf?id=0B5Sg6E9g_zOXMzQxZmVkYjktNjQwZi00MjgxLTk4YzQtNGIwYzI0ZjA0Njg3&amp;hl=en_US" rel="nofollow">X10 Send/Receive Arduino library</a>.
+</li></ul><p class="vspace"></p></li><li><a name="x10_w800rf32a" id="x10_w800rf32a"></a><strong>X10 <span class="wikiword">W800RF32A</span> All-Housecode Receiver Library</strong>
+<ul><li>A library for <a class="urllink" href="http://creatrope.com/make/arduino-w800rf32a/" rel="nofollow">WGLDesigns X10 W800RF32A</a>.
+</li></ul><p class="vspace"></p></li><li><a name="x10_transmit" id="x10_transmit"></a><strong>X10 Transmitter</strong>
+<ul><li><a class="urllink" href="http://blog.geekcowboy.net/2008/09/review-x10-home-automation-with-arduino_05.html" rel="nofollow">Connect a SmartHomes module 1134B with the Arduino using the X10 protocol and X10 modules.</a>
+</li></ul><p class="vspace"></p></li><li><a name="x10_pl_rf_ir" id="x10_pl_rf_ir"></a><strong>X10 Power Line, RF and IR libraries with extended code support</strong>
+<ul><li>A new and improved set of libraries written June 2010 that 
+supports transmitting and receiving X10 power line, RF, IR and serial 
+messages at the same time using a single Duemilanove board. These 
+libraries and the sample code make commercial X10 computer interfaces 
+and RF/IR transceivers redundant. <a class="urllink" href="http://load-8-1.blogspot.com/2010/06/x10-plc-rf-ir-and-computer-interface.html" rel="nofollow">Click here to visit homepage.</a>
+</li></ul><p class="vspace"></p></li><li><a name="x10_With_Temperature" id="x10_With_Temperature"></a><strong> X10 Power Line with Temperature and status response</strong>
+<ul><li>an extension upon the library from <span class="wikiword">BroHogan</span> to send RCS temperature back to your X10 network <a class="urllink" href="http://onemanandafewelectrons.blogspot.com/2011/02/arduino-x10-temperature-library.html" rel="nofollow">Arduino Code.</a>
+</li></ul><p class="vspace"></p></li><li><a name="xbee" id="xbee"></a><strong><span class="wikiword">XBee</span> / <span class="wikiword">ZigBee</span></strong>
+<ul><li>The <a class="wikilink" href="http://arduino.cc/playground/Shields/Xbee01">XBee Shield</a> by M. Yarza, the Arduino Developer at <a class="urllink" href="http://www.libelium.com/" rel="nofollow">Libelium</a>
+</li><li><a class="urllink" href="http://www.arduino.cc/playground/Shields/Xbee015" rel="nofollow">Schematics and Eagle files</a> for M. Yarza/Libelium's Xbee shield
+</li><li><span class="newin"><a class="urllink" href="http://mrtof.danslchamp.org/AXIC" rel="nofollow">Arduino and Xbee(ZigBee),</a> Interface Circuit (AXIC), by Thomas Ouellet Fredericks (tof). </span>
+</li><li><a class="urllink" href="http://antipastohw.blogspot.com/2009/01/xbee-shield-to-xbee-shield.html" rel="nofollow">Step by step tutorial</a> for setting up 2 Xbee shields from scratch with code samples
+</li><li><span class="newin"><a class="urllink" href="http://mrtof.danslchamp.org/AXIC" rel="nofollow">Xbee Programming Arduino Wirelessly</a>,  by Tom Igoe.</span>
+</li><li><span class="newin"><a class="urllink" href="http://www.beatrizdacosta.net/teaching/assignments.php" rel="nofollow">Arduino to Xbee</a>,  from Beatriz Da Costa's course outline.</span>
+</li><li><span class="wikiword">MaxStream</span>'s <span class="wikiword">XBee</span> <span class="wikiword">ZigBee</span> RF Module
+<ul><li><a class="urllink" href="http://www.maxstream.net/hottag/download.php?ht=/products/xbee/manual_xb_oem-rf-modules_802.15.4.pdf" rel="nofollow">Product manual (802.14.4)</a> PDF, 69 pages.
+</li><li><a class="urllink" href="http://www.maxstream.net/hottag/download.php?ht=/products/xbee/manual_xb_oem-rf-modules_zigbee.pdf" rel="nofollow">Product Manual (ZigBee)</a> PDF, 46 pages.
+</li></ul></li><li><a class="urllink" href="http://code.google.com/p/xbee-arduino/" rel="nofollow">xbee-arduino</a>: an Arduino library for communicating with <span class="wikiword">XBees</span> in API (packet) mode.  Supports I/O samples, TX/RX, AT Command, and Remote AT for both series 1 and 2 <span class="wikiword">XBee</span> radios
+</li><li><a class="urllink" href="http://wiki.groundlab.cc/doku.php?id=xbee_code" rel="nofollow">Arduino Xbee</a>
+ libraries, source and tutorials, supports all API command functions for
+ series 1 and 2. (The above library looks solid as well, but I can't 
+comment on the differences because of no experience with it. Posting in 
+case there is not common overlap.) 
+</li></ul></li></ul><p class="vspace"></p><p><a name="General" id="General"></a>
+</p><h1>General </h1>
+<p>Arduino-related stuff that doesn't quite fit anywhere else.
+</p><ul><li><a class="wikilink" href="http://arduino.cc/playground/Code/HardwareAbstraction">Hardware Abstraction</a> libraries
+</li><li><a class="urllink" href="http://sites.google.com/site/adifferentlemming/Home/projects/arduino" rel="nofollow">External 3V3 supply using an LM317</a>
+ Schematic and board in Eagle format. Also a number of different 
+trivial/helpful little things like Arduino-related Eagle Library, 
+boards, and even an Arduino IDE "icon".(A new section was added to the 
+Playground Nov 1, 2010, to <a class="wikilink" href="http://arduino.cc/playground/Main/IntWithHW-PwrSup">discuss power supplies</a>, etc. The above has been listed there, too.)
+</li><li><a class="urllink" href="http://thepotterproject.net/TPPNews/?page_id=43" rel="nofollow">Loomduino</a> - Reduce the number of jumper wires you need by using ribbon cable to connect things to your Arduino (such as the 4D Picaso, <span class="wikiword">VDIP1</span> and nRFL2401+).
+</li><li><a class="wikilink" href="http://arduino.cc/playground/Usbizi/ArduinoHost">USBIZI as Arduino host</a>
+</li><li><a class="urllink" href="http://www.fabiobiondi.com/blog/2009/11/arduino-and-electronic-sensors-proximity-light-force-and-tilt/" rel="nofollow">Arduino and analog sensors: Proximity, Light, Force and Tilt detectors</a>
+</li><li><a class="wikilink" href="http://arduino.cc/playground/Usbizi/ArduinoHost">USBIZI as Arduino host</a>
+</li><li><a class="urllink" href="http://sheepdogguides.com/arduino/FA1acshortfinal.htm" rel="nofollow">Using an Arduino for access control. (Electronic "lock")</a>
+<p class="vspace"></p></li><li><a name="pinouts" id="pinouts"></a><strong>Common Pinouts</strong>
+<ul><li>The following is a shart of pinouts that one commonly comes across while working with Arduinos <a class="urllink" href="http://one.ubuntu.com/p/Q2/" rel="nofollow">CommonArduinoPinouts.svg</a> (Here in png: <a class="urllink" href="http://arduino.cc/playground/uploads/Main/CommonArduinoPinouts.png" rel="nofollow">Attach:CommonArduinoPinouts.png</a>)
+</li></ul></li><li>mega 2560 pin out, avr ports to arduino pins and back <a class="urllink" href="http://arduino.cc/playground/uploads/Main/ARDUINO2560.ods.zip" rel="nofollow">Attach:ARDUINO2560.ods.zip</a>
+</li></ul>
+</div>
+
+
+<!-- AddThis Button BEGIN -->       
+<script type="text/javascript">var addthis_language = "en";      
+</script>       
+<div class="addthis_container addthis_toolbox addthis_default_style" addthis:url="http://arduino.cc/playground/Main/InterfacingWithHardware" addthis:title="Arduino Playground">
+<a href="http://www.addthis.com/bookmark.php?v=250&amp;username=arduinoteam" class="addthis_button_compact at300m"><span class="at300bs at15nc at15t_compact"></span>Share</a><span class="addthis_separator">|</span><a href="#" title="Email" class="addthis_button_email at300b"><span class="at300bs at15nc at15t_email"></span></a><a href="#" title="Save to Favorites" class="addthis_button_favorites at300b"><span class="at300bs at15nc at15t_favorites"></span></a><a href="#" title="Print" class="addthis_button_print at300b"><span class="at300bs at15nc at15t_print"></span></a><a href="#" title="Send to Facebook" class="addthis_button_facebook at300b"><span class="at300bs at15nc at15t_facebook"></span></a><a href="#" title="Tweet This" class="addthis_button_twitter at300b"><span class="at300bs at15nc at15t_twitter"></span></a><script type="text/javascript" src="InterfacingWithHardware_files/addthis_widget.js"></script><div class="atclear"></div></div>       
+<!-- AddThis Button END -->       
+
+
+</div>
+<!--PageFooterFmt-->
+<div id="pagefooter">
+</div>
+<!--/PageFooterFmt-->
+</div>
+
+
+</body></html>

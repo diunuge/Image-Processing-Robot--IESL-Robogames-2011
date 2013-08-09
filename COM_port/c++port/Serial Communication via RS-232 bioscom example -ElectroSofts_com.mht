@@ -1,0 +1,3323 @@
+From: "Saved by Windows Internet Explorer 8"
+Subject: Serial Communication via RS-232: bioscom example -ElectroSofts.com
+Date: Fri, 30 Sep 2011 00:05:43 -0700
+MIME-Version: 1.0
+Content-Type: multipart/related;
+	type="text/html";
+	boundary="----=_NextPart_000_0000_01CC7F04.B28DB590"
+X-MimeOLE: Produced By Microsoft MimeOLE V6.1.7600.16385
+
+This is a multi-part message in MIME format.
+
+------=_NextPart_000_0000_01CC7F04.B28DB590
+Content-Type: text/html;
+	charset="Windows-1252"
+Content-Transfer-Encoding: quoted-printable
+Content-Location: http://electrosofts.com/serial/
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML><HEAD><TITLE>Serial Communication via RS-232: bioscom example =
+-ElectroSofts.com</TITLE>
+<META content=3Den-us http-equiv=3DContent-Language>
+<META name=3DGENERATOR content=3D"MSHTML 8.00.7600.16385">
+<META name=3DProgId content=3DFrontPage.Editor.Document>
+<META name=3DAUTHOR content=3D"Shreeharsha Perla">
+<META name=3DCOPYRIGHT content=3D"Copyright (c) 2006-07 by =
+www.electrosofts.com">
+<META name=3DKEYWORDS=20
+content=3D"Serial, rs232, rs-232, communication, bioscom, interfacing, =
+digital, c, dos, electrosoft, port, b, pc2pc, pc to pc , chat">
+<META name=3DDESCRIPTION=20
+content=3D"Serial communication tutorial using bioscom, pc2pc chat">
+<META content=3D"text/html; charset=3Dwindows-1252" =
+http-equiv=3DContent-Type>
+<STYLE fprolloverstyle>A:hover {
+	COLOR: red; FONT-WEIGHT: bold
+}
+TABLE.msotablegrid {
+	BORDER-BOTTOM: windowtext 1pt solid; BORDER-LEFT: windowtext 1pt solid; =
+FONT-FAMILY: "times new roman"; FONT-SIZE: 10pt; BORDER-TOP: windowtext =
+1pt solid; BORDER-RIGHT: windowtext 1pt solid
+}
+</STYLE>
+
+<META name=3D"Microsoft Border" content=3D"tb, default"></HEAD>
+<BODY link=3D#000000 vLink=3D#000000 =
+stylesrc=3D"../about.html"><!--msnavigation-->
+<TABLE border=3D0 cellSpacing=3D0 cellPadding=3D0 width=3D"100%">
+  <TBODY>
+  <TR>
+    <TD>
+      <DIV align=3Dcenter>
+      <CENTER>
+      <TABLE style=3D"BORDER-COLLAPSE: collapse" id=3DAutoNumber1 =
+border=3D0=20
+      cellSpacing=3D0 borderColor=3D#111111 cellPadding=3D0 width=3D770 =
+height=3D5>
+        <TBODY>
+        <TR>
+          <TD=20
+          style=3D"BORDER-BOTTOM: #ffe1e1 1px solid; BORDER-LEFT: =
+#ffe1e1 1px solid; BORDER-TOP: #ffe1e1 1px solid; BORDER-RIGHT: #ffe1e1 =
+1px solid"=20
+          height=3D11 width=3D78>
+            <P align=3Dcenter><B><FONT size=3D2 face=3DArial><A=20
+            =
+href=3D"http://electrosofts.com/index.html">HOME</A></FONT></B></P></TD>
+          <TD bgColor=3D#000000 height=3D21 rowSpan=3D2 width=3D236=20
+colSpan=3D2>&nbsp;</TD>
+          <TD=20
+          style=3D"BORDER-BOTTOM: #ffe1e1 1px solid; BORDER-LEFT: =
+#ffe1e1 1px solid; BORDER-TOP: #ffe1e1 1px solid; BORDER-RIGHT: #ffe1e1 =
+1px solid"=20
+          height=3D11 width=3D146 align=3Dmiddle><B><FONT size=3D2 =
+face=3DArial>&nbsp;=20
+            <A href=3D"http://electrosofts.com/webdir">Electronics=20
+            Directory</A></FONT></B></TD>
+          <TD=20
+          style=3D"BORDER-BOTTOM: #ffe1e1 1px solid; BORDER-LEFT: =
+#ffe1e1 1px solid; BORDER-TOP: #ffe1e1 1px solid; BORDER-RIGHT: #ffe1e1 =
+1px solid"=20
+          height=3D11 width=3D146 align=3Dmiddle><B><FONT size=3D2 =
+face=3DArial><A=20
+            href=3D"http://electrosofts.com/articles.html">Articles/=20
+            Tutorials</A></FONT></B></TD>
+          <TD=20
+          style=3D"BORDER-BOTTOM: #ffe1e1 1px solid; BORDER-LEFT: =
+#ffe1e1 1px solid; BORDER-TOP: #ffe1e1 1px solid; BORDER-RIGHT: #ffe1e1 =
+1px solid"=20
+          height=3D11 width=3D159 align=3Dmiddle><B><FONT size=3D2 =
+face=3DArial><A=20
+            =
+href=3D"http://electrosofts.com/ebooks">eBooks</A></FONT></B></TD></TR>
+        <TR>
+          <TD=20
+          style=3D"BORDER-BOTTOM: #ffe1e1 1px solid; BORDER-LEFT: =
+#ffe1e1 1px solid; BORDER-TOP: #ffe1e1 1px solid; BORDER-RIGHT: #ffe1e1 =
+1px solid"=20
+          height=3D10 width=3D78>
+            <P align=3Dcenter><B><FONT size=3D2 face=3DArial><A=20
+            href=3D"http://electrosofts.com/about.html">About=20
+          Us</A></FONT></B></P></TD>
+          <TD=20
+          style=3D"BORDER-BOTTOM: #ffe1e1 1px solid; BORDER-LEFT: =
+#ffe1e1 1px solid; BORDER-TOP: #ffe1e1 1px solid; BORDER-RIGHT: #ffe1e1 =
+1px solid"=20
+          height=3D10 width=3D146 align=3Dmiddle><B><FONT size=3D2 =
+face=3DArial><A=20
+            =
+href=3D"http://electrosofts.com/forum">FORUM</A></FONT></B></TD>
+          <TD=20
+          style=3D"BORDER-BOTTOM: #ffe1e1 1px solid; BORDER-LEFT: =
+#ffe1e1 1px solid; BORDER-TOP: #ffe1e1 1px solid; BORDER-RIGHT: #ffe1e1 =
+1px solid"=20
+          height=3D10 width=3D146 align=3Dmiddle><B><FONT size=3D2 =
+face=3DArial><A=20
+            =
+href=3D"http://electrosofts.com/links">Links</A></FONT></B></TD>
+          <TD=20
+          style=3D"BORDER-BOTTOM: #ffe1e1 1px solid; BORDER-LEFT: =
+#ffe1e1 1px solid; BORDER-TOP: #ffe1e1 1px solid; BORDER-RIGHT: #ffe1e1 =
+1px solid"=20
+          height=3D10 width=3D159 align=3Dmiddle><B><FONT size=3D2 =
+face=3DArial><A=20
+            href=3D"http://electrosofts.com/feedback.html">Contact Us=20
+            </A></FONT></B></TD></TR>
+        <TR>
+          <TD bgColor=3D#d90000 height=3D1 borderColor=3D#ff0000 =
+width=3D80>&nbsp;</TD>
+          <TD bgColor=3D#000000 height=3D1 borderColor=3D#ff0000 =
+width=3D236=20
+            colSpan=3D2><A href=3D"http://electrosofts.com/"><IMG =
+border=3D0=20
+            src=3D"http://electrosofts.com/images/electrosofts.jpg" =
+width=3D232=20
+            height=3D32></A></TD>
+          <TD bgColor=3D#d90000 height=3D1 borderColor=3D#ff0000 =
+width=3D454=20
+          colSpan=3D3>&nbsp;</TD></TR>
+        <TR>
+          <TD height=3D1 borderColor=3D#ff0000 width=3D80></TD>
+          <TD bgColor=3D#000000 height=3D1 borderColor=3D#ff0000 =
+width=3D174>
+            <P align=3Dleft><IMG border=3D0=20
+            src=3D"http://electrosofts.com/images/shadebwl.jpg" =
+width=3D27=20
+            height=3D27></P></TD>
+          <TD bgColor=3D#000000 height=3D1 borderColor=3D#ff0000 =
+width=3D62><IMG=20
+            border=3D0 hspace=3D0 align=3Dright=20
+            src=3D"http://electrosofts.com/images/shadebwr.jpg" =
+width=3D27=20
+          height=3D27></TD>
+          <TD height=3D1 borderColor=3D#ff0000 width=3D454=20
+      =
+colSpan=3D3></TD></TR></TBODY></TABLE></CENTER></DIV></TD></TR><!--msnavi=
+gation--></TBODY></TABLE><!--msnavigation-->
+<TABLE dir=3Dltr border=3D0 cellSpacing=3D0 cellPadding=3D0 =
+width=3D"100%">
+  <TBODY>
+  <TR><!--msnavigation-->
+    <TD vAlign=3Dtop>
+      <DIV align=3Dcenter>
+      <CENTER>
+      <TABLE style=3D"BORDER-COLLAPSE: collapse" id=3DAutoNumber3 =
+border=3D1=20
+      cellSpacing=3D0 borderColor=3D#ff0000 cellPadding=3D4 width=3D772=20
+        bgColor=3D#ffe1e1><TBODY>
+        <TR>
+          <TD width=3D762>
+            <P align=3Dcenter><FONT size=3D5 face=3D"Lucida Sans =
+Unicode">Serial=20
+            Communication via RS232 Port:</FONT></P>
+            <P align=3Dright><FONT size=3D2 face=3DArial>By<B> <A=20
+            href=3D"http://electrosofts.com/harsha">Harsha Perla</A> and =
+<FONT=20
+            color=3D#ffff00><A=20
+            href=3D"http://electrosofts.com/veena/index.html">Veena=20
+            =
+Pai</A></FONT></B></FONT></P></TD></TR></TBODY></TABLE></CENTER></DIV>
+      <DIV align=3Dcenter>
+      <CENTER>
+      <TABLE style=3D"BORDER-COLLAPSE: collapse" id=3DAutoNumber2 =
+border=3D1=20
+      cellSpacing=3D0 borderColor=3D#ffe1e1 cellPadding=3D5 width=3D744>
+        <TBODY>
+        <TR>
+          <TD width=3D753><!-- SiteSearch Google -->
+            <P align=3Dleft><FONT face=3DArial><SPAN style=3D"FONT-SIZE: =
+12pt"=20
+            lang=3DEN-AU><A style=3D"COLOR: blue; TEXT-DECORATION: =
+underline"=20
+            href=3D"http://electrosofts.com/downloads/pc2pc.zip"=20
+            =
+webstripperlinkwas=3D"http://geocities.com/harshaperla/down_files/pc2pc.z=
+ip">Download=20
+            example source code</A></SPAN> <BR>&nbsp;</FONT>
+            <DIV align=3Dcenter>
+            <CENTER>
+            <TABLE style=3D"BORDER-COLLAPSE: collapse" id=3DAutoNumber3 =
+border=3D0=20
+            cellSpacing=3D0 borderColor=3D#111111 cellPadding=3D10 =
+width=3D744=20
+height=3D17>
+              <TBODY>
+              <TR>
+                <TD height=3D1>
+                  <SCRIPT type=3Dtext/javascript><!--
+google_ad_client =3D "pub-1403170442550738";
+google_ad_width =3D 336;
+google_ad_height =3D 280;
+google_ad_format =3D "336x280_as";
+google_ad_type =3D "text_image";
+google_ad_channel =3D"";
+google_color_border =3D "FFE1E1";
+google_color_bg =3D "FFFFFF";
+google_color_link =3D "000000";
+google_color_url =3D "000000";
+google_color_text =3D "000000";
+//--></SCRIPT>
+
+                  <SCRIPT type=3Dtext/javascript=20
+                  =
+src=3D"http://pagead2.googlesyndication.com/pagead/show_ads.js">
+          </SCRIPT>
+
+                  <P class=3DMsoNormal></P></TD>
+                <TD height=3D1>
+                  <P class=3DMsoNormal><B><FONT face=3DArial><U><SPAN=20
+                  lang=3DEN-AU><BR>Introduction to=20
+                  RS-232:</SPAN></U></FONT></B></P>
+                  <P class=3DMsoNormal align=3Dcenter><FONT =
+face=3DArial><SPAN=20
+                  lang=3DEN-AU>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=20
+                  &nbsp;&nbsp;<FONT =
+color=3D#800000><I>&nbsp;</I><B><FONT=20
+                  size=3D2>RS232 is the most known serial port used in=20
+                  transmitting the data in communication and interface. =
+Even=20
+                  though serial port is harder to program than the =
+parallel=20
+                  port, this is the most effective method in which the =
+data=20
+                  transmission requires less wires that yields to the =
+less cost.=20
+                  The RS232 is the communication line which enables the =
+data=20
+                  transmission by only using three wire links. The three =
+links=20
+                  provides =91transmit=92, =91receive=92 and common=20
+                  ground.</FONT></B></FONT></SPAN><B><FONT =
+color=3D#800000=20
+                  size=3D2>..</FONT></B></FONT>
+                  <P>&nbsp;</P></TD></TR></TBODY></TABLE></CENTER></DIV>
+            <P style=3D"TEXT-ALIGN: justify" class=3DMsoNormal =
+align=3Dcenter><FONT=20
+            face=3DArial>&nbsp;<SPAN style=3D"FONT-SIZE: 12pt"=20
+            =
+lang=3DEN-AU>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=20
+            &nbsp;The =91transmit=92 and =91receive=92 line on this =
+connecter send and=20
+            receive data between the computers. As the name indicates, =
+the data=20
+            is transmitted serially. The two pins are TXD &amp; RXD. =
+There are=20
+            other lines on this port as RTS, CTS, DSR, DTR, and RTS, RI. =
+The =911=92=20
+            and =910=92 are the data which defines a voltage level of 3V =
+to 25V and=20
+            -3V to -25V respectively.</SPAN></FONT></P>
+            <P style=3D"TEXT-ALIGN: justify" class=3DMsoNormal =
+align=3Dcenter><FONT=20
+            face=3DArial><SPAN style=3D"FONT-SIZE: 12pt"=20
+            lang=3DEN-AU>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; The =
+electrical=20
+            characteristics of the serial port as per the EIA =
+(Electronics=20
+            Industry Association) RS232C Standard specifies a maximum =
+baud rate=20
+            of 20,000bps, which is slow compared to today=92s standard =
+speed. For=20
+            this reason, we have chosen the new RS-232D Standard, which =
+was=20
+            recently released.</SPAN></FONT></P>
+            <P class=3DMsoNormal align=3Djustify><FONT =
+face=3DArial><SPAN=20
+            style=3D"FONT-SIZE: 12pt"=20
+            =
+lang=3DEN-AU>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=
+&nbsp;&nbsp;=20
+            The RS-232D has existed in two types. i.e., D-TYPE 25 pin =
+connector=20
+            and D-TYPE 9 pin connector, which are male connectors on the =
+back of=20
+            the PC. You need a female connector on your communication =
+from Host=20
+            to Guest computer. The pin outs of both D-9 &amp; D-25 are =
+show=20
+            below. </SPAN></FONT></P>
+            <DIV align=3Dcenter>
+            <CENTER>
+            <TABLE=20
+            style=3D"BORDER-BOTTOM-STYLE: none; BORDER-LEFT: black =
+0.75pt solid; BACKGROUND-COLOR: white; WIDTH: 655px; BORDER-TOP-STYLE: =
+none; BORDER-RIGHT: black 0.75pt solid"=20
+            class=3DMsoTableGrid border=3D1 cellSpacing=3D0 =
+cellPadding=3D0 height=3D298=20
+            fpstyle=3D"19,011111100">
+              <TBODY>
+              <TR>
+                <TD=20
+                style=3D"BORDER-BOTTOM-STYLE: none; BORDER-LEFT: black =
+0.75pt solid; BACKGROUND-COLOR: #ffe1e1; WIDTH: 89px; BORDER-TOP-STYLE: =
+none; COLOR: black; FONT-WEIGHT: normal; BORDER-RIGHT: black 0.75pt =
+solid"=20
+                height=3D53 vAlign=3Dtop>
+                  <P style=3D"TEXT-ALIGN: center" class=3DMsoNormal=20
+                  align=3Dcenter><FONT face=3DArial><SPAN =
+style=3D"FONT-SIZE: 12pt"=20
+                  lang=3DEN-AU>D-Type-9 pin no.</SPAN></FONT></P></TD>
+                <TD=20
+                style=3D"BORDER-BOTTOM-STYLE: none; BACKGROUND-COLOR: =
+#ffe1e1; WIDTH: 104px; BORDER-TOP-STYLE: none; COLOR: black; =
+BORDER-LEFT-STYLE: none; FONT-WEIGHT: normal; BORDER-RIGHT: black 0.75pt =
+solid"=20
+                height=3D53 vAlign=3Dtop>
+                  <P style=3D"TEXT-ALIGN: center" class=3DMsoNormal=20
+                  align=3Dcenter><FONT face=3DArial><SPAN =
+style=3D"FONT-SIZE: 12pt"=20
+                  lang=3DEN-AU>D-Type-25</SPAN><SPAN style=3D"FONT-SIZE: =
+12pt">=20
+                  </SPAN><SPAN style=3D"FONT-SIZE: 12pt" =
+lang=3DEN-AU>pin=20
+                  no.</SPAN></FONT></P></TD>
+                <TD=20
+                style=3D"BORDER-BOTTOM-STYLE: none; BACKGROUND-COLOR: =
+#ffe1e1; WIDTH: 101px; BORDER-TOP-STYLE: none; COLOR: black; =
+BORDER-LEFT-STYLE: none; FONT-WEIGHT: normal; BORDER-RIGHT: black 0.75pt =
+solid"=20
+                height=3D53 vAlign=3Dtop>
+                  <P style=3D"TEXT-ALIGN: center" class=3DMsoNormal=20
+                  align=3Dcenter><FONT face=3DArial><SPAN =
+style=3D"FONT-SIZE: 12pt"=20
+                  lang=3DEN-AU>Pin outs</SPAN></FONT></P></TD>
+                <TD=20
+                style=3D"BORDER-BOTTOM-STYLE: none; BACKGROUND-COLOR: =
+#ffe1e1; WIDTH: 361px; BORDER-TOP-STYLE: none; COLOR: black; =
+BORDER-LEFT-STYLE: none; FONT-WEIGHT: normal; BORDER-RIGHT: black 0.75pt =
+solid"=20
+                height=3D53 vAlign=3Dtop>
+                  <P style=3D"TEXT-ALIGN: center" class=3DMsoNormal=20
+                  align=3Dcenter><FONT face=3DArial><SPAN =
+style=3D"FONT-SIZE: 12pt"=20
+                  lang=3DEN-AU>Function</SPAN></FONT></P></TD></TR>
+              <TR>
+                <TD=20
+                style=3D"BORDER-BOTTOM-STYLE: none; BORDER-LEFT: black =
+0.75pt solid; BACKGROUND-COLOR: white; WIDTH: 89px; COLOR: black; =
+BORDER-TOP: black 0.75pt solid; FONT-WEIGHT: normal; BORDER-RIGHT: black =
+0.75pt solid"=20
+                height=3D27 vAlign=3Dtop>
+                  <P style=3D"TEXT-ALIGN: center" class=3DMsoNormal=20
+                  align=3Dcenter><FONT face=3DArial><SPAN =
+style=3D"FONT-SIZE: 12pt"=20
+                  lang=3DEN-AU>3</SPAN></FONT></P></TD>
+                <TD=20
+                style=3D"BORDER-BOTTOM-STYLE: none; WIDTH: 104px; COLOR: =
+black; BORDER-LEFT-STYLE: none; BORDER-TOP: black 0.75pt solid; =
+BORDER-RIGHT: black 0.75pt solid"=20
+                height=3D27 vAlign=3Dtop>
+                  <P style=3D"TEXT-ALIGN: center" class=3DMsoNormal=20
+                  align=3Dcenter><FONT face=3DArial><SPAN =
+style=3D"FONT-SIZE: 12pt"=20
+                  lang=3DEN-AU>2</SPAN></FONT></P></TD>
+                <TD=20
+                style=3D"BORDER-BOTTOM-STYLE: none; WIDTH: 101px; COLOR: =
+black; BORDER-LEFT-STYLE: none; BORDER-TOP: black 0.75pt solid; =
+BORDER-RIGHT: black 0.75pt solid"=20
+                height=3D27 vAlign=3Dtop>
+                  <P style=3D"TEXT-ALIGN: center" class=3DMsoNormal=20
+                  align=3Dcenter><FONT face=3DArial><SPAN =
+style=3D"FONT-SIZE: 12pt"=20
+                  lang=3DEN-AU>RD</SPAN></FONT></P></TD>
+                <TD=20
+                style=3D"BORDER-BOTTOM-STYLE: none; WIDTH: 361px; COLOR: =
+black; BORDER-LEFT-STYLE: none; BORDER-TOP: black 0.75pt solid; =
+BORDER-RIGHT: black 0.75pt solid"=20
+                height=3D27 vAlign=3Dtop>
+                  <P style=3D"TEXT-ALIGN: center" class=3DMsoNormal=20
+                  align=3Dcenter><FONT face=3DArial><SPAN =
+style=3D"FONT-SIZE: 12pt"=20
+                  lang=3DEN-AU>Receive Data</SPAN><SPAN =
+style=3D"FONT-SIZE: 12pt">=20
+                  </SPAN><SPAN style=3D"FONT-SIZE: 12pt" =
+lang=3DEN-AU>(Serial data=20
+                  input)</SPAN></FONT></P></TD></TR>
+              <TR>
+                <TD=20
+                style=3D"BORDER-BOTTOM-STYLE: none; BORDER-LEFT: black =
+0.75pt solid; BACKGROUND-COLOR: white; WIDTH: 89px; COLOR: black; =
+BORDER-TOP: black 0.75pt solid; FONT-WEIGHT: normal; BORDER-RIGHT: black =
+0.75pt solid"=20
+                height=3D27 vAlign=3Dtop>
+                  <P style=3D"TEXT-ALIGN: center" class=3DMsoNormal=20
+                  align=3Dcenter><FONT face=3DArial><SPAN =
+style=3D"FONT-SIZE: 12pt"=20
+                  lang=3DEN-AU>2</SPAN></FONT></P></TD>
+                <TD=20
+                style=3D"BORDER-BOTTOM-STYLE: none; WIDTH: 104px; COLOR: =
+black; BORDER-LEFT-STYLE: none; BORDER-TOP: black 0.75pt solid; =
+BORDER-RIGHT: black 0.75pt solid"=20
+                height=3D27 vAlign=3Dtop>
+                  <P style=3D"TEXT-ALIGN: center" class=3DMsoNormal=20
+                  align=3Dcenter><FONT face=3DArial><SPAN =
+style=3D"FONT-SIZE: 12pt"=20
+                  lang=3DEN-AU>3</SPAN></FONT></P></TD>
+                <TD=20
+                style=3D"BORDER-BOTTOM-STYLE: none; WIDTH: 101px; COLOR: =
+black; BORDER-LEFT-STYLE: none; BORDER-TOP: black 0.75pt solid; =
+BORDER-RIGHT: black 0.75pt solid"=20
+                height=3D27 vAlign=3Dtop>
+                  <P style=3D"TEXT-ALIGN: center" class=3DMsoNormal=20
+                  align=3Dcenter><FONT face=3DArial><SPAN =
+style=3D"FONT-SIZE: 12pt"=20
+                  lang=3DEN-AU>TD</SPAN></FONT></P></TD>
+                <TD=20
+                style=3D"BORDER-BOTTOM-STYLE: none; WIDTH: 361px; COLOR: =
+black; BORDER-LEFT-STYLE: none; BORDER-TOP: black 0.75pt solid; =
+BORDER-RIGHT: black 0.75pt solid"=20
+                height=3D27 vAlign=3Dtop>
+                  <P style=3D"TEXT-ALIGN: center" class=3DMsoNormal=20
+                  align=3Dcenter><FONT face=3DArial><SPAN =
+style=3D"FONT-SIZE: 12pt"=20
+                  lang=3DEN-AU>Transmit Data (Serial data=20
+                output)</SPAN></FONT></P></TD></TR>
+              <TR>
+                <TD=20
+                style=3D"BORDER-BOTTOM-STYLE: none; BORDER-LEFT: black =
+0.75pt solid; BACKGROUND-COLOR: white; WIDTH: 89px; COLOR: black; =
+BORDER-TOP: black 0.75pt solid; FONT-WEIGHT: normal; BORDER-RIGHT: black =
+0.75pt solid"=20
+                height=3D27 vAlign=3Dtop>
+                  <P style=3D"TEXT-ALIGN: center" class=3DMsoNormal=20
+                  align=3Dcenter><FONT face=3DArial><SPAN =
+style=3D"FONT-SIZE: 12pt"=20
+                  lang=3DEN-AU>7</SPAN></FONT></P></TD>
+                <TD=20
+                style=3D"BORDER-BOTTOM-STYLE: none; WIDTH: 104px; COLOR: =
+black; BORDER-LEFT-STYLE: none; BORDER-TOP: black 0.75pt solid; =
+BORDER-RIGHT: black 0.75pt solid"=20
+                height=3D27 vAlign=3Dtop>
+                  <P style=3D"TEXT-ALIGN: center" class=3DMsoNormal=20
+                  align=3Dcenter><FONT face=3DArial><SPAN =
+style=3D"FONT-SIZE: 12pt"=20
+                  lang=3DEN-AU>4</SPAN></FONT></P></TD>
+                <TD=20
+                style=3D"BORDER-BOTTOM-STYLE: none; WIDTH: 101px; COLOR: =
+black; BORDER-LEFT-STYLE: none; BORDER-TOP: black 0.75pt solid; =
+BORDER-RIGHT: black 0.75pt solid"=20
+                height=3D27 vAlign=3Dtop>
+                  <P style=3D"TEXT-ALIGN: center" class=3DMsoNormal=20
+                  align=3Dcenter><FONT face=3DArial><SPAN =
+style=3D"FONT-SIZE: 12pt"=20
+                  lang=3DEN-AU>RTS</SPAN></FONT></P></TD>
+                <TD=20
+                style=3D"BORDER-BOTTOM-STYLE: none; WIDTH: 361px; COLOR: =
+black; BORDER-LEFT-STYLE: none; BORDER-TOP: black 0.75pt solid; =
+BORDER-RIGHT: black 0.75pt solid"=20
+                height=3D27 vAlign=3Dtop>
+                  <P style=3D"TEXT-ALIGN: center" class=3DMsoNormal=20
+                  align=3Dcenter><FONT face=3DArial><SPAN =
+style=3D"FONT-SIZE: 12pt"=20
+                  lang=3DEN-AU>Request to send</SPAN><SPAN=20
+                  style=3D"FONT-SIZE: 12pt"> </SPAN><SPAN =
+style=3D"FONT-SIZE: 12pt"=20
+                  lang=3DEN-AU>(acknowledge to modem that UART is ready =
+to=20
+                  exchange data</SPAN></FONT></P></TD></TR>
+              <TR>
+                <TD=20
+                style=3D"BORDER-BOTTOM-STYLE: none; BORDER-LEFT: black =
+0.75pt solid; BACKGROUND-COLOR: white; WIDTH: 89px; COLOR: black; =
+BORDER-TOP: black 0.75pt solid; FONT-WEIGHT: normal; BORDER-RIGHT: black =
+0.75pt solid"=20
+                height=3D27 vAlign=3Dtop>
+                  <P style=3D"TEXT-ALIGN: center" class=3DMsoNormal=20
+                  align=3Dcenter><FONT face=3DArial><SPAN =
+style=3D"FONT-SIZE: 12pt"=20
+                  lang=3DEN-AU>8</SPAN></FONT></P></TD>
+                <TD=20
+                style=3D"BORDER-BOTTOM-STYLE: none; WIDTH: 104px; COLOR: =
+black; BORDER-LEFT-STYLE: none; BORDER-TOP: black 0.75pt solid; =
+BORDER-RIGHT: black 0.75pt solid"=20
+                height=3D27 vAlign=3Dtop>
+                  <P style=3D"TEXT-ALIGN: center" class=3DMsoNormal=20
+                  align=3Dcenter><FONT face=3DArial><SPAN =
+style=3D"FONT-SIZE: 12pt"=20
+                  lang=3DEN-AU>5</SPAN></FONT></P></TD>
+                <TD=20
+                style=3D"BORDER-BOTTOM-STYLE: none; WIDTH: 101px; COLOR: =
+black; BORDER-LEFT-STYLE: none; BORDER-TOP: black 0.75pt solid; =
+BORDER-RIGHT: black 0.75pt solid"=20
+                height=3D27 vAlign=3Dtop>
+                  <P style=3D"TEXT-ALIGN: center" class=3DMsoNormal=20
+                  align=3Dcenter><FONT face=3DArial><SPAN =
+style=3D"FONT-SIZE: 12pt"=20
+                  lang=3DEN-AU>CTS</SPAN></FONT></P></TD>
+                <TD=20
+                style=3D"BORDER-BOTTOM-STYLE: none; WIDTH: 361px; COLOR: =
+black; BORDER-LEFT-STYLE: none; BORDER-TOP: black 0.75pt solid; =
+BORDER-RIGHT: black 0.75pt solid"=20
+                height=3D27 vAlign=3Dtop>
+                  <P style=3D"TEXT-ALIGN: center" class=3DMsoNormal=20
+                  align=3Dcenter><FONT face=3DArial><SPAN =
+style=3D"FONT-SIZE: 12pt"=20
+                  lang=3DEN-AU>Clear to send</SPAN><SPAN =
+style=3D"FONT-SIZE: 12pt">=20
+                  </SPAN><SPAN style=3D"FONT-SIZE: 12pt" =
+lang=3DEN-AU>(i.e.; modem=20
+                  is ready to exchange data)</SPAN></FONT></P></TD></TR>
+              <TR>
+                <TD=20
+                style=3D"BORDER-BOTTOM-STYLE: none; BORDER-LEFT: black =
+0.75pt solid; BACKGROUND-COLOR: white; WIDTH: 89px; COLOR: black; =
+BORDER-TOP: black 0.75pt solid; FONT-WEIGHT: normal; BORDER-RIGHT: black =
+0.75pt solid"=20
+                height=3D27 vAlign=3Dtop>
+                  <P style=3D"TEXT-ALIGN: center" class=3DMsoNormal=20
+                  align=3Dcenter><FONT face=3DArial><SPAN =
+style=3D"FONT-SIZE: 12pt"=20
+                  lang=3DEN-AU>6</SPAN></FONT></P></TD>
+                <TD=20
+                style=3D"BORDER-BOTTOM-STYLE: none; WIDTH: 104px; COLOR: =
+black; BORDER-LEFT-STYLE: none; BORDER-TOP: black 0.75pt solid; =
+BORDER-RIGHT: black 0.75pt solid"=20
+                height=3D27 vAlign=3Dtop>
+                  <P style=3D"TEXT-ALIGN: center" class=3DMsoNormal=20
+                  align=3Dcenter><FONT face=3DArial><SPAN =
+style=3D"FONT-SIZE: 12pt"=20
+                  lang=3DEN-AU>6</SPAN></FONT></P></TD>
+                <TD=20
+                style=3D"BORDER-BOTTOM-STYLE: none; WIDTH: 101px; COLOR: =
+black; BORDER-LEFT-STYLE: none; BORDER-TOP: black 0.75pt solid; =
+BORDER-RIGHT: black 0.75pt solid"=20
+                height=3D27 vAlign=3Dtop>
+                  <P style=3D"TEXT-ALIGN: center" class=3DMsoNormal=20
+                  align=3Dcenter><FONT face=3DArial><SPAN =
+style=3D"FONT-SIZE: 12pt"=20
+                  lang=3DEN-AU>DSR</SPAN></FONT></P></TD>
+                <TD=20
+                style=3D"BORDER-BOTTOM-STYLE: none; WIDTH: 361px; COLOR: =
+black; BORDER-LEFT-STYLE: none; BORDER-TOP: black 0.75pt solid; =
+BORDER-RIGHT: black 0.75pt solid"=20
+                height=3D27 vAlign=3Dtop>
+                  <P style=3D"TEXT-ALIGN: center" class=3DMsoNormal=20
+                  align=3Dcenter><FONT face=3DArial><SPAN =
+style=3D"FONT-SIZE: 12pt"=20
+                  lang=3DEN-AU>Data ready state</SPAN><SPAN=20
+                  style=3D"FONT-SIZE: 12pt"> </SPAN><SPAN =
+style=3D"FONT-SIZE: 12pt"=20
+                  lang=3DEN-AU>(UART establishes a =
+link)</SPAN></FONT></P></TD></TR>
+              <TR>
+                <TD=20
+                style=3D"BORDER-BOTTOM-STYLE: none; BORDER-LEFT: black =
+0.75pt solid; BACKGROUND-COLOR: white; WIDTH: 89px; COLOR: black; =
+BORDER-TOP: black 0.75pt solid; FONT-WEIGHT: normal; BORDER-RIGHT: black =
+0.75pt solid"=20
+                height=3D27 vAlign=3Dtop>
+                  <P style=3D"TEXT-ALIGN: center" class=3DMsoNormal=20
+                  align=3Dcenter><FONT face=3DArial><SPAN =
+style=3D"FONT-SIZE: 12pt"=20
+                  lang=3DEN-AU>5</SPAN></FONT></P></TD>
+                <TD=20
+                style=3D"BORDER-BOTTOM-STYLE: none; WIDTH: 104px; COLOR: =
+black; BORDER-LEFT-STYLE: none; BORDER-TOP: black 0.75pt solid; =
+BORDER-RIGHT: black 0.75pt solid"=20
+                height=3D27 vAlign=3Dtop>
+                  <P style=3D"TEXT-ALIGN: center" class=3DMsoNormal=20
+                  align=3Dcenter><FONT face=3DArial><SPAN =
+style=3D"FONT-SIZE: 12pt"=20
+                  lang=3DEN-AU>7</SPAN></FONT></P></TD>
+                <TD=20
+                style=3D"BORDER-BOTTOM-STYLE: none; WIDTH: 101px; COLOR: =
+black; BORDER-LEFT-STYLE: none; BORDER-TOP: black 0.75pt solid; =
+BORDER-RIGHT: black 0.75pt solid"=20
+                height=3D27 vAlign=3Dtop>
+                  <P style=3D"TEXT-ALIGN: center" class=3DMsoNormal=20
+                  align=3Dcenter><FONT face=3DArial><SPAN =
+style=3D"FONT-SIZE: 12pt"=20
+                  lang=3DEN-AU>SG</SPAN></FONT></P></TD>
+                <TD=20
+                style=3D"BORDER-BOTTOM-STYLE: none; WIDTH: 361px; COLOR: =
+black; BORDER-LEFT-STYLE: none; BORDER-TOP: black 0.75pt solid; =
+BORDER-RIGHT: black 0.75pt solid"=20
+                height=3D27 vAlign=3Dtop>
+                  <P style=3D"TEXT-ALIGN: center" class=3DMsoNormal=20
+                  align=3Dcenter><FONT face=3DArial><SPAN =
+style=3D"FONT-SIZE: 12pt"=20
+                  lang=3DEN-AU>Signal ground</SPAN></FONT></P></TD></TR>
+              <TR>
+                <TD=20
+                style=3D"BORDER-BOTTOM-STYLE: none; BORDER-LEFT: black =
+0.75pt solid; BACKGROUND-COLOR: white; WIDTH: 89px; COLOR: black; =
+BORDER-TOP: black 0.75pt solid; FONT-WEIGHT: normal; BORDER-RIGHT: black =
+0.75pt solid"=20
+                height=3D27 vAlign=3Dtop>
+                  <P style=3D"TEXT-ALIGN: center" class=3DMsoNormal=20
+                  align=3Dcenter><FONT face=3DArial><SPAN =
+style=3D"FONT-SIZE: 12pt"=20
+                  lang=3DEN-AU>1</SPAN></FONT></P></TD>
+                <TD=20
+                style=3D"BORDER-BOTTOM-STYLE: none; WIDTH: 104px; COLOR: =
+black; BORDER-LEFT-STYLE: none; BORDER-TOP: black 0.75pt solid; =
+BORDER-RIGHT: black 0.75pt solid"=20
+                height=3D27 vAlign=3Dtop>
+                  <P style=3D"TEXT-ALIGN: center" class=3DMsoNormal=20
+                  align=3Dcenter><FONT face=3DArial><SPAN =
+style=3D"FONT-SIZE: 12pt"=20
+                  lang=3DEN-AU>8</SPAN></FONT></P></TD>
+                <TD=20
+                style=3D"BORDER-BOTTOM-STYLE: none; WIDTH: 101px; COLOR: =
+black; BORDER-LEFT-STYLE: none; BORDER-TOP: black 0.75pt solid; =
+BORDER-RIGHT: black 0.75pt solid"=20
+                height=3D27 vAlign=3Dtop>
+                  <P style=3D"TEXT-ALIGN: center" class=3DMsoNormal=20
+                  align=3Dcenter><FONT face=3DArial><SPAN =
+style=3D"FONT-SIZE: 12pt"=20
+                  lang=3DEN-AU>DCD</SPAN></FONT></P></TD>
+                <TD=20
+                style=3D"BORDER-BOTTOM-STYLE: none; WIDTH: 361px; COLOR: =
+black; BORDER-LEFT-STYLE: none; BORDER-TOP: black 0.75pt solid; =
+BORDER-RIGHT: black 0.75pt solid"=20
+                height=3D27 vAlign=3Dtop>
+                  <P style=3D"TEXT-ALIGN: center" class=3DMsoNormal=20
+                  align=3Dcenter><FONT face=3DArial><SPAN =
+style=3D"FONT-SIZE: 12pt"=20
+                  lang=3DEN-AU>Data Carrier detect</SPAN><SPAN=20
+                  style=3D"FONT-SIZE: 12pt"> </SPAN><SPAN =
+style=3D"FONT-SIZE: 12pt"=20
+                  lang=3DEN-AU>(This line is active when modem detects a =
+
+                  carrier</SPAN></FONT></P></TD></TR>
+              <TR>
+                <TD=20
+                style=3D"BORDER-BOTTOM-STYLE: none; BORDER-LEFT: black =
+0.75pt solid; BACKGROUND-COLOR: white; WIDTH: 89px; COLOR: black; =
+BORDER-TOP: black 0.75pt solid; FONT-WEIGHT: normal; BORDER-RIGHT: black =
+0.75pt solid"=20
+                height=3D27 vAlign=3Dtop>
+                  <P style=3D"TEXT-ALIGN: center" class=3DMsoNormal=20
+                  align=3Dcenter><FONT face=3DArial><SPAN =
+style=3D"FONT-SIZE: 12pt"=20
+                  lang=3DEN-AU>4</SPAN></FONT></P></TD>
+                <TD=20
+                style=3D"BORDER-BOTTOM-STYLE: none; WIDTH: 104px; COLOR: =
+black; BORDER-LEFT-STYLE: none; BORDER-TOP: black 0.75pt solid; =
+BORDER-RIGHT: black 0.75pt solid"=20
+                height=3D27 vAlign=3Dtop>
+                  <P style=3D"TEXT-ALIGN: center" class=3DMsoNormal=20
+                  align=3Dcenter><FONT face=3DArial><SPAN =
+style=3D"FONT-SIZE: 12pt"=20
+                  lang=3DEN-AU>20</SPAN></FONT></P></TD>
+                <TD=20
+                style=3D"BORDER-BOTTOM-STYLE: none; WIDTH: 101px; COLOR: =
+black; BORDER-LEFT-STYLE: none; BORDER-TOP: black 0.75pt solid; =
+BORDER-RIGHT: black 0.75pt solid"=20
+                height=3D27 vAlign=3Dtop>
+                  <P style=3D"TEXT-ALIGN: center" class=3DMsoNormal=20
+                  align=3Dcenter><FONT face=3DArial><SPAN =
+style=3D"FONT-SIZE: 12pt"=20
+                  lang=3DEN-AU>DTR</SPAN></FONT></P></TD>
+                <TD=20
+                style=3D"BORDER-BOTTOM-STYLE: none; WIDTH: 361px; COLOR: =
+black; BORDER-LEFT-STYLE: none; BORDER-TOP: black 0.75pt solid; =
+BORDER-RIGHT: black 0.75pt solid"=20
+                height=3D27 vAlign=3Dtop>
+                  <P style=3D"TEXT-ALIGN: center" class=3DMsoNormal=20
+                  align=3Dcenter><FONT face=3DArial><SPAN =
+style=3D"FONT-SIZE: 12pt"=20
+                  lang=3DEN-AU>Data Terminal =
+Ready.</SPAN></FONT></P></TD></TR>
+              <TR>
+                <TD=20
+                style=3D"BORDER-BOTTOM-STYLE: none; BORDER-LEFT: black =
+0.75pt solid; BACKGROUND-COLOR: white; WIDTH: 89px; COLOR: black; =
+BORDER-TOP: black 0.75pt solid; FONT-WEIGHT: normal; BORDER-RIGHT: black =
+0.75pt solid"=20
+                height=3D27 vAlign=3Dtop>
+                  <P style=3D"TEXT-ALIGN: center" class=3DMsoNormal=20
+                  align=3Dcenter><FONT face=3DArial><SPAN =
+style=3D"FONT-SIZE: 12pt"=20
+                  lang=3DEN-AU>9</SPAN></FONT></P></TD>
+                <TD=20
+                style=3D"BORDER-BOTTOM-STYLE: none; WIDTH: 104px; COLOR: =
+black; BORDER-LEFT-STYLE: none; BORDER-TOP: black 0.75pt solid; =
+BORDER-RIGHT: black 0.75pt solid"=20
+                height=3D27 vAlign=3Dtop>
+                  <P style=3D"TEXT-ALIGN: center" class=3DMsoNormal=20
+                  align=3Dcenter><FONT face=3DArial><SPAN =
+style=3D"FONT-SIZE: 12pt"=20
+                  lang=3DEN-AU>22</SPAN></FONT></P></TD>
+                <TD=20
+                style=3D"BORDER-BOTTOM-STYLE: none; WIDTH: 101px; COLOR: =
+black; BORDER-LEFT-STYLE: none; BORDER-TOP: black 0.75pt solid; =
+BORDER-RIGHT: black 0.75pt solid"=20
+                height=3D27 vAlign=3Dtop>
+                  <P style=3D"TEXT-ALIGN: center" class=3DMsoNormal=20
+                  align=3Dcenter><FONT face=3DArial><SPAN =
+style=3D"FONT-SIZE: 12pt"=20
+                  lang=3DEN-AU>RI</SPAN></FONT></P></TD>
+                <TD=20
+                style=3D"BORDER-BOTTOM-STYLE: none; WIDTH: 361px; COLOR: =
+black; BORDER-LEFT-STYLE: none; BORDER-TOP: black 0.75pt solid; =
+BORDER-RIGHT: black 0.75pt solid"=20
+                height=3D27 vAlign=3Dtop>
+                  <P style=3D"TEXT-ALIGN: center" class=3DMsoNormal=20
+                  align=3Dcenter><FONT face=3DArial><SPAN =
+style=3D"FONT-SIZE: 12pt"=20
+                  lang=3DEN-AU>Ring Indicator</SPAN><SPAN =
+style=3D"FONT-SIZE: 12pt">=20
+                  </SPAN><SPAN style=3D"FONT-SIZE: 12pt" =
+lang=3DEN-AU>(Becomes=20
+                  active when modem detects ringing signal from=20
+                  =
+PSTN</SPAN></FONT></P></TD></TR></TBODY></TABLE></CENTER></DIV>
+            <P class=3DMsoNormal><FONT face=3DArial><SPAN =
+style=3D"FONT-SIZE: 12pt"=20
+            lang=3DEN-AU></SPAN></FONT>&nbsp;</P>
+            <P class=3DMsoNormal align=3Djustify><B><FONT =
+face=3DArial><U><SPAN=20
+            style=3D"FONT-SIZE: 12pt" lang=3DEN-AU>About DTE&nbsp; =
+&amp;&nbsp;=20
+            DCE</SPAN></U><SPAN style=3D"FONT-SIZE: 12pt"=20
+            lang=3DEN-AU>:</SPAN></FONT></B></P>
+            <P class=3DMsoNormal align=3Djustify><FONT =
+face=3DArial><SPAN=20
+            style=3D"FONT-SIZE: 12pt"=20
+            =
+lang=3DEN-AU>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Devices,=20
+            which use serial cables for their communication, are split =
+into two=20
+            categories. These are DCE (Data Communications Equipment) =
+and DTE=20
+            (Data Terminal Equipment.) Data Communications Equipments =
+are=20
+            devices such as your modem, TA adapter, plotter etc while =
+Data=20
+            Terminal Equipment is your Computer or Terminal. A typical =
+Data=20
+            Terminal Device is a computer and a typical Data =
+Communications=20
+            Device is a Modem. Often people will talk about DTE to DCE =
+or DCE to=20
+            DCE speeds. DTE to DCE is the speed between your modem and =
+computer,=20
+            sometimes referred to as your terminal speed. This should =
+run at=20
+            faster speeds than the DCE to DCE speed. DCE to DCE is the =
+link=20
+            between modems, sometimes called the line speed. =
+</SPAN></FONT></P>
+            <P class=3DMsoNormal align=3Djustify><FONT =
+face=3DArial><SPAN=20
+            style=3D"FONT-SIZE: =
+12pt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=20
+            </SPAN><SPAN style=3D"FONT-SIZE: 12pt" lang=3DEN-AU>Most =
+people today=20
+            will have 28.8K or 33.6K modems. Therefore, we should expect =
+the DCE=20
+            to DCE speed to be either 28.8K or 33.6K. Considering the =
+high speed=20
+            of the modem we should expect the DTE to DCE speed to be =
+about=20
+            115,200 BPS.</SPAN><SPAN style=3D"FONT-SIZE: 12pt"> =
+</SPAN><SPAN=20
+            style=3D"FONT-SIZE: 12pt" lang=3DEN-AU>(Maximum Speed of the =
+16550a=20
+            UART) . The communications program, which we use, has =
+settings for=20
+            DCE to DTE speeds. However, the speed is 9.6 KBPS, 144 KBPS =
+etc and=20
+            the modem speed. </SPAN></FONT></P>
+            <P class=3DMsoNormal align=3Djustify><FONT =
+face=3DArial><SPAN=20
+            style=3D"FONT-SIZE: 12pt"=20
+            =
+lang=3DEN-AU>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=20
+            </SPAN><SPAN style=3D"FONT-SIZE: 12pt">&nbsp; </SPAN><SPAN=20
+            style=3D"FONT-SIZE: 12pt" lang=3DEN-AU>If we were =
+transferring that text=20
+            file at 28.8K (DCE-</SPAN><SPAN style=3D"FONT-SIZE: 12pt">=20
+            </SPAN><SPAN style=3D"FONT-SIZE: 12pt" lang=3DEN-AU>DCE), =
+then when the=20
+            modem compresses it you are actually transferring 115.2 KBPS =
+between=20
+            computers and thus have a DCE-</SPAN><SPAN =
+style=3D"FONT-SIZE: 12pt">=20
+            </SPAN><SPAN style=3D"FONT-SIZE: 12pt" lang=3DEN-AU>DTE =
+speed of 115.2=20
+            KBPS. Thus, this is why the DCE-</SPAN><SPAN=20
+            style=3D"FONT-SIZE: 12pt"> </SPAN><SPAN style=3D"FONT-SIZE: =
+12pt"=20
+            lang=3DEN-AU>DTE should be much higher than the modem's =
+connection=20
+            speed. Therefore, if our DTE to DCE speed is several times =
+faster=20
+            than our DCE to DCE speed the PC can send data to your modem =
+at=20
+            115,200 BPS</SPAN><SPAN style=3D"FONT-SIZE: =
+12pt">.</SPAN><SPAN=20
+            style=3D"FONT-SIZE: 12pt" =
+lang=3DEN-AU>&nbsp;</SPAN></FONT></P>
+            <P class=3DMsoNormal align=3Djustify><B><FONT =
+face=3DArial><U><SPAN=20
+            style=3D"FONT-SIZE: 12pt" lang=3DEN-AU>What is NULL =
+MODEM</SPAN><SPAN=20
+            style=3D"FONT-SIZE: 12pt">?</SPAN></U></FONT></B></P>
+            <P class=3DMsoNormal align=3Djustify><FONT =
+face=3DArial><SPAN=20
+            style=3D"FONT-SIZE: 12pt" lang=3DEN-AU>&nbsp;</SPAN><SPAN=20
+            style=3D"FONT-SIZE: =
+12pt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=20
+            </SPAN><SPAN style=3D"FONT-SIZE: 12pt" lang=3DEN-AU>Null =
+modem is used=20
+            to connect two DTE's together. This is used to transfer =
+files=20
+            between the computers using protocols like Zmodem protocol, =
+xmodem=20
+            protocol, etc</SPAN></FONT></P>
+            <P class=3DMsoNormal align=3Dcenter><FONT face=3DArial><IMG =
+border=3D0=20
+            alt=3D"Null modem coneection"=20
+            src=3D"http://electrosofts.com/serial/nullmodem.jpg" =
+width=3D369=20
+            height=3D234=20
+webstripperlinkwas=3D"serial_files/image001.jpg"></FONT></P>
+            <P class=3DMsoNormal align=3Dcenter><FONT =
+face=3DArial><U><SPAN=20
+            style=3D"FONT-SIZE: 12pt" lang=3DEN-AU>Figure: Above shows =
+the=20
+            connections of the Null modem using RS-232D=20
+            connecter</SPAN></U></FONT></P>
+            <P class=3DMsoNormal align=3Djustify><FONT =
+face=3DArial><SPAN=20
+            style=3D"FONT-SIZE: 12pt" lang=3DEN-AU>&nbsp;</SPAN><SPAN=20
+            style=3D"FONT-SIZE: =
+12pt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=20
+            &nbsp; </SPAN><SPAN style=3D"FONT-SIZE: 12pt"=20
+            lang=3DEN-AU>Above-mentioned figure shows the wiring of the =
+null=20
+            modem. The main feature indicated here is that the to make =
+the=20
+            computer to chat with the modem rather than another =
+computer. The=20
+            guest &amp; host computer connected through the TD, RD, and =
+SG pins.=20
+            Any data that is transmitted through TD line from the Host =
+to Guest=20
+            is received on RD line. The Guest computer must have the =
+same setup=20
+            as the Host. The signal ground (SG) line of the both must be =
+shorted=20
+            so that grounds are common to each =
+computer.</SPAN></FONT></P>
+            <P class=3DMsoNormal align=3Djustify><FONT =
+face=3DArial><SPAN=20
+            style=3D"FONT-SIZE: 12pt"=20
+            =
+lang=3DEN-AU>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=20
+            </SPAN><SPAN style=3D"FONT-SIZE: 12pt">&nbsp; </SPAN><SPAN=20
+            style=3D"FONT-SIZE: 12pt" lang=3DEN-AU>The Data Terminal=20
+            Ready</SPAN><SPAN style=3D"FONT-SIZE: 12pt"> </SPAN><SPAN=20
+            style=3D"FONT-SIZE: 12pt" lang=3DEN-AU>(DTR)&nbsp; is looped =
+back to=20
+            Data Set Ready and Carrier Detect on both computers. When =
+the Data=20
+            Terminal Ready is asserted active, then the Data Set Ready =
+and=20
+            Carrier Detect immediately become active. At this point, the =
+
+            computer thinks the Virtual Modem to which it is connected =
+is ready=20
+            and has detected the carrier of the other =
+modem.</SPAN></FONT></P>
+            <P class=3DMsoNormal align=3Djustify><FONT =
+face=3DArial><SPAN=20
+            style=3D"FONT-SIZE: =
+12pt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&=
+nbsp;&nbsp;&nbsp;&nbsp;=20
+            </SPAN><SPAN style=3D"FONT-SIZE: 12pt" lang=3DEN-AU>All left =
+to worry=20
+            about now is the Request to Send and Clear To Send. As both=20
+            computers communicate together at the same speed, flow =
+control is=20
+            not needed thus these two lines are also linked together on =
+each=20
+            computer. When the computer wishes to send data, it asserts =
+the=20
+            Request to Send high and as it is hooked together with the =
+Clear to=20
+            Send, It immediately gets a reply that it is ok to send and =
+does=20
+            so.</SPAN></FONT></P>
+            <P class=3DMsoNormal align=3Djustify><FONT =
+face=3DArial><SPAN=20
+            style=3D"FONT-SIZE: 12pt"=20
+            =
+lang=3DEN-AU>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=20
+            </SPAN><SPAN=20
+            style=3D"FONT-SIZE: =
+12pt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=20
+            </SPAN><SPAN style=3D"FONT-SIZE: 12pt" lang=3DEN-AU>The Ring =
+indicator=20
+            line is only used to tell the computer that there is a =
+ringing=20
+            signal on the phone line. As we do not have, a modem =
+connected to=20
+            the phone line this is left disconnected</SPAN></FONT></P>
+            <P class=3DMsoNormal align=3Djustify><FONT =
+face=3DArial><SPAN=20
+            style=3D"FONT-SIZE: 12pt" =
+lang=3DEN-AU>&nbsp;</SPAN></FONT><FONT size=3D3=20
+            face=3DArial>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; To =
+know about=20
+            the RS232 ports available in your computer, Right click on =
+"My=20
+            Computer", Goto 'Properties', Select tab 'Device Manager', =
+go to=20
+            Ports( COM &amp; LPT ), In that you will find 'Communication =
+
+            Port(Com1)' etc. If you right click on that and go to =
+properties,=20
+            you will get device status. Make sure that you have enabled =
+the=20
+            port( Use this port is selected).</FONT></P>
+            <P class=3DMsoNormal align=3Djustify><B><FONT =
+face=3DArial><SPAN=20
+            style=3D"FONT-SIZE: 12pt" lang=3DEN-AU>&nbsp;</SPAN><U><SPAN =
+
+            style=3D"FONT-SIZE: 12pt" lang=3DEN-AU>How to program the =
+Serial Port=20
+            using C/C++</SPAN><SPAN=20
+            style=3D"FONT-SIZE: 12pt">?</SPAN></U></FONT></B></P>
+            <P class=3DMsoNormal align=3Djustify><FONT =
+face=3DArial><SPAN=20
+            style=3D"FONT-SIZE: 12pt" lang=3DEN-AU>&nbsp;</SPAN><SPAN=20
+            style=3D"FONT-SIZE: =
+12pt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=20
+            </SPAN><SPAN style=3D"FONT-SIZE: 12pt" =
+lang=3DEN-AU>&nbsp;There are two=20
+            popular methods of sending data to or from the serial port =
+in Turbo=20
+            C. One is using outportb(PORT_ID, DATA)&nbsp; or=20
+            outport(PORT_ID,DATA) defined in =93dos.h=94. Another method =
+is using=20
+            bioscom() function defined in =
+=93bios.h=94.</SPAN></FONT></P>
+            <P class=3DMsoNormal align=3Djustify><FONT =
+face=3DArial><SPAN=20
+            style=3D"FONT-SIZE: 12pt"=20
+            =
+lang=3DEN-AU>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <U>Using=20
+            outportb() :</U></SPAN></FONT></P>
+            <P class=3DMsoNormal align=3Djustify><FONT =
+face=3DArial><U><SPAN=20
+            style=3D"FONT-SIZE: 12pt; TEXT-DECORATION: none"=20
+            lang=3DEN-AU>&nbsp;</SPAN></U><SPAN=20
+            style=3D"FONT-SIZE: =
+12pt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=20
+            </SPAN><SPAN style=3D"FONT-SIZE: 12pt" =
+lang=3DEN-AU>&nbsp;The function=20
+            outportb () sends a data byte to the port =91PORT_ID=92. The =
+function=20
+            outport() sends a data word. These functions can be used for =
+any=20
+            port including serial port, parallel ports. Similarly to =
+receive=20
+            data these are used.</SPAN></FONT></P>
+            <BLOCKQUOTE>
+              <BLOCKQUOTE>
+                <UL>
+                  <LI>
+                  <P class=3DMsoNormal align=3Djustify><SPAN=20
+                  style=3D"FONT-VARIANT: normal; FONT-STYLE: normal; =
+FONT-FAMILY: Arial; FONT-SIZE: 7pt"=20
+                  lang=3DEN-AU>&nbsp;</SPAN><FONT face=3DArial><SPAN=20
+                  style=3D"FONT-SIZE: 12pt" lang=3DEN-AU>inport reads a =
+word from a=20
+                  hardware port</SPAN></FONT> </P>
+                  <LI>
+                  <P class=3DMsoNormal align=3Djustify><FONT =
+face=3DArial><SPAN=20
+                  style=3D"FONT-SIZE: 12pt" lang=3DEN-AU>inportb reads a =
+byte from a=20
+                  hardware port</SPAN></FONT> </P>
+                  <LI>
+                  <P class=3DMsoNormal align=3Djustify><SPAN=20
+                  style=3D"FONT-VARIANT: normal; FONT-STYLE: normal; =
+FONT-FAMILY: Arial; FONT-SIZE: 7pt"=20
+                  lang=3DEN-AU>&nbsp;</SPAN><FONT face=3DArial><SPAN=20
+                  style=3D"FONT-SIZE: 12pt" lang=3DEN-AU>outport outputs =
+a word to a=20
+                  hardware port</SPAN></FONT> </P>
+                  <LI>
+                  <P class=3DMsoNormal align=3Djustify><SPAN=20
+                  style=3D"FONT-VARIANT: normal; FONT-STYLE: normal; =
+FONT-FAMILY: Arial; FONT-SIZE: 7pt"=20
+                  lang=3DEN-AU>&nbsp;</SPAN><FONT face=3DArial><SPAN=20
+                  style=3D"FONT-SIZE: 12pt" lang=3DEN-AU>outportb =
+outputs a byte to=20
+                  a hardware port</SPAN></FONT>=20
+            </P></LI></UL></BLOCKQUOTE></BLOCKQUOTE>
+            <P class=3DMsoNormal align=3Djustify><FONT =
+face=3DArial><SPAN=20
+            style=3D"FONT-SIZE: 12pt; FONT-WEIGHT: 700"=20
+            lang=3DEN-AU>&nbsp;Declaration:</SPAN></FONT></P>
+            <UL>
+              <LI>
+              <P style=3D"TEXT-INDENT: -0.25in; MARGIN-LEFT: 1in" =
+class=3DMsoNormal=20
+              align=3Djustify><SPAN=20
+              style=3D"FONT-VARIANT: normal; FONT-STYLE: normal; =
+FONT-FAMILY: Arial; FONT-SIZE: 7pt"=20
+              lang=3DEN-AU>&nbsp;&nbsp; </SPAN><FONT face=3DArial><SPAN=20
+              style=3D"FONT-SIZE: 12pt" lang=3DEN-AU>int inport(int=20
+              portid);</SPAN></FONT> </P>
+              <LI>
+              <P style=3D"TEXT-INDENT: -0.25in; MARGIN-LEFT: 1in" =
+class=3DMsoNormal=20
+              align=3Djustify><SPAN=20
+              style=3D"FONT-VARIANT: normal; FONT-STYLE: normal; =
+FONT-FAMILY: Arial; FONT-SIZE: 7pt"=20
+              lang=3DEN-AU>&nbsp;&nbsp; </SPAN><FONT face=3DArial><SPAN=20
+              style=3D"FONT-SIZE: 12pt" lang=3DEN-AU>unsigned char =
+inportb(int=20
+              portid);</SPAN></FONT> </P>
+              <LI>
+              <P style=3D"TEXT-INDENT: -0.25in; MARGIN-LEFT: 1in" =
+class=3DMsoNormal=20
+              align=3Djustify><SPAN=20
+              style=3D"FONT-VARIANT: normal; FONT-STYLE: normal; =
+FONT-FAMILY: Arial; FONT-SIZE: 7pt">&nbsp;</SPAN><SPAN=20
+              style=3D"FONT-VARIANT: normal; FONT-STYLE: normal; =
+FONT-FAMILY: Arial; FONT-SIZE: 7pt"=20
+              lang=3DEN-AU>&nbsp; </SPAN><FONT face=3DArial><SPAN=20
+              style=3D"FONT-SIZE: 12pt" lang=3DEN-AU>void outport(int =
+portid, int=20
+              value);</SPAN></FONT> </P>
+              <LI>
+              <P style=3D"TEXT-INDENT: -0.25in; MARGIN-LEFT: 1in" =
+class=3DMsoNormal=20
+              align=3Djustify><SPAN=20
+              style=3D"FONT-VARIANT: normal; FONT-STYLE: normal; =
+FONT-FAMILY: Arial; FONT-SIZE: 7pt"=20
+              lang=3DEN-AU>&nbsp;&nbsp; </SPAN><FONT face=3DArial><SPAN=20
+              style=3D"FONT-SIZE: 12pt" lang=3DEN-AU>void outportb(int =
+portid,=20
+              unsigned char value);</SPAN></FONT> </P></LI></UL>
+            <P class=3DMsoNormal align=3Djustify><FONT =
+face=3DArial><SPAN=20
+            style=3D"FONT-SIZE: 12pt; FONT-WEIGHT: 700"=20
+            lang=3DEN-AU>&nbsp;Remarks:</SPAN></FONT></P>
+            <UL>
+              <LI>
+              <P style=3D"TEXT-INDENT: -0.25in; MARGIN-LEFT: 1in" =
+class=3DMsoNormal=20
+              align=3Djustify><SPAN=20
+              style=3D"FONT-VARIANT: normal; FONT-STYLE: normal; =
+FONT-FAMILY: Arial; FONT-SIZE: 7pt"=20
+              lang=3DEN-AU>&nbsp;&nbsp; </SPAN><FONT face=3DArial><SPAN=20
+              style=3D"FONT-SIZE: 12pt" lang=3DEN-AU>inport works just =
+like the=20
+              80x86 instruction IN. It reads the low</SPAN><SPAN=20
+              style=3D"FONT-SIZE: 12pt"> </SPAN><SPAN =
+style=3D"FONT-SIZE: 12pt"=20
+              lang=3DEN-AU>byte of a word from portid, the high byte =
+from portid +=20
+              2.</SPAN></FONT> </P>
+              <LI>
+              <P style=3D"TEXT-INDENT: -0.25in; MARGIN-LEFT: 1in" =
+class=3DMsoNormal=20
+              align=3Djustify><SPAN=20
+              style=3D"FONT-VARIANT: normal; FONT-STYLE: normal; =
+FONT-FAMILY: Arial; FONT-SIZE: 7pt"=20
+              lang=3DEN-AU>&nbsp;&nbsp; </SPAN><FONT face=3DArial><SPAN=20
+              style=3D"FONT-SIZE: 12pt" lang=3DEN-AU>inportb is a macro =
+that reads a=20
+              byte </SPAN></FONT></P>
+              <LI>
+              <P style=3D"TEXT-INDENT: -0.25in; MARGIN-LEFT: 1in" =
+class=3DMsoNormal=20
+              align=3Djustify><SPAN=20
+              style=3D"FONT-VARIANT: normal; FONT-STYLE: normal; =
+FONT-FAMILY: Arial; FONT-SIZE: 7pt"=20
+              lang=3DEN-AU>&nbsp;&nbsp; </SPAN><FONT face=3DArial><SPAN=20
+              style=3D"FONT-SIZE: 12pt" lang=3DEN-AU>outport works just =
+like the=20
+              80x86 instruction OUT. It writes the</SPAN><SPAN=20
+              style=3D"FONT-SIZE: 12pt"> </SPAN><SPAN =
+style=3D"FONT-SIZE: 12pt"=20
+              lang=3DEN-AU>low byte of value to portid, the high byte to =
+portid +=20
+              1.</SPAN></FONT> </P>
+              <LI>
+              <P style=3D"TEXT-INDENT: -0.25in; MARGIN-LEFT: 1in" =
+class=3DMsoNormal=20
+              align=3Djustify><SPAN=20
+              style=3D"FONT-VARIANT: normal; FONT-STYLE: normal; =
+FONT-FAMILY: Arial; FONT-SIZE: 7pt"=20
+              lang=3DEN-AU>&nbsp;&nbsp; </SPAN><FONT face=3DArial><SPAN=20
+              style=3D"FONT-SIZE: 12pt" lang=3DEN-AU>outportb is a macro =
+that writes=20
+              value Argument</SPAN></FONT> </P></LI></UL>
+            <BLOCKQUOTE>
+              <BLOCKQUOTE>
+                <P class=3DMsoNormal align=3Djustify><FONT =
+face=3DArial><U><SPAN=20
+                style=3D"FONT-SIZE: 12pt"=20
+              =
+lang=3DEN-AU>portid:</SPAN></U></FONT></P></BLOCKQUOTE></BLOCKQUOTE>
+            <UL>
+              <LI>
+              <P style=3D"TEXT-INDENT: -0.25in; MARGIN-LEFT: 1in" =
+class=3DMsoNormal=20
+              align=3Djustify><SPAN=20
+              style=3D"FONT-VARIANT: normal; FONT-STYLE: normal; =
+FONT-FAMILY: Arial; FONT-SIZE: 7pt"=20
+              lang=3DEN-AU>&nbsp;</SPAN><FONT face=3DArial><SPAN=20
+              style=3D"FONT-SIZE: 12pt" lang=3DEN-AU>Inport- port that =
+inport and=20
+              inportb read from;</SPAN></FONT> </P>
+              <LI>
+              <P style=3D"MARGIN-LEFT: 0.75in" class=3DMsoNormal =
+align=3Djustify><FONT=20
+              face=3DArial><SPAN style=3D"FONT-SIZE: 12pt" =
+lang=3DEN-AU>Outport- port=20
+              that outport and outportb write to</SPAN></FONT> =
+</P></LI></UL>
+            <P style=3D"MARGIN-LEFT: 0.75in" class=3DMsoNormal =
+align=3Djustify><FONT=20
+            face=3DArial><SPAN style=3D"FONT-SIZE: 12pt">&nbsp;&nbsp;=20
+            </SPAN><U><SPAN style=3D"FONT-SIZE: 12pt"=20
+            lang=3DEN-AU>value:</SPAN></U></FONT></P>
+            <UL>
+              <LI>
+              <P style=3D"TEXT-INDENT: -0.25in; MARGIN-LEFT: 1in" =
+class=3DMsoNormal=20
+              align=3Djustify><SPAN=20
+              style=3D"FONT-VARIANT: normal; FONT-STYLE: normal; =
+FONT-FAMILY: Arial; FONT-SIZE: 7pt"=20
+              lang=3DEN-AU>&nbsp;</SPAN><FONT face=3DArial><SPAN=20
+              style=3D"FONT-SIZE: 12pt" lang=3DEN-AU>Word that outport =
+writes to=20
+              portid;</SPAN></FONT> </P>
+              <LI>
+              <P style=3D"MARGIN-LEFT: 0.75in" class=3DMsoNormal =
+align=3Djustify><FONT=20
+              face=3DArial><SPAN style=3D"FONT-SIZE: 12pt" =
+lang=3DEN-AU>Byte- that=20
+              outportb writes to portid.</SPAN></FONT> </P></LI></UL>
+            <P class=3DMsoNormal align=3Djustify><FONT =
+face=3DArial><SPAN=20
+            style=3D"FONT-SIZE: 12pt" lang=3DEN-AU>&nbsp;</SPAN><SPAN=20
+            style=3D"FONT-SIZE: =
+12pt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=20
+            </SPAN><SPAN style=3D"FONT-SIZE: 12pt" lang=3DEN-AU>If you =
+call inportb=20
+            or outportb when dos.h has been included, they are treated =
+as macros=20
+            that expand to inline code.</SPAN></FONT></P>
+            <P class=3DMsoNormal align=3Djustify><FONT =
+face=3DArial><SPAN=20
+            style=3D"FONT-SIZE: 12pt" lang=3DEN-AU>&nbsp;</SPAN><SPAN=20
+            style=3D"FONT-SIZE: =
+12pt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; =
+
+            </SPAN><SPAN style=3D"FONT-SIZE: 12pt" lang=3DEN-AU>If you =
+don't include=20
+            dos.h, or if you do include dos.h and #undef the</SPAN><SPAN =
+
+            style=3D"FONT-SIZE: 12pt"> </SPAN><SPAN style=3D"FONT-SIZE: =
+12pt"=20
+            lang=3DEN-AU>macro(s), you get the function(s) of the same=20
+            name.</SPAN></FONT></P>
+            <P class=3DMsoNormal align=3Djustify><FONT =
+face=3DArial><SPAN=20
+            style=3D"FONT-SIZE: 12pt" lang=3DEN-AU>&nbsp;&nbsp;<B>Return =
+
+            Value:</B></SPAN></FONT></P>
+            <P style=3D"TEXT-INDENT: -0.25in; MARGIN-LEFT: 79.55pt"=20
+            class=3DMsoNormal align=3Djustify><FONT face=3DArial><SPAN=20
+            style=3D"FONT-SIZE: 12pt" lang=3DEN-AU>#</SPAN></FONT><SPAN=20
+            style=3D"FONT-VARIANT: normal; FONT-STYLE: normal; =
+FONT-FAMILY: Arial; FONT-SIZE: 7pt"=20
+            lang=3DEN-AU>&nbsp;&nbsp;&nbsp; </SPAN><FONT =
+face=3DArial><SPAN=20
+            style=3D"FONT-SIZE: 12pt" lang=3DEN-AU>inport and inportb =
+return the=20
+            value read</SPAN></FONT></P>
+            <P style=3D"TEXT-INDENT: -0.25in; MARGIN-LEFT: 79.55pt"=20
+            class=3DMsoNormal align=3Djustify><FONT face=3DArial><SPAN=20
+            style=3D"FONT-SIZE: 12pt" lang=3DEN-AU>#</SPAN></FONT><SPAN=20
+            style=3D"FONT-VARIANT: normal; FONT-STYLE: normal; =
+FONT-FAMILY: Arial; FONT-SIZE: 7pt"=20
+            lang=3DEN-AU>&nbsp;&nbsp;&nbsp; </SPAN><FONT =
+face=3DArial><SPAN=20
+            style=3D"FONT-SIZE: 12pt" lang=3DEN-AU>outport and outportb =
+do not=20
+            return</SPAN></FONT></P>
+            <P class=3DMsoNormal align=3Djustify><FONT =
+face=3DArial><SPAN=20
+            style=3D"FONT-SIZE: 12pt" lang=3DEN-AU>&nbsp;For more =
+details of these=20
+            functions <A style=3D"COLOR: blue; TEXT-DECORATION: =
+underline"=20
+            href=3D"http://www.beyondlogic.org/serial/serial.htm">read =
+article=20
+            from beondlogic.com</A></SPAN></FONT></P>
+            <P class=3DMsoNormal align=3Djustify><FONT =
+face=3DArial><U><SPAN=20
+            style=3D"FONT-SIZE: 12pt; FONT-WEIGHT: 700" =
+lang=3DEN-AU>Using=20
+            bioscom:</SPAN></U></FONT></P>
+            <P class=3DMsoNormal align=3Djustify><FONT =
+face=3DArial><U><SPAN=20
+            style=3D"FONT-SIZE: 12pt; TEXT-DECORATION: none"=20
+            lang=3DEN-AU>&nbsp;</SPAN></U><SPAN style=3D"FONT-SIZE: =
+12pt"=20
+            lang=3DEN-AU>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; The =
+macro=20
+            bioscom () and function _bios_serialcom() are used =
+in</SPAN><SPAN=20
+            style=3D"FONT-SIZE: 12pt"> this method in</SPAN><SPAN=20
+            style=3D"FONT-SIZE: 12pt" lang=3DEN-AU> the serial =
+communication using=20
+            RS-232 connecter.</SPAN><SPAN style=3D"FONT-SIZE: 12pt"> =
+First we have=20
+            to set the port with the settings depending on our need and=20
+            availability. In this method, same function is used to make =
+the=20
+            settings using control word, to send data to the port and =
+check the=20
+            status of the port. These actions are distinguished using =
+the first=20
+            parameter of the function. Along with that we are sending =
+data and=20
+            the port to be used to communicate. </SPAN></FONT></P>
+            <P class=3DMsoNormal align=3Djustify><FONT size=3D3=20
+            =
+face=3DArial>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=
+=20
+            Here are the deatails of the Turbo C Functions for =
+communication=20
+            ports.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; =
+
+            </FONT></P>
+            <P class=3DMsoNormal align=3Djustify><FONT =
+face=3DArial><SPAN=20
+            style=3D"FONT-SIZE: 12pt; FONT-WEIGHT: 700"=20
+            lang=3DEN-AU>Declaration:</SPAN></FONT></P>
+            <P class=3DMsoNormal align=3Djustify><FONT =
+face=3DArial><SPAN=20
+            style=3D"FONT-SIZE: 12pt"=20
+            =
+lang=3DEN-AU>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=20
+            bioscom(int cmd, char abyte, int&nbsp;=20
+            port)<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=20
+            _bios_serialcom(int cmd ,int port, char =
+abyte)</SPAN></FONT></P>
+            <P class=3DMsoNormal align=3Djustify><FONT =
+face=3DArial><SPAN=20
+            style=3D"FONT-SIZE: 12pt"=20
+            =
+lang=3DEN-AU>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=20
+            bioscom() and _bios_serialcom() uses the bios&nbsp; =
+interrupt 0x14=20
+            to perform various communicate the serial communication over =
+the I/O=20
+            ports given in&nbsp; port.</SPAN></FONT></P>
+            <P class=3DMsoNormal align=3Djustify><FONT=20
+            face=3DArial>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; =
+<U><SPAN=20
+            style=3D"FONT-SIZE: 12pt" lang=3DEN-AU>cmd:</SPAN></U><SPAN=20
+            style=3D"FONT-SIZE: 12pt" lang=3DEN-AU> The I/O operation to =
+be=20
+            performed. &nbsp;</SPAN></FONT></P>
+            <DIV align=3Dcenter>
+            <CENTER>
+            <TABLE=20
+            style=3D"BORDER-BOTTOM-STYLE: none; BORDER-LEFT: black =
+0.75pt solid; BACKGROUND-COLOR: white; BORDER-TOP-STYLE: none; =
+BORDER-RIGHT: black 0.75pt solid"=20
+            class=3DMsoTableGrid border=3D1 cellSpacing=3D0 =
+cellPadding=3D0 width=3D622=20
+            height=3D126 fpstyle=3D"19,011111100">
+              <TBODY>
+              <TR style=3D"HEIGHT: 17.5pt">
+                <TD=20
+                style=3D"BORDER-BOTTOM-STYLE: none; BORDER-LEFT: black =
+0.75pt solid; BACKGROUND-COLOR: #ffe1e1; WIDTH: 165px; BORDER-TOP-STYLE: =
+none; HEIGHT: 21px; COLOR: black; FONT-WEIGHT: normal; BORDER-RIGHT: =
+black 0.75pt solid"=20
+                vAlign=3Dtop align=3Dmiddle>
+                  <P style=3D"TEXT-ALIGN: justify" class=3DMsoNormal=20
+                  align=3Dcenter><FONT face=3DArial><SPAN =
+style=3D"FONT-SIZE: 12pt"=20
+                  lang=3DEN-AU>cmd (boiscom)</SPAN></FONT></P></TD>
+                <TD=20
+                style=3D"BORDER-BOTTOM-STYLE: none; BACKGROUND-COLOR: =
+#ffe1e1; WIDTH: 156px; BORDER-TOP-STYLE: none; HEIGHT: 21px; COLOR: =
+black; BORDER-LEFT-STYLE: none; FONT-WEIGHT: normal; BORDER-RIGHT: black =
+0.75pt solid"=20
+                vAlign=3Dtop align=3Dmiddle>
+                  <P style=3D"TEXT-ALIGN: justify" class=3DMsoNormal=20
+                  align=3Dcenter><FONT face=3DArial><SPAN =
+style=3D"FONT-SIZE: 12pt"=20
+                  =
+lang=3DEN-AU>cmd(_bios_serialcom)</SPAN></FONT></P></TD>
+                <TD=20
+                style=3D"BORDER-BOTTOM-STYLE: none; BACKGROUND-COLOR: =
+#ffe1e1; WIDTH: 298px; BORDER-TOP-STYLE: none; HEIGHT: 21px; COLOR: =
+black; BORDER-LEFT-STYLE: none; FONT-WEIGHT: normal; BORDER-RIGHT: black =
+0.75pt solid"=20
+                vAlign=3Dtop align=3Dmiddle>
+                  <P style=3D"TEXT-ALIGN: justify" class=3DMsoNormal=20
+                  align=3Dcenter><FONT face=3DArial><SPAN =
+style=3D"FONT-SIZE: 12pt"=20
+                  lang=3DEN-AU>Action</SPAN></FONT></P></TD></TR>
+              <TR>
+                <TD=20
+                style=3D"BORDER-BOTTOM-STYLE: none; BORDER-LEFT: black =
+0.75pt solid; BACKGROUND-COLOR: white; WIDTH: 165px; COLOR: black; =
+BORDER-TOP: black 0.75pt solid; FONT-WEIGHT: normal; BORDER-RIGHT: black =
+0.75pt solid"=20
+                height=3D25 vAlign=3Dtop align=3Dmiddle>
+                  <P class=3DMsoNormal align=3Dcenter><FONT =
+face=3DArial><SPAN=20
+                  style=3D"FONT-SIZE: 12pt" =
+lang=3DEN-AU>0</SPAN></FONT></P></TD>
+                <TD=20
+                style=3D"BORDER-BOTTOM-STYLE: none; WIDTH: 156px; COLOR: =
+black; BORDER-LEFT-STYLE: none; BORDER-TOP: black 0.75pt solid; =
+BORDER-RIGHT: black 0.75pt solid"=20
+                height=3D25 vAlign=3Dtop align=3Dmiddle>
+                  <P style=3D"TEXT-ALIGN: justify" class=3DMsoNormal=20
+                  align=3Dcenter><FONT face=3DArial><SPAN =
+style=3D"FONT-SIZE: 12pt"=20
+                  lang=3DEN-AU>_COM_INIT</SPAN></FONT></P></TD>
+                <TD=20
+                style=3D"BORDER-BOTTOM-STYLE: none; WIDTH: 298px; COLOR: =
+black; BORDER-LEFT-STYLE: none; BORDER-TOP: black 0.75pt solid; =
+BORDER-RIGHT: black 0.75pt solid"=20
+                height=3D25 vAlign=3Dtop align=3Dmiddle>
+                  <P style=3D"TEXT-ALIGN: justify" class=3DMsoNormal=20
+                  align=3Dcenter><FONT face=3DArial><SPAN =
+style=3D"FONT-SIZE: 12pt"=20
+                  lang=3DEN-AU>Initialise the parameters to the=20
+                  port</SPAN></FONT></P></TD></TR>
+              <TR style=3D"HEIGHT: 20.65pt">
+                <TD=20
+                style=3D"BORDER-BOTTOM-STYLE: none; BORDER-LEFT: black =
+0.75pt solid; BACKGROUND-COLOR: white; WIDTH: 165px; HEIGHT: 26px; =
+COLOR: black; BORDER-TOP: black 0.75pt solid; FONT-WEIGHT: normal; =
+BORDER-RIGHT: black 0.75pt solid"=20
+                vAlign=3Dtop align=3Dmiddle>
+                  <P class=3DMsoNormal align=3Dcenter><FONT =
+face=3DArial><SPAN=20
+                  style=3D"FONT-SIZE: 12pt" =
+lang=3DEN-AU>1</SPAN></FONT></P></TD>
+                <TD=20
+                style=3D"BORDER-BOTTOM-STYLE: none; WIDTH: 156px; =
+HEIGHT: 26px; COLOR: black; BORDER-LEFT-STYLE: none; BORDER-TOP: black =
+0.75pt solid; BORDER-RIGHT: black 0.75pt solid"=20
+                vAlign=3Dtop align=3Dmiddle>
+                  <P style=3D"TEXT-ALIGN: justify" class=3DMsoNormal=20
+                  align=3Dcenter><FONT face=3DArial><SPAN =
+style=3D"FONT-SIZE: 12pt"=20
+                  lang=3DEN-AU>_COM_SEND</SPAN></FONT></P></TD>
+                <TD=20
+                style=3D"BORDER-BOTTOM-STYLE: none; WIDTH: 298px; =
+HEIGHT: 26px; COLOR: black; BORDER-LEFT-STYLE: none; BORDER-TOP: black =
+0.75pt solid; BORDER-RIGHT: black 0.75pt solid"=20
+                vAlign=3Dtop align=3Dmiddle>
+                  <P style=3D"TEXT-ALIGN: justify" class=3DMsoNormal=20
+                  align=3Dcenter><FONT face=3DArial><SPAN =
+style=3D"FONT-SIZE: 12pt"=20
+                  lang=3DEN-AU>Send the character to the=20
+              port</SPAN></FONT></P></TD></TR>
+              <TR>
+                <TD=20
+                style=3D"BORDER-BOTTOM-STYLE: none; BORDER-LEFT: black =
+0.75pt solid; BACKGROUND-COLOR: white; WIDTH: 165px; COLOR: black; =
+BORDER-TOP: black 0.75pt solid; FONT-WEIGHT: normal; BORDER-RIGHT: black =
+0.75pt solid"=20
+                height=3D26 vAlign=3Dtop align=3Dmiddle>
+                  <P class=3DMsoNormal align=3Dcenter><FONT =
+face=3DArial><SPAN=20
+                  style=3D"FONT-SIZE: 12pt" =
+lang=3DEN-AU>2</SPAN></FONT></P></TD>
+                <TD=20
+                style=3D"BORDER-BOTTOM-STYLE: none; WIDTH: 156px; COLOR: =
+black; BORDER-LEFT-STYLE: none; BORDER-TOP: black 0.75pt solid; =
+BORDER-RIGHT: black 0.75pt solid"=20
+                height=3D26 vAlign=3Dtop align=3Dmiddle>
+                  <P style=3D"TEXT-ALIGN: justify" class=3DMsoNormal=20
+                  align=3Dcenter><FONT face=3DArial><SPAN =
+style=3D"FONT-SIZE: 12pt"=20
+                  lang=3DEN-AU>_COM_RECEIVE</SPAN></FONT></P></TD>
+                <TD=20
+                style=3D"BORDER-BOTTOM-STYLE: none; WIDTH: 298px; COLOR: =
+black; BORDER-LEFT-STYLE: none; BORDER-TOP: black 0.75pt solid; =
+BORDER-RIGHT: black 0.75pt solid"=20
+                height=3D26 vAlign=3Dtop align=3Dmiddle>
+                  <P style=3D"TEXT-ALIGN: justify" class=3DMsoNormal=20
+                  align=3Dcenter><FONT face=3DArial><SPAN =
+style=3D"FONT-SIZE: 12pt"=20
+                  lang=3DEN-AU>Receive character from the=20
+              port</SPAN></FONT></P></TD></TR>
+              <TR>
+                <TD=20
+                style=3D"BORDER-BOTTOM-STYLE: none; BORDER-LEFT: black =
+0.75pt solid; BACKGROUND-COLOR: white; WIDTH: 165px; COLOR: black; =
+BORDER-TOP: black 0.75pt solid; FONT-WEIGHT: normal; BORDER-RIGHT: black =
+0.75pt solid"=20
+                height=3D26 vAlign=3Dtop align=3Dmiddle>
+                  <P class=3DMsoNormal align=3Dcenter><FONT =
+face=3DArial><SPAN=20
+                  style=3D"FONT-SIZE: 12pt" =
+lang=3DEN-AU>3</SPAN></FONT></P></TD>
+                <TD=20
+                style=3D"BORDER-BOTTOM-STYLE: none; WIDTH: 156px; COLOR: =
+black; BORDER-LEFT-STYLE: none; BORDER-TOP: black 0.75pt solid; =
+BORDER-RIGHT: black 0.75pt solid"=20
+                height=3D26 vAlign=3Dtop align=3Dmiddle>
+                  <P style=3D"TEXT-ALIGN: justify" class=3DMsoNormal=20
+                  align=3Dcenter><FONT face=3DArial><SPAN =
+style=3D"FONT-SIZE: 12pt"=20
+                  lang=3DEN-AU>_COM_STATUS</SPAN></FONT></P></TD>
+                <TD=20
+                style=3D"BORDER-BOTTOM-STYLE: none; WIDTH: 298px; COLOR: =
+black; BORDER-LEFT-STYLE: none; BORDER-TOP: black 0.75pt solid; =
+BORDER-RIGHT: black 0.75pt solid"=20
+                height=3D26 vAlign=3Dtop align=3Dmiddle>
+                  <P style=3D"TEXT-ALIGN: justify" class=3DMsoNormal=20
+                  align=3Dcenter><FONT face=3DArial><SPAN =
+style=3D"FONT-SIZE: 12pt"=20
+                  lang=3DEN-AU>Returns rhe current status of the =
+communication=20
+                  =
+port</SPAN></FONT></P></TD></TR></TBODY></TABLE></CENTER></DIV>
+            <P style=3D"MARGIN-LEFT: 7.55pt" class=3DMsoNormal =
+align=3Djustify><FONT=20
+            face=3DArial><U><SPAN style=3D"FONT-SIZE: 12pt"=20
+            lang=3DEN-AU>portid:</SPAN></U><SPAN style=3D"FONT-SIZE: =
+12pt"=20
+            lang=3DEN-AU> port to which data is to be sent or from which =
+data is=20
+            to be read.</SPAN></FONT></P>
+            <P style=3D"TEXT-ALIGN: justify; MARGIN-LEFT: 7.55pt" =
+class=3DMsoNormal=20
+            align=3Dcenter><FONT face=3DArial><SPAN style=3D"FONT-SIZE: =
+12pt"=20
+            lang=3DEN-AU>0: COM1<BR>1: COM2<BR>2: COM3</SPAN></FONT></P>
+            <P style=3D"MARGIN-LEFT: 7.55pt" class=3DMsoNormal =
+align=3Djustify><FONT=20
+            face=3DArial><U><SPAN style=3D"FONT-SIZE: 12pt"=20
+            lang=3DEN-AU>abyte:</SPAN></U></FONT></P>
+            <P class=3DMsoNormal align=3Djustify><FONT =
+face=3DArial><SPAN=20
+            style=3D"FONT-SIZE: 12pt" lang=3DEN-AU>When cmd =3D2 or 3 =
+(_COM_SEND or=20
+            _COM_RECEIVE) parameter abyte is ignored.</SPAN></FONT></P>
+            <P class=3DMsoNormal align=3Djustify><FONT =
+face=3DArial><SPAN=20
+            style=3D"FONT-SIZE: 12pt" lang=3DEN-AU>&nbsp;When cmd =3D 0 =
+(_COM_INIT),=20
+            abyte is an OR combination of the following bits</SPAN><SPAN =
+
+            style=3D"FONT-SIZE: 12pt"> </SPAN><SPAN style=3D"FONT-SIZE: =
+12pt"=20
+            lang=3DEN-AU>(One from each group):&nbsp;</SPAN></FONT></P>
+            <CENTER>
+            <TABLE=20
+            style=3D"BORDER-BOTTOM-STYLE: none; BORDER-LEFT: black =
+0.75pt solid; BACKGROUND-COLOR: white; BORDER-COLLAPSE: collapse; =
+BORDER-TOP-STYLE: none; MARGIN-LEFT: 0.1in; MARGIN-RIGHT: 0.1in; =
+BORDER-RIGHT: black 0.75pt solid"=20
+            class=3DMsoTableGrid border=3D1 cellSpacing=3D0 =
+borderColor=3D#111111=20
+            cellPadding=3D3 fpstyle=3D"19,011111100">
+              <TBODY>
+              <TR>
+                <TD=20
+                style=3D"BORDER-BOTTOM-STYLE: none; BORDER-LEFT: black =
+0.75pt solid; BACKGROUND-COLOR: #ffe1e1; WIDTH: 185.4pt; =
+BORDER-TOP-STYLE: none; COLOR: black; FONT-WEIGHT: normal; BORDER-RIGHT: =
+black 0.75pt solid"=20
+                vAlign=3Dtop width=3D309 colSpan=3D2>
+                  <P class=3DMsoNormal align=3Dcenter><FONT =
+face=3DArial><SPAN=20
+                  style=3D"FONT-SIZE: 12pt" lang=3DEN-AU>value of=20
+                  abyte</SPAN></FONT></P></TD>
+                <TD=20
+                style=3D"BORDER-BOTTOM-STYLE: none; BACKGROUND-COLOR: =
+#ffe1e1; WIDTH: 117pt; BORDER-TOP-STYLE: none; COLOR: black; =
+BORDER-LEFT-STYLE: none; FONT-WEIGHT: normal; BORDER-RIGHT: black 0.75pt =
+solid"=20
+                vAlign=3Dtop rowSpan=3D2 width=3D195>
+                  <P class=3DMsoNormal align=3Dcenter><FONT =
+face=3DArial><SPAN=20
+                  style=3D"FONT-SIZE: 12pt" =
+lang=3DEN-AU>Meaning</SPAN></FONT></P>
+                  <P class=3DMsoNormal align=3Djustify><FONT =
+face=3DArial><SPAN=20
+                  style=3D"FONT-SIZE: 12pt"=20
+              lang=3DEN-AU></SPAN></FONT>&nbsp;</P></TD></TR>
+              <TR>
+                <TD=20
+                style=3D"BORDER-BOTTOM-STYLE: none; BORDER-LEFT: black =
+0.75pt solid; BACKGROUND-COLOR: #ffe1e1; WIDTH: 0.95in; COLOR: black; =
+BORDER-TOP: black 0.75pt solid; FONT-WEIGHT: normal; BORDER-RIGHT: black =
+0.75pt solid"=20
+                vAlign=3Dtop width=3D114 align=3Dmiddle>
+                  <P class=3DMsoNormal><FONT face=3DArial><SPAN=20
+                  style=3D"FONT-SIZE: 12pt"=20
+lang=3DEN-AU>Bioscom</SPAN></FONT></P></TD>
+                <TD=20
+                style=3D"BORDER-BOTTOM-STYLE: none; WIDTH: 117pt; COLOR: =
+black; BORDER-LEFT-STYLE: none; BORDER-TOP: black 0.75pt solid; =
+BORDER-RIGHT: black 0.75pt solid"=20
+                bgColor=3D#ffe1e1 vAlign=3Dtop width=3D195 =
+align=3Dmiddle>
+                  <P class=3DMsoNormal><FONT face=3DArial><SPAN=20
+                  style=3D"FONT-SIZE: 12pt"=20
+                  =
+lang=3DEN-AU>_bios_serialcom</SPAN></FONT></P></TD></TR>
+              <TR>
+                <TD=20
+                style=3D"BORDER-BOTTOM-STYLE: none; BORDER-LEFT: black =
+0.75pt solid; BACKGROUND-COLOR: white; WIDTH: 0.95in; COLOR: black; =
+BORDER-TOP: black 0.75pt solid; FONT-WEIGHT: normal; BORDER-RIGHT: black =
+0.75pt solid"=20
+                vAlign=3Dtop width=3D114>
+                  <P class=3DMsoNormal align=3Djustify><FONT =
+face=3DArial><SPAN=20
+                  style=3D"FONT-SIZE: 12pt" =
+lang=3DEN-AU>0x02</SPAN></FONT></P>
+                  <P class=3DMsoNormal align=3Dcenter><FONT =
+face=3DArial><SPAN=20
+                  style=3D"FONT-SIZE: 12pt" =
+lang=3DEN-AU>0x03</SPAN></FONT></P></TD>
+                <TD=20
+                style=3D"BORDER-BOTTOM-STYLE: none; WIDTH: 117pt; COLOR: =
+black; BORDER-LEFT-STYLE: none; BORDER-TOP: black 0.75pt solid; =
+BORDER-RIGHT: black 0.75pt solid"=20
+                vAlign=3Dtop width=3D195>
+                  <P class=3DMsoNormal align=3Djustify><FONT =
+face=3DArial><SPAN=20
+                  style=3D"FONT-SIZE: 12pt" =
+lang=3DEN-AU>_COM_CHR7</SPAN></FONT></P>
+                  <P class=3DMsoNormal align=3Djustify><FONT =
+face=3DArial><SPAN=20
+                  style=3D"FONT-SIZE: 12pt"=20
+                lang=3DEN-AU>_COM_CHR8</SPAN></FONT></P></TD>
+                <TD=20
+                style=3D"BORDER-BOTTOM-STYLE: none; WIDTH: 117pt; COLOR: =
+black; BORDER-LEFT-STYLE: none; BORDER-TOP: black 0.75pt solid; =
+BORDER-RIGHT: black 0.75pt solid"=20
+                vAlign=3Dtop width=3D195 align=3Djustify>
+                  <P class=3DMsoNormal align=3Dcenter><FONT =
+face=3DArial><SPAN=20
+                  style=3D"FONT-SIZE: 12pt" lang=3DEN-AU>7 data=20
+                  bits</SPAN></FONT></P>
+                  <P class=3DMsoNormal align=3Dcenter><FONT =
+face=3DArial><SPAN=20
+                  style=3D"FONT-SIZE: 12pt" lang=3DEN-AU>8 data=20
+                  bits</SPAN></FONT></P></TD></TR>
+              <TR>
+                <TD=20
+                style=3D"BORDER-BOTTOM-STYLE: none; BORDER-LEFT: black =
+0.75pt solid; BACKGROUND-COLOR: white; WIDTH: 0.95in; COLOR: black; =
+BORDER-TOP: black 0.75pt solid; FONT-WEIGHT: normal; BORDER-RIGHT: black =
+0.75pt solid"=20
+                vAlign=3Dtop width=3D114>
+                  <P class=3DMsoNormal align=3Dcenter><FONT =
+face=3DArial><SPAN=20
+                  style=3D"FONT-SIZE: 12pt" =
+lang=3DEN-AU>0x00</SPAN></FONT></P>
+                  <P class=3DMsoNormal align=3Dcenter><FONT =
+face=3DArial><SPAN=20
+                  style=3D"FONT-SIZE: 12pt" =
+lang=3DEN-AU>0x04</SPAN></FONT></P></TD>
+                <TD=20
+                style=3D"BORDER-BOTTOM-STYLE: none; WIDTH: 117pt; COLOR: =
+black; BORDER-LEFT-STYLE: none; BORDER-TOP: black 0.75pt solid; =
+BORDER-RIGHT: black 0.75pt solid"=20
+                vAlign=3Dtop width=3D195>
+                  <P class=3DMsoNormal align=3Djustify><FONT =
+face=3DArial><SPAN=20
+                  style=3D"FONT-SIZE: 12pt"=20
+lang=3DEN-AU>_COM_STOP1</SPAN></FONT></P>
+                  <P class=3DMsoNormal align=3Djustify><FONT =
+face=3DArial><SPAN=20
+                  style=3D"FONT-SIZE: 12pt"=20
+                lang=3DEN-AU>_COM_STOP2</SPAN></FONT></P></TD>
+                <TD=20
+                style=3D"BORDER-BOTTOM-STYLE: none; WIDTH: 117pt; COLOR: =
+black; BORDER-LEFT-STYLE: none; BORDER-TOP: black 0.75pt solid; =
+BORDER-RIGHT: black 0.75pt solid"=20
+                vAlign=3Dtop width=3D195 align=3Djustify>
+                  <P class=3DMsoNormal align=3Dcenter><FONT =
+face=3DArial><SPAN=20
+                  style=3D"FONT-SIZE: 12pt" lang=3DEN-AU>1 stop=20
+bit</SPAN></FONT></P>
+                  <P class=3DMsoNormal align=3Dcenter><FONT =
+face=3DArial><SPAN=20
+                  style=3D"FONT-SIZE: 12pt" lang=3DEN-AU>2 stop=20
+                  bits</SPAN></FONT></P></TD></TR>
+              <TR>
+                <TD=20
+                style=3D"BORDER-BOTTOM-STYLE: none; BORDER-LEFT: black =
+0.75pt solid; BACKGROUND-COLOR: white; WIDTH: 0.95in; COLOR: black; =
+BORDER-TOP: black 0.75pt solid; FONT-WEIGHT: normal; BORDER-RIGHT: black =
+0.75pt solid"=20
+                vAlign=3Dtop width=3D114>
+                  <P class=3DMsoNormal align=3Dcenter><FONT =
+face=3DArial><SPAN=20
+                  style=3D"FONT-SIZE: 12pt" =
+lang=3DEN-AU>0x00</SPAN></FONT></P>
+                  <P class=3DMsoNormal align=3Dcenter><FONT =
+face=3DArial><SPAN=20
+                  style=3D"FONT-SIZE: 12pt" =
+lang=3DEN-AU>0x08</SPAN></FONT></P>
+                  <P class=3DMsoNormal align=3Dcenter><FONT =
+face=3DArial><SPAN=20
+                  style=3D"FONT-SIZE: 12pt" =
+lang=3DEN-AU>0X10</SPAN></FONT></P></TD>
+                <TD=20
+                style=3D"BORDER-BOTTOM-STYLE: none; WIDTH: 117pt; COLOR: =
+black; BORDER-LEFT-STYLE: none; BORDER-TOP: black 0.75pt solid; =
+BORDER-RIGHT: black 0.75pt solid"=20
+                vAlign=3Dtop width=3D195>
+                  <P class=3DMsoNormal align=3Djustify><FONT =
+face=3DArial><SPAN=20
+                  style=3D"FONT-SIZE: 12pt"=20
+                  lang=3DEN-AU>_COM_NOPARITY</SPAN></FONT></P>
+                  <P class=3DMsoNormal align=3Djustify><FONT =
+face=3DArial><SPAN=20
+                  style=3D"FONT-SIZE: 12pt"=20
+                  lang=3DEN-AU>_COM_ODDPARITY</SPAN></FONT></P>
+                  <P class=3DMsoNormal align=3Djustify><FONT =
+face=3DArial><SPAN=20
+                  style=3D"FONT-SIZE: 12pt"=20
+                  lang=3DEN-AU>_COM_EVENPARITY</SPAN></FONT></P></TD>
+                <TD=20
+                style=3D"BORDER-BOTTOM-STYLE: none; WIDTH: 117pt; COLOR: =
+black; BORDER-LEFT-STYLE: none; BORDER-TOP: black 0.75pt solid; =
+BORDER-RIGHT: black 0.75pt solid"=20
+                vAlign=3Dtop width=3D195>
+                  <P class=3DMsoNormal align=3Dcenter><FONT =
+face=3DArial><SPAN=20
+                  style=3D"FONT-SIZE: 12pt" lang=3DEN-AU>No =
+parity</SPAN></FONT></P>
+                  <P class=3DMsoNormal align=3Dcenter><FONT =
+face=3DArial><SPAN=20
+                  style=3D"FONT-SIZE: 12pt" lang=3DEN-AU>Odd=20
+parity</SPAN></FONT></P>
+                  <P class=3DMsoNormal align=3Dcenter><FONT =
+face=3DArial><SPAN=20
+                  style=3D"FONT-SIZE: 12pt" lang=3DEN-AU>Even=20
+                  parity</SPAN></FONT></P></TD></TR>
+              <TR>
+                <TD=20
+                style=3D"BORDER-BOTTOM-STYLE: none; BORDER-LEFT: black =
+0.75pt solid; BACKGROUND-COLOR: white; WIDTH: 0.95in; COLOR: black; =
+BORDER-TOP: black 0.75pt solid; FONT-WEIGHT: normal; BORDER-RIGHT: black =
+0.75pt solid"=20
+                vAlign=3Dtop width=3D114>
+                  <P class=3DMsoNormal align=3Dcenter><FONT =
+face=3DArial><SPAN=20
+                  style=3D"FONT-SIZE: 12pt" =
+lang=3DEN-AU>0x00</SPAN></FONT></P>
+                  <P class=3DMsoNormal align=3Dcenter><FONT =
+face=3DArial><SPAN=20
+                  style=3D"FONT-SIZE: 12pt" =
+lang=3DEN-AU>0x20</SPAN></FONT></P>
+                  <P class=3DMsoNormal align=3Dcenter><FONT =
+face=3DArial><SPAN=20
+                  style=3D"FONT-SIZE: 12pt" =
+lang=3DEN-AU>0x40</SPAN></FONT></P>
+                  <P class=3DMsoNormal align=3Dcenter><FONT =
+face=3DArial><SPAN=20
+                  style=3D"FONT-SIZE: 12pt" =
+lang=3DEN-AU>0x60</SPAN></FONT></P>
+                  <P class=3DMsoNormal align=3Dcenter><FONT =
+face=3DArial><SPAN=20
+                  style=3D"FONT-SIZE: 12pt" =
+lang=3DEN-AU>0x80</SPAN></FONT></P>
+                  <P class=3DMsoNormal align=3Dcenter><FONT =
+face=3DArial><SPAN=20
+                  style=3D"FONT-SIZE: 12pt" =
+lang=3DEN-AU>0xA0</SPAN></FONT></P>
+                  <P class=3DMsoNormal align=3Dcenter><FONT =
+face=3DArial><SPAN=20
+                  style=3D"FONT-SIZE: 12pt" =
+lang=3DEN-AU>0xC0</SPAN></FONT></P>
+                  <P class=3DMsoNormal align=3Dcenter><FONT =
+face=3DArial><SPAN=20
+                  style=3D"FONT-SIZE: 12pt" =
+lang=3DEN-AU>0xE0</SPAN></FONT></P></TD>
+                <TD=20
+                style=3D"BORDER-BOTTOM-STYLE: none; WIDTH: 117pt; COLOR: =
+black; BORDER-LEFT-STYLE: none; BORDER-TOP: black 0.75pt solid; =
+BORDER-RIGHT: black 0.75pt solid"=20
+                vAlign=3Dtop width=3D195>
+                  <P class=3DMsoNormal align=3Djustify><FONT =
+face=3DArial><SPAN=20
+                  style=3D"FONT-SIZE: 12pt" =
+lang=3DEN-AU>_COM_110</SPAN></FONT></P>
+                  <P class=3DMsoNormal align=3Djustify><FONT =
+face=3DArial><SPAN=20
+                  style=3D"FONT-SIZE: 12pt" =
+lang=3DEN-AU>_COM_150</SPAN></FONT></P>
+                  <P class=3DMsoNormal align=3Djustify><FONT =
+face=3DArial><SPAN=20
+                  style=3D"FONT-SIZE: 12pt" =
+lang=3DEN-AU>_COM_300</SPAN></FONT></P>
+                  <P class=3DMsoNormal align=3Djustify><FONT =
+face=3DArial><SPAN=20
+                  style=3D"FONT-SIZE: 12pt" =
+lang=3DEN-AU>_COM_600</SPAN></FONT></P>
+                  <P class=3DMsoNormal align=3Djustify><FONT =
+face=3DArial><SPAN=20
+                  style=3D"FONT-SIZE: 12pt" =
+lang=3DEN-AU>_COM_1200</SPAN></FONT></P>
+                  <P class=3DMsoNormal align=3Djustify><FONT =
+face=3DArial><SPAN=20
+                  style=3D"FONT-SIZE: 12pt" =
+lang=3DEN-AU>_COM_2400</SPAN></FONT></P>
+                  <P class=3DMsoNormal align=3Djustify><FONT =
+face=3DArial><SPAN=20
+                  style=3D"FONT-SIZE: 12pt" =
+lang=3DEN-AU>_COM_4800</SPAN></FONT></P>
+                  <P class=3DMsoNormal align=3Djustify><FONT =
+face=3DArial><SPAN=20
+                  style=3D"FONT-SIZE: 12pt"=20
+                lang=3DEN-AU>_COM_9600</SPAN></FONT></P></TD>
+                <TD=20
+                style=3D"BORDER-BOTTOM-STYLE: none; WIDTH: 117pt; COLOR: =
+black; BORDER-LEFT-STYLE: none; BORDER-TOP: black 0.75pt solid; =
+BORDER-RIGHT: black 0.75pt solid"=20
+                vAlign=3Dtop width=3D195>
+                  <P class=3DMsoNormal align=3Dcenter><FONT =
+face=3DArial><SPAN=20
+                  style=3D"FONT-SIZE: 12pt" lang=3DEN-AU>110 =
+baud</SPAN></FONT></P>
+                  <P class=3DMsoNormal align=3Dcenter><FONT =
+face=3DArial><SPAN=20
+                  style=3D"FONT-SIZE: 12pt" lang=3DEN-AU>150 =
+baud</SPAN></FONT></P>
+                  <P class=3DMsoNormal align=3Dcenter><FONT =
+face=3DArial><SPAN=20
+                  style=3D"FONT-SIZE: 12pt" lang=3DEN-AU>300 =
+baud</SPAN></FONT></P>
+                  <P class=3DMsoNormal align=3Dcenter><FONT =
+face=3DArial><SPAN=20
+                  style=3D"FONT-SIZE: 12pt" lang=3DEN-AU>600 =
+baud</SPAN></FONT></P>
+                  <P class=3DMsoNormal align=3Dcenter><FONT =
+face=3DArial><SPAN=20
+                  style=3D"FONT-SIZE: 12pt" lang=3DEN-AU>1200 =
+baud</SPAN></FONT></P>
+                  <P class=3DMsoNormal align=3Dcenter><FONT =
+face=3DArial><SPAN=20
+                  style=3D"FONT-SIZE: 12pt" lang=3DEN-AU>2400 =
+baud</SPAN></FONT></P>
+                  <P class=3DMsoNormal align=3Dcenter><FONT =
+face=3DArial><SPAN=20
+                  style=3D"FONT-SIZE: 12pt" lang=3DEN-AU>4800 =
+baud</SPAN></FONT></P>
+                  <P class=3DMsoNormal align=3Dcenter><FONT =
+face=3DArial><SPAN=20
+                  style=3D"FONT-SIZE: 12pt" lang=3DEN-AU>9600=20
+                =
+baud</SPAN></FONT></P></TD></TR></TBODY></TABLE></CENTER>
+            <P class=3DMsoNormal align=3Djustify><SPAN=20
+            style=3D"FONT-SIZE: 12pt; FONT-WEIGHT: 700" =
+lang=3DEN-AU><FONT=20
+            face=3D"Times New Roman">&nbsp;</FONT></SPAN><SPAN=20
+            style=3D"FONT-SIZE: 12pt" lang=3DEN-AU><FONT =
+face=3DArial>For example,=20
+            if&nbsp;</FONT></SPAN></P>
+            <P class=3DMsoNormal align=3Djustify><FONT =
+face=3DArial><SPAN=20
+            style=3D"FONT-SIZE: 12pt" lang=3DEN-AU>&nbsp;abyte =3D 0x8B =
+=3D (0x80 | 0x08=20
+            | 0x00 | 0x03)</SPAN><SPAN style=3D"FONT-SIZE: 12pt"> =
+</SPAN><SPAN=20
+            style=3D"FONT-SIZE: 12pt" lang=3DEN-AU>=3D (_COM_1200 | =
+_COM_ODDPARITY |=20
+            _COM_STOP1 | _COM_CHR8)</SPAN></FONT></P>
+            <P class=3DMsoNormal align=3Djustify><FONT =
+face=3DArial><SPAN=20
+            style=3D"FONT-SIZE: 12pt" lang=3DEN-AU>&nbsp; the =
+communications port is=20
+            set to<BR>&nbsp; 1200 baud&nbsp;&nbsp;&nbsp; (0x80 =3D=20
+            _COM_1200)<BR>&nbsp; Odd parity&nbsp;&nbsp; (0x08 =3D=20
+            _COM_ODDPARITY)<BR>&nbsp; 1 stop bit&nbsp;&nbsp; (0x00 =3D=20
+            _COM_STOP1)<BR>&nbsp; 8 data bits (0x03 =3D=20
+            _COM_CHR8)</SPAN></FONT></P>
+            <P class=3DMsoNormal align=3Djustify><FONT =
+face=3DArial><SPAN=20
+            style=3D"FONT-SIZE: 12pt" lang=3DEN-AU>To initialise the =
+port with above=20
+            settings we have to write,</SPAN></FONT></P>
+            <P class=3DMsoNormal align=3Djustify><FONT =
+face=3DArial><SPAN=20
+            style=3D"FONT-SIZE: 12pt"=20
+            =
+lang=3DEN-AU>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=20
+            bioscom(0, 0x8B, 0);</SPAN></FONT></P>
+            <P class=3DMsoNormal align=3Djustify><FONT =
+face=3DArial><SPAN=20
+            style=3D"FONT-SIZE: 12pt" lang=3DEN-AU>&nbsp;To send a data =
+to COM1, the=20
+            format of the function will be bioscom(1, data, 0). =
+Similarly=20
+            bioscom(1, 0, 0 ) will read a data byte from the=20
+            port.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=20
+            </SPAN></FONT></P>
+            <P class=3DMsoNormal align=3Djustify><FONT =
+face=3DArial><SPAN=20
+            style=3D"FONT-SIZE: 12pt"=20
+            =
+lang=3DEN-AU>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; The=20
+            following example illustrate how to serial port programs. =
+When a=20
+            data is available in the port, it inputs the data and =
+displays onto=20
+            the screen and if a key is pressed the ASCII value will be =
+sent to=20
+            the port.</SPAN></FONT></P>
+            <TABLE style=3D"BORDER-COLLAPSE: collapse" id=3DAutoNumber2 =
+border=3D1=20
+            cellSpacing=3D0 borderColor=3D#111111 cellPadding=3D0 =
+width=3D"100%"=20
+            bgColor=3D#ffccff>
+              <TBODY>
+              <TR>
+                <TD bgColor=3D#ffe1e1>
+                  <P class=3DMsoNormal align=3Djustify><FONT=20
+                  face=3D"Courier New"><FONT color=3D#a020f0>#include =
+</FONT><FONT=20
+                  color=3D#ff00ff>&lt;bios.h&gt;</FONT><BR><FONT=20
+                  color=3D#a020f0>#include </FONT><FONT=20
+                  color=3D#ff00ff>&lt;conio.h&gt;</FONT><BR><FONT=20
+                  color=3D#a020f0>#define =
+COM1&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=20
+                  </FONT><FONT color=3D#ff00ff>0</FONT><BR><FONT=20
+                  color=3D#a020f0>#define DATA_READY </FONT><FONT=20
+                  color=3D#ff00ff>0x100</FONT><BR><FONT =
+color=3D#a020f0>#define=20
+                  SETTINGS ( </FONT><FONT =
+color=3D#ff00ff>0x80</FONT><FONT=20
+                  color=3D#a020f0> | </FONT><FONT =
+color=3D#ff00ff>0x02</FONT><FONT=20
+                  color=3D#a020f0> | </FONT><FONT =
+color=3D#ff00ff>0x00</FONT><FONT=20
+                  color=3D#a020f0> | </FONT><FONT =
+color=3D#ff00ff>0x00</FONT><FONT=20
+                  color=3D#a020f0>)</FONT><BR><FONT=20
+                  color=3D#2e8b57><B>int</B></FONT> main(<FONT=20
+                  =
+color=3D#2e8b57><B>void</B></FONT>)<BR>{<BR>&nbsp;&nbsp; <FONT=20
+                  color=3D#2e8b57><B>int</B></FONT> in, out,=20
+                  status;<BR>&nbsp;&nbsp; bioscom(<FONT =
+color=3D#ff00ff>0</FONT>,=20
+                  SETTINGS, COM1); <FONT color=3D#0000ff>/*initialize =
+the=20
+                  port*/</FONT><BR>&nbsp;&nbsp; cprintf(<FONT=20
+                  color=3D#ff00ff>"Data sent to you:&nbsp;=20
+                  "</FONT>);<BR>&nbsp;&nbsp; <FONT=20
+                  color=3D#804040><B>while</B></FONT> (<FONT=20
+                  color=3D#ff00ff>1</FONT>)<BR>&nbsp;&nbsp;=20
+                  {<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; status =3D =
+bioscom(<FONT=20
+                  color=3D#ff00ff>3</FONT>, <FONT =
+color=3D#ff00ff>0</FONT>, COM1);=20
+                  <FONT color=3D#0000ff>/*wait until get a=20
+                  data*/</FONT><BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <FONT=20
+                  color=3D#804040><B>if</B></FONT> (status &amp;=20
+                  =
+DATA_READY)<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=20
+                  &nbsp;if ((out =3D bioscom(<FONT =
+color=3D#ff00ff>2</FONT>, <FONT=20
+                  color=3D#ff00ff>0</FONT>, COM1) &amp; <FONT=20
+                  color=3D#ff00ff>0x7F</FONT>) !=3D <FONT=20
+                  color=3D#ff00ff>0</FONT>)&nbsp; <FONT =
+color=3D#0000ff>/*input a=20
+                  =
+data*/</FONT><BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&n=
+bsp;&nbsp;&nbsp;&nbsp;=20
+                  =
+putch(out);<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=20
+                  &nbsp;if=20
+                  =
+(kbhit())<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=20
+                  =
+&nbsp;{<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&n=
+bsp;&nbsp;&nbsp;=20
+                  <FONT color=3D#804040><B>if</B></FONT> ((in =3D =
+getch()) =3D=3D <FONT=20
+                  color=3D#ff00ff>27</FONT>)&nbsp;&nbsp; <FONT =
+color=3D#0000ff>/*=20
+                  ASCII of=20
+                  =
+Esc*/</FONT><BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nb=
+sp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=20
+                  <FONT=20
+                  =
+color=3D#804040><B>break</B></FONT>;<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nb=
+sp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=20
+                  bioscom(<FONT color=3D#ff00ff>1</FONT>, in, =
+COM1);&nbsp;&nbsp;=20
+                  <FONT color=3D#0000ff>/*output a=20
+                  =
+data*/</FONT><BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=20
+                  &nbsp;}<BR>&nbsp;&nbsp; }<BR>&nbsp;&nbsp; <FONT=20
+                  color=3D#804040><B>return</B></FONT> <FONT=20
+                  =
+color=3D#ff00ff>0</FONT>;<BR>}</FONT><BR><BR></P></TD></TR></TBODY></TABL=
+E>
+            <P class=3DMsoNormal align=3Djustify><FONT =
+face=3DArial><SPAN=20
+            style=3D"FONT-FAMILY: Roman PX" =
+lang=3DEN-AU>&nbsp;</SPAN><SPAN=20
+            style=3D"FONT-SIZE: =
+12pt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=20
+            </SPAN><SPAN style=3D"FONT-SIZE: 12pt" lang=3DEN-AU>When you =
+compile and=20
+            run the above program in both the computers, The characters =
+typed in=20
+            one computer should appear on the other computer screen and =
+vice=20
+            versa. </SPAN><SPAN style=3D"FONT-SIZE: 12pt">Initially, we =
+set the=20
+            port to desired settings as defined in macro settings. Then =
+we=20
+            waited in an idle loop until a&nbsp; key is pressed or a =
+data is=20
+            available on the port. If any key is pressed, then kbhit() =
+function=20
+            returns non zero value. So will go to getch function where =
+we are=20
+            finding out which key is pressed. Then we are sending it to =
+the com=20
+            port. Similarly, if any data is available on the port, we =
+are=20
+            receiving it from the port and displaying it on the screen.=20
+            </SPAN></FONT></P>
+            <P class=3DMsoNormal align=3Djustify><FONT =
+face=3DArial><SPAN=20
+            style=3D"FONT-SIZE: 12pt"=20
+            =
+lang=3DEN-AU>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; To=20
+            check the port,</SPAN><SPAN style=3D"FONT-SIZE: 12pt"> If =
+you have a=20
+            single computer,</SPAN><SPAN style=3D"FONT-SIZE: 12pt" =
+lang=3DEN-AU> you=20
+            can use loop-back connection as follows. </SPAN><SPAN=20
+            style=3D"FONT-SIZE: 12pt">This is most commonly used method =
+for=20
+            developing communication programs. </SPAN><SPAN=20
+            style=3D"FONT-SIZE: 12pt" lang=3DEN-AU>Here, data is =
+transmitted to that=20
+            port itself. Loop-back plug connection is as=20
+            follows.&nbsp;</SPAN></FONT></P>
+            <P class=3DMsoNormal align=3Dcenter><FONT face=3DArial><IMG =
+border=3D0=20
+            alt=3D"Loop Back Plug Connection"=20
+            src=3D"http://electrosofts.com/serial/loopback.jpg" =
+width=3D180=20
+            height=3D234 =
+webstripperlinkwas=3D"serial_files/image003.jpg"><BR><U>Fig=20
+            2. Loop-back plug connection</U></FONT></P>
+            <P class=3DMsoNormal align=3Djustify><FONT =
+face=3DArial><SPAN=20
+            style=3D"FONT-SIZE: 12pt" =
+lang=3DEN-AU>&nbsp;&nbsp;</SPAN><SPAN=20
+            style=3D"FONT-SIZE: 12pt"> </SPAN><SPAN style=3D"FONT-SIZE: =
+12pt"=20
+            lang=3DEN-AU>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; If you run =
+the above=20
+            program with the connection as in this diagram, the =
+character=20
+            entered in the keyboard should be displayed on the screen. =
+This=20
+            method is helpful in writing serial port program with single =
+
+            computer.</SPAN><SPAN style=3D"FONT-SIZE: 12pt"> Also you =
+can make=20
+            changes in the port id if your computer has 2 rs232ports. =
+You can=20
+            connect the com1 port to com2 of the same computer and =
+change the=20
+            port id in the program. The data sent to the port com1 =
+should come=20
+            to port com2. then also whatever you type in the keyboard =
+should=20
+            appear on the screen. </SPAN></FONT></P>
+            <P class=3DMsoNormal align=3Djustify><FONT =
+face=3DArial><SPAN=20
+            style=3D"FONT-SIZE: 12pt">&nbsp;=20
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; The program given =
+below=20
+            is an example source code for serial communication =
+programmers. It=20
+            is a PC to PC communication using RS232. Download the code, =
+unzip=20
+            and run to chat in dos mode between two computers. Use the =
+program=20
+            to get more idea about serial port =
+programming.</SPAN></FONT></P>
+            <P class=3DMsoNormal align=3Djustify><B><FONT =
+face=3DArial><A=20
+            style=3D"COLOR: blue; TEXT-DECORATION: underline"=20
+            href=3D"http://electrosofts.com/downloads/pc2pc.zip"=20
+            =
+webstripperlinkwas=3D"http://geocities.com/harshaperla/down_files/pc2pc.z=
+ip"><SPAN=20
+            style=3D"FONT-SIZE: 12pt" lang=3DEN-AU>Click here to =
+download example=20
+            </SPAN><SPAN style=3D"FONT-SIZE: 12pt">source code:=20
+            pc2pc.zip</SPAN></A><SPAN style=3D"FONT-SIZE: 12pt" =
+lang=3DEN-AU>=20
+            </SPAN></FONT></B></P>
+            <P class=3DMsoNormal align=3Djustify><FONT =
+face=3DArial><SPAN=20
+            style=3D"FONT-SIZE: 12pt" lang=3DEN-AU>Please contact us if =
+any problem=20
+            exits in the above programs.</SPAN></FONT></P>
+            <P><B><FONT face=3DArial><A=20
+            =
+href=3D"http://electrosofts.com/links/port_programming.html"><SPAN=20
+            style=3D"FONT-SIZE: 12pt">&gt;Interfacing =
+Links:L</SPAN><SPAN=20
+            style=3D"FONT-SIZE: 12pt" lang=3DEN-AU>inks related to =
+serial port,=20
+            bioscom function, rs232, rs485, usb, parallel port=20
+            etc.</SPAN></A><SPAN style=3D"FONT-SIZE: 12pt"=20
+            lang=3DEN-AU><BR></SPAN><SPAN style=3D"FONT-SIZE: 12pt"><A=20
+            href=3D"http://electrosofts.com/links/c_cpp.html"=20
+            =
+webstripperlinkwas=3D"http://geocities.com/harshaperla/links/c_cpp.html">=
+&gt;Click=20
+            here to list other C Programming =
+sites</A></SPAN></FONT></B></P>
+            <P><SPAN style=3D"FONT-WEIGHT: 700"><FONT=20
+            face=3D"Times New =
+Roman">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=
+&nbsp;</FONT></SPAN><FONT=20
+            face=3DArial> <A =
+href=3D"http://electrosofts.com/feedback.html">Click=20
+            here to send feedback </A>&nbsp;or use email: <A=20
+            =
+href=3D"mailto:harsha@electrosofts.com">harsha@electrosofts.com</A> or=20
+            <A=20
+            =
+href=3D"mailto:veena@electrosofts.com">veena@electrosofts.com</A></FONT><=
+/P>
+            <P><FONT face=3DArial><SPAN lang=3DEN-AU>Note: Examples =
+given above are=20
+            tested with Turbo C++ Compiler Version 3.0. </SPAN>How ever, =
+we do=20
+            not give any guaranty for working of the programs in the=20
+            examples<SPAN lang=3DEN-AU>.=20
+      =
+<BR>&nbsp;</SPAN></FONT></P></TD></TR></TBODY></TABLE></CENTER></DIV>
+      <P align=3Dcenter>
+      <SCRIPT type=3Dtext/javascript><!--
+google_ad_client =3D "pub-1403170442550738";
+google_alternate_color =3D "CC0000";
+google_ad_width =3D 728;
+google_ad_height =3D 15;
+google_ad_format =3D "728x15_0ads_al_s";
+google_ad_channel =3D"4645973219";
+google_color_border =3D "FFE1E1";
+google_color_bg =3D "FFFFFF";
+google_color_link =3D "000000";
+google_color_url =3D "000000";
+google_color_text =3D "000000";
+//--></SCRIPT>
+
+      <SCRIPT type=3Dtext/javascript=20
+      src=3D"http://pagead2.googlesyndication.com/pagead/show_ads.js">
+</SCRIPT>
+      =
+</P><!--msnavigation--></TD></TR><!--msnavigation--></TBODY></TABLE><!--m=
+snavigation-->
+<TABLE border=3D0 cellSpacing=3D0 cellPadding=3D0 width=3D"100%">
+  <TBODY>
+  <TR>
+    <TD><FONT face=3D"Lucida Sans Unicode">
+      <P align=3Dcenter><FONT color=3D#606060 size=3D1 face=3DVerdana><A =
+
+      href=3D"http://electrosofts.com/">Home</A>&nbsp;&nbsp; =
+|&nbsp;&nbsp;&nbsp;=20
+      <A href=3D"http://electrosofts.com/about.html">About =
+Us</A>&nbsp;&nbsp;=20
+      |&nbsp;&nbsp; <A =
+href=3D"http://electrosofts.com/articles.html">Articles/=20
+      Tutorials</A>&nbsp;&nbsp; |&nbsp;&nbsp; <A=20
+      =
+href=3D"http://electrosofts.com/downloads/index.html">Downloads</A>&nbsp;=
+&nbsp;=20
+      |&nbsp;&nbsp; <A=20
+      =
+href=3D"http://electrosofts.com/feedback.html">Feedback</A>&nbsp;&nbsp;=20
+      |&nbsp;&nbsp; <A=20
+      =
+href=3D"http://electrosofts.com/links/index.html">Links</A>&nbsp;&nbsp;=20
+      |&nbsp;&nbsp; <A=20
+      =
+href=3D"http://electrosofts.com/ebooks/index.html">eBooks</A>&nbsp;&nbsp;=
+=20
+      |&nbsp;&nbsp; <A =
+href=3D"http://electrosofts.com/privacy.html">Privacy=20
+      Policy</A><BR>Copyright =A9 2005-2007 electroSofts.com.<BR><A=20
+      =
+href=3D"mailto:webmaster@electroSofts.com">webmaster@electroSofts.com</A>=
+</FONT></P></FONT></TD></TR><!--msnavigation--></TBODY></TABLE></BODY></H=
+TML>
+
+------=_NextPart_000_0000_01CC7F04.B28DB590
+Content-Type: image/jpeg
+Content-Transfer-Encoding: base64
+Content-Location: http://electrosofts.com/images/electrosofts.jpg
+
+/9j/4AAQSkZJRgABAQEBLAEsAAD/4QhvRXhpZgAATU0AKgAAAAgABwESAAMAAAABAAEAAAEaAAUA
+AAABAAAAYgEbAAUAAAABAAAAagEoAAMAAAABAAIAAAExAAIAAAAcAAAAcgEyAAIAAAAUAAAAjodp
+AAQAAAABAAAApAAAANAALcbAAAAnEAAtxsAAACcQQWRvYmUgUGhvdG9zaG9wIENTMyBXaW5kb3dz
+ADIwMDg6MTE6MDUgMjM6MzA6NTMAAAAAA6ABAAMAAAABAAEAAKACAAQAAAABAAABkKADAAQAAAAB
+AAAAKgAAAAAAAAAGAQMAAwAAAAEABgAAARoABQAAAAEAAAEeARsABQAAAAEAAAEmASgAAwAAAAEA
+AgAAAgEABAAAAAEAAAEuAgIABAAAAAEAAAc5AAAAAAAAAEgAAAABAAAASAAAAAH/2P/gABBKRklG
+AAECAABIAEgAAP/tAAxBZG9iZV9DTQAB/+4ADkFkb2JlAGSAAAAAAf/bAIQADAgICAkIDAkJDBEL
+CgsRFQ8MDA8VGBMTFRMTGBEMDAwMDAwRDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAENCwsN
+Dg0QDg4QFA4ODhQUDg4ODhQRDAwMDAwREQwMDAwMDBEMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwM
+DAwM/8AAEQgAEQCgAwEiAAIRAQMRAf/dAAQACv/EAT8AAAEFAQEBAQEBAAAAAAAAAAMAAQIEBQYH
+CAkKCwEAAQUBAQEBAQEAAAAAAAAAAQACAwQFBgcICQoLEAABBAEDAgQCBQcGCAUDDDMBAAIRAwQh
+EjEFQVFhEyJxgTIGFJGhsUIjJBVSwWIzNHKC0UMHJZJT8OHxY3M1FqKygyZEk1RkRcKjdDYX0lXi
+ZfKzhMPTdePzRieUpIW0lcTU5PSltcXV5fVWZnaGlqa2xtbm9jdHV2d3h5ent8fX5/cRAAICAQIE
+BAMEBQYHBwYFNQEAAhEDITESBEFRYXEiEwUygZEUobFCI8FS0fAzJGLhcoKSQ1MVY3M08SUGFqKy
+gwcmNcLSRJNUoxdkRVU2dGXi8rOEw9N14/NGlKSFtJXE1OT0pbXF1eX1VmZ2hpamtsbW5vYnN0dX
+Z3eHl6e3x//aAAwDAQACEQMRAD8A5OjoWE/dTVhfaX010OtutzasUF19bb2hjckMZ+c9jWMfZ9BW
+c3pHTKftHTn7a8bGwKspt7aq7MgXvupZYx99bm+rtbdbjub9q+y+z1E2Hn4TbvtteR0xxczHdU3P
++0l9VtFLaN4rw2bN+/f9N1n+DsTZGV0a9tww8yiim3Cqw667Rc0+rXbTdfYRsyHVY9vp3WUPstsf
+/N+qgbo1uyxGPijxGo0OKv8AnNWv6n+u22yr7dVXj1+vacjDLNzJazZibLrPXyf0jdtP6L9H6lnr
+fo1PG+r2Jituz7as17Mal9jKcvCdWyxx/Q1Hey21np0WvbkZHqbP0FViu39W6abeoW35WD9p6rjH
+Ga7DGSa2Pc+u+y6/7Q1jMeq51P6T0Kr7PWs/wdfqqFed0usO+15WE/ItwnYNF2K7LJDvQ+w0vzfX
+2YrKPSH6X0Me39J/g/8ACJarSIg6UdfwaV31c6fb9lyA+/GHUWzTiVUG0teK677W0utuY+/Hf6v6
+r6br7f8AA3fpK/0sD9VsdrWOnqLzZJFLMB3qM2mP04fcyv3/AE6/Qsv9n7ln6NXWdV6e1+GTmsI6
+R9LV/v8A1ajG/UfZ/p6bPp+h/pEHoPV20/s/KZl41WR05l1Tq843hrha572ur+yNe/btu/fZ+kYl
+qgcOn13KF31TqZj1Zb3ZxpyHWMqqbhk3tdVsNhyKje1ldbvVZ6D2W2+r+l/m/SSP1SaytmQ85pqu
+e6uulmG45DXs2us+1UOtZXUzbbV6D67r/W/4N9VtavU53Sq+nfsk5WFkWb7X3W3/AGkUAWFr8e3D
+ura237Viva71PUxffVd6PqPq+01p29Sraenz1bCvy+nX2Wi237TsdU5lFePS+9tLL73U+lbV/pK6
+fS/S/wCiVnsu4YV8w3I67folBj9LwcDDc+tuQcy64V1MzOnh7nCI9LFquffjutfZZ/x3sR8vomLl
+5bOjvxmYud9mrtsyqK3FvrPeweo6rHfbX9kdVcynM+zsfXiZmPdZi/oPUpU2dS6ex7LLuo4zrWdU
+HVbhR6+zYA3dVjuupa99+/ftY7/t1Z2D1Hp1XT6bb79zWYZwrcWsubeS7LdmONenp+l9nf8A6X6f
+6NIXumRhXCADV+r66Ih9V67WluP9ubbB2vyMM1U7gDDLb232+h6jm+mx72env/nvSr/SIPTvq8Mr
+DqybBl2HILvSZh432iAw7Heq/wBWlrLN3+D/AHFtnP6fbmjLuz8CnFvLa+o00/apyaC4eq+7GfXb
++tWVfpP6R6v2pn2j1ftP6ZCZk9PacX7PldNoFFF+PbQ52YaizINn+Fax2RZY6u/3enZ+j9NLXstM
+Y2KkDpf+F+61H/VFtLan2HOsbktNlTKMNzrGNBNbmZjLLavQyN7Hfoq3X/otl3q/pUzvqtitqqtn
+qLhcHEMbg+9m07P0s5G33fTZsWjjdVwaMzByMDLwarOnVWVWsu+1ih7rXWvLsZ36bLsq2XfTssq/
+S1/zXpfTHRl4VNVdP7VxXCqnMrO037fVymvrqLN9DdzNvo+rb/5BIk9AmMYVcpAeG7i5/RcejHvt
+x7L/AFMT0zfTlUilwbbIrezbdf8Anfmv9P6ayF03WMzC+w5Da8urJfdj4OMxtW8uDsWutmQ9/q11
+/o97H+l++uZRHislV+nZSSSSSFJJJJKf/9DypJJJJSkkkklKSSSSUpJJJJSkkkklKSSSSUpJJJJS
+kkkklKSSSSUpJJJJT//Z/+0NplBob3Rvc2hvcCAzLjAAOEJJTQQlAAAAAAAQAAAAAAAAAAAAAAAA
+AAAAADhCSU0ELwAAAAAASsCLAQBIAAAASAAAAAAAAAAAAAAA0AIAAEACAAAAAAAAAAAAABgDAABk
+AgAAAAHAAwAAsAQAAAEADycBAGxsdW4AAAAAAAAAAAAAOEJJTQPtAAAAAAAQASwAAAABAAEBLAAA
+AAEAAThCSU0EJgAAAAAADgAAAAAAAAAAAAA/gAAAOEJJTQQNAAAAAAAEAAAAeDhCSU0EGQAAAAAA
+BAAAAEE4QklNA/MAAAAAAAkAAAAAAAAAAAEAOEJJTQQKAAAAAAABAAA4QklNJxAAAAAAAAoAAQAA
+AAAAAAACOEJJTQP1AAAAAABIAC9mZgABAGxmZgAGAAAAAAABAC9mZgABAKGZmgAGAAAAAAABADIA
+AAABAFoAAAAGAAAAAAABADUAAAABAC0AAAAGAAAAAAABOEJJTQP4AAAAAABwAAD/////////////
+////////////////A+gAAAAA/////////////////////////////wPoAAAAAP//////////////
+//////////////8D6AAAAAD/////////////////////////////A+gAADhCSU0EAAAAAAAAAgAC
+OEJJTQQCAAAAAAAGAAAAAAAAOEJJTQQwAAAAAAADAQEBADhCSU0ELQAAAAAABgABAAAABjhCSU0E
+CAAAAAAAEAAAAAEAAAJAAAACQAAAAAA4QklNBB4AAAAAAAQAAAAAOEJJTQQaAAAAAANJAAAABgAA
+AAAAAAAAAAAAKgAAAZAAAAAKAFUAbgB0AGkAdABsAGUAZAAtADEAAAABAAAAAAAAAAAAAAAAAAAA
+AAAAAAEAAAAAAAAAAAAAAZAAAAAqAAAAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAA
+EAAAAAEAAAAAAABudWxsAAAAAgAAAAZib3VuZHNPYmpjAAAAAQAAAAAAAFJjdDEAAAAEAAAAAFRv
+cCBsb25nAAAAAAAAAABMZWZ0bG9uZwAAAAAAAAAAQnRvbWxvbmcAAAAqAAAAAFJnaHRsb25nAAAB
+kAAAAAZzbGljZXNWbExzAAAAAU9iamMAAAABAAAAAAAFc2xpY2UAAAASAAAAB3NsaWNlSURsb25n
+AAAAAAAAAAdncm91cElEbG9uZwAAAAAAAAAGb3JpZ2luZW51bQAAAAxFU2xpY2VPcmlnaW4AAAAN
+YXV0b0dlbmVyYXRlZAAAAABUeXBlZW51bQAAAApFU2xpY2VUeXBlAAAAAEltZyAAAAAGYm91bmRz
+T2JqYwAAAAEAAAAAAABSY3QxAAAABAAAAABUb3AgbG9uZwAAAAAAAAAATGVmdGxvbmcAAAAAAAAA
+AEJ0b21sb25nAAAAKgAAAABSZ2h0bG9uZwAAAZAAAAADdXJsVEVYVAAAAAEAAAAAAABudWxsVEVY
+VAAAAAEAAAAAAABNc2dlVEVYVAAAAAEAAAAAAAZhbHRUYWdURVhUAAAAAQAAAAAADmNlbGxUZXh0
+SXNIVE1MYm9vbAEAAAAIY2VsbFRleHRURVhUAAAAAQAAAAAACWhvcnpBbGlnbmVudW0AAAAPRVNs
+aWNlSG9yekFsaWduAAAAB2RlZmF1bHQAAAAJdmVydEFsaWduZW51bQAAAA9FU2xpY2VWZXJ0QWxp
+Z24AAAAHZGVmYXVsdAAAAAtiZ0NvbG9yVHlwZWVudW0AAAARRVNsaWNlQkdDb2xvclR5cGUAAAAA
+Tm9uZQAAAAl0b3BPdXRzZXRsb25nAAAAAAAAAApsZWZ0T3V0c2V0bG9uZwAAAAAAAAAMYm90dG9t
+T3V0c2V0bG9uZwAAAAAAAAALcmlnaHRPdXRzZXRsb25nAAAAAAA4QklNBCgAAAAAAAwAAAABP/AA
+AAAAAAA4QklNBBQAAAAAAAQAAAAJOEJJTQQMAAAAAAdVAAAAAQAAAKAAAAARAAAB4AAAH+AAAAc5
+ABgAAf/Y/+AAEEpGSUYAAQIAAEgASAAA/+0ADEFkb2JlX0NNAAH/7gAOQWRvYmUAZIAAAAAB/9sA
+hAAMCAgICQgMCQkMEQsKCxEVDwwMDxUYExMVExMYEQwMDAwMDBEMDAwMDAwMDAwMDAwMDAwMDAwM
+DAwMDAwMDAwMAQ0LCw0ODRAODhAUDg4OFBQODg4OFBEMDAwMDBERDAwMDAwMEQwMDAwMDAwMDAwM
+DAwMDAwMDAwMDAwMDAwMDAz/wAARCAARAKADASIAAhEBAxEB/90ABAAK/8QBPwAAAQUBAQEBAQEA
+AAAAAAAAAwABAgQFBgcICQoLAQABBQEBAQEBAQAAAAAAAAABAAIDBAUGBwgJCgsQAAEEAQMCBAIF
+BwYIBQMMMwEAAhEDBCESMQVBUWETInGBMgYUkaGxQiMkFVLBYjM0coLRQwclklPw4fFjczUWorKD
+JkSTVGRFwqN0NhfSVeJl8rOEw9N14/NGJ5SkhbSVxNTk9KW1xdXl9VZmdoaWprbG1ub2N0dXZ3eH
+l6e3x9fn9xEAAgIBAgQEAwQFBgcHBgU1AQACEQMhMRIEQVFhcSITBTKBkRShsUIjwVLR8DMkYuFy
+gpJDUxVjczTxJQYWorKDByY1wtJEk1SjF2RFVTZ0ZeLys4TD03Xj80aUpIW0lcTU5PSltcXV5fVW
+ZnaGlqa2xtbm9ic3R1dnd4eXp7fH/9oADAMBAAIRAxEAPwDk6OhYT91NWF9pfTXQ6263NqxQXX1t
+vaGNyQxn5z2NYx9n0FZzekdMp+0dOftrxsbAqym3tqrsyBe+6lljH31ub6u1t1uO5v2r7L7PUTYe
+fhNu+215HTHFzMd1Tc/7SX1W0Uto3ivDZs379/03Wf4OxNkZXRr23DDzKKKbcKrDrrtFzT6tdtN1
+9hGzIdVj2+ndZQ+y2x/836qBujW7LEY+KPEajQ4q/wCc1a/qf67bbKvt1VePX69pyMMs3MlrNmJs
+us9fJ/SN20/ov0fqWet+jU8b6vYmK27PtqzXsxqX2Mpy8J1bLHH9DUd7LbWenRa9uRkeps/QVWK7
+f1bppt6hbflYP2nquMcZrsMZJrY9z677Lr/tDWMx6rnU/pPQqvs9az/B1+qoV53S6w77XlYT8i3C
+dg0XYrsskO9D7DS/N9fZiso9IfpfQx7f0n+D/wAIlqtIiDpR1/BpXfVzp9v2XID78YdRbNOJVQbS
+14rrvtbS625j78d/q/qvpuvt/wADd+kr/SwP1Wx2tY6eovNkkUswHeozaY/Th9zK/f8ATr9Cy/2f
+uWfo1dZ1Xp7X4ZOawjpH0tX+/wDVqMb9R9n+nps+n6H+kQeg9XbT+z8pmXjVZHTmXVOrzjeGuFrn
+va6v7I179u2799n6RiWqBw6fXcoXfVOpmPVlvdnGnIdYyqpuGTe11Ww2HIqN7WV1u9VnoPZbb6v6
+X+b9JI/VJrK2ZDzmmq57q66WYbjkNeza6z7VQ61ldTNttXoPruv9b/g31W1q9TndKr6d+yTlYWRZ
+vtfdbf8AaRQBYWvx7cO6trbftWK9rvU9TF99V3o+o+r7TWnb1Ktp6fPVsK/L6dfZaLbftOx1TmUV
+49L720svvdT6VtX+krp9L9L/AKJWey7hhXzDcjrt+iUGP0vBwMNz625BzLrhXUzM6eHucIj0sWq5
+9+O619ln/HexHy+iYuXls6O/GZi532au2zKorcW+s97B6jqsd9tf2R1VzKcz7Ox9eJmY91mL+g9S
+lTZ1Lp7Hssu6jjOtZ1QdVuFHr7NgDd1WO66lr3379+1jv+3VnYPUenVdPptvv3NZhnCtxay5t5Ls
+t2Y416en6X2d/wDpfp/o0he6ZGFcIANX6vroiH1XrtaW4/25tsHa/IwzVTuAMMtvbfb6HqOb6bHv
+Z6e/+e9Kv9Ig9O+rwysOrJsGXYcgu9JmHjfaIDDsd6r/AFaWss3f4P8AcW2c/p9uaMu7PwKcW8tr
+6jTT9qnJoLh6r7sZ9dv61ZV+k/pHq/amfaPV+0/pkJmT09pxfs+V02gUUX49tDnZhqLMg2f4VrHZ
+Fljq7/d6dn6P00tey0xjYqQOl/4X7rUf9UW0tqfYc6xuS02VMow3OsY0E1uZmMstq9DI3sd+irdf
++i2Xer+lTO+q2K2qq2eouFwcQxuD72bTs/Szkbfd9NmxaON1XBozMHIwMvBqs6dVZVay77WKHutd
+a8uxnfpsuyrZd9Oyyr9LX/Nel9MdGXhU1V0/tXFcKqcys7Tft9XKa+uos30N3M2+j6tv/kEiT0CY
+xhVykB4buLn9Fx6Me+3Hsv8AUxPTN9OVSKXBtsit7Nt1/wCd+a/0/prIXTdYzML7DkNry6sl92Pg
+4zG1by4Oxa62ZD3+rXX+j3sf6X765lEeKyVX6dlJJJJIUkkkkp//0PKkkkklKSSSSUpJJJJSkkkk
+lKSSSSUpJJJJSkkkklKSSSSUpJJJJSkkkklP/9kAOEJJTQQhAAAAAABVAAAAAQEAAAAPAEEAZABv
+AGIAZQAgAFAAaABvAHQAbwBzAGgAbwBwAAAAEwBBAGQAbwBiAGUAIABQAGgAbwB0AG8AcwBoAG8A
+cAAgAEMAUwAzAAAAAQA4QklNBAYAAAAAAAcACAAAAAEBAP/hD89odHRwOi8vbnMuYWRvYmUuY29t
+L3hhcC8xLjAvADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3pr
+YzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2Jl
+IFhNUCBDb3JlIDQuMS1jMDM2IDQ2LjI3NjcyMCwgTW9uIEZlYiAxOSAyMDA3IDIyOjQwOjA4ICAg
+ICAgICAiPiA8cmRmOlJERiB4bWxuczpyZGY9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkvMDIvMjIt
+cmRmLXN5bnRheC1ucyMiPiA8cmRmOkRlc2NyaXB0aW9uIHJkZjphYm91dD0iIiB4bWxuczpkYz0i
+aHR0cDovL3B1cmwub3JnL2RjL2VsZW1lbnRzLzEuMS8iIHhtbG5zOnhhcD0iaHR0cDovL25zLmFk
+b2JlLmNvbS94YXAvMS4wLyIgeG1sbnM6eGFwTU09Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEu
+MC9tbS8iIHhtbG5zOnN0UmVmPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvc1R5cGUvUmVz
+b3VyY2VSZWYjIiB4bWxuczpwaG90b3Nob3A9Imh0dHA6Ly9ucy5hZG9iZS5jb20vcGhvdG9zaG9w
+LzEuMC8iIHhtbG5zOnRpZmY9Imh0dHA6Ly9ucy5hZG9iZS5jb20vdGlmZi8xLjAvIiB4bWxuczpl
+eGlmPSJodHRwOi8vbnMuYWRvYmUuY29tL2V4aWYvMS4wLyIgZGM6Zm9ybWF0PSJpbWFnZS9qcGVn
+IiB4YXA6Q3JlYXRvclRvb2w9IkFkb2JlIFBob3Rvc2hvcCBDUzMgV2luZG93cyIgeGFwOkNyZWF0
+ZURhdGU9IjIwMDgtMTEtMDVUMjM6MzA6NTMrMDU6MzAiIHhhcDpNb2RpZnlEYXRlPSIyMDA4LTEx
+LTA1VDIzOjMwOjUzKzA1OjMwIiB4YXA6TWV0YWRhdGFEYXRlPSIyMDA4LTExLTA1VDIzOjMwOjUz
+KzA1OjMwIiB4YXBNTTpEb2N1bWVudElEPSJ1dWlkOjM4OERGMTVCNjBBQkREMTE5OTMwQkY5OEI1
+REQyQTI1IiB4YXBNTTpJbnN0YW5jZUlEPSJ1dWlkOjM5OERGMTVCNjBBQkREMTE5OTMwQkY5OEI1
+REQyQTI1IiBwaG90b3Nob3A6Q29sb3JNb2RlPSIzIiBwaG90b3Nob3A6SUNDUHJvZmlsZT0ic1JH
+QiBJRUM2MTk2Ni0yLjEiIHBob3Rvc2hvcDpIaXN0b3J5PSIiIHRpZmY6T3JpZW50YXRpb249IjEi
+IHRpZmY6WFJlc29sdXRpb249IjMwMDAwMDAvMTAwMDAiIHRpZmY6WVJlc29sdXRpb249IjMwMDAw
+MDAvMTAwMDAiIHRpZmY6UmVzb2x1dGlvblVuaXQ9IjIiIHRpZmY6TmF0aXZlRGlnZXN0PSIyNTYs
+MjU3LDI1OCwyNTksMjYyLDI3NCwyNzcsMjg0LDUzMCw1MzEsMjgyLDI4MywyOTYsMzAxLDMxOCwz
+MTksNTI5LDUzMiwzMDYsMjcwLDI3MSwyNzIsMzA1LDMxNSwzMzQzMjs5M0NBQTVCQjY2NDI0NEQw
+NjBBRjUwNzMyOEY3REVDQyIgZXhpZjpQaXhlbFhEaW1lbnNpb249IjQwMCIgZXhpZjpQaXhlbFlE
+aW1lbnNpb249IjQyIiBleGlmOkNvbG9yU3BhY2U9IjEiIGV4aWY6TmF0aXZlRGlnZXN0PSIzNjg2
+NCw0MDk2MCw0MDk2MSwzNzEyMSwzNzEyMiw0MDk2Miw0MDk2MywzNzUxMCw0MDk2NCwzNjg2Nywz
+Njg2OCwzMzQzNCwzMzQzNywzNDg1MCwzNDg1MiwzNDg1NSwzNDg1NiwzNzM3NywzNzM3OCwzNzM3
+OSwzNzM4MCwzNzM4MSwzNzM4MiwzNzM4MywzNzM4NCwzNzM4NSwzNzM4NiwzNzM5Niw0MTQ4Myw0
+MTQ4NCw0MTQ4Niw0MTQ4Nyw0MTQ4OCw0MTQ5Miw0MTQ5Myw0MTQ5NSw0MTcyOCw0MTcyOSw0MTcz
+MCw0MTk4NSw0MTk4Niw0MTk4Nyw0MTk4OCw0MTk4OSw0MTk5MCw0MTk5MSw0MTk5Miw0MTk5Myw0
+MTk5NCw0MTk5NSw0MTk5Niw0MjAxNiwwLDIsNCw1LDYsNyw4LDksMTAsMTEsMTIsMTMsMTQsMTUs
+MTYsMTcsMTgsMjAsMjIsMjMsMjQsMjUsMjYsMjcsMjgsMzA7RjU5RDRFQTkxODc3MTRCN0EzNUM0
+RjZEQjE5QjQ5MUUiPiA8eGFwTU06RGVyaXZlZEZyb20gc3RSZWY6aW5zdGFuY2VJRD0idXVpZDo3
+MjNBMDU5NTVFQUJERDExOTkzMEJGOThCNUREMkEyNSIgc3RSZWY6ZG9jdW1lbnRJRD0idXVpZDo3
+MjNBMDU5NTVFQUJERDExOTkzMEJGOThCNUREMkEyNSIvPiA8L3JkZjpEZXNjcmlwdGlvbj4gPC9y
+ZGY6UkRGPiA8L3g6eG1wbWV0YT4gICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICA8P3hwYWNrZXQgZW5kPSJ3Ij8+/+IMWElDQ19QUk9GSUxFAAEBAAAM
+SExpbm8CEAAAbW50clJHQiBYWVogB84AAgAJAAYAMQAAYWNzcE1TRlQAAAAASUVDIHNSR0IAAAAA
+AAAAAAAAAAEAAPbWAAEAAAAA0y1IUCAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAARY3BydAAAAVAAAAAzZGVzYwAAAYQAAABsd3RwdAAAAfAAAAAUYmtwdAAA
+AgQAAAAUclhZWgAAAhgAAAAUZ1hZWgAAAiwAAAAUYlhZWgAAAkAAAAAUZG1uZAAAAlQAAABwZG1k
+ZAAAAsQAAACIdnVlZAAAA0wAAACGdmlldwAAA9QAAAAkbHVtaQAAA/gAAAAUbWVhcwAABAwAAAAk
+dGVjaAAABDAAAAAMclRSQwAABDwAAAgMZ1RSQwAABDwAAAgMYlRSQwAABDwAAAgMdGV4dAAAAABD
+b3B5cmlnaHQgKGMpIDE5OTggSGV3bGV0dC1QYWNrYXJkIENvbXBhbnkAAGRlc2MAAAAAAAAAEnNS
+R0IgSUVDNjE5NjYtMi4xAAAAAAAAAAAAAAASc1JHQiBJRUM2MTk2Ni0yLjEAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAFhZWiAAAAAAAADzUQABAAAAARbM
+WFlaIAAAAAAAAAAAAAAAAAAAAABYWVogAAAAAAAAb6IAADj1AAADkFhZWiAAAAAAAABimQAAt4UA
+ABjaWFlaIAAAAAAAACSgAAAPhAAAts9kZXNjAAAAAAAAABZJRUMgaHR0cDovL3d3dy5pZWMuY2gA
+AAAAAAAAAAAAABZJRUMgaHR0cDovL3d3dy5pZWMuY2gAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAZGVzYwAAAAAAAAAuSUVDIDYxOTY2LTIuMSBEZWZhdWx0IFJH
+QiBjb2xvdXIgc3BhY2UgLSBzUkdCAAAAAAAAAAAAAAAuSUVDIDYxOTY2LTIuMSBEZWZhdWx0IFJH
+QiBjb2xvdXIgc3BhY2UgLSBzUkdCAAAAAAAAAAAAAAAAAAAAAAAAAAAAAGRlc2MAAAAAAAAALFJl
+ZmVyZW5jZSBWaWV3aW5nIENvbmRpdGlvbiBpbiBJRUM2MTk2Ni0yLjEAAAAAAAAAAAAAACxSZWZl
+cmVuY2UgVmlld2luZyBDb25kaXRpb24gaW4gSUVDNjE5NjYtMi4xAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAB2aWV3AAAAAAATpP4AFF8uABDPFAAD7cwABBMLAANcngAAAAFYWVogAAAAAABMCVYA
+UAAAAFcf521lYXMAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAKPAAAAAnNpZyAAAAAAQ1JUIGN1
+cnYAAAAAAAAEAAAAAAUACgAPABQAGQAeACMAKAAtADIANwA7AEAARQBKAE8AVABZAF4AYwBoAG0A
+cgB3AHwAgQCGAIsAkACVAJoAnwCkAKkArgCyALcAvADBAMYAywDQANUA2wDgAOUA6wDwAPYA+wEB
+AQcBDQETARkBHwElASsBMgE4AT4BRQFMAVIBWQFgAWcBbgF1AXwBgwGLAZIBmgGhAakBsQG5AcEB
+yQHRAdkB4QHpAfIB+gIDAgwCFAIdAiYCLwI4AkECSwJUAl0CZwJxAnoChAKOApgCogKsArYCwQLL
+AtUC4ALrAvUDAAMLAxYDIQMtAzgDQwNPA1oDZgNyA34DigOWA6IDrgO6A8cD0wPgA+wD+QQGBBME
+IAQtBDsESARVBGMEcQR+BIwEmgSoBLYExATTBOEE8AT+BQ0FHAUrBToFSQVYBWcFdwWGBZYFpgW1
+BcUF1QXlBfYGBgYWBicGNwZIBlkGagZ7BowGnQavBsAG0QbjBvUHBwcZBysHPQdPB2EHdAeGB5kH
+rAe/B9IH5Qf4CAsIHwgyCEYIWghuCIIIlgiqCL4I0gjnCPsJEAklCToJTwlkCXkJjwmkCboJzwnl
+CfsKEQonCj0KVApqCoEKmAquCsUK3ArzCwsLIgs5C1ELaQuAC5gLsAvIC+EL+QwSDCoMQwxcDHUM
+jgynDMAM2QzzDQ0NJg1ADVoNdA2ODakNww3eDfgOEw4uDkkOZA5/DpsOtg7SDu4PCQ8lD0EPXg96
+D5YPsw/PD+wQCRAmEEMQYRB+EJsQuRDXEPURExExEU8RbRGMEaoRyRHoEgcSJhJFEmQShBKjEsMS
+4xMDEyMTQxNjE4MTpBPFE+UUBhQnFEkUahSLFK0UzhTwFRIVNBVWFXgVmxW9FeAWAxYmFkkWbBaP
+FrIW1hb6Fx0XQRdlF4kXrhfSF/cYGxhAGGUYihivGNUY+hkgGUUZaxmRGbcZ3RoEGioaURp3Gp4a
+xRrsGxQbOxtjG4obshvaHAIcKhxSHHscoxzMHPUdHh1HHXAdmR3DHeweFh5AHmoelB6+HukfEx8+
+H2kflB+/H+ogFSBBIGwgmCDEIPAhHCFIIXUhoSHOIfsiJyJVIoIiryLdIwojOCNmI5QjwiPwJB8k
+TSR8JKsk2iUJJTglaCWXJccl9yYnJlcmhya3JugnGCdJJ3onqyfcKA0oPyhxKKIo1CkGKTgpaymd
+KdAqAio1KmgqmyrPKwIrNitpK50r0SwFLDksbiyiLNctDC1BLXYtqy3hLhYuTC6CLrcu7i8kL1ov
+kS/HL/4wNTBsMKQw2zESMUoxgjG6MfIyKjJjMpsy1DMNM0YzfzO4M/E0KzRlNJ402DUTNU01hzXC
+Nf02NzZyNq426TckN2A3nDfXOBQ4UDiMOMg5BTlCOX85vDn5OjY6dDqyOu87LTtrO6o76DwnPGU8
+pDzjPSI9YT2hPeA+ID5gPqA+4D8hP2E/oj/iQCNAZECmQOdBKUFqQaxB7kIwQnJCtUL3QzpDfUPA
+RANER0SKRM5FEkVVRZpF3kYiRmdGq0bwRzVHe0fASAVIS0iRSNdJHUljSalJ8Eo3Sn1KxEsMS1NL
+mkviTCpMcky6TQJNSk2TTdxOJU5uTrdPAE9JT5NP3VAnUHFQu1EGUVBRm1HmUjFSfFLHUxNTX1Oq
+U/ZUQlSPVNtVKFV1VcJWD1ZcVqlW91dEV5JX4FgvWH1Yy1kaWWlZuFoHWlZaplr1W0VblVvlXDVc
+hlzWXSddeF3JXhpebF69Xw9fYV+zYAVgV2CqYPxhT2GiYfViSWKcYvBjQ2OXY+tkQGSUZOllPWWS
+ZedmPWaSZuhnPWeTZ+loP2iWaOxpQ2maafFqSGqfavdrT2una/9sV2yvbQhtYG25bhJua27Ebx5v
+eG/RcCtwhnDgcTpxlXHwcktypnMBc11zuHQUdHB0zHUodYV14XY+dpt2+HdWd7N4EXhueMx5KnmJ
+eed6RnqlewR7Y3vCfCF8gXzhfUF9oX4BfmJ+wn8jf4R/5YBHgKiBCoFrgc2CMIKSgvSDV4O6hB2E
+gITjhUeFq4YOhnKG14c7h5+IBIhpiM6JM4mZif6KZIrKizCLlov8jGOMyo0xjZiN/45mjs6PNo+e
+kAaQbpDWkT+RqJIRknqS45NNk7aUIJSKlPSVX5XJljSWn5cKl3WX4JhMmLiZJJmQmfyaaJrVm0Kb
+r5wcnImc951kndKeQJ6unx2fi5/6oGmg2KFHobaiJqKWowajdqPmpFakx6U4pammGqaLpv2nbqfg
+qFKoxKk3qamqHKqPqwKrdavprFys0K1ErbiuLa6hrxavi7AAsHWw6rFgsdayS7LCszizrrQltJy1
+E7WKtgG2ebbwt2i34LhZuNG5SrnCuju6tbsuu6e8IbybvRW9j74KvoS+/796v/XAcMDswWfB48Jf
+wtvDWMPUxFHEzsVLxcjGRsbDx0HHv8g9yLzJOsm5yjjKt8s2y7bMNcy1zTXNtc42zrbPN8+40DnQ
+utE80b7SP9LB00TTxtRJ1MvVTtXR1lXW2Ndc1+DYZNjo2WzZ8dp22vvbgNwF3IrdEN2W3hzeot8p
+36/gNuC94UThzOJT4tvjY+Pr5HPk/OWE5g3mlucf56noMui86Ubp0Opb6uXrcOv77IbtEe2c7iju
+tO9A78zwWPDl8XLx//KM8xnzp/Q09ML1UPXe9m32+/eK+Bn4qPk4+cf6V/rn+3f8B/yY/Sn9uv5L
+/tz/bf///9sAQwADAgIDAgIDAwMDBAMDBAUIBQUEBAUKBwcGCAwKDAwLCgsLDQ4SEA0OEQ4LCxAW
+EBETFBUVFQwPFxgWFBgSFBUU/9sAQwEDBAQFBAUJBQUJFA0LDRQUFBQUFBQUFBQUFBQUFBQUFBQU
+FBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQU/8AAEQgAKgEtAwERAAIRAQMRAf/EAB8AAAEF
+AQEBAQEBAAAAAAAAAAABAgMEBQYHCAkKC//EALUQAAIBAwMCBAMFBQQEAAABfQECAwAEEQUSITFB
+BhNRYQcicRQygZGhCCNCscEVUtHwJDNicoIJChYXGBkaJSYnKCkqNDU2Nzg5OkNERUZHSElKU1RV
+VldYWVpjZGVmZ2hpanN0dXZ3eHl6g4SFhoeIiYqSk5SVlpeYmZqio6Slpqeoqaqys7S1tre4ubrC
+w8TFxsfIycrS09TV1tfY2drh4uPk5ebn6Onq8fLz9PX29/j5+v/EAB8BAAMBAQEBAQEBAQEAAAAA
+AAABAgMEBQYHCAkKC//EALURAAIBAgQEAwQHBQQEAAECdwABAgMRBAUhMQYSQVEHYXETIjKBCBRC
+kaGxwQkjM1LwFWJy0QoWJDThJfEXGBkaJicoKSo1Njc4OTpDREVGR0hJSlNUVVZXWFlaY2RlZmdo
+aWpzdHV2d3h5eoKDhIWGh4iJipKTlJWWl5iZmqKjpKWmp6ipqrKztLW2t7i5usLDxMXGx8jJytLT
+1NXW19jZ2uLj5OXm5+jp6vLz9PX29/j5+v/aAAwDAQACEQMRAD8A/NTwr8LvE/jVC+jaTPfKO8ak
+0AdL/wAM0/Ef/oWbz/v23+FAGTqfwZ8V+Hr61h1fR7iySaQIGkQgc0Ae2eIPh38HfhMU0XxpF4nu
+deFrBcSyaVZ28kCCaMSIAXnQk4YZ4HOaydRKXKd8MHUnR9umrfieTfHv4Wp8KfGP9nQO0lrNEk8D
+OMMUdQy5HrgitTgPM6ACgAoAKAPcfhV8C9F8UeCD4m8Ta9H4e0qS9j06K8mR2QTyK7IG2glVwjZY
+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
+
+------=_NextPart_000_0000_01CC7F04.B28DB590
+Content-Type: image/jpeg
+Content-Transfer-Encoding: base64
+Content-Location: http://electrosofts.com/images/shadebwl.jpg
+
+/9j/4AAQSkZJRgABAQEASABIAAD/2wBDAAMCAgMCAgMDAwMEAwMEBQgFBQQEBQoHBwYIDAoMDAsK
+CwsNDhIQDQ4RDgsLEBYQERMUFRUVDA8XGBYUGBIUFRT/2wBDAQMEBAUEBQkFBQkUDQsNFBQUFBQU
+FBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBT/wgARCAAbABsDASIA
+AhEBAxEB/8QAGgAAAgIDAAAAAAAAAAAAAAAAAAgHCQIEBv/EABQBAQAAAAAAAAAAAAAAAAAAAAD/
+2gAMAwEAAhADEAAAAVf1J5gYAC0NMXfCq3GzXkD/xAAcEAABBAMBAAAAAAAAAAAAAAAFAQIEBgMH
+EAD/2gAIAQEAAQUCl4HRZXds1Z4o10gPjlYds1UQD5HNVjukQA0v5daVpV//xAAUEQEAAAAAAAAA
+AAAAAAAAAAAg/9oACAEDAQE/AR//xAAUEQEAAAAAAAAAAAAAAAAAAAAg/9oACAECAQE/AR//xAAp
+EAACAQEGAwkAAAAAAAAAAAABAgMEAAURIDGRJEFxEhUyM0JSgZPR/9oACAEBAAY/ApoX8cblD1GR
+ryiThKw4kj0yc99d8ktLVRCaCQYMps813K14UWuC+YnUc/ixVhgRqDk4yhgqD7njHa3tj3Wv2P8A
+tv/EACMQAQABAgMJAAAAAAAAAAAAAAERAFEgITFBYXGBkaGx0fD/2gAIAQEAAT8hGpBVuQ+MCBmL
+mWzPxyYL/a1+nfWikgZKw93QUsB0AhHBn2n5wcNRTJStjr//2gAMAwEAAgADAAAAEHPDNP/EABQR
+AQAAAAAAAAAAAAAAAAAAACD/2gAIAQMBAT8QH//EABQRAQAAAAAAAAAAAAAAAAAAACD/2gAIAQIB
+AT8QH//EAB0QAQABBQEBAQAAAAAAAAAAAAERACAhMVGBQZH/2gAIAQEAAT8Q3KmkEk+qxogtMU82
+KV2osO32PgbETIIIERBESptofpegJJyZhWhlPmwWERyJyxRjeAk5D+SUPGkoZ4BDyv/Z
+
+------=_NextPart_000_0000_01CC7F04.B28DB590
+Content-Type: image/jpeg
+Content-Transfer-Encoding: base64
+Content-Location: http://electrosofts.com/images/shadebwr.jpg
+
+/9j/4AAQSkZJRgABAQEASABIAAD/2wBDAAMCAgMCAgMDAwMEAwMEBQgFBQQEBQoHBwYIDAoMDAsK
+CwsNDhIQDQ4RDgsLEBYQERMUFRUVDA8XGBYUGBIUFRT/2wBDAQMEBAUEBQkFBQkUDQsNFBQUFBQU
+FBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBT/wgARCAAbABsDASIA
+AhEBAxEB/8QAGQAAAgMBAAAAAAAAAAAAAAAAAAgFBgkH/8QAFAEBAAAAAAAAAAAAAAAAAAAAAP/a
+AAwDAQACEAMQAAABVQAkNREjdwyrv/f2SIKwgf/EABsQAAEFAQEAAAAAAAAAAAAAAAUCAwQGEAcA
+/9oACAEBAAEFAsHxVT5+8jryiR7KrSiFrkAgkavDfc/pwadGbbQyjP/EABQRAQAAAAAAAAAAAAAA
+AAAAACD/2gAIAQMBAT8BH//EABQRAQAAAAAAAAAAAAAAAAAAACD/2gAIAQIBAT8BH//EACoQAAIB
+AgMECwAAAAAAAAAAAAECAwQQETFBACEikRITFBUgJDJRcYHR/9oACAEBAAY/ArU1MnqmkWMfZw8H
+eEi+Wot4J1kOX7yuBAhipQeOpccI+Pc7RUVIvRiTU5sdSbdoqKFJ5Vy6wkjljhsqRqERdwVRgBf/
+xAAgEAEAAQMEAwEAAAAAAAAAAAABERAhgQAxQVEgYbHw/9oACAEBAAE/IaGRJT7AffBnJCIsSDi/
+onasFkls+T4jMag+m+591yv61HLwJZe5MmjK5ZA6Ar//2gAMAwEAAgADAAAAEPFMPP/EABQRAQAA
+AAAAAAAAAAAAAAAAACD/2gAIAQMBAT8QH//EABQRAQAAAAAAAAAAAAAAAAAAACD/2gAIAQIBAT8Q
+H//EAB4QAQACAQQDAAAAAAAAAAAAAAERMSEAEEFRIGGh/9oACAEBAAE/ENlmH5b94HhKVmRsAzaW
+Uz0DchoUYJ6GCm5JDOl4oMZoCtB6CAAAae7bkdMyFHJoWNQwVAAB0b//2Q==
+
+------=_NextPart_000_0000_01CC7F04.B28DB590
+Content-Type: image/jpeg
+Content-Transfer-Encoding: base64
+Content-Location: http://electrosofts.com/serial/nullmodem.jpg
+
+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
+QsQd9XBJqmSXP/n/AP/Z
+
+------=_NextPart_000_0000_01CC7F04.B28DB590
+Content-Type: image/jpeg
+Content-Transfer-Encoding: base64
+Content-Location: http://electrosofts.com/serial/loopback.jpg
+
+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
+
+------=_NextPart_000_0000_01CC7F04.B28DB590
+Content-Type: application/octet-stream
+Content-Transfer-Encoding: quoted-printable
+Content-Location: http://pagead2.googlesyndication.com/pagead/show_ads.js
+
+=0A=
+(function(){var g=3Dtrue,h=3Dnull,i=3Dfalse,j=3D(new Date).getTime();var =
+k=3Dthis,aa=3Dfunction(a,b){var c=3Da.split("."),d=3Dk;!(c[0]in =
+d)&&d.execScript&&d.execScript("var "+c[0]);for(var =
+e;c.length&&(e=3Dc.shift());)!c.length&&b!=3D=3Dvoid =
+0?d[e]=3Db:d=3Dd[e]?d[e]:d[e]=3D{}},ba=3Dfunction(a,b,c){return =
+a.call.apply(a.bind,arguments)},ca=3Dfunction(a,b,c){if(!a)throw =
+Error();if(arguments.length>2){var =
+d=3DArray.prototype.slice.call(arguments,2);return function(){var =
+c=3DArray.prototype.slice.call(arguments);Array.prototype.unshift.apply(c=
+,d);return a.apply(b,c)}}else return function(){return a.apply(b,=0A=
+arguments)}},l=3Dfunction(a,b,c){l=3DFunction.prototype.bind&&Function.pr=
+ototype.bind.toString().indexOf("native code")!=3D-1?ba:ca;return =
+l.apply(h,arguments)};var =
+da=3D/&/g,ea=3D/</g,fa=3D/>/g,ha=3D/\"/g,m=3D{"\x00":"\\0","\u0008":"\\b"=
+,"\u000c":"\\f","\n":"\\n","\r":"\\r","\t":"\\t","\u000b":"\\x0B",'"':'\\=
+"',"\\":"\\\\"},r=3D{"'":"\\'"},ja=3Dfunction(a){for(var =
+b=3D0,c=3DString(ia).replace(/^[\s\xa0]+|[\s\xa0]+$/g,"").split("."),a=3D=
+String(a).replace(/^[\s\xa0]+|[\s\xa0]+$/g,"").split("."),d=3DMath.max(c.=
+length,a.length),e=3D0;b=3D=3D0&&e<d;e++){var =
+f=3Dc[e]||"",ra=3Da[e]||"",t=3DRegExp("(\\d*)(\\D*)","g"),n=3DRegExp("(\\=
+d*)(\\D*)","g");do{var o=3Dt.exec(f)||["","",""],p=3Dn.exec(ra)||["",=0A=
+"",""];if(o[0].length=3D=3D0&&p[0].length=3D=3D0)break;b=3Ds(o[1].length=3D=
+=3D0?0:parseInt(o[1],10),p[1].length=3D=3D0?0:parseInt(p[1],10))||s(o[2].=
+length=3D=3D0,p[2].length=3D=3D0)||s(o[2],p[2])}while(b=3D=3D0)}return =
+b},s=3Dfunction(a,b){if(a<b)return-1;else if(a>b)return 1;return 0};var =
+ka=3Ddocument,u=3Dwindow;var v=3Dfunction(a){return =
+a=3D=3D"true"?g:a=3D=3D"false"?i:i},la=3D/^([\w-]+\.)*([\w-]{2,})(\:[0-9]=
++)?$/,w=3Dfunction(a){return!a?"pagead2.googlesyndication.com":(a=3Da.mat=
+ch(la))?a[0]:"pagead2.googlesyndication.com"};var =
+z=3DparseFloat("0"),ma=3DisNaN(z)||z>1||z<0?0:z;var =
+na=3Dv("false"),oa=3Dv("false"),pa=3Dv("false");var =
+qa=3Dfunction(){return w("")};var A,B,C,E,sa=3Dfunction(){return =
+k.navigator?k.navigator.userAgent:h};E=3DC=3DB=3DA=3Di;var =
+F;if(F=3Dsa()){var =
+ta=3Dk.navigator;A=3DF.indexOf("Opera")=3D=3D0;B=3D!A&&F.indexOf("MSIE")!=
+=3D-1;C=3D!A&&F.indexOf("WebKit")!=3D-1;E=3D!A&&!C&&ta.product=3D=3D"Geck=
+o"}var G=3DB,H=3DE,ua=3DC,I;=0A=
+a:{var J=3D"",K;if(A&&k.opera)var L=3Dk.opera.version,J=3Dtypeof =
+L=3D=3D"function"?L():L;else =
+if(H?K=3D/rv\:([^\);]+)(\)|;)/:G?K=3D/MSIE\s+([^\);]+)(\)|;)/:ua&&(K=3D/W=
+ebKit\/(\S+)/),K)var va=3DK.exec(sa()),J=3Dva?va[1]:"";if(G){var =
+wa,xa=3Dk.document;wa=3Dxa?xa.documentMode:void =
+0;if(wa>parseFloat(J)){I=3DString(wa);break a}}I=3DJ}var =
+ia=3DI,M=3D{},ya=3D{},za=3Dfunction(){return =
+ya[9]||(ya[9]=3DG&&document.documentMode&&document.documentMode>=3D9)};!G=
+||za();if(H||G)if(!G||!za())H&&(M["1.9.1"]||(M["1.9.1"]=3Dja("1.9.1")>=3D=
+0));G&&(M["9"]||(M["9"]=3Dja("9")>=3D0));w("");var =
+N=3Dfunction(a){return!!a&&typeof =
+a=3D=3D"function"&&!!a.call},Aa=3Dfunction(a,b){if(!(arguments.length<2))=
+for(var =
+c=3D1,d=3Darguments.length;c<d;++c)a.push(arguments[c])};function =
+O(a){return typeof =
+encodeURIComponent=3D=3D"function"?encodeURIComponent(a):escape(a)}functi=
+on =
+Ba(a,b){a.attachEvent?a.attachEvent("onload",b):a.addEventListener&&a.add=
+EventListener("load",b,i)};aa("google_protectAndRun",function(a,b,c){a=3D=
+l(b,k,a);b=3Dwindow.onerror;window.onerror=3Da;try{c()}catch(d){var =
+c=3Dd.toString(),e=3D"";d.fileName&&(e=3Dd.fileName);var =
+f=3D-1;if(d.lineNumber)f=3Dd.lineNumber;if(!a(c,e,f))throw =
+d;}window.onerror=3Db});=0A=
+aa("google_handleError",function(a,b,c,d){if(Math.random()<0.01)a=3D["htt=
+p://",qa(),"/pagead/gen_204","?id=3Djserror","&jscb=3D",na?1:0,"&jscd=3D"=
+,oa?1:0,"&context=3D",O(a),"&msg=3D",O(b),"&file=3D",O(c),"&line=3D",O(d.=
+toString()),"&url=3D",O(ka.URL.substring(0,512)),"&ref=3D",O(ka.referrer.=
+substring(0,512))],a.push(["&client=3D",O(u.google_ad_client),"&format=3D=
+",O(u.google_ad_format),"&slotname=3D",O(u.google_ad_slot),"&output=3D",O=
+(u.google_ad_output),"&ad_type=3D",O(u.google_ad_type)].join("")),a=3Da.j=
+oin(""),u.google_image_requests||=0A=
+(u.google_image_requests=3D[]),b=3Dnew =
+Image,b.src=3Da,u.google_image_requests.push(b);return!pa});var =
+Ca=3Dfunction(a){try{var =
+b=3Da.google_test;a.google_test=3D!b;if(a.google_test=3D=3D=3D!b)return =
+a.google_test=3Db,g}catch(c){}return =
+i},Da=3Dh,Ea=3Dfunction(){if(!Da){for(var =
+a=3Dwindow;a!=3Da.parent&&Ca(a.parent);)a=3Da.parent;Da=3Da}return =
+Da};var =
+P,R=3Dfunction(a){this.c=3D[];this.a=3Da||window;this.b=3D0;this.d=3Dh},F=
+a=3Dfunction(a,b){this.l=3Da;this.i=3Db};R.prototype.n=3Dfunction(a,b){th=
+is.b=3D=3D0&&this.c.length=3D=3D0&&(!b||b=3D=3Dwindow)?(this.b=3D2,this.g=
+(new =
+Fa(a,window))):this.h(a,b)};R.prototype.h=3Dfunction(a,b){this.c.push(new=
+ =
+Fa(a,b||this.a));Ga(this)};R.prototype.o=3Dfunction(a){this.b=3D1;if(a)th=
+is.d=3Dthis.a.setTimeout(l(this.f,this),a)};R.prototype.f=3Dfunction(){if=
+(this.b=3D=3D1){if(this.d!=3Dh)this.a.clearTimeout(this.d),this.d=3Dh;thi=
+s.b=3D0}Ga(this)};=0A=
+R.prototype.p=3Dfunction(){return =
+g};R.prototype.nq=3DR.prototype.n;R.prototype.nqa=3DR.prototype.h;R.proto=
+type.al=3DR.prototype.o;R.prototype.rl=3DR.prototype.f;R.prototype.sz=3DR=
+.prototype.p;var =
+Ga=3Dfunction(a){a.a.setTimeout(l(a.m,a),0)};R.prototype.m=3Dfunction(){i=
+f(this.b=3D=3D0&&this.c.length){var =
+a=3Dthis.c.shift();this.b=3D2;a.i.setTimeout(l(this.g,this,a),0);Ga(this)=
+}};R.prototype.g=3Dfunction(a){this.b=3D0;a.l()};=0A=
+var Ha=3Dfunction(a){try{return a.sz()}catch(b){return =
+i}},Ia=3Dfunction(a){return!!a&&(typeof a=3D=3D"object"||typeof =
+a=3D=3D"function")&&Ha(a)&&N(a.nq)&&N(a.nqa)&&N(a.al)&&N(a.rl)},Ka=3Dfunc=
+tion(){if(P&&Ha(P))return P;var a=3DEa(),b=3Da.google_jobrunner;return =
+Ia(b)?P=3Db:a.google_jobrunner=3DP=3Dnew =
+R(a)},La=3Dfunction(a,b){Ka().nq(a,b)},Ma=3Dfunction(a,b){Ka().nqa(a,b)};=
+var Na=3D/MSIE =
+[2-7]|PlayStation|Gecko\/20090226/i,Oa=3D/Android|Opera/,Pa=3Dfunction(){=
+var =
+a=3DS,b=3DT.google_ad_width,c=3DT.google_ad_height,d=3D["<iframe"],e;for(=
+e in =
+a)a.hasOwnProperty(e)&&Aa(d,e+"=3D"+a[e]);d.push('style=3D"left:0;positio=
+n:absolute;top:0;"');d.push("></iframe>");b=3D"border:none;height:"+c+"px=
+;margin:0;padding:0;position:relative;visibility:visible;width:"+b+"px";r=
+eturn['<ins style=3D"display:inline-table;',b,'"><ins =
+id=3D"',a.id+"_anchor",'" style=3D"display:block;',b,'">',d.join(" =
+"),"</ins></ins>"].join("")};var =
+Qa=3Dfunction(){},Sa=3Dfunction(a,b,c){switch(typeof b){case =
+"string":Ra(b,c);break;case =
+"number":c.push(isFinite(b)&&!isNaN(b)?b:"null");break;case =
+"boolean":c.push(b);break;case "undefined":c.push("null");break;case =
+"object":if(b=3D=3Dh){c.push("null");break}if(b instanceof Array){var =
+d=3Db.length;c.push("[");for(var =
+e=3D"",f=3D0;f<d;f++)c.push(e),Sa(a,b[f],c),e=3D",";c.push("]");break}c.p=
+ush("{");d=3D"";for(e in b)b.hasOwnProperty(e)&&(f=3Db[e],typeof =
+f!=3D"function"&&(c.push(d),Ra(e,c),c.push(":"),Sa(a,f,c),d=3D=0A=
+","));c.push("}");break;case "function":break;default:throw =
+Error("Unknown type: "+typeof =
+b);}},Ta=3D{'"':'\\"',"\\":"\\\\","/":"\\/","\u0008":"\\b","\u000c":"\\f"=
+,"\n":"\\n","\r":"\\r","\t":"\\t","\u000b":"\\u000b"},Ua=3D/\uffff/.test(=
+"\uffff")?/[\\\"\x00-\x1f\x7f-\uffff]/g:/[\\\"\x00-\x1f\x7f-\xff]/g,Ra=3D=
+function(a,b){b.push('"');b.push(a.replace(Ua,function(a){if(a in =
+Ta)return Ta[a];var =
+b=3Da.charCodeAt(0),e=3D"\\u";b<16?e+=3D"000":b<256?e+=3D"00":b<4096&&(e+=
+=3D"0");return Ta[a]=3De+b.toString(16)}));b.push('"')};var =
+U=3D"google_ad_block,google_ad_channel,google_ad_client,google_ad_format,=
+google_ad_height,google_ad_host,google_ad_host_channel,google_ad_host_tie=
+r_id,google_ad_output,google_ad_override,google_ad_region,google_ad_secti=
+on,google_ad_slot,google_ad_type,google_ad_width,google_adtest,google_all=
+ow_expandable_ads,google_alternate_ad_url,google_alternate_color,google_a=
+nalytics_domain_name,google_analytics_uacct,google_bid,google_city,google=
+_color_bg,google_color_border,google_color_line,google_color_link,google_=
+color_text,google_color_url,google_container_id,google_contents,google_co=
+untry,google_cpm,google_ctr_threshold,google_cust_age,google_cust_ch,goog=
+le_cust_gender,google_cust_id,google_cust_interests,google_cust_job,googl=
+e_cust_l,google_cust_lh,google_cust_u_url,google_disable_video_autoplay,g=
+oogle_ed,google_eids,google_enable_ose,google_encoding,google_font_face,g=
+oogle_font_size,google_frame_id,google_gl,google_hints,google_image_size,=
+google_kw,google_kw_type,google_language,google_max_num_ads,google_max_ra=
+dlink_len,google_num_radlinks,google_num_radlinks_per_unit,google_num_slo=
+ts_to_rotate,google_only_ads_with_video,google_only_pyv_ads,google_only_u=
+serchoice_ads,google_override_format,google_page_url,google_previous_watc=
+h,google_previous_searches,google_referrer_url,google_region,google_reuse=
+_colors,google_rl_dest_url,google_rl_filtering,google_rl_mode,google_rt,g=
+oogle_safe,google_scs,google_skip,google_tag_info,google_targeting,google=
+_tfs,google_tl,google_ui_features,google_ui_version,google_video_doc_id,g=
+oogle_video_product_type,google_with_pyv_ads".split(",");var =
+V=3Dfunction(a){this.a=3Da;a.google_iframe_oncopy||(a.google_iframe_oncop=
+y=3D{handlers:{},log:[],img:Math.random()<0.01?[]:h});this.e=3Da.google_i=
+frame_oncopy;a.setTimeout(l(this.k,this),3E4)},Va;var W=3D"var =
+i=3Dthis.id,s=3Dwindow.google_iframe_oncopy,H=3Ds&&s.handlers,h=3DH&&H[i]=
+,w=3Dthis.contentWindow,d;try{d=3Dw.document}catch(e){}if(h&&d&&(!d.body|=
+|!d.body.firstChild)){if(h.call){i+=3D'.call';setTimeout(h,0)}else =
+if(h.match){i+=3D'.nav';w.location.replace(h)}s.log&&s.log.push(i)}";=0A=
+/[&<>\"]/.test(W)&&(W.indexOf("&")!=3D-1&&(W=3DW.replace(da,"&amp;")),W.i=
+ndexOf("<")!=3D-1&&(W=3DW.replace(ea,"&lt;")),W.indexOf(">")!=3D-1&&(W=3D=
+W.replace(fa,"&gt;")),W.indexOf('"')!=3D-1&&(W=3DW.replace(ha,"&quot;")))=
+;Va=3DW;V.prototype.set=3Dfunction(a,b){this.e.handlers[a]=3Db;this.a.add=
+EventListener&&this.a.addEventListener("load",l(this.j,this,a),i)};V.prot=
+otype.j=3Dfunction(a){var =
+a=3Dthis.a.document.getElementById(a),b=3Da.contentWindow.document;if(a.o=
+nload&&b&&(!b.body||!b.body.firstChild))a.onload()};=0A=
+V.prototype.k=3Dfunction(){if(this.e.img){var =
+a=3Dthis.e.log,b=3Dthis.a.document;if(a.length)b=3D["http://",qa(),"/page=
+ad/gen_204?id=3Diframecopy&log=3D",O(a.join("-")),"&url=3D",O(b.URL.subst=
+ring(0,512)),"&ref=3D",O(b.referrer.substring(0,512))].join(""),a.length=3D=
+0,a=3Dnew Image,this.e.img.push(a),a.src=3Db}};var Wa=3Dfunction(){var =
+a=3D"script";return["<",a,' =
+src=3D"http://',w(""),'/pagead/js/r20110921/r20110914/show_ads_impl.js"><=
+/',a,">"].join("")},Xa=3Dfunction(a,b,c,d){return function(){var =
+e=3Di;d&&Ka().al(3E4);try{var =
+f;try{f=3D!!a.document.getElementById(b).contentWindow.document}catch(ra)=
+{f=3Di}if(f){var t=3Da.document.getElementById(b).contentWindow,=0A=
+n=3Dt.document;if(!n.body||!n.body.firstChild)n.open(),t.google_async_ifr=
+ame_close=3Dg,n.write(c)}else{var =
+o=3Da.document.getElementById(b).contentWindow,p;f=3Dc;f=3DString(f);if(f=
+.quote)p=3Df.quote();else{t=3D['"'];for(n=3D0;n<f.length;n++){var =
+Q=3Df.charAt(n),Ja=3DQ.charCodeAt(0),ob=3Dt,pb=3Dn+1,ga;if(!(ga=3Dm[Q])){=
+var D;if(Ja>31&&Ja<127)D=3DQ;else{var q=3DQ;if(q in r)D=3Dr[q];else if(q =
+in m)D=3Dr[q]=3Dm[q];else{var =
+x=3Dq,y=3Dq.charCodeAt(0);if(y>31&&y<127)x=3Dq;else{if(y<256){if(x=3D"\\x=
+",y<16||y>256)x+=3D"0"}else x=3D"\\u",y<4096&&(x+=3D"0");=0A=
+x+=3Dy.toString(16).toUpperCase()}D=3Dr[q]=3Dx}}ga=3DD}ob[pb]=3Dga}t.push=
+('"');p=3Dt.join("")}o.location.replace("javascript:"+p)}e=3Dg}catch(wb){=
+o=3DEa().google_jobrunner,Ia(o)&&o.rl()}e&&(new =
+V(a)).set(b,Xa(a,b,c,i))}};window.google_loader_used=3Dg;(function(a){if(=
+!("google_onload_fired"in =
+a))a.google_onload_fired=3Di,Ba(a,function(){a.google_onload_fired=3Dg})}=
+)(window);if(!window.google_loader_experiment){var Ya;a:{var =
+Za=3D["async_bad_black","block_bad_black"];if(!(Math.random()<1.0E-4)){va=
+r =
+$a=3DMath.random();if($a<ma){Ya=3DZa[Math.floor($a/ma*Za.length)];break =
+a}}Ya=3Dh}window.google_loader_experiment=3DYa||""||"launch"}var ab;=0A=
+a:{try{if(window.google_enable_async!=3D=3Dg&&window.google_loader_experi=
+ment=3D=3D"blockodd"&&window.top.location.hostname.length%2=3D=3D1){ab=3D=
+i;break a}}catch(bb){}ab=3Dg}var cb;if(cb=3Dab){var =
+db;if(window.google_enable_async=3D=3D=3Di)db=3D0;else{var =
+eb=3Dnavigator.userAgent,fb=3Dwindow.google_loader_experiment;db=3D(Na.te=
+st(eb)?i:Oa.test(eb)?fb=3D=3D"async_bad_black":g)&&!window.google_contain=
+er_id&&(!window.google_ad_output||window.google_ad_output=3D=3D"html")}cb=
+=3Ddb}=0A=
+if(cb){var =
+gb=3Dwindow;gb.google_unique_id?++gb.google_unique_id:gb.google_unique_id=
+=3D1;var =
+X=3Dwindow;if(!X.google_slot_list||!X.google_slot_list.push)X.google_slot=
+_list=3D[];X.google_slot_list.push([X.google_ad_slot||"",X.google_ad_form=
+at||"",X.google_ad_width||"",X.google_ad_height||""].join("."));for(var =
+Y=3Dwindow,_script$$inline_167=3D"script",Z,T=3DY,S=3D{allowtransparency:=
+'"true"',frameborder:'"0"',height:'"'+Y.google_ad_height+'"',hspace:'"0"'=
+,marginwidth:'"0"',marginheight:'"0"',onload:'"'+Va+'"',scrolling:'"no"',=0A=
+vspace:'"0"',width:'"'+Y.google_ad_width+'"'},hb=3DT.document,$=3DS.id,ib=
+=3D0;!$||T.document.getElementById($);)$=3D"aswift_"+ib++;S.id=3D$;S.name=
+=3D$;hb.write(Pa());Z=3D$;var =
+jb;Y.google_page_url&&(Y.google_page_url=3DString(Y.google_page_url));for=
+(var kb=3D[],lb=3D0,mb=3DU.length;lb<mb;lb++){var =
+nb=3DU[lb];if(Y[nb]!=3Dh){var qb;try{var rb=3D[];Sa(new =
+Qa,Y[nb],rb);qb=3Drb.join("")}catch(sb){}qb&&Aa(kb,nb,"=3D",qb,";")}}jb=3D=
+kb.join("");for(var tb=3D0,ub=3DU.length;tb<ub;tb++)Y[U[tb]]=3Dh;var =
+vb=3D(new Date).getTime(),xb=3Dwindow.google_loader_experiment,=0A=
+yb=3D["<!doctype =
+html><html><body><",_script$$inline_167,">",jb,"google_show_ads_impl=3Dtr=
+ue;google_unique_id=3D",Y.google_unique_id,';google_async_iframe_id=3D"',=
+Z,'";google_start_time=3D',j,";",xb?'google_loader_experiment=3D"'+xb+'";=
+':"","google_bpp=3D",vb>j?vb-j:1,";</",_script$$inline_167,">",Wa(),"</bo=
+dy></html>"].join("");(Y.document.getElementById(Z)?La:Ma)(Xa(Y,Z,yb,g))}=
+else window.q=3Dj,document.write(Wa());})();=0A=
+
+------=_NextPart_000_0000_01CC7F04.B28DB590--

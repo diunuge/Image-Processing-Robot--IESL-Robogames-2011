@@ -1,0 +1,2289 @@
+From: "Saved by Windows Internet Explorer 8"
+Subject: Reading and Writing to Serial Port in C++ @ Foggylog
+Date: Fri, 30 Sep 2011 00:11:30 -0700
+MIME-Version: 1.0
+Content-Type: multipart/related;
+	type="text/html";
+	boundary="----=_NextPart_000_0000_01CC7F05.815001D0"
+X-MimeOLE: Produced By Microsoft MimeOLE V6.1.7600.16385
+
+This is a multi-part message in MIME format.
+
+------=_NextPart_000_0000_01CC7F05.815001D0
+Content-Type: text/html;
+	charset="iso-8859-1"
+Content-Transfer-Encoding: quoted-printable
+Content-Location: http://www.fogma.co.uk/foggylog/archive/140.html
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML><HEAD><TITLE>Reading and Writing to Serial Port in C++ @ =
+Foggylog</TITLE>
+<META name=3Dkeywords content=3D"">
+<META name=3Ddescription content=3D"">
+<META content=3D"text/html; charset=3Diso-8859-1" =
+http-equiv=3DContent-Type><LINK=20
+rel=3Dstylesheet type=3Dtext/css =
+href=3D"http://www.fogma.co.uk/index.css">
+<META name=3DGENERATOR content=3D"MSHTML 8.00.7600.16385"></HEAD>
+<BODY aLink=3D#ff9999 link=3D#6699ff text=3D#ffffff vLink=3D#cc66ff>
+<SCRIPT type=3Dtext/javascript =
+src=3D"http://www.fogma.co.uk/index.js"></SCRIPT>
+
+<DIV align=3Dcenter>
+<TABLE border=3D0 cellSpacing=3D0 cellPadding=3D0 width=3D790 =
+height=3D80>
+  <TBODY>
+  <TR>
+    <TD height=3D80 width=3D295 align=3Dmiddle><IMG border=3D0 alt=3D""=20
+      src=3D"http://www.fogma.co.uk/images/circtop.gif" =
+height=3D80></TD>
+    <TD height=3D80 width=3D200 align=3Dmiddle><IMG border=3D0 alt=3D""=20
+      src=3D"http://www.fogma.co.uk/images/circtop1.gif" width=3D200 =
+height=3D80></TD>
+    <TD height=3D80 width=3D295 align=3Dmiddle><IMG border=3D0 alt=3D""=20
+      src=3D"http://www.fogma.co.uk/images/circtop2.gif"=20
+height=3D80></TD></TR></TBODY></TABLE>
+<TABLE border=3D0 cellSpacing=3D0 cellPadding=3D0 width=3D790>
+  <TBODY>
+  <TR>
+    <TD height=3D290 vAlign=3Dtop width=3D90>
+      <TABLE border=3D0 cellSpacing=3D0 cellPadding=3D0 width=3D"100%" =
+height=3D"100%">
+        <TBODY>
+        <TR>
+          <TD height=3D145 vAlign=3Dtop width=3D90><IMG border=3D0 =
+alt=3D""=20
+            src=3D"http://www.fogma.co.uk/images/circleft.gif" =
+width=3D90=20
+          height=3D145></TD></TR>
+        <TR>
+          <TD height=3D"100%"=20
+          background=3Dhttp://www.fogma.co.uk/images/circleft1.gif=20
+        width=3D90></TD></TR>
+        <TR>
+          <TD height=3D145 vAlign=3Dbottom width=3D90><IMG border=3D0 =
+alt=3D""=20
+            src=3D"http://www.fogma.co.uk/images/circleft2.gif" =
+width=3D90=20
+            height=3D145></TD></TR></TBODY></TABLE></TD>
+    <TD vAlign=3Dtop>
+      <H1>FoggyLog</H1>
+      <H2>Sun May 30th 2004 12:00:14: Reading and Writing to Serial Port =
+in=20
+      C++</H2>
+      <P>Here is how to read and write to a PC's serial port in MS =
+Visual C++.=20
+      This code was written with help from the source code of <A=20
+      =
+href=3D"http://www.comp.lancs.ac.uk/~albrecht/sw/terminal/index.html">Ser=
+ialterm</A>,=20
+      which is also a great help when debugging PIC hardware.</P><FONT =
+size=3D-1=20
+      face=3D"Courier New, Courier, mono">// SensorWebPC.cpp<BR>// Pass =
+the port=20
+      name in the command line - e.g. sensorwebpc comm2</FONT><FONT=20
+      face=3D"Courier New, Courier, mono">=20
+      <P><FONT size=3D-1 face=3D"Courier New, Courier, mono">#include=20
+      "stdafx.h"<BR>#include &lt;windows.h&gt;</FONT></P>
+      <P><FONT size=3D-1 face=3D"Courier New, Courier, mono">void =
+PrintError( LPCSTR=20
+      str)<BR>{<BR>LPVOID lpMessageBuffer;<BR>int error =3D=20
+      GetLastError();<BR>FormatMessage(<BR></FONT><FONT=20
+      face=3D"Courier New, Courier, mono"><FONT=20
+      size=3D-1>FORMAT_MESSAGE_ALLOCATE_BUFFER |<BR></FONT></FONT><FONT =
+size=3D-1=20
+      face=3D"Courier New, Courier, =
+mono">FORMAT_MESSAGE_FROM_SYSTEM,<BR></FONT><FONT=20
+      face=3D"Courier New, Courier, mono"><FONT =
+size=3D-1></FONT></FONT><FONT=20
+      size=3D-1 face=3D"Courier New, Courier, =
+mono">NULL,<BR></FONT><FONT=20
+      face=3D"Courier New, Courier, mono"><FONT =
+size=3D-1></FONT></FONT><FONT=20
+      size=3D-1 face=3D"Courier New, Courier, =
+mono">error,<BR></FONT><FONT=20
+      face=3D"Courier New, Courier, mono"><FONT =
+size=3D-1></FONT></FONT><FONT=20
+      size=3D-1 face=3D"Courier New, Courier, =
+mono">MAKELANGID(LANG_NEUTRAL,=20
+      SUBLANG_DEFAULT), //The user default language<BR></FONT><FONT=20
+      face=3D"Courier New, Courier, mono"><FONT =
+size=3D-1></FONT></FONT><FONT=20
+      size=3D-1 face=3D"Courier New, Courier, mono">(LPTSTR)=20
+      &amp;lpMessageBuffer,<BR></FONT><FONT=20
+      face=3D"Courier New, Courier, mono"><FONT =
+size=3D-1></FONT></FONT><FONT=20
+      size=3D-1 face=3D"Courier New, Courier, mono">0,<BR></FONT><FONT=20
+      face=3D"Courier New, Courier, mono"><FONT =
+size=3D-1></FONT></FONT><FONT=20
+      size=3D-1 face=3D"Courier New, Courier, =
+mono">NULL<BR>);<BR>printf("%s: (%d)=20
+      %s\n\n",str,error,lpMessageBuffer);<BR>LocalFree( lpMessageBuffer=20
+      );<BR>}</FONT></P>
+      <P><FONT size=3D-1 face=3D"Courier New, Courier, mono">int =
+main(int argc,=20
+      char* argv[])<BR>{<BR>// open port for I/O<BR>HANDLE h =3D=20
+      CreateFile(argv[1],<BR></FONT><FONT=20
+      face=3D"Courier New, Courier, mono"><FONT=20
+      size=3D-1>GENERIC_READ|GENERIC_WRITE,<BR></FONT></FONT><FONT =
+size=3D-1=20
+      face=3D"Courier New, Courier, mono">0,NULL,<BR></FONT><FONT=20
+      face=3D"Courier New, Courier, mono"><FONT =
+size=3D-1></FONT></FONT><FONT=20
+      size=3D-1=20
+face=3D"Courier New, Courier, mono">OPEN_EXISTING,0,NULL);</FONT></P>
+      <P><FONT size=3D-1 face=3D"Courier New, Courier, mono">if(h =3D=3D =
+
+      INVALID_HANDLE_VALUE) {<BR></FONT><FONT=20
+      face=3D"Courier New, Courier, mono"><FONT =
+size=3D-1></FONT></FONT><FONT=20
+      size=3D-1 face=3D"Courier New, Courier, =
+mono">PrintError("E012_Failed to open=20
+      port");<BR>} else {<BR>// set timeouts<BR></FONT><FONT=20
+      face=3D"Courier New, Courier, mono"><FONT size=3D-1>COMMTIMEOUTS =
+cto =3D { 1,=20
+      100, 1000, 0, 0 };<BR></FONT></FONT><FONT size=3D-1=20
+      face=3D"Courier New, Courier, mono">DCB dcb;<BR></FONT><FONT=20
+      face=3D"Courier New, Courier, mono"><FONT =
+size=3D-1></FONT></FONT><FONT=20
+      size=3D-1=20
+      face=3D"Courier New, Courier, =
+mono">if(!SetCommTimeouts(h,&amp;cto))<BR></FONT><FONT=20
+      face=3D"Courier New, Courier, mono"><FONT size=3D-1></FONT><FONT=20
+      size=3D-1>PrintError("E013_SetCommTimeouts =
+failed");</FONT></FONT></P>
+      <P><FONT size=3D-1 face=3D"Courier New, Courier, mono">// set=20
+      DCB<BR></FONT><FONT face=3D"Courier New, Courier, mono"><FONT=20
+      size=3D-1></FONT></FONT><FONT size=3D-1=20
+      face=3D"Courier New, Courier, =
+mono">memset(&amp;dcb,0,sizeof(dcb));<BR></FONT><FONT=20
+      face=3D"Courier New, Courier, mono"><FONT =
+size=3D-1></FONT></FONT><FONT=20
+      size=3D-1 face=3D"Courier New, Courier, mono">dcb.DCBlength =3D=20
+      sizeof(dcb);<BR></FONT><FONT face=3D"Courier New, Courier, =
+mono"><FONT=20
+      size=3D-1></FONT></FONT><FONT size=3D-1=20
+      face=3D"Courier New, Courier, mono">dcb.BaudRate =3D =
+19200;</FONT><FONT=20
+      face=3D"Courier New, Courier, mono"><BR><FONT =
+size=3D-1>dcb.fBinary =3D=20
+      1;<BR>dcb.fDtrControl =3D DTR_CONTROL_ENABLE;<BR>dcb.fRtsControl =
+=3D=20
+      RTS_CONTROL_ENABLE;<BR>// dcb.fOutxCtsFlow =3D 1;<BR>// =
+dcb.fRtsControl =3D=20
+      DTR_CONTROL_HANDSHAKE;</FONT></FONT></P>
+      <P><FONT size=3D-1 face=3D"Courier New, Courier, mono">dcb.Parity =
+=3D=20
+      NOPARITY;<BR>dcb.StopBits =3D ONESTOPBIT;<BR>dcb.ByteSize =3D =
+8;</FONT></P>
+      <P><FONT size=3D-1=20
+      face=3D"Courier New, Courier, =
+mono">if(!SetCommState(h,&amp;dcb))<BR>PrintError("E014_SetCommState=20
+      failed");</FONT></P></FONT>
+      <P></P>
+      <P><FONT size=3D-1 face=3D"Courier New, Courier, mono">char =
+buf[7];<BR>DWORD=20
+      read =3D 0;<BR>DWORD write=3D1; // Number of bytes to write to =
+serial=20
+      port<BR>buf[0] =3D 72; // Decmial value to write to serial=20
+      port<BR>WriteFile(h,buf,write,&amp;write,NULL); // write is =
+updated with=20
+      the number of bytes=20
+      written<BR><BR>ReadFile(h,buf,sizeof(buf),&amp;read,NULL); // read =
+is=20
+      updated with the number of bytes read<BR>DWORD i;<BR>for (i=3D0; =
+i&lt;read;=20
+      i++)<BR>printf("%i ", (unsigned=20
+      char)buf[i]);<BR><BR>CloseHandle(h);<BR>}</FONT></P>
+      <P><FONT size=3D-1 face=3D"Courier New, Courier, mono">return=20
+      0;<BR>}</FONT></P>
+      <P>I've played with the timeouts to suit my needs, however details =
+of what=20
+      the parts of the "COMMTIMEOUTS" structure mean can be found <A=20
+      =
+href=3D"http://msdn.microsoft.com/library/default.asp?url=3D/library/en-u=
+s/devio/base/commtimeouts_str.asp">here</A></P>
+      <TABLE border=3D0 width=3D"100%">
+        <TBODY>
+        <TR>
+          <TD>
+            <DIV class=3Dcomments><A=20
+            href=3D"javascript:toggle_hidden('140')">Comments=20
+            (45)</A>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;<A=20
+            =
+href=3D"http://www.fogma.co.uk/foggylog/archive/140.html">Permanent=20
+            Link</A></DIV></TD></TR>
+        <TR id=3D140 class=3Dcommentshidden>
+          <TD>
+            <DIV class=3Dcomment>
+            <P>I had already looked at the serialterm code but I was =
+having=20
+            trouble understanding it. This piece of code has been =
+helpful=20
+            understanding serial communication. Thanks</P>
+            <P><I>Comment by Sergio Roche at 4:37 on Sun 12 November=20
+            2006</I></P></DIV>
+            <DIV class=3Dcomment>
+            <P>I am writing a program to send data and receive data from =
+a=20
+            serial port on a dos machine for a simulator for Rhino XR3=20
+            simulator. The pascal code I was given looks like =
+this...</P>
+            <P>const</P>
+            <P>P: integer =3D $3f8; {com1}</P>
+            <P>can you tell me how to change that line to C++ code so =
+that I can=20
+            query the simulator for an error code (integer) and receive =
+that=20
+            info? The query will be sent in ASCII (like a ? or 'an' =
+etc.)</P>
+            <P>Thanks.</P>
+            <P><I>Comment by JR at 20:43 on Sat 31 March =
+2007</I></P></DIV>
+            <DIV class=3Dcomment>
+            <P>could u tell me what the equavalent c++ code for the =
+above visual=20
+            c++ code. i mean what is the code of serial port programing =
+in=20
+            c++</P>
+            <P><I>Comment by Ephrem Desta at 17:56 on Sun 29 April=20
+            2007</I></P></DIV>
+            <DIV class=3Dcomment>
+            <P>JR / Ephrem Desta - Sorry - I can't answer either of your =
+
+            questions. </P>
+            <P>Gary</P>
+            <P><I>Comment by Gary at 20:43 on Mon 30 April =
+2007</I></P></DIV>
+            <DIV class=3Dcomment>
+            <P>I get error: In CreateFile: 32 when trying to open com3 =
+using c++=20
+            code(my own) which previously worked. Nothing in code has =
+changed.=20
+            Using heperterminal i can open the modem and issue commands =
+and=20
+            detect dtmf tones. However, in hyperterminal I can oly open =
+the=20
+            modem as it's vendor name, not from the com port that it is=20
+            attatched to. What is causing this problem. In code I can =
+only use=20
+            com1,2 or 3, not the modem name itself. Please help.</P>
+            <P><I>Comment by help at 0:46 on Thu 28 June =
+2007</I></P></DIV>
+            <DIV class=3Dcomment>
+            <P>How can I read from serial port and write into a .txt =
+file? (in=20
+            Borland C..)</P>
+            <P><I>Comment by R.T. at 11:20 on Tue 6 November =
+2007</I></P></DIV>
+            <DIV class=3Dcomment>
+            <P>Where can I find the "stdafx.h" file????</P>
+            <P>Thanx a lot!</P>
+            <P><I>Comment by Mauricio Arias at 12:12 on Tue 13 November=20
+            2007</I></P></DIV>
+            <DIV class=3Dcomment>
+            <P>hi,</P>
+            <P>iam trying to establishing peer-peer network =
+communication in=20
+            vc++.iam also trying to reading and writing data from &amp; =
+to the=20
+            serialport in vc++.but iam getting error E012_Failed to open =
+
+            port:&lt;3&gt; The system cannot find the path specified by =
+using=20
+            the above code.pls tell me how to overcome it as early as=20
+            possible.pls.........</P>
+            <P><I>Comment by pranitha at 12:19 on Tue 8 January=20
+            2008</I></P></DIV>
+            <DIV class=3Dcomment>
+            <P>E012_Failed to open port &lt;3&gt; D</P>
+            <P>dont know why</P>
+            <P>pls help</P>
+            <P><I>Comment by Me at 9:23 on Thu 31 January =
+2008</I></P></DIV>
+            <DIV class=3Dcomment>
+            <P>Cannot open COM port "831473" Please help!</P>
+            <P>Also the file stdafx.h cannot be found. Please help!</P>
+            <P>Can you help me?</P>
+            <P>Thanks in advance!</P>
+            <P><I>Comment by egon at 15:30 on Mon 10 March =
+2008</I></P></DIV>
+            <DIV class=3Dcomment>
+            <P>Thanks a million for the code very helpful. </P>
+            <P>However i do get this error. </P>
+            <P>error C2664: 'CreateFileW' : cannot convert parameter 1 =
+from=20
+            'char *' to 'LPCWSTR'</P>
+            <P>Any ideas? Thanks</P>
+            <P><I>Comment by simon at 10:31 on Mon 31 March =
+2008</I></P></DIV>
+            <DIV class=3Dcomment>
+            <P>To egon:</P>
+            <P>i got the same problem as you, but i solved by chosing a=20
+            Precompiled header i application settings when i create a =
+new=20
+            project. I'm using visual studio 2005 as compiler and for me =
+that=20
+            solved the problem. If you want some knowledge about =
+stdafx.h read=20
+            http://en.wikipedia.org/wiki/Precompiled_header .</P>
+            <P>However i get the same error as simon "error C2664: =
+'CreateFileW'=20
+            : cannot convert parameter 1 from 'char *' to 'LPCWSTR'"... =
+anyone=20
+            knows why?</P>
+            <P><I>Comment by David at 9:24 on Fri 4 April =
+2008</I></P></DIV>
+            <DIV class=3Dcomment>
+            <P>simon and egon:</P>
+            <P>to get rid of "char* to LPCWSTR" conversion errors, =
+simply=20
+add</P>
+            <P>#undef UNICODE</P>
+            <P>on top of your code.</P>
+            <P><I>Comment by robin at 1:41 on Sun 6 April =
+2008</I></P></DIV>
+            <DIV class=3Dcomment>
+            <P>I got the same problem with simon &amp; david. </P>
+            <P>I just simply add #undef UNICODE as robin mentioned.</P>
+            <P>But nothing is change. the problem still there. </P>
+            <P>Btw, where is actually this "UNICODE" defined?</P>
+            <P><I>Comment by Harris at 2:34 on Mon 26 May =
+2008</I></P></DIV>
+            <DIV class=3Dcomment>
+            <P>I found where is UNICODE exactly defined and added #undef =
+UNICODE=20
+            on top of WinBase header file. The problem dissapeared but =
+another=20
+            problem popout.</P>
+            <P>error C2664: 'FormatMessageA' : cannot convert parameter =
+5 from=20
+            'LPTSTR' to 'LPSTR'</P>
+            <P>Why?</P>
+            <P><I>Comment by Harris at 3:06 on Mon 26 May =
+2008</I></P></DIV>
+            <DIV class=3Dcomment>
+            <P>Thanks!! Was having one hell of a time opening up a</P>
+            <P>USB com-port until I found your code. It was a life</P>
+            <P>saver and ran first time with NO problems.</P>
+            <P>L Piovano</P>
+            <P><I>Comment by L Piovano at 0:37 on Sat 14 June =
+2008</I></P></DIV>
+            <DIV class=3Dcomment>
+            <P>Works great thanks! To get past the 'LPTSTR' conversion =
+just=20
+            use:</P>
+            <P>int _tmain(int argc, _TCHAR* argv[]) // Visual Studio =
+2005</P>
+            <P>instead of</P>
+            <P>int main(int argc, char* argv[])</P>
+            <P>Regards</P>
+            <P><I>Comment by Roderick Mooi at 8:51 on Thu 17 July=20
+            2008</I></P></DIV>
+            <DIV class=3Dcomment>
+            <P>I have a problem, this code and serialterm can't open =
+virtual=20
+            serial ports. =BFhow can we do this?</P>
+            <P><I>Comment by Armando at 5:08 on Sun 3 August =
+2008</I></P></DIV>
+            <DIV class=3Dcomment>
+            <P>Hello, Im trying to use this code, but i have some =
+doubts. Is=20
+            this code for SERIAL port? or for USB port?, because im =
+trying to=20
+            send data from one PC to another by the SERIAL port with DB9 =
+
+            connectors.</P>
+            <P>Thank You!</P>
+            <P><I>Comment by Alfredo at 20:13 on Wed 12 November=20
+            2008</I></P></DIV>
+            <DIV class=3Dcomment>
+            <P>Hi Alfredo,</P>
+            <P>It's for a DB9 serial port...</P>
+            <P>Gary</P>
+            <P><I>Comment by Gary at 20:19 on Wed 12 November =
+2008</I></P></DIV>
+            <DIV class=3Dcomment>
+            <P>Thank you for replying, please can you help me?, Im =
+trying to use=20
+            this code to send data from a PC to another but it doesn=B4t =
+work, in=20
+            the command line im writing: sensorwebpc com1, and then =
+nothing=20
+            happens, I understand that this code is for sending and for =
+reading,=20
+            so im executing this code in both computers, but do i have =
+to=20
+            execute it in a special way or something? because nothing =
+happens,=20
+            not even errors appear on the screen, it only display a =
+blank line=20
+            and then appear again C:\, please help me.</P>
+            <P>Thank you!</P>
+            <P><I>Comment by Alfredo at 1:40 on Thu 13 November=20
+            2008</I></P></DIV>
+            <DIV class=3Dcomment>
+            <P>Thx.</P>
+            <P>This was helpful.</P>
+            <P><I>Comment by Chobicus at 15:05 on Tue 2 December=20
+            2008</I></P></DIV>
+            <DIV class=3Dcomment>
+            <P>Hi anyone know where do i type the command line for =
+Visual studio=20
+            2005? </P>
+            <P>Is this in Configuration properties in Linker...command =
+line then=20
+            type in additional options ..sensorwebpc comm2? thanks =
+guys</P>
+            <P><I>Comment by joe at 18:35 on Sun 7 December =
+2008</I></P></DIV>
+            <DIV class=3Dcomment>
+            <P>I have used _outp in one of my programs for serial comm. =
+the=20
+            program compiled and linked in VC++ 6 with no errors but did =
+not=20
+            run. Any ideas?</P>
+            <P><I>Comment by rajesh at 8:05 on Sun 11 January =
+2009</I></P></DIV>
+            <DIV class=3Dcomment>
+            <P>thanks a lot.</P>
+            <P>your source code is of great help - I am trying to =
+address an USB=20
+            device</P>
+            <P><I>Comment by Hans-Juergen at 15:25 on Fri 23 January=20
+            2009</I></P></DIV>
+            <DIV class=3Dcomment>
+            <P>Can you tell me how to change the Com port number? I want =
+to=20
+            choose Com3</P>
+            <P>Thank you</P>
+            <P><I>Comment by Adi at 10:36 on Wed 27 May =
+2009</I></P></DIV>
+            <DIV class=3Dcomment>
+            <P>The com number is passed in on the command line... e.g.=20
+            "sensorweb com3".</P>
+            <P>Gary</P>
+            <P><I>Comment by Gary at 10:39 on Wed 27 May =
+2009</I></P></DIV>
+            <DIV class=3Dcomment>
+            <P>Thanks Gary - good simple help on the basics of serial =
+comms.=20
+            Sorry you have to put up with the clueless 3rd world people =
+asking=20
+            you to tell them how to do their job. Talk about =
+resourceless - no=20
+            wonder these people live in countries that look like =
+dumps.</P>
+            <P><I>Comment by pete at 4:44 on Sun 31 May =
+2009</I></P></DIV>
+            <DIV class=3Dcomment>
+            <P>Oh one other thing: your exam paper PDFs took me back in =
+time=20
+            with that university mathsy typography - what was it =
+called....ahh=20
+            that's write it was done in LaTex. The stats people in =
+Economics=20
+            used it years ago when I was there, came back to uni to do =
+medicine=20
+            and the public health stats people were STILL using it! =
+Funny how a=20
+            font and a layout can take you back again - I think they =
+loved the=20
+            mechanistic way you 'programmed' complex formulae in with =
+all the=20
+            maths character sets.</P>
+            <P><I>Comment by pete in Australia at 5:28 on Sun 31 May=20
+            2009</I></P></DIV>
+            <DIV class=3Dcomment>
+            <P>Hi Everyone, do you know how to enable this C++ code to =
+make sure=20
+            that the serial port is read?</P>
+            <P>I get this error: E012_Failed to open port &lt;3&gt; =
+T</P>
+            <P>How do u make sure you open the port? I've already =
+connect it to=20
+            my device which can be run by hyper terminal.</P>
+            <P>Would appreciate any of your help</P>
+            <P><I>Comment by Ethon at 3:41 on Fri 13 November =
+2009</I></P></DIV>
+            <DIV class=3Dcomment>
+            <P>Ethon: I got the same error,E012_Failed to open port </P>
+            <P>My problem was that I was using COM port number greater =
+than or=20
+            equal to 10 e.g. COM31</P>
+            <P>In this case you should write the com port as =
+"////.//COM31"=20
+            instead of "COM31".</P>
+            <P>check the msdn for CreateFile.</P>
+            <P><I>Comment by anusha at 15:23 on Wed 24 March =
+2010</I></P></DIV>
+            <DIV class=3Dcomment>
+            <P>i am trying to adress a modem using the code but the AT =
+command i=20
+            write using the Writefile function is not being executed. =
+what might=20
+            be the problem or how can u be sure the device actually =
+receives the=20
+            command.urgent please. thanks</P>
+            <P><I>Comment by stanley at 9:06 on Tue 30 March =
+2010</I></P></DIV>
+            <DIV class=3Dcomment>
+            <P>Nice clean and understandable code. Thanks for sharing. I =
+
+            replaced '#include "stdafx.h"' with '#include =
+&lt;stdio.h&gt;' and=20
+            was able to compile it in dev-c++.</P>
+            <P><I>Comment by Daniel at 18:17 on Tue 4 May =
+2010</I></P></DIV>
+            <DIV class=3Dcomment>
+            <P>Hi,</P>
+            <P>I work for Newcastle University as a programmer on a =
+'charity'=20
+            project called SiDE. This example was very useful. The web =
+is short=20
+            of 'simple' examples without layers of code straying from =
+the=20
+            context of what it is!</P>
+            <P>Any chance you can detail the argv for other people. You =
+mention=20
+            "comm3" but I suspect this won't open a valid file =
+handle.</P>
+            <P>"com2" for example might.</P>
+            <P>nice example though. :)</P>
+            <P><I>Comment by Gavin Wood at 14:37 on Sat 19 June=20
+            2010</I></P></DIV>
+            <DIV class=3Dcomment>
+            <P>Works fine in Visual Studio 2008!</P>
+            <P>I started a new 'Win32 Console Application' project, =
+which=20
+            automatically takes care of the stdafx.h precompiled header =
+and copy=20
+            pasted your code over the automatically generated code in my =
+cpp=20
+            file. </P>
+            <P>Then, as Roderick Mooi suggested I changed the int =
+main... into=20
+            <B>int _tmain(int argc, _TCHAR* argv[])</B></P>
+            <P>then I used '<B>COM4</B>' as the argument.</P>
+            <P><I>(hint: you can set the argument as a project property, =
+see=20
+            Configuration Properties - Debugging - Command Arguments, in =
+Visual=20
+            Studio, this way you can see it work while you step through =
+it in=20
+            debug mode)</I></P>
+            <P><I>(hint2: you can search for a valid argument using the =
+device=20
+            manager in Windows: Control Panel - System - Device Manager =
+- Ports=20
+            (COM &amp; LPT). Check for any ports listed in =
+there.</I></P>
+            <P>Anyway, great example, thanks!</P>
+            <P><I>Comment by Bart at 21:40 on Fri 9 July =
+2010</I></P></DIV>
+            <DIV class=3Dcomment>
+            <P>One of the few things i've tried that's actually managed =
+to=20
+            compile. However I either just get E12 port failed to open =
+or I get=20
+            multiple memory errors when I try to pass COM1 to the =
+argument. (I=20
+            think I may be doing this wrong)</P>
+            <P>How do I make it work?!</P>
+            <P><I>Comment by Aidan at 10:28 on Fri 23 July =
+2010</I></P></DIV>
+            <DIV class=3Dcomment>
+            <P>Hi</P>
+            <P>I used a similar code as lcc-MEX-Matlab 2007 32bit which =
+worked=20
+            always fine.</P>
+            <P>With Visual C++-MEX Matlab 2010 64 bit now I always get=20
+            E012_Failed to open port: (2) The system cannot find the =
+file=20
+            specified.</P>
+            <P>Why could that be?</P>
+            <P>Hope somebody can answer this, kernel.</P>
+            <P><I>Comment by kernel at 8:52 on Fri 17 September=20
+            2010</I></P></DIV>
+            <DIV class=3Dcomment>
+            <P>Thanks, Dude - that saved me a pile of time.</P>
+            <P>I owe you a beer.</P>
+            <P>Matt</P>
+            <P><I>Comment by Matthew Gaunt at 19:25 on Mon 25 October=20
+            2010</I></P></DIV>
+            <DIV class=3Dcomment>
+            <P>I have used your program.In high baud rate such as 115200 =
+with no=20
+            handshaking ,serial buffer looses some data.</P>
+            <P>I have set its event to EV_TXEMPTY and EV_RXCHAR .but the =
+problem=20
+            has remained yet.</P>
+            <P><I>Comment by zahra babaei at 8:54 on Sat 12 March=20
+            2011</I></P></DIV>
+            <DIV class=3Dcomment>
+            <P>Hey people... question here</P>
+            <P>to run code like this, do i need to have connected a =
+serial=20
+            device onto my serial port in order for it to work, or =
+should the=20
+            code work regardless?... And if i do, do i need to write =
+commands=20
+            specific to that device or does random text suffice?</P>
+            <P><I>Comment by john at 10:50 on Thu 24 March =
+2011</I></P></DIV>
+            <DIV class=3Dcomment>
+            <P>The program compiles fine, but i get this error while it =
+is=20
+            running, </P>
+            <P>Unhandled exception at 0x003c155f in Test4.exe: =
+0xC0000005:=20
+            Access violation reading location 0x0d918280.</P>
+            <P>the aarrow breaks right at the second NULL</P>
+            <P>HANDLE h =3D CreateFile(argv[('COM2')],</P>
+            <P>GENERIC_READ|GENERIC_WRITE,</P>
+            <P>0,</P>
+            <P>NULL,</P>
+            <P>OPEN_EXISTING,</P>
+            <P>FILE_FLAG_OVERLAPPED,</P>
+            <P>NULL); //here</P>
+            <P>Any ideas what could cause this? I am running windows 7 =
+64 bit,=20
+            using microsoft visual studio 8</P>
+            <P><I>Comment by Mike at 16:01 on Thu 31 March =
+2011</I></P></DIV>
+            <DIV class=3Dcomment>
+            <P>sir,</P>
+            <P>i have been asked to do serial port programming using =
+C++</P>
+            <P>it should include opening port, close and view the status =
+of the=20
+            serial port. You should also be able to control speed, =
+timeout,start=20
+            bit,stop bit,parity bit and stuff like that</P>
+            <P>will i b able to use ur code to meet my requirements?</P>
+            <P>regards</P>
+            <P><I>Comment by mayuri at 5:41 on Tue 19 April =
+2011</I></P></DIV>
+            <DIV class=3Dcomment>
+            <P>hey ppl,</P>
+            <P>i am able to compile the code but </P>
+            <P>I get this error: E012_Failed to open port &lt;3&gt;</P>
+            <P>pls provide me some solution..i hav been stuck in dis</P>
+            <P><I>Comment by mayuri at 6:51 on Wed 20 April =
+2011</I></P></DIV>
+            <DIV class=3Dcomment>
+            <P>Try using this:</P>
+            <P>HANDLE h =3D CreateFileA(=20
+            =
+"COM1",GENERIC_READ|GENERIC_WRITE,0,NULL,OPEN_EXISTING,0,NULL);</P>
+            <P>you can change "COM1" to any com port you want, as long =
+as it's=20
+            listend in Device Manager in Ports(COM &amp; LPT)</P>
+            <P>If you don't use a specified port , you'll get that =
+error!</P>
+            <P><I>Comment by Mike at 19:39 on Mon 16 May =
+2011</I></P></DIV>
+            <DIV class=3Dcomment>
+            <P>Hai guys!!</P>
+            <P>I am copied this code and tried to compile in VC++. I am =
+using=20
+            USB to Serial converter for my laptop. The program is fine. =
+It=20
+            compiled well without errors. But when I am running the =
+program its=20
+            giving an error.</P>
+            <P>"A problem caused the program to stop working correctly. =
+windows=20
+            will close the program and notify you if a soulution is=20
+            available."</P>
+            <P>and then it is asking press any key to =
+continue.......</P>
+            <P>donno whats wrong I have done.</P>
+            <P>Can anyone solve my problem??</P>
+            <P>Thank you.</P>
+            <P>------Seshu.</P>
+            <P><I>Comment by Seshu at 15:02 on Mon 15 August =
+2011</I></P></DIV>
+            <DIV class=3Dnewcomment>
+            <H3>Add New Comment</H3>
+            <FORM method=3Dpost name=3Dform1=20
+action=3Dhttp://www.fogma.co.uk/index.php>
+            <TABLE border=3D0>
+              <TBODY>
+              <TR>
+                <TD>Name:</TD>
+                <TD><INPUT id=3Dname size=3D50 name=3Dname></TD></TR>
+              <TR>
+                <TD>Email:</TD>
+                <TD><INPUT id=3Demail size=3D50 name=3Demail> <BR><FONT=20
+                  size=3D1>(Never displayed publically)</FONT></TD></TR>
+              <TR>
+                <TD>Comment:</TD>
+                <TD><TEXTAREA id=3Dcomment rows=3D7 cols=3D57 =
+name=3Dcomment></TEXTAREA><BR><FONT=20
+                  size=3D1>HTML Tags allowed - =
+&lt;b&gt;<B>bold</B>&lt;/b&gt;,=20
+                  &lt;i&gt;<I>italic</I>&lt;/i&gt; and &lt;a=20
+                  href=3D"http://..."&gt;<A=20
+                  href=3D"http://.../">Links</A>&lt;/a&gt;</FONT> =
+</TD></TR>
+              <TR>
+                <TD>Type "NoSpam" in Here:</TD>
+                <TD><INPUT id=3Dz size=3D50 name=3Dz></TD></TR>
+              <TR>
+                <TD colSpan=3D2>
+                  <DIV align=3Dcenter><INPUT id=3Da =
+value=3Dpreview_comment=20
+                  type=3Dhidden name=3Da> <INPUT id=3Dentry_id =
+value=3D140 type=3Dhidden=20
+                  name=3Dentry_id> <INPUT value=3DPreview type=3Dsubmit =
+name=3DSubmit>=20
+                  =
+</DIV></TD></TR></TBODY></TABLE></FORM></DIV></TD></TR></TBODY></TABLE>
+      <P>&nbsp;</P>
+      <P><A href=3D"http://www.fogma.co.uk/foggylog/archive">&lt;&lt; =
+Back</A></P>
+      <P>
+      <DIV id=3Dfooter>=A9 <A=20
+      onmouseover=3D"stat_write('website','fogma.co.uk');return true;"=20
+      onmouseout=3D"stat_write_blank();return true;"=20
+      href=3D"javascript:email('website','fogma.co.uk')">Gary Ewer</A> =
+2003-2010:=20
+      If this entry was of use to you, drop me an <A=20
+      onmouseover=3D"stat_write('website','fogma.co.uk');return true;"=20
+      onmouseout=3D"stat_write_blank();return true;"=20
+      href=3D"javascript:email('website','fogma.co.uk')">email</A> =
+!</DIV>
+      <P></P></TD>
+    <TD height=3D290 vAlign=3Dtop width=3D90 align=3Dright>
+      <TABLE border=3D0 cellSpacing=3D0 cellPadding=3D0 width=3D"100%" =
+height=3D"100%">
+        <TBODY>
+        <TR>
+          <TD height=3D145 vAlign=3Dtop width=3D90 align=3Dright><IMG =
+border=3D0 alt=3D""=20
+            src=3D"http://www.fogma.co.uk/images/circright.gif" =
+width=3D90=20
+            height=3D145></TD></TR>
+        <TR>
+          <TD height=3D"100%"=20
+          background=3Dhttp://www.fogma.co.uk/images/circright1.gif =
+width=3D90=20
+          align=3Dright></TD></TR>
+        <TR>
+          <TD height=3D145 vAlign=3Dbottom width=3D90 align=3Dright><IMG =
+border=3D0=20
+            alt=3D"" =
+src=3D"http://www.fogma.co.uk/images/circright2.gif" width=3D90=20
+            =
+height=3D145></TD></TR></TBODY></TABLE></TD></TR></TBODY></TABLE></DIV>
+<DIV align=3Dcenter>
+<CENTER>
+<TABLE border=3D0 cellSpacing=3D0 cellPadding=3D0 width=3D790>
+  <TBODY>
+  <TR>
+    <TD height=3D80 width=3D295 align=3Dmiddle><IMG border=3D0 alt=3D""=20
+      src=3D"http://www.fogma.co.uk/images/circbot.gif" width=3D295 =
+height=3D80></TD>
+    <TD height=3D80 width=3D200 align=3Dmiddle><IMG border=3D0 alt=3D""=20
+      src=3D"http://www.fogma.co.uk/images/circbot1.gif" width=3D200 =
+height=3D80></TD>
+    <TD height=3D80 width=3D295 align=3Dmiddle><IMG border=3D0 alt=3D""=20
+      src=3D"http://www.fogma.co.uk/images/circbot2.gif" width=3D295=20
+  height=3D80></TD></TR></TBODY></TABLE></CENTER></DIV>
+<P>&nbsp;</P>
+<SCRIPT type=3Dtext/javascript =
+src=3D"http://www.google-analytics.com/urchin.js">
+</SCRIPT>
+
+<SCRIPT type=3Dtext/javascript>
+_uacct =3D "UA-3177849-1";
+urchinTracker();
+</SCRIPT>
+</BODY></HTML>
+
+------=_NextPart_000_0000_01CC7F05.815001D0
+Content-Type: image/gif
+Content-Transfer-Encoding: base64
+Content-Location: http://www.fogma.co.uk/images/circtop.gif
+
+R0lGODlhJwFQAPcAAAAAAAEBAQMDAwIBAgUGBgQCBAsCBQwCCw0ODQoKCgUICRYFChgEFwsYFBIS
+EhUVFR0dHRkZGRUZGAoNDygHGC8KFBAoHhsTJSkGKDkINi4PMxQyKyUlJSIiIiwsLCMsIjIyMjU1
+NT09PTk6OSkxL0oSGUYNKFgTJlIONG8aLnMfIBlINjtFOjBQNTJhP0ZXPEtnPTgZRjYsTU0SUGoQ
+T3IScEohWzZOTRxzUz1nVS9tSjRwaRtaR0JCQkVFRUJGRElKSk5OTkpMTUVKSENXSUpYVlFRUVVV
+VVNTVVpaWl1dXV1aXVlWW1BPUGFcX21dX3daXUNoSlR2SENlV0V1Vk9zSlhaY0xNcGNdYGhWZHdV
+Z3hNeHBScUp5eFNscWNiY2Vke5opNo4kMKY3O4gfOokbUpglR5giVag3SKw5V6czVI4Zcas0ZrQ+
+Z6cqeK4zdrQ7d6EoZolaXbhHV7VGS4hVaZdYZpFReLpGZ71Fd7JYcMRUW8FOacxcY8xca8VWac1b
+dMlWedFfddJee8VRdNJibNJgc9BiZiaIXDmUdTGRbyq0fDm1ejWocCOnd1aVVk6KVWWcWmuUT2ik
+XHalW0aNbUioaVmpZkmodEm2eFm5eVevb2irZXesY2mybXSzbHuza2e5dne7dWrAfmy9eoe0aYO1
+a4GpXXshhVZ2jGpwlXt2pnNYlpMZj6Eel6koibY5iawomLc3mLAwjqslqbk2qLk2uKsxrpQyocI9
+s4hLh5dMhphKlL1DhrVThrlHmahNj4pLo7dJqLZGvKZTt5Ryt6JkvMRKiMxUi8tVhNFcg9Fai8ZK
+mMxTk81Sm9FWl8xMrMhIps5Ro9FTp81MtMpGudBOudBQsbhUxqpqxJ93wMtIydBLx8tM0MM9xDqZ
+hT6IgTioiCu3hDe6iTa2jEaZilqXmVGLjmWKnEW+g0mqlVWnnEi5mVK0nk2zh2mYpXSZrXiPrFyq
+oli3pGenqWynrDnDjDzJlUnFilzDhVXGiUbKmEHQmmTDgk/CoYiItiH5BAkAAAAALAAAAAAnAVAA
+AAj+AAEIHEiwoMGDCBMqXMiwocOHECNKnEixosWLGDNq3Mixo8ePIEOKHEmypMmTKFMKDDCgQIED
+BxjIxIBBg80YOGPMsMFTpc+fQIOiZPlyZoYZO2ugWoqrqdOmwaJKnRpVqNWrWLMaDFAUw1EaSls5
+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
+
+------=_NextPart_000_0000_01CC7F05.815001D0
+Content-Type: image/gif
+Content-Transfer-Encoding: base64
+Content-Location: http://www.fogma.co.uk/images/circtop1.gif
+
+R0lGODlhAgBQAPcAAAAAAAEBAQMDAwIBAgUGBgQCBAsCBQwCCw0ODQoKCgUICRYFChgEFwsYFBIS
+EhUVFR0dHRkZGRUZGAoNDygHGC8KFBAoHhsTJSkGKDkINi4PMxQyKyUlJSIiIiwsLCMsIjIyMjU1
+NT09PTk6OSkxL0oSGUYNKFgTJlIONG8aLnMfIBlINjtFOjBQNTJhP0ZXPEtnPTgZRjYsTU0SUGoQ
+T3IScEohWzZOTRxzUz1nVS9tSjRwaRtaR0JCQkVFRUJGRElKSk5OTkpMTUVKSENXSUpYVlFRUVVV
+VVNTVVpaWl1dXV1aXVlWW1BPUGFcX21dX3daXUNoSlR2SENlV0V1Vk9zSlhaY0xNcGNdYGhWZHdV
+Z3hNeHBScUp5eFNscWNiY2Vke5opNo4kMKY3O4gfOokbUpglR5giVag3SKw5V6czVI4Zcas0ZrQ+
+Z6cqeK4zdrQ7d6EoZolaXbhHV7VGS4hVaZdYZpFReLpGZ71Fd7JYcMRUW8FOacxcY8xca8VWac1b
+dMlWedFfddJee8VRdNJibNJgc9BiZiaIXDmUdTGRbyq0fDm1ejWocCOnd1aVVk6KVWWcWmuUT2ik
+XHalW0aNbUioaVmpZkmodEm2eFm5eVevb2irZXesY2mybXSzbHuza2e5dne7dWrAfmy9eoe0aYO1
+a4GpXXshhVZ2jGpwlXt2pnNYlpMZj6Eel6koibY5iawomLc3mLAwjqslqbk2qLk2uKsxrpQyocI9
+s4hLh5dMhphKlL1DhrVThrlHmahNj4pLo7dJqLZGvKZTt5Ryt6JkvMRKiMxUi8tVhNFcg9Fai8ZK
+mMxTk81Sm9FWl8xMrMhIps5Ro9FTp81MtMpGudBOudBQsbhUxqpqxJ93wMtIydBLx8tM0MM9xDqZ
+hT6IgTioiCu3hDe6iTa2jEaZilqXmVGLjmWKnEW+g0mqlVWnnEi5mVK0nk2zh2mYpXSZrXiPrFyq
+oli3pGenqWynrDnDjDzJlUnFilzDhVXGiUbKmEHQmmTDgk/CoYiItiH5BAkAAAAALAAAAAACAFAA
+AAgnAAEIBGDDRrBgxoxl07YwYZMmDhwMnEixosWLGDNq3Mixo8ePFgMCADs=
+
+------=_NextPart_000_0000_01CC7F05.815001D0
+Content-Type: image/gif
+Content-Transfer-Encoding: base64
+Content-Location: http://www.fogma.co.uk/images/circtop2.gif
+
+R0lGODlhJwFQAPcAAAAAAAEBAQMDAwIBAgUGBgQCBAsCBQwCCw0ODQoKCgUICRYFChgEFwsYFBIS
+EhUVFR0dHRkZGRUZGAoNDygHGC8KFBAoHhsTJSkGKDkINi4PMxQyKyUlJSIiIiwsLCMsIjIyMjU1
+NT09PTk6OSkxL0oSGUYNKFgTJlIONG8aLnMfIBlINjtFOjBQNTJhP0ZXPEtnPTgZRjYsTU0SUGoQ
+T3IScEohWzZOTRxzUz1nVS9tSjRwaRtaR0JCQkVFRUJGRElKSk5OTkpMTUVKSENXSUpYVlFRUVVV
+VVNTVVpaWl1dXV1aXVlWW1BPUGFcX21dX3daXUNoSlR2SENlV0V1Vk9zSlhaY0xNcGNdYGhWZHdV
+Z3hNeHBScUp5eFNscWNiY2Vke5opNo4kMKY3O4gfOokbUpglR5giVag3SKw5V6czVI4Zcas0ZrQ+
+Z6cqeK4zdrQ7d6EoZolaXbhHV7VGS4hVaZdYZpFReLpGZ71Fd7JYcMRUW8FOacxcY8xca8VWac1b
+dMlWedFfddJee8VRdNJibNJgc9BiZiaIXDmUdTGRbyq0fDm1ejWocCOnd1aVVk6KVWWcWmuUT2ik
+XHalW0aNbUioaVmpZkmodEm2eFm5eVevb2irZXesY2mybXSzbHuza2e5dne7dWrAfmy9eoe0aYO1
+a4GpXXshhVZ2jGpwlXt2pnNYlpMZj6Eel6koibY5iawomLc3mLAwjqslqbk2qLk2uKsxrpQyocI9
+s4hLh5dMhphKlL1DhrVThrlHmahNj4pLo7dJqLZGvKZTt5Ryt6JkvMRKiMxUi8tVhNFcg9Fai8ZK
+mMxTk81Sm9FWl8xMrMhIps5Ro9FTp81MtMpGudBOudBQsbhUxqpqxJ93wMtIydBLx8tM0MM9xDqZ
+hT6IgTioiCu3hDe6iTa2jEaZilqXmVGLjmWKnEW+g0mqlVWnnEi5mVK0nk2zh2mYpXSZrXiPrFyq
+oli3pGenqWynrDnDjDzJlUnFilzDhVXGiUbKmEHQmmTDgk/CoYiItiH5BAkAAAAALAAAAAAnAVAA
+AAj+AAEIHEiwoMGDCBMqXMiwocOHECNKnEixosWLGDNq3Mixo8ePIEN2lBGjZEkNGi6ovOBgQgIF
+BAoMCCCyps2bOHPqhBisJ6ufQIMKZQXmilEZMjxckDBBQQGaO6NKnUq1KoBiWLNq1bqqq1evqsKK
+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
+
+------=_NextPart_000_0000_01CC7F05.815001D0
+Content-Type: image/gif
+Content-Transfer-Encoding: base64
+Content-Location: http://www.fogma.co.uk/images/circleft.gif
+
+R0lGODlhWgCRAPcAAAAAAAABAAEBAQEAAAMAAAACAAADAAAAAgMAAgADAgICAgMDAwMCAAQAAAYA
+AAUBAgAEAAEFAQAABAMABAECBgUBBQEGBQUFBQQFAQkAAQkBBQwDAwEJAgEBCQYBCQMDDAoCCwoK
+CwcLBxMCAhUFCgYUCAoEEhgHFhQUExsbGxgWGQ0UEigGGjYKFy0QExwXIikHJTkLKCMZKDISMxwj
+HCQjJCsrKygmKTcrKyw0KzYrNjc3OC8yMFYNJ04PMG0YMEI7PXgiLlUVHTpDO0VFPTw4RjorSjgb
+Q1sNRVMVSm0YSkUnR0g5R1U7WE4wVWonUnEZa1c7Z2c6aXc6em0qbT1DREdFRVRHTFZKVUpVU1JS
+UlxbXFdYWUxNTmRdXGdWXG5RWVliW2ZlWnNhU11cY1dHaGlYY3dWZ2dMfGtIdF1lY2dmZHZka5Ao
+Mao6OrI6PoojLa9GPoodUZgkSZonV48rT6g2RrQ7WKkwUpUmcKgtaKw4abc4Z6o3dbU4eaotdoMd
+c5RTWbhGSbpSSrhIV69MVIdYaIpIe5ZUcLdIaKdYabVZZbpGd6NVd7hZeKtCe6BnaMdZWtVcXcVP
+T8pjXNNkWsNKaMdaadVcaMZMeclYd9VZd8tlZ9NkbNVmZcljd9VleeFhb3U6imtKhWtZhHlVmnlI
+i3hnmXRrio40jKYsjK0xirU2iKkslbc5l68ulJ06oaosqKg4qLk3p7k5ubEus8U7uMQ3sclAhJdF
+iYxKmLtFhLJQjJtIpoRappZVqZpbuJNPrbpEq6tHt7dDuKhWurdYvKdGqYNpp4lntJhquI14t5d4
+uI11rqhmuqV2u7RhvZ5pkMdIispXiNVZiMRFnMlLncdKl8xWltNXl9RNjNhjhsthhcpLo8ZHqctR
+otNUotJPq8xLtctMvMhGuNFOtdFNu9dIvc5StNBSsLs5xMg7x88+z7lKxalYxLhXx5tswpt0w6hl
+xLRkyKZyxq9e1stExMxEy8NMy8tLy8dHxNNIyMtI09NG1sRTzZWCvSH5BAkAAAAALAAAAABaAJEA
+AAj+AAEIHEiwoMGDCBMqTFgAAgUKAApkkOCizZtBkTB58gQJjJchFxAIKLCwpMmTKAEYaODgQIIH
+BYS0iYMxlCdMkMZ82WHhAIgBBlIKHYqSQgYHEBYEkCloUiRPlCQFYqOFhoUEBxAQuEC0q1eDEw5A
+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
+kyFnZilZRAEBADs=
+
+------=_NextPart_000_0000_01CC7F05.815001D0
+Content-Type: image/gif
+Content-Transfer-Encoding: base64
+Content-Location: http://www.fogma.co.uk/images/circleft2.gif
+
+R0lGODlhWgCRAPcAAAAAAAABAAEBAQEAAAMAAAACAAADAAAAAgMAAgADAgICAgMDAwMCAAQAAAYA
+AAUBAgAEAAEFAQAABAMABAECBgUBBQEGBQUFBQQFAQkAAQkBBQwDAwEJAgEBCQYBCQMDDAoCCwoK
+CwcLBxMCAhUFCgYUCAoEEhgHFhQUExsbGxgWGQ0UEigGGjYKFy0QExwXIikHJTkLKCMZKDISMxwj
+HCQjJCsrKygmKTcrKyw0KzYrNjc3OC8yMFYNJ04PMG0YMEI7PXgiLlUVHTpDO0VFPTw4RjorSjgb
+Q1sNRVMVSm0YSkUnR0g5R1U7WE4wVWonUnEZa1c7Z2c6aXc6em0qbT1DREdFRVRHTFZKVUpVU1JS
+UlxbXFdYWUxNTmRdXGdWXG5RWVliW2ZlWnNhU11cY1dHaGlYY3dWZ2dMfGtIdF1lY2dmZHZka5Ao
+Mao6OrI6PoojLa9GPoodUZgkSZonV48rT6g2RrQ7WKkwUpUmcKgtaKw4abc4Z6o3dbU4eaotdoMd
+c5RTWbhGSbpSSrhIV69MVIdYaIpIe5ZUcLdIaKdYabVZZbpGd6NVd7hZeKtCe6BnaMdZWtVcXcVP
+T8pjXNNkWsNKaMdaadVcaMZMeclYd9VZd8tlZ9NkbNVmZcljd9VleeFhb3U6imtKhWtZhHlVmnlI
+i3hnmXRrio40jKYsjK0xirU2iKkslbc5l68ulJ06oaosqKg4qLk3p7k5ubEus8U7uMQ3sclAhJdF
+iYxKmLtFhLJQjJtIpoRappZVqZpbuJNPrbpEq6tHt7dDuKhWurdYvKdGqYNpp4lntJhquI14t5d4
+uI11rqhmuqV2u7RhvZ5pkMdIispXiNVZiMRFnMlLncdKl8xWltNXl9RNjNhjhsthhcpLo8ZHqctR
+otNUotJPq8xLtctMvMhGuNFOtdFNu9dIvc5StNBSsLs5xMg7x88+z7lKxalYxLhXx5tswpt0w6hl
+xLRkyKZyxq9e1stExMxEy8NMy8tLy8dHxNNIyMtI09NG1sRTzZWCvSH5BAkAAAAALAAAAABaAJEA
+AAj+AAdUQLLKWjh01rqoACAAgMOGDiNKnEixosWLGDNeHFjwYMKFEDWKHEmyZMUJBA2i66aQocmX
+MGNKDICAYLeDLEHK3MlTY4EDNnG2jBiyp1GeP4OuHMqw6NGnL5OqqiZUBUQBTqFqFSkhQ4xX1dCl
+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
+
+------=_NextPart_000_0000_01CC7F05.815001D0
+Content-Type: image/gif
+Content-Transfer-Encoding: base64
+Content-Location: http://www.fogma.co.uk/images/circright.gif
+
+R0lGODlhWgCRAPcAAAAAAAEAAAABAAEBAQEBAAMAAAACAAADAAIDAAAAAgEBAwICAgMDAwIBAgUB
+AQAEAAIFAQUFAQAABAAABwICBQUBBQEFBgQEBAYGBgoDAwIJAgsKBAEACgUCCQEADQUEDAoEDAsM
+CwMJChMKBgsSCxcVCQQCEggJFhMOFhQUFBscHBgXFw0SFCgaCSobFSgnGzUtEAcHKRoXIxEPMSUe
+KiQjIysrKykmJjcqKi0zKDY2KiwsMy0xNDMzMjw8PDk3NjUrNRwjG0w3FEY5OEw8LzpGNExEHHBV
+FklKKUdGOllJOVdWLXlZLHVVNmdVMGloNXNvMlhmNwkLWhQRTSMdUjw8QzIqTQgJaREQczQrbyMd
+bUU7R1E8T0U+dz5FR0REREpKRkpJSVZIR1dUTFlKWVNTVFxbXFlXV01NT2RaVGhYWG1VTltlWllr
+R2h1R2ZiWXplWG5tSF1cYlpZaFZKdVpYd1BHb2RaZ2Zad29ab11iZ15kcmVkZ3llaGZieHZoeIdn
+NJx3OpFwL6V4KKh5N7J7IIZlJphtR5l4SYRqV450U6J4RqV/XoRrZ5d4aINsd4t1epZ7d4pzaYNm
+RniHNniQTXqZXJmJOI2QOqqIK7iHKqyKOriKN6eZO7mXObejO6SkO6CYMsKMNceXOdKZOsGULc6k
+OYWKSIaXSpiZR4ibWJSQUauGR7eLR6aYRbiXRaqGWbeLV7uTUqObUYqjTZmkSomoV5ioV5K0Xaqn
+SbilSKepV7anVayxW6B/aJqBd6qHZriLY6OEc4qrZperY46yZpm1Z5C3cauvZcKNR8STS8eaRtSa
+R8SSVMakR8ykSw4VkhokmScliDo5ii4ukxknriozqik1uTAzrh4aiUU8jDlEuDpDo0pEiVVMh1pW
+iktKm1pWmFNOlWRbhmRcmHhpiGtjmnhqlnFkjkhJqExSqlhYqEZKuEtTuFlXt1ROsGRdsmljp3No
+pWNeqTY8xTE4zzpIyD1I1jxRwkdMxkpTx0dN1lZWxINuiYd1hop0iyH5BAkAAAAALAAAAABaAJEA
+AAj+AAM0kEDwQQ5LtI4NO1bMliUkJgQo+GDgAQQJADJq3Mixo8ePIEOKBDAggQQKBjTkcGNr2DBc
+uFwuCSHBAIUFBkKM3Mmz50gBJQEwEGDAQJA2qmAutIUqCgkJASgkOOCzqtWeEhIYyMiAgoQIKaKg
+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
+BF0Jl225dS7SBF0JDIkABpcTEAA7
+
+------=_NextPart_000_0000_01CC7F05.815001D0
+Content-Type: image/gif
+Content-Transfer-Encoding: base64
+Content-Location: http://www.fogma.co.uk/images/circright2.gif
+
+R0lGODlhWgCRAPcAAAAAAAEAAAABAAEBAQEBAAMAAAACAAADAAIDAAAAAgEBAwICAgMDAwIBAgUB
+AQAEAAIFAQUFAQAABAAABwICBQUBBQEFBgQEBAYGBgoDAwIJAgsKBAEACgUCCQEADQUEDAoEDAsM
+CwMJChMKBgsSCxcVCQQCEggJFhMOFhQUFBscHBgXFw0SFCgaCSobFSgnGzUtEAcHKRoXIxEPMSUe
+KiQjIysrKykmJjcqKi0zKDY2KiwsMy0xNDMzMjw8PDk3NjUrNRwjG0w3FEY5OEw8LzpGNExEHHBV
+FklKKUdGOllJOVdWLXlZLHVVNmdVMGloNXNvMlhmNwkLWhQRTSMdUjw8QzIqTQgJaREQczQrbyMd
+bUU7R1E8T0U+dz5FR0REREpKRkpJSVZIR1dUTFlKWVNTVFxbXFlXV01NT2RaVGhYWG1VTltlWllr
+R2h1R2ZiWXplWG5tSF1cYlpZaFZKdVpYd1BHb2RaZ2Zad29ab11iZ15kcmVkZ3llaGZieHZoeIdn
+NJx3OpFwL6V4KKh5N7J7IIZlJphtR5l4SYRqV450U6J4RqV/XoRrZ5d4aINsd4t1epZ7d4pzaYNm
+RniHNniQTXqZXJmJOI2QOqqIK7iHKqyKOriKN6eZO7mXObejO6SkO6CYMsKMNceXOdKZOsGULc6k
+OYWKSIaXSpiZR4ibWJSQUauGR7eLR6aYRbiXRaqGWbeLV7uTUqObUYqjTZmkSomoV5ioV5K0Xaqn
+SbilSKepV7anVayxW6B/aJqBd6qHZriLY6OEc4qrZperY46yZpm1Z5C3cauvZcKNR8STS8eaRtSa
+R8SSVMakR8ykSw4VkhokmScliDo5ii4ukxknriozqik1uTAzrh4aiUU8jDlEuDpDo0pEiVVMh1pW
+iktKm1pWmFNOlWRbhmRcmHhpiGtjmnhqlnFkjkhJqExSqlhYqEZKuEtTuFlXt1ROsGRdsmljp3No
+pWNeqTY8xTE4zzpIyD1I1jxRwkdMxkpTx0dN1lZWxINuiYd1hop0iyH5BAkAAAAALAAAAABaAJEA
+AAj+AAEIHEiwoMGDCBMqXMhwwIAmhxgBA5YITAKGGDNq3KjQIUSJFMEo4EiypEmDHiNOrDjypMuX
+GFOCrLgAps2bBWUKo/jlAM6fNlP62gmnJ9CjJ4US/WIAqdOFAQJcGDmAAIEminwB8/XmC4WnYA9G
+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
+
+------=_NextPart_000_0000_01CC7F05.815001D0
+Content-Type: image/gif
+Content-Transfer-Encoding: base64
+Content-Location: http://www.fogma.co.uk/images/circbot.gif
+
+R0lGODlhJwFQAPcAAAAAAAEBAQICAgIBAQUGBgMEAgkJCg0NDQYIBhMNBggTChcWBwcGGRISEhUV
+FhkZGR4eHhcUGA4WFCUZBCUaFAsnGxIlFhoyGjgnBjArFQ4NLCUcMRY3LSMjJCoqKi0tLScmLjgo
+KSc5OzIyMjU1NTk5OT4+Pjo6PTEwNE82DVQ6KRlRNitRLTRpOzNGHm9OEXJQMkxzOG9wIw4QUDs9
+RjIoUxAUczEsdCIfbUs6TUY7bD5DRDVTTxtyUD5mWCVuUTZyZkJCQkZGRkJFRERJR0lJSU5OTkpN
+Sz1KS0hUTkRJV0hYVFJSUlVVVFpaWl5dXV1cWllbVFRJUGNdXGdbVHJWT0ZlVlloVEl2XVl4Wndp
+S2llVHhmWHBzT1dJaElXZV5dY1tbalVVblZJeVdYeE9Ld2VYZmVYeXBba0ZnaUd6dkxscGFhYmNj
+ZXlnaXlmempgcpNrF4RdL5FwLqd5K6NzGIl2R5h2RYhqV5l3V4trTKN8SIVraJh5aIpzeJV7eIdv
+cqJ+WW+HODCJVjmYdzOMbjenaiWpdji0eCuwd1CVUnCTT1iiXXOlW06PamWYZESsdki4e1i5eVCo
+aWirZ2i7eHe2cG3BfriKN7CONJaMNseWOs6ZPIeOSaqDSLeKR7uYRqqEWbWMWLeSUZOpWq6nUaeE
+Z6aEa4y0aJ6AcseZRc2bRMSiRg8XjxohlDw5iTc5mCgrkRwnqyoyqDU7pys2uSo0rztDukpDhlhV
+hkhImFpWmFROjGZbhmRbmFd2iWhlinhoiXZpl2h4mUdJqFhXqkVLt1dYtlFNmmJeqGpjpXl4pm1k
+mztHyT1J0URNyEtRxE5SuTo/q4h0hoNwiYJ4rYl9szqZhDipiCy3hDi4iDy6kiOoeUaZiVmKlViZ
+mkuNi2SHnGKUn0a7g0qolVWnnEm4mVKznkmsiG2IoniHqmqYpXSUrHSbrXyVsXyMrlysol2loVi3
+o2enqGeqqTjCizzJlUjFilfGiEfJmETPmGTDg0/BoYSEsouEtoeKtSH5BAkAAAAALAAAAAAnAVAA
+AAj+AAEIHEiwoMGDCBMqXJhwBLNq1vxJtLbMiwGGGDNq3Mixo8ePIEOKHEmy5IczECX6o9jrQcmX
+MGPKnEmzpk2NELyknFiN2YebQIMKHUq0qMcGOZZF5LmMRgGjUKNKnUqVo4ETwqqp9FdtmZgDVcOK
+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
+
+------=_NextPart_000_0000_01CC7F05.815001D0
+Content-Type: image/gif
+Content-Transfer-Encoding: base64
+Content-Location: http://www.fogma.co.uk/images/circbot1.gif
+
+R0lGODlhAgBQAPcAAAAAAAEBAQICAgIBAQUGBgMEAgkJCg0NDQYIBhMNBggTChcWBwcGGRISEhUV
+FhkZGR4eHhcUGA4WFCUZBCUaFAsnGxIlFhoyGjgnBjArFQ4NLCUcMRY3LSMjJCoqKi0tLScmLjgo
+KSc5OzIyMjU1NTk5OT4+Pjo6PTEwNE82DVQ6KRlRNitRLTRpOzNGHm9OEXJQMkxzOG9wIw4QUDs9
+RjIoUxAUczEsdCIfbUs6TUY7bD5DRDVTTxtyUD5mWCVuUTZyZkJCQkZGRkJFRERJR0lJSU5OTkpN
+Sz1KS0hUTkRJV0hYVFJSUlVVVFpaWl5dXV1cWllbVFRJUGNdXGdbVHJWT0ZlVlloVEl2XVl4Wndp
+S2llVHhmWHBzT1dJaElXZV5dY1tbalVVblZJeVdYeE9Ld2VYZmVYeXBba0ZnaUd6dkxscGFhYmNj
+ZXlnaXlmempgcpNrF4RdL5FwLqd5K6NzGIl2R5h2RYhqV5l3V4trTKN8SIVraJh5aIpzeJV7eIdv
+cqJ+WW+HODCJVjmYdzOMbjenaiWpdji0eCuwd1CVUnCTT1iiXXOlW06PamWYZESsdki4e1i5eVCo
+aWirZ2i7eHe2cG3BfriKN7CONJaMNseWOs6ZPIeOSaqDSLeKR7uYRqqEWbWMWLeSUZOpWq6nUaeE
+Z6aEa4y0aJ6AcseZRc2bRMSiRg8XjxohlDw5iTc5mCgrkRwnqyoyqDU7pys2uSo0rztDukpDhlhV
+hkhImFpWmFROjGZbhmRbmFd2iWhlinhoiXZpl2h4mUdJqFhXqkVLt1dYtlFNmmJeqGpjpXl4pm1k
+mztHyT1J0URNyEtRxE5SuTo/q4h0hoNwiYJ4rYl9szqZhDipiCy3hDi4iDy6kiOoeUaZiVmKlViZ
+mkuNi2SHnGKUn0a7g0qolVWnnEm4mVKznkmsiG2IoniHqmqYpXSUrHSbrXyVsXyMrlysol2loVi3
+o2enqGeqqTjCizzJlUjFilfGiEfJmETPmGTDg0/BoYSEsouEtoeKtSH5BAkAAAAALAAAAAACAFAA
+AAgkAAEIHEiwoMGDCBMqXMiwocOHEAnKkNFJE6lSGDF26lSkiMGAADs=
+
+------=_NextPart_000_0000_01CC7F05.815001D0
+Content-Type: image/gif
+Content-Transfer-Encoding: base64
+Content-Location: http://www.fogma.co.uk/images/circbot2.gif
+
+R0lGODlhJwFQAPcAAAAAAAEBAQICAgIBAQUGBgMEAgkJCg0NDQYIBhMNBggTChcWBwcGGRISEhUV
+FhkZGR4eHhcUGA4WFCUZBCUaFAsnGxIlFhoyGjgnBjArFQ4NLCUcMRY3LSMjJCoqKi0tLScmLjgo
+KSc5OzIyMjU1NTk5OT4+Pjo6PTEwNE82DVQ6KRlRNitRLTRpOzNGHm9OEXJQMkxzOG9wIw4QUDs9
+RjIoUxAUczEsdCIfbUs6TUY7bD5DRDVTTxtyUD5mWCVuUTZyZkJCQkZGRkJFRERJR0lJSU5OTkpN
+Sz1KS0hUTkRJV0hYVFJSUlVVVFpaWl5dXV1cWllbVFRJUGNdXGdbVHJWT0ZlVlloVEl2XVl4Wndp
+S2llVHhmWHBzT1dJaElXZV5dY1tbalVVblZJeVdYeE9Ld2VYZmVYeXBba0ZnaUd6dkxscGFhYmNj
+ZXlnaXlmempgcpNrF4RdL5FwLqd5K6NzGIl2R5h2RYhqV5l3V4trTKN8SIVraJh5aIpzeJV7eIdv
+cqJ+WW+HODCJVjmYdzOMbjenaiWpdji0eCuwd1CVUnCTT1iiXXOlW06PamWYZESsdki4e1i5eVCo
+aWirZ2i7eHe2cG3BfriKN7CONJaMNseWOs6ZPIeOSaqDSLeKR7uYRqqEWbWMWLeSUZOpWq6nUaeE
+Z6aEa4y0aJ6AcseZRc2bRMSiRg8XjxohlDw5iTc5mCgrkRwnqyoyqDU7pys2uSo0rztDukpDhlhV
+hkhImFpWmFROjGZbhmRbmFd2iWhlinhoiXZpl2h4mUdJqFhXqkVLt1dYtlFNmmJeqGpjpXl4pm1k
+mztHyT1J0URNyEtRxE5SuTo/q4h0hoNwiYJ4rYl9szqZhDipiCy3hDi4iDy6kiOoeUaZiVmKlViZ
+mkuNi2SHnGKUn0a7g0qolVWnnEm4mVKznkmsiG2IoniHqmqYpXSUrHSbrXyVsXyMrlysol2loVi3
+o2enqGeqqTjCizzJlUjFilfGiEfJmETPmGTDg0/BoYSEsouEtoeKtSH5BAkAAAAALAAAAAAnAVAA
+AAj+AAEIHEiwoMGDCBMqXMiwocOHECNKnChxRitZtZo523irzZMTFEOKHEmypMmTKFOqNBjAxsWM
+G50Ra9NkxMqbOHPq3MmzZ0EGF23B3KirjZEOPpMqXcq06U0NL29p3FimTREHTrNq3co1q0WMzaY2
+C9NmiIGuaNOqXUuRgA1XQps9m2uMzRMTAdjq3ct3LVRZtqTOfVaUic2+iBMr7mlxVq1bg5+Rsfpg
+seXLmEW6dTVLMN0wbMxmHk26tEGoswJHLurkRF7TsGMrDjCDszTIg3MZ9SC7t2+2QGN1NgatuDGy
+Qhr8Xs7cKe1Ws24XL46sTesCzbNr38nARixa0oj+T59shPf28+hPNqZlTDw0YmBCK09Pv37E7t/D
+R5vOi2YJAfYFKCBCtLkCC3vR7JcgWUVAMOCDEOIHi34JRtOfEyYgAOGG9hU4ITEVJijGbhyWmJ6E
+IEZzTIL93XWAiTBmR8AMsXyo4jHHFDOiER/E6ONyGuAACywg4ohjf1CY8OKPTMLGAA41EkOMkTmS
+VV6TWJI24w2w6EJMMVTqhuGSWZY5W5CveFkMmDjuEl8RSJkpJ2Jo6qLLmkbq6J+Gc/YJHA43pIkM
+njjmYlcQlfmpKFpbCrpmMskcs4uVIwC46KVZCTBDoLoMWgykyejIRmtkYmpqUgFoECguyOwCKqT/
+hkIRhIOn1uoTmqy6+mou8R3xgaW2BosTrrzoCuqkbDRRwlnCNqsSAzXogEuxviSjDKS+iDGqCfM5
+621J0EpLrbXKXEvGqLN+q+5I4U67iy/llpvMuU8I4QGw6+b7UATRugtvvMrw+sQRIxCg78ENpRrt
+GLn44gszAPcSnxEkMIvwxQcJoMHCDT/MDMTMSMwGEyWUivHJABCwgQ5lMNzLxzCHHB/JJqN8sQEr
+t9zLy8wII8zHIpPcrc0XB9DAwmP0AkzPPv98xswlDE30wQJAUIMXY5yhdNNNP82GESVPjTHOOWCt
+dTBc+xwGGE9QXLPY3wrArxdenHEGMGhzDQxo/lAUMYLFcK9LthdinB1M3j4DE58TQnzAZ+Dqyn2C
+FHWf8cbh1GQuTDBwLB5EB9hBru4BIJRtBhyXB5P56sGY8cQTTJyQqOjeEgBBDlKYgQbqqq+e+RuL
+F0HC27SfKjcJuev+xhu+Z875E8kG4cHjxdsqQAMhJI/G8plP4/3vbLct+2vV1zrAASHkQIXubrzh
+h/fwT0MNHNA7McQIxJfv5/npU0EFGm4ABCDeF79pAO8JUDDCCSAQOv1h6nrZq0IVuOAGPgyQgPB7
+g0ee0IQgfCB/DjRTASIQwQnywYJ+8MMfVug9P6DhdU4oQgkcQL4Q+gkBFFABDCbIhRMOcIVA/vyD
+H9wwhSc4wQgm6IDBbOgnASQgAyqQIBfw4MMgAnGIRYSdB0HIxB/hUIdV0AIeqNiHMlpRiER8HROC
+MAKpdRFLBVgAFGGgBT2MsYxlTIUe9bjCNMJuCCRoQA3fyKQCPFGHdbRjHvDYhz3usQ9phMIaSeAA
+fBHSR3Gcoxz0wMk8LLIPpziFI/XYBy4U8YhsFOQlfxQABEwgBSqQwyY7mYdABMIUpgilLlPRBz5s
+AYZI9AAXVxkgQ2IgBTCQJSfvUEtb4vKZujxFKYsIhSbIsAOAIyaEDPnKF8hhDnO4gzj3YMtQmPOZ
+6OwDHn5pRCOw0QEN1OaAuJkCb4IznHfY/8MePGHOfoYCnaYIBB5MaUQmCKEEHRimPJszgARM4Jgv
+iMM987lPT/BTFBjNKEbNGYg8mBIKTmBCEUzwgQbEc6HbCQA3IRqHONDhpS+1qCc+QVON2jQUAiVo
+SEc6AgcsEaXZGcBK69nSOsD0pZjABE2XOoqmOlWjOF0nFArKU58CdTlCdShEI1qHrh41qWBdKijG
+6tSyjkIUodADF6gAhWoa4aAeaMBPr5oZoRpyAQ9NAVHj0FWvIhWsSd2EYDehisIatrCgcOonPHEH
+LbDVrSMlAQQOYEm6biUAmB2AXRGAgAQsAK8YOGY9XxBRvhr1qHTIRCbAOtjWcoITq4htbP4Pi9hP
+7MEOjgVpE4wQ2Q7I1bJpkYFwh3vP4s5BE8hFbWpVy1zWtlawr40ubGUrW8MutrFbaGtI32oCEvh2
+rsBNC3LHS17kMpe5Y02vetPLClYUlhXUpa50OSFY2+L2sU1gAm+DUAIPPOAAJw0vW0pB4AIb2MDq
+ba+CF8zg9spXsJhgLG6zC1L9HkEIJujvfwMs4L4c+MMHbrCI03td3ObWCU7IL28xXIIPQKABBuBw
+hxcD4hqrd7ESNvEWqBAFKEShCSq+8BAyPIIO/BcBlZ1xaezAZDt04claiPIWpszjKFgZyEzQrxGO
+UAQhCCEIJjgBCT5gZBgXYJBKXk4R1iXcZS+7eQhBiLMJwkyCEZAZAg9owAEMQIAkp/nPgA60oAed
+noAAADs=
+
+------=_NextPart_000_0000_01CC7F05.815001D0
+Content-Type: image/gif
+Content-Transfer-Encoding: base64
+Content-Location: http://www.fogma.co.uk/images/circleft1.gif
+
+R0lGODlhvgAKAPcAAAAAAAABAAEBAQEAAAMAAAACAAADAAAAAgMAAgADAgICAgMDAwMCAAQAAAYA
+AAUBAgAEAAEFAQAABAMABAECBgUBBQEGBQUFBQQFAQkAAQkBBQwDAwEJAgEBCQYBCQMDDAoCCwoK
+CwcLBxMCAhUFCgYUCAoEEhgHFhQUExsbGxgWGQ0UEigGGjYKFy0QExwXIikHJTkLKCMZKDISMxwj
+HCQjJCsrKygmKTcrKyw0KzYrNjc3OC8yMFYNJ04PMG0YMEI7PXgiLlUVHTpDO0VFPTw4RjorSjgb
+Q1sNRVMVSm0YSkUnR0g5R1U7WE4wVWonUnEZa1c7Z2c6aXc6em0qbT1DREdFRVRHTFZKVUpVU1JS
+UlxbXFdYWUxNTmRdXGdWXG5RWVliW2ZlWnNhU11cY1dHaGlYY3dWZ2dMfGtIdF1lY2dmZHZka5Ao
+Mao6OrI6PoojLa9GPoodUZgkSZonV48rT6g2RrQ7WKkwUpUmcKgtaKw4abc4Z6o3dbU4eaotdoMd
+c5RTWbhGSbpSSrhIV69MVIdYaIpIe5ZUcLdIaKdYabVZZbpGd6NVd7hZeKtCe6BnaMdZWtVcXcVP
+T8pjXNNkWsNKaMdaadVcaMZMeclYd9VZd8tlZ9NkbNVmZcljd9VleeFhb3U6imtKhWtZhHlVmnlI
+i3hnmXRrio40jKYsjK0xirU2iKkslbc5l68ulJ06oaosqKg4qLk3p7k5ubEus8U7uMQ3sclAhJdF
+iYxKmLtFhLJQjJtIpoRappZVqZpbuJNPrbpEq6tHt7dDuKhWurdYvKdGqYNpp4lntJhquI14t5d4
+uI11rqhmuqV2u7RhvZ5pkMdIispXiNVZiMRFnMlLncdKl8xWltNXl9RNjNhjhsthhcpLo8ZHqctR
+otNUotJPq8xLtctMvMhGuNFOtdFNu9dIvc5StNBSsLs5xMg7x88+z7lKxalYxLhXx5tswpt0w6hl
+xLRkyKZyxq9e1stExMxEy8NMy8tLy8dHxNNIyMtI09NG1sRTzZWCvSH5BAEAAAAALAAAAAC+AAoA
+AAiJAAdUQLLKWjh01rqgACAAgMOGDiNKnEixosWLGDNq3Mixo8ePICMKJGgQoUKGESGGXMmypcuX
+MEGOLHgw4UKVKmPq3Mmzp8+ZJW2ifOizqNGjSC8CrXkSZ9KnUKO+XGryZkqpWLNqtUhVqNOtYMNC
+7dr0qtizaHmStUo0rdu3K9cOnQu3rt2LAQEAOw==
+
+------=_NextPart_000_0000_01CC7F05.815001D0
+Content-Type: image/gif
+Content-Transfer-Encoding: base64
+Content-Location: http://www.fogma.co.uk/images/circright1.gif
+
+R0lGODlhWgAKAPcAAAAAAAEAAAABAAEBAQEBAAMAAAACAAADAAIDAAAAAgEBAwICAgMDAwIBAgUB
+AQAEAAIFAQUFAQAABAAABwICBQUBBQEFBgQEBAYGBgoDAwIJAgsKBAEACgUCCQEADQUEDAoEDAsM
+CwMJChMKBgsSCxcVCQQCEggJFhMOFhQUFBscHBgXFw0SFCgaCSobFSgnGzUtEAcHKRoXIxEPMSUe
+KiQjIysrKykmJjcqKi0zKDY2KiwsMy0xNDMzMjw8PDk3NjUrNRwjG0w3FEY5OEw8LzpGNExEHHBV
+FklKKUdGOllJOVdWLXlZLHVVNmdVMGloNXNvMlhmNwkLWhQRTSMdUjw8QzIqTQgJaREQczQrbyMd
+bUU7R1E8T0U+dz5FR0REREpKRkpJSVZIR1dUTFlKWVNTVFxbXFlXV01NT2RaVGhYWG1VTltlWllr
+R2h1R2ZiWXplWG5tSF1cYlpZaFZKdVpYd1BHb2RaZ2Zad29ab11iZ15kcmVkZ3llaGZieHZoeIdn
+NJx3OpFwL6V4KKh5N7J7IIZlJphtR5l4SYRqV450U6J4RqV/XoRrZ5d4aINsd4t1epZ7d4pzaYNm
+RniHNniQTXqZXJmJOI2QOqqIK7iHKqyKOriKN6eZO7mXObejO6SkO6CYMsKMNceXOdKZOsGULc6k
+OYWKSIaXSpiZR4ibWJSQUauGR7eLR6aYRbiXRaqGWbeLV7uTUqObUYqjTZmkSomoV5ioV5K0Xaqn
+SbilSKepV7anVayxW6B/aJqBd6qHZriLY6OEc4qrZperY46yZpm1Z5C3cauvZcKNR8STS8eaRtSa
+R8SSVMakR8ykSw4VkhokmScliDo5ii4ukxknriozqik1uTAzrh4aiUU8jDlEuDpDo0pEiVVMh1pW
+iktKm1pWmFNOlWRbhmRcmHhpiGtjmnhqlnFkjkhJqExSqlhYqEZKuEtTuFlXt1ROsGRdsmljp3No
+pWNeqTY8xTE4zzpIyD1I1jxRwkdMxkpTx0dN1lZWxINuiYd1hop0iyH5BAkAAAAALAAAAABaAAoA
+AAhiAAEIHEiwoMGDCBMqXMhwwIAmhxgBA5YITAKGGDNq3KjQIUSJFC1yHEmypEGPESdWvGiypUuM
+KEGufEmzZsGYKkXa3PkSZ0iWPIOS9DlTqNGNRHUeXbowKVCmUE8+TPlTYEAAOw==
+
+------=_NextPart_000_0000_01CC7F05.815001D0
+Content-Type: text/css;
+	charset="iso-8859-1"
+Content-Transfer-Encoding: quoted-printable
+Content-Location: http://www.fogma.co.uk/index.css
+
+H1 {
+	TEXT-ALIGN: center; FONT-FAMILY: verdana, tahoma, helvetica, arial, =
+sans-serif; MARGIN-BOTTOM: 40px; COLOR: #ffffff; FONT-SIZE: 30pt; =
+FONT-WEIGHT: normal
+}
+H2 {
+	TEXT-ALIGN: left; FONT-FAMILY: verdana, tahoma, helvetica, arial, =
+sans-serif; COLOR: #ffffff; FONT-SIZE: 15pt; FONT-WEIGHT: bold
+}
+H3 {
+	FONT-FAMILY: verdana, tahoma, helvetica, arial, sans-serif; =
+MARGIN-BOTTOM: 0px; COLOR: #ffffff; FONT-SIZE: 12pt; FONT-WEIGHT: bold
+}
+H4 {
+	FONT-FAMILY: verdana, tahoma, helvetica, arial, sans-serif; COLOR: =
+#000000; FONT-SIZE: 12pt; FONT-WEIGHT: bold
+}
+#footer {
+	FONT-FAMILY: Verdana, Arial, Helvetica, sans-serif; COLOR: #ffffff; =
+FONT-SIZE: 8pt
+}
+BODY {
+	BACKGROUND-IMAGE: url(images/bgnotasblack.jpg); SCROLLBAR-ARROW-COLOR: =
+#000000; SCROLLBAR-FACE-COLOR: #bc89d1; BACKGROUND-COLOR: #000000; =
+SCROLLBAR-BASE-COLOR: #d9d9ec; FONT-FAMILY: Verdana, Arial, Helvetica, =
+sans-serif; SCROLLBAR-HIGHLIGHT-COLOR: #bc89d1; SCROLLBAR-SHADOW-COLOR: =
+#783892; SCROLLBAR-TRACK-COLOR: #aa6ac4; scrollbar-dark-shadow-color: =
+#783892
+}
+P {
+	FONT-FAMILY: Verdana, Arial, Helvetica, sans-serif; COLOR: #ffffff; =
+FONT-SIZE: 14px
+}
+TD {
+	FONT-FAMILY: Verdana, Arial, Helvetica, sans-serif; COLOR: #ffffff; =
+FONT-SIZE: 14px
+}
+TH {
+	FONT-FAMILY: Verdana, Arial, Helvetica, sans-serif; COLOR: #ffffff; =
+FONT-SIZE: 14px
+}
+DL {
+	FONT-FAMILY: Verdana, Arial, Helvetica, sans-serif; COLOR: #ffffff; =
+FONT-SIZE: 14px
+}
+LI {
+	FONT-FAMILY: Verdana, Arial, Helvetica, sans-serif; COLOR: #ffffff; =
+FONT-SIZE: 14px
+}
+UL {
+	FONT-FAMILY: Verdana, Arial, Helvetica, sans-serif; COLOR: #ffffff; =
+FONT-SIZE: 14px
+}
+DIV.comment {
+	BORDER-BOTTOM: #d2993a 3px dashed; BORDER-LEFT: #d2993a 3px dashed; =
+PADDING-BOTTOM: 10px; MARGIN: 5px; PADDING-LEFT: 10px; WIDTH: 100%; =
+PADDING-RIGHT: 10px; BORDER-TOP: #d2993a 3px dashed; BORDER-RIGHT: =
+#d2993a 3px dashed; PADDING-TOP: 10px
+}
+DIV.newcomment {
+	BORDER-BOTTOM: #663995 4px dashed; BORDER-LEFT: #663995 4px dashed; =
+PADDING-BOTTOM: 10px; MARGIN: 10px 5px 5px; PADDING-LEFT: 10px; WIDTH: =
+100%; PADDING-RIGHT: 10px; BORDER-TOP: #663995 4px dashed; BORDER-RIGHT: =
+#663995 4px dashed; PADDING-TOP: 10px
+}
+DIV.comments :link {
+	BACKGROUND-COLOR: transparent; COLOR: #d2993a; FONT-WEIGHT: bold
+}
+DIV.comments :visited {
+	BACKGROUND-COLOR: transparent; COLOR: #d2993a; FONT-WEIGHT: bold
+}
+DIV.comments :hover:link {
+	BACKGROUND-COLOR: transparent; COLOR: #a17125; FONT-WEIGHT: bold
+}
+DIV.comments :hover:visited {
+	BACKGROUND-COLOR: transparent; COLOR: #a17125; FONT-WEIGHT: bold
+}
+.commentsmouseover {
+	BACKGROUND-COLOR: #000080; CURSOR: hand; FONT-WEIGHT: bold
+}
+.commentsshow {
+	BORDER-BOTTOM: #e3e3ec 0px solid; BORDER-LEFT: #e3e3ec 0px solid; =
+BORDER-TOP: #e3e3ec 0px solid; BORDER-RIGHT: #e3e3ec 0px solid
+}
+.commentshidden {
+	DISPLAY: none
+}
+DIV.logged_in {
+	Z-INDEX: 1; POSITION: absolute; PADDING-BOTTOM: 10px; MARGIN: 5px; =
+PADDING-LEFT: 10px; WIDTH: 100px; PADDING-RIGHT: 10px; FONT-SIZE: 10px; =
+TOP: 10px; RIGHT: 0px; PADDING-TOP: 10px
+}
+
+------=_NextPart_000_0000_01CC7F05.815001D0
+Content-Type: application/octet-stream
+Content-Transfer-Encoding: quoted-printable
+Content-Location: http://www.fogma.co.uk/index.js
+
+function toggle_hidden(box_id)=0A=
+{=0A=
+  if (document.getElementById(box_id).className=3D=3D'commentshidden') {=0A=
+    document.getElementById(box_id).className=3D'commentsshow'=0A=
+  } else {=0A=
+    document.getElementById(box_id).className=3D'commentshidden'=0A=
+  }=0A=
+}=0A=
+=0A=
+function stat_write(name,at)=0A=
+{=0A=
+  window.status=3D'mailto:'+name+'@'+at;=0A=
+}=0A=
+=0A=
+function stat_write_blank()=0A=
+{=0A=
+  window.status=3D'';=0A=
+}=0A=
+=0A=
+function email(name,at)=0A=
+{=0A=
+  location.href=3D'mailto:'+name+'@'+at=0A=
+}
+------=_NextPart_000_0000_01CC7F05.815001D0
+Content-Type: application/octet-stream
+Content-Transfer-Encoding: quoted-printable
+Content-Location: http://www.google-analytics.com/urchin.js
+
+//-- Google Analytics Urchin Module=0A=
+//-- Copyright 2007 Google, All Rights Reserved.=0A=
+=0A=
+//-- Urchin On Demand Settings ONLY=0A=
+var _uacct=3D"";			// set up the Urchin Account=0A=
+var _userv=3D1;			// service mode (0=3Dlocal,1=3Dremote,2=3Dboth)=0A=
+=0A=
+//-- UTM User Settings=0A=
+var _ufsc=3D1;			// set client info flag (1=3Don|0=3Doff)=0A=
+var _udn=3D"auto";		// (auto|none|domain) set the domain name for cookies=0A=
+var _uhash=3D"on";		// (on|off) unique domain hash for cookies=0A=
+var _utimeout=3D"1800";   	// set the inactive session timeout in seconds=0A=
+var _ugifpath=3D"/__utm.gif";	// set the web path to the __utm.gif file=0A=
+var _utsp=3D"|";			// transaction field separator=0A=
+var _uflash=3D1;			// set flash version detect option (1=3Don|0=3Doff)=0A=
+var _utitle=3D1;			// set the document title detect option =
+(1=3Don|0=3Doff)=0A=
+var _ulink=3D0;			// enable linker functionality (1=3Don|0=3Doff)=0A=
+var _uanchor=3D0;			// enable use of anchors for campaign =
+(1=3Don|0=3Doff)=0A=
+var _utcp=3D"/";			// the cookie path for tracking=0A=
+var _usample=3D100;		// The sampling % of visitors to track (1-100).=0A=
+=0A=
+//-- UTM Campaign Tracking Settings=0A=
+var _uctm=3D1;			// set campaign tracking module (1=3Don|0=3Doff)=0A=
+var _ucto=3D"15768000";		// set timeout in seconds (6 month default)=0A=
+var _uccn=3D"utm_campaign";	// name=0A=
+var _ucmd=3D"utm_medium";		// medium (cpc|cpm|link|email|organic)=0A=
+var _ucsr=3D"utm_source";		// source=0A=
+var _uctr=3D"utm_term";		// term/keyword=0A=
+var _ucct=3D"utm_content";	// content=0A=
+var _ucid=3D"utm_id";		// id number=0A=
+var _ucno=3D"utm_nooverride";	// don't override=0A=
+=0A=
+//-- Auto/Organic Sources and Keywords=0A=
+var _uOsr=3Dnew Array();=0A=
+var _uOkw=3Dnew Array();=0A=
+_uOsr[0]=3D"google";	_uOkw[0]=3D"q";=0A=
+_uOsr[1]=3D"yahoo";	_uOkw[1]=3D"p";=0A=
+_uOsr[2]=3D"msn";		_uOkw[2]=3D"q";=0A=
+_uOsr[3]=3D"aol";		_uOkw[3]=3D"query";=0A=
+_uOsr[4]=3D"aol";		_uOkw[4]=3D"encquery";=0A=
+_uOsr[5]=3D"lycos";	_uOkw[5]=3D"query";=0A=
+_uOsr[6]=3D"ask";		_uOkw[6]=3D"q";=0A=
+_uOsr[7]=3D"altavista";	_uOkw[7]=3D"q";=0A=
+_uOsr[8]=3D"netscape";	_uOkw[8]=3D"query";=0A=
+_uOsr[9]=3D"cnn";	_uOkw[9]=3D"query";=0A=
+_uOsr[10]=3D"looksmart";	_uOkw[10]=3D"qt";=0A=
+_uOsr[11]=3D"about";	_uOkw[11]=3D"terms";=0A=
+_uOsr[12]=3D"mamma";	_uOkw[12]=3D"query";=0A=
+_uOsr[13]=3D"alltheweb";	_uOkw[13]=3D"q";=0A=
+_uOsr[14]=3D"gigablast";	_uOkw[14]=3D"q";=0A=
+_uOsr[15]=3D"voila";	_uOkw[15]=3D"rdata";=0A=
+_uOsr[16]=3D"virgilio";	_uOkw[16]=3D"qs";=0A=
+_uOsr[17]=3D"live";	_uOkw[17]=3D"q";=0A=
+_uOsr[18]=3D"baidu";	_uOkw[18]=3D"wd";=0A=
+_uOsr[19]=3D"alice";	_uOkw[19]=3D"qs";=0A=
+_uOsr[20]=3D"yandex";	_uOkw[20]=3D"text";=0A=
+_uOsr[21]=3D"najdi";	_uOkw[21]=3D"q";=0A=
+_uOsr[22]=3D"aol";	_uOkw[22]=3D"q";=0A=
+_uOsr[23]=3D"club-internet"; _uOkw[23]=3D"query";=0A=
+_uOsr[24]=3D"mama";	_uOkw[24]=3D"query";=0A=
+_uOsr[25]=3D"seznam";	_uOkw[25]=3D"q";=0A=
+_uOsr[26]=3D"search";	_uOkw[26]=3D"q";=0A=
+_uOsr[27]=3D"wp";	_uOkw[27]=3D"szukaj";=0A=
+_uOsr[28]=3D"onet";	_uOkw[28]=3D"qt";=0A=
+_uOsr[29]=3D"netsprint";	_uOkw[29]=3D"q";=0A=
+_uOsr[30]=3D"google.interia";	_uOkw[30]=3D"q";=0A=
+_uOsr[31]=3D"szukacz";	_uOkw[31]=3D"q";=0A=
+_uOsr[32]=3D"yam";	_uOkw[32]=3D"k";=0A=
+_uOsr[33]=3D"pchome";	_uOkw[33]=3D"q";=0A=
+_uOsr[34]=3D"kvasir";	_uOkw[34]=3D"searchExpr";=0A=
+_uOsr[35]=3D"sesam";	_uOkw[35]=3D"q";=0A=
+_uOsr[36]=3D"ozu"; _uOkw[36]=3D"q";=0A=
+_uOsr[37]=3D"terra"; _uOkw[37]=3D"query";=0A=
+_uOsr[38]=3D"nostrum"; _uOkw[38]=3D"query";=0A=
+_uOsr[39]=3D"mynet"; _uOkw[39]=3D"q";=0A=
+_uOsr[40]=3D"ekolay"; _uOkw[40]=3D"q";=0A=
+_uOsr[41]=3D"search.ilse"; _uOkw[41]=3D"search_for";=0A=
+_uOsr[42]=3D"bing"; _uOkw[42]=3D"q";=0A=
+=0A=
+//-- Auto/Organic Keywords to Ignore=0A=
+var _uOno=3Dnew Array();=0A=
+//_uOno[0]=3D"urchin";=0A=
+//_uOno[1]=3D"urchin.com";=0A=
+//_uOno[2]=3D"www.urchin.com";=0A=
+=0A=
+//-- Referral domains to Ignore=0A=
+var _uRno=3Dnew Array();=0A=
+//_uRno[0]=3D".urchin.com";=0A=
+=0A=
+//-- **** Don't modify below this point ***=0A=
+var =
+_uff,_udh,_udt,_ubl=3D0,_udo=3D"",_uu,_ufns=3D0,_uns=3D0,_ur=3D"-",_ufno=3D=
+0,_ust=3D0,_ubd=3Ddocument,_udl=3D_ubd.location,_udlh=3D"",_uwv=3D"1.4";=0A=
+var _ugifpath2=3D"http://www.google-analytics.com/__utm.gif";=0A=
+if (_udl.hash) _udlh=3D_udl.href.substring(_udl.href.indexOf('#'));=0A=
+if (_udl.protocol=3D=3D"https:") =
+_ugifpath2=3D"https://ssl.google-analytics.com/__utm.gif";=0A=
+if (!_utcp || _utcp=3D=3D"") _utcp=3D"/";=0A=
+function urchinTracker(page) {=0A=
+ if (_udl.protocol=3D=3D"file:") return;=0A=
+ if (_uff && (!page || page=3D=3D"")) return;=0A=
+ var a,b,c,xx,v,z,k,x=3D"",s=3D"",f=3D0,nv=3D0;=0A=
+ var nx=3D" expires=3D"+_uNx()+";";=0A=
+ var dc=3D_ubd.cookie;=0A=
+ _udh=3D_uDomain();=0A=
+ if (!_uVG()) return;=0A=
+ _uu=3DMath.round(Math.random()*2147483647);=0A=
+ _udt=3Dnew Date();=0A=
+ _ust=3DMath.round(_udt.getTime()/1000);=0A=
+ a=3Ddc.indexOf("__utma=3D"+_udh+".");=0A=
+ b=3Ddc.indexOf("__utmb=3D"+_udh);=0A=
+ c=3Ddc.indexOf("__utmc=3D"+_udh);=0A=
+ if (_udn && _udn!=3D"") { _udo=3D" domain=3D"+_udn+";"; }=0A=
+ if (_utimeout && _utimeout!=3D"") {=0A=
+  x=3Dnew Date(_udt.getTime()+(_utimeout*1000));=0A=
+  x=3D" expires=3D"+x.toGMTString()+";";=0A=
+ }=0A=
+ if (_ulink) {=0A=
+  if (_uanchor && _udlh && _udlh!=3D"") s=3D_udlh+"&";=0A=
+  s+=3D_udl.search;=0A=
+  if(s && s!=3D"" && s.indexOf("__utma=3D")>=3D0) {=0A=
+   if (!(_uIN(a=3D_uGC(s,"__utma=3D","&")))) a=3D"-";=0A=
+   if (!(_uIN(b=3D_uGC(s,"__utmb=3D","&")))) b=3D"-";=0A=
+   if (!(_uIN(c=3D_uGC(s,"__utmc=3D","&")))) c=3D"-";=0A=
+   v=3D_uGC(s,"__utmv=3D","&");=0A=
+   z=3D_uGC(s,"__utmz=3D","&");=0A=
+   k=3D_uGC(s,"__utmk=3D","&");=0A=
+   xx=3D_uGC(s,"__utmx=3D","&");=0A=
+   if ((k*1) !=3D ((_uHash(a+b+c+xx+z+v)*1)+(_udh*1))) =
+{_ubl=3D1;a=3D"-";b=3D"-";c=3D"-";xx=3D"-";z=3D"-";v=3D"-";}=0A=
+   if (a!=3D"-" && b!=3D"-" && c!=3D"-") f=3D1;=0A=
+   else if(a!=3D"-") f=3D2;=0A=
+  }=0A=
+ }=0A=
+ if(f=3D=3D1) {=0A=
+  _ubd.cookie=3D"__utma=3D"+a+"; path=3D"+_utcp+";"+nx+_udo;=0A=
+  _ubd.cookie=3D"__utmb=3D"+b+"; path=3D"+_utcp+";"+x+_udo;=0A=
+  _ubd.cookie=3D"__utmc=3D"+c+"; path=3D"+_utcp+";"+_udo;=0A=
+ } else if (f=3D=3D2) {=0A=
+  a=3D_uFixA(s,"&",_ust);=0A=
+  _ubd.cookie=3D"__utma=3D"+a+"; path=3D"+_utcp+";"+nx+_udo;=0A=
+  _ubd.cookie=3D"__utmb=3D"+_udh+"; path=3D"+_utcp+";"+x+_udo;=0A=
+  _ubd.cookie=3D"__utmc=3D"+_udh+"; path=3D"+_utcp+";"+_udo;=0A=
+  _ufns=3D1;=0A=
+ } else if (a>=3D0 && b>=3D0 && c>=3D0) {=0A=
+   b =3D _uGC(dc,"__utmb=3D"+_udh,";");=0A=
+   b =3D ("-" =3D=3D b) ? _udh : b;  =0A=
+  _ubd.cookie=3D"__utmb=3D"+b+"; path=3D"+_utcp+";"+x+_udo;=0A=
+ } else {=0A=
+  if (a>=3D0) a=3D_uFixA(_ubd.cookie,";",_ust);=0A=
+  else {=0A=
+   a=3D_udh+"."+_uu+"."+_ust+"."+_ust+"."+_ust+".1";=0A=
+   nv=3D1;=0A=
+  }=0A=
+  _ubd.cookie=3D"__utma=3D"+a+"; path=3D"+_utcp+";"+nx+_udo;=0A=
+  _ubd.cookie=3D"__utmb=3D"+_udh+"; path=3D"+_utcp+";"+x+_udo;=0A=
+  _ubd.cookie=3D"__utmc=3D"+_udh+"; path=3D"+_utcp+";"+_udo;=0A=
+  _ufns=3D1;=0A=
+ }=0A=
+ if (_ulink && xx && xx!=3D"" && xx!=3D"-") {=0A=
+   xx=3D_uUES(xx);=0A=
+   if (xx.indexOf(";")=3D=3D-1) _ubd.cookie=3D"__utmx=3D"+xx+"; =
+path=3D"+_utcp+";"+nx+_udo;=0A=
+ }=0A=
+ if (_ulink && v && v!=3D"" && v!=3D"-") {=0A=
+  v=3D_uUES(v);=0A=
+  if (v.indexOf(";")=3D=3D-1) _ubd.cookie=3D"__utmv=3D"+v+"; =
+path=3D"+_utcp+";"+nx+_udo;=0A=
+ }=0A=
+ var wc=3Dwindow;=0A=
+ var c=3D_ubd.cookie;=0A=
+ if(wc && wc.gaGlobal && wc.gaGlobal.dh=3D=3D_udh){=0A=
+  var g=3Dwc.gaGlobal;=0A=
+  var ua=3Dc.split("__utma=3D"+_udh+".")[1].split(";")[0].split(".");=0A=
+  if(g.sid)ua[3]=3Dg.sid;=0A=
+  if(nv>0){=0A=
+   ua[2]=3Dua[3];=0A=
+   if(g.vid){=0A=
+    var v=3Dg.vid.split(".");=0A=
+    ua[0]=3Dv[0];=0A=
+    ua[1]=3Dv[1];=0A=
+   }=0A=
+  }=0A=
+  _ubd.cookie=3D"__utma=3D"+_udh+"."+ua.join(".")+"; =
+path=3D"+_utcp+";"+nx+_udo;=0A=
+ }=0A=
+ _uInfo(page);=0A=
+ _ufns=3D0;=0A=
+ _ufno=3D0;=0A=
+ if (!page || page=3D=3D"") _uff=3D1;=0A=
+}=0A=
+function _uGH() {=0A=
+ var hid;=0A=
+ var wc=3Dwindow;=0A=
+ if (wc && wc.gaGlobal && wc.gaGlobal.hid) {=0A=
+  hid=3Dwc.gaGlobal.hid;=0A=
+ } else {=0A=
+  hid=3DMath.round(Math.random()*0x7fffffff);=0A=
+  if (!wc.gaGlobal) wc.gaGlobal=3D{};=0A=
+  wc.gaGlobal.hid=3Dhid;=0A=
+ }=0A=
+ return hid;=0A=
+}=0A=
+function _uInfo(page) {=0A=
+ var p,s=3D"",dm=3D"",pg=3D_udl.pathname+_udl.search;=0A=
+ if (page && page!=3D"") pg=3D_uES(page,1);=0A=
+ _ur=3D_ubd.referrer;=0A=
+ if (!_ur || _ur=3D=3D"") { _ur=3D"-"; }=0A=
+ else {=0A=
+  dm=3D_ubd.domain;=0A=
+  if(_utcp && _utcp!=3D"/") dm+=3D_utcp;=0A=
+  p=3D_ur.indexOf(dm);=0A=
+  if ((p>=3D0) && (p<=3D8)) { _ur=3D"0"; }=0A=
+  if (_ur.indexOf("[")=3D=3D0 && =
+_ur.lastIndexOf("]")=3D=3D(_ur.length-1)) { _ur=3D"-"; }=0A=
+ }=0A=
+ s+=3D"&utmn=3D"+_uu;=0A=
+ if (_ufsc) s+=3D_uBInfo();=0A=
+ if (_uctm) s+=3D_uCInfo();=0A=
+ if (_utitle && _ubd.title && _ubd.title!=3D"") =
+s+=3D"&utmdt=3D"+_uES(_ubd.title);=0A=
+ if (_udl.hostname && _udl.hostname!=3D"") =
+s+=3D"&utmhn=3D"+_uES(_udl.hostname);=0A=
+ if (_usample && _usample !=3D 100) s+=3D"&utmsp=3D"+_uES(_usample);=0A=
+ s+=3D"&utmhid=3D"+_uGH();=0A=
+ s+=3D"&utmr=3D"+_ur;=0A=
+ s+=3D"&utmp=3D"+pg;=0A=
+ if ((_userv=3D=3D0 || _userv=3D=3D2) && _uSP()) {=0A=
+  var i=3Dnew Image(1,1);=0A=
+  i.src=3D_ugifpath+"?"+"utmwv=3D"+_uwv+s;=0A=
+  i.onload=3Dfunction() { _uVoid(); }=0A=
+ }=0A=
+ if ((_userv=3D=3D1 || _userv=3D=3D2) && _uSP()) {=0A=
+  var i2=3Dnew Image(1,1);=0A=
+  =
+i2.src=3D_ugifpath2+"?"+"utmwv=3D"+_uwv+s+"&utmac=3D"+_uacct+"&utmcc=3D"+=
+_uGCS();=0A=
+  i2.onload=3Dfunction() { _uVoid(); }=0A=
+ }=0A=
+ return;=0A=
+}=0A=
+function _uVoid() { return; }=0A=
+function _uCInfo() {=0A=
+ if (!_ucto || _ucto=3D=3D"") { _ucto=3D"15768000"; }=0A=
+ if (!_uVG()) return;=0A=
+ var =
+c=3D"",t=3D"-",t2=3D"-",t3=3D"-",o=3D0,cs=3D0,cn=3D0,i=3D0,z=3D"-",s=3D""=
+;=0A=
+ if (_uanchor && _udlh && _udlh!=3D"") s=3D_udlh+"&";=0A=
+ s+=3D_udl.search;=0A=
+ var x=3Dnew Date(_udt.getTime()+(_ucto*1000));=0A=
+ var dc=3D_ubd.cookie;=0A=
+ x=3D" expires=3D"+x.toGMTString()+";";=0A=
+ if (_ulink && !_ubl) {=0A=
+  z=3D_uUES(_uGC(s,"__utmz=3D","&"));=0A=
+  if (z!=3D"-" && z.indexOf(";")=3D=3D-1) { =
+_ubd.cookie=3D"__utmz=3D"+z+"; path=3D"+_utcp+";"+x+_udo; return ""; }=0A=
+ }=0A=
+ z=3Ddc.indexOf("__utmz=3D"+_udh+".");=0A=
+ if (z>-1) { z=3D_uGC(dc,"__utmz=3D"+_udh+".",";"); }=0A=
+ else { z=3D"-"; }=0A=
+ t=3D_uGC(s,_ucid+"=3D","&");=0A=
+ t2=3D_uGC(s,_ucsr+"=3D","&");=0A=
+ t3=3D_uGC(s,"gclid=3D","&");=0A=
+ if ((t!=3D"-" && t!=3D"") || (t2!=3D"-" && t2!=3D"") || (t3!=3D"-" && =
+t3!=3D"")) {=0A=
+  if (t!=3D"-" && t!=3D"") c+=3D"utmcid=3D"+_uEC(t);=0A=
+  if (t2!=3D"-" && t2!=3D"") { if (c !=3D "") c+=3D"|"; =
+c+=3D"utmcsr=3D"+_uEC(t2); }=0A=
+  if (t3!=3D"-" && t3!=3D"") { if (c !=3D "") c+=3D"|"; =
+c+=3D"utmgclid=3D"+_uEC(t3); }=0A=
+  t=3D_uGC(s,_uccn+"=3D","&");=0A=
+  if (t!=3D"-" && t!=3D"") c+=3D"|utmccn=3D"+_uEC(t);=0A=
+  else c+=3D"|utmccn=3D(not+set)";=0A=
+  t=3D_uGC(s,_ucmd+"=3D","&");=0A=
+  if (t!=3D"-" && t!=3D"") c+=3D"|utmcmd=3D"+_uEC(t);=0A=
+  else  c+=3D"|utmcmd=3D(not+set)";=0A=
+  t=3D_uGC(s,_uctr+"=3D","&");=0A=
+  if (t!=3D"-" && t!=3D"") c+=3D"|utmctr=3D"+_uEC(t);=0A=
+  else { t=3D_uOrg(1); if (t!=3D"-" && t!=3D"") =
+c+=3D"|utmctr=3D"+_uEC(t); }=0A=
+  t=3D_uGC(s,_ucct+"=3D","&");=0A=
+  if (t!=3D"-" && t!=3D"") c+=3D"|utmcct=3D"+_uEC(t);=0A=
+  t=3D_uGC(s,_ucno+"=3D","&");=0A=
+  if (t=3D=3D"1") o=3D1;=0A=
+  if (z!=3D"-" && o=3D=3D1) return "";=0A=
+ }=0A=
+ if (c=3D=3D"-" || c=3D=3D"") { c=3D_uOrg(); if (z!=3D"-" && =
+_ufno=3D=3D1)  return ""; }=0A=
+ if (c=3D=3D"-" || c=3D=3D"") { if (_ufns=3D=3D1)  c=3D_uRef(); if =
+(z!=3D"-" && _ufno=3D=3D1)  return ""; }=0A=
+ if (c=3D=3D"-" || c=3D=3D"") {=0A=
+  if (z=3D=3D"-" && _ufns=3D=3D1) { =
+c=3D"utmccn=3D(direct)|utmcsr=3D(direct)|utmcmd=3D(none)"; }=0A=
+  if (c=3D=3D"-" || c=3D=3D"") return "";=0A=
+ }=0A=
+ if (z!=3D"-") {=0A=
+  i=3Dz.indexOf(".");=0A=
+  if (i>-1) i=3Dz.indexOf(".",i+1);=0A=
+  if (i>-1) i=3Dz.indexOf(".",i+1);=0A=
+  if (i>-1) i=3Dz.indexOf(".",i+1);=0A=
+  t=3Dz.substring(i+1,z.length);=0A=
+  if (t.toLowerCase()=3D=3Dc.toLowerCase()) cs=3D1;=0A=
+  t=3Dz.substring(0,i);=0A=
+  if ((i=3Dt.lastIndexOf(".")) > -1) {=0A=
+   t=3Dt.substring(i+1,t.length);=0A=
+   cn=3D(t*1);=0A=
+  }=0A=
+ }=0A=
+ if (cs=3D=3D0 || _ufns=3D=3D1) {=0A=
+  t=3D_uGC(dc,"__utma=3D"+_udh+".",";");=0A=
+  if ((i=3Dt.lastIndexOf(".")) > 9) {=0A=
+   _uns=3Dt.substring(i+1,t.length);=0A=
+   _uns=3D(_uns*1);=0A=
+  }=0A=
+  cn++;=0A=
+  if (_uns=3D=3D0) _uns=3D1;=0A=
+  _ubd.cookie=3D"__utmz=3D"+_udh+"."+_ust+"."+_uns+"."+cn+"."+c+"; =
+path=3D"+_utcp+"; "+x+_udo;=0A=
+ }=0A=
+ if (cs=3D=3D0 || _ufns=3D=3D1) return "&utmcn=3D1";=0A=
+ else return "&utmcr=3D1";=0A=
+}=0A=
+function _uRef() {=0A=
+ if (_ur=3D=3D"0" || _ur=3D=3D"" || _ur=3D=3D"-") return "";=0A=
+ var i=3D0,h,k,n;=0A=
+ if ((i=3D_ur.indexOf("://"))<0 || _uGCse()) return "";=0A=
+ h=3D_ur.substring(i+3,_ur.length);=0A=
+ if (h.indexOf("/") > -1) {=0A=
+  k=3Dh.substring(h.indexOf("/"),h.length);=0A=
+  if (k.indexOf("?") > -1) k=3Dk.substring(0,k.indexOf("?"));=0A=
+  h=3Dh.substring(0,h.indexOf("/"));=0A=
+ }=0A=
+ h=3Dh.toLowerCase();=0A=
+ n=3Dh;=0A=
+ if ((i=3Dn.indexOf(":")) > -1) n=3Dn.substring(0,i);=0A=
+ for (var ii=3D0;ii<_uRno.length;ii++) {=0A=
+  if ((i=3Dn.indexOf(_uRno[ii].toLowerCase())) > -1 && =
+n.length=3D=3D(i+_uRno[ii].length)) { _ufno=3D1; break; }=0A=
+ }=0A=
+ if (h.indexOf("www.")=3D=3D0) h=3Dh.substring(4,h.length);=0A=
+ return =
+"utmccn=3D(referral)|utmcsr=3D"+_uEC(h)+"|"+"utmcct=3D"+_uEC(k)+"|utmcmd=3D=
+referral";=0A=
+}=0A=
+function _uOrg(t) {=0A=
+ if (_ur=3D=3D"0" || _ur=3D=3D"" || _ur=3D=3D"-") return "";=0A=
+ var i=3D0,h,k;=0A=
+ if ((i=3D_ur.indexOf("://"))<0 || _uGCse()) return "";=0A=
+ h=3D_ur.substring(i+3,_ur.length);=0A=
+ if (h.indexOf("/") > -1) {=0A=
+  h=3Dh.substring(0,h.indexOf("/"));=0A=
+ }=0A=
+ for (var ii=3D0;ii<_uOsr.length;ii++) {=0A=
+  if (h.toLowerCase().indexOf(_uOsr[ii].toLowerCase()) > -1) {=0A=
+   if ((i=3D_ur.indexOf("?"+_uOkw[ii]+"=3D")) > -1 || =
+(i=3D_ur.indexOf("&"+_uOkw[ii]+"=3D")) > -1) {=0A=
+    k=3D_ur.substring(i+_uOkw[ii].length+2,_ur.length);=0A=
+    if ((i=3Dk.indexOf("&")) > -1) k=3Dk.substring(0,i);=0A=
+    for (var yy=3D0;yy<_uOno.length;yy++) {=0A=
+     if (_uOno[yy].toLowerCase()=3D=3Dk.toLowerCase()) { _ufno=3D1; =
+break; }=0A=
+    }=0A=
+    if (t) return _uEC(k);=0A=
+    else return =
+"utmccn=3D(organic)|utmcsr=3D"+_uEC(_uOsr[ii])+"|"+"utmctr=3D"+_uEC(k)+"|=
+utmcmd=3Dorganic";=0A=
+   }=0A=
+  }=0A=
+ }=0A=
+ return "";=0A=
+}=0A=
+function _uGCse() {=0A=
+ var h,p;=0A=
+ h=3Dp=3D_ur.split("://")[1];=0A=
+ if(h.indexOf("/")>-1) {=0A=
+  h=3Dh.split("/")[0];=0A=
+  p=3Dp.substring(p.indexOf("/")+1,p.length);=0A=
+ }=0A=
+ if(p.indexOf("?")>-1) {=0A=
+  p=3Dp.split("?")[0];=0A=
+ }=0A=
+ if(h.toLowerCase().indexOf("google")>-1) {=0A=
+  if(_ur.indexOf("?q=3D")>-1 || _ur.indexOf("&q=3D")>-1) {=0A=
+   if (p.toLowerCase().indexOf("cse")>-1) {=0A=
+    return true;=0A=
+   }=0A=
+  }=0A=
+ }=0A=
+}=0A=
+function _uBInfo() {=0A=
+ var sr=3D"-",sc=3D"-",ul=3D"-",fl=3D"-",cs=3D"-",je=3D1;=0A=
+ var n=3Dnavigator;=0A=
+ if (self.screen) {=0A=
+  sr=3Dscreen.width+"x"+screen.height;=0A=
+  sc=3Dscreen.colorDepth+"-bit";=0A=
+ } else if (self.java) {=0A=
+  var j=3Djava.awt.Toolkit.getDefaultToolkit();=0A=
+  var s=3Dj.getScreenSize();=0A=
+  sr=3Ds.width+"x"+s.height;=0A=
+ }=0A=
+ if (n.language) { ul=3Dn.language.toLowerCase(); }=0A=
+ else if (n.browserLanguage) { ul=3Dn.browserLanguage.toLowerCase(); }=0A=
+ je=3Dn.javaEnabled()?1:0;=0A=
+ if (_uflash) fl=3D_uFlash();=0A=
+ if (_ubd.characterSet) cs=3D_uES(_ubd.characterSet);=0A=
+ else if (_ubd.charset) cs=3D_uES(_ubd.charset);=0A=
+ return =
+"&utmcs=3D"+cs+"&utmsr=3D"+sr+"&utmsc=3D"+sc+"&utmul=3D"+ul+"&utmje=3D"+j=
+e+"&utmfl=3D"+fl;=0A=
+}=0A=
+function __utmSetTrans() {=0A=
+ var e;=0A=
+ if (_ubd.getElementById) e=3D_ubd.getElementById("utmtrans");=0A=
+ else if (_ubd.utmform && _ubd.utmform.utmtrans) =
+e=3D_ubd.utmform.utmtrans;=0A=
+ if (!e) return;=0A=
+ var l=3De.value.split("UTM:");=0A=
+ var i,i2,c;=0A=
+ if (_userv=3D=3D0 || _userv=3D=3D2) i=3Dnew Array();=0A=
+ if (_userv=3D=3D1 || _userv=3D=3D2) { i2=3Dnew Array(); c=3D_uGCS(); }=0A=
+=0A=
+ for (var ii=3D0;ii<l.length;ii++) {=0A=
+  l[ii]=3D_uTrim(l[ii]);=0A=
+  if (l[ii].charAt(0)!=3D'T' && l[ii].charAt(0)!=3D'I') continue;=0A=
+  var r=3DMath.round(Math.random()*2147483647);=0A=
+  if (!_utsp || _utsp=3D=3D"") _utsp=3D"|";=0A=
+  var f=3Dl[ii].split(_utsp),s=3D"";=0A=
+  if (f[0].charAt(0)=3D=3D'T') {=0A=
+   s=3D"&utmt=3Dtran"+"&utmn=3D"+r;=0A=
+   f[1]=3D_uTrim(f[1]); if(f[1]&&f[1]!=3D"") =
+s+=3D"&utmtid=3D"+_uES(f[1]);=0A=
+   f[2]=3D_uTrim(f[2]); if(f[2]&&f[2]!=3D"") =
+s+=3D"&utmtst=3D"+_uES(f[2]);=0A=
+   f[3]=3D_uTrim(f[3]); if(f[3]&&f[3]!=3D"") =
+s+=3D"&utmtto=3D"+_uES(f[3]);=0A=
+   f[4]=3D_uTrim(f[4]); if(f[4]&&f[4]!=3D"") =
+s+=3D"&utmttx=3D"+_uES(f[4]);=0A=
+   f[5]=3D_uTrim(f[5]); if(f[5]&&f[5]!=3D"") =
+s+=3D"&utmtsp=3D"+_uES(f[5]);=0A=
+   f[6]=3D_uTrim(f[6]); if(f[6]&&f[6]!=3D"") =
+s+=3D"&utmtci=3D"+_uES(f[6]);=0A=
+   f[7]=3D_uTrim(f[7]); if(f[7]&&f[7]!=3D"") =
+s+=3D"&utmtrg=3D"+_uES(f[7]);=0A=
+   f[8]=3D_uTrim(f[8]); if(f[8]&&f[8]!=3D"") =
+s+=3D"&utmtco=3D"+_uES(f[8]);=0A=
+  } else {=0A=
+   s=3D"&utmt=3Ditem"+"&utmn=3D"+r;=0A=
+   f[1]=3D_uTrim(f[1]); if(f[1]&&f[1]!=3D"") =
+s+=3D"&utmtid=3D"+_uES(f[1]);=0A=
+   f[2]=3D_uTrim(f[2]); if(f[2]&&f[2]!=3D"") =
+s+=3D"&utmipc=3D"+_uES(f[2]);=0A=
+   f[3]=3D_uTrim(f[3]); if(f[3]&&f[3]!=3D"") =
+s+=3D"&utmipn=3D"+_uES(f[3]);=0A=
+   f[4]=3D_uTrim(f[4]); if(f[4]&&f[4]!=3D"") =
+s+=3D"&utmiva=3D"+_uES(f[4]);=0A=
+   f[5]=3D_uTrim(f[5]); if(f[5]&&f[5]!=3D"") =
+s+=3D"&utmipr=3D"+_uES(f[5]);=0A=
+   f[6]=3D_uTrim(f[6]); if(f[6]&&f[6]!=3D"") =
+s+=3D"&utmiqt=3D"+_uES(f[6]);=0A=
+  }=0A=
+  if (_udl.hostname && _udl.hostname!=3D"") =
+s+=3D"&utmhn=3D"+_uES(_udl.hostname);=0A=
+  if (_usample && _usample !=3D 100) s+=3D"&utmsp=3D"+_uES(_usample);=0A=
+=0A=
+  if ((_userv=3D=3D0 || _userv=3D=3D2) && _uSP()) {=0A=
+   i[ii]=3Dnew Image(1,1);=0A=
+   i[ii].src=3D_ugifpath+"?"+"utmwv=3D"+_uwv+s;=0A=
+   i[ii].onload=3Dfunction() { _uVoid(); }=0A=
+  }=0A=
+  if ((_userv=3D=3D1 || _userv=3D=3D2) && _uSP()) {=0A=
+   i2[ii]=3Dnew Image(1,1);=0A=
+   =
+i2[ii].src=3D_ugifpath2+"?"+"utmwv=3D"+_uwv+s+"&utmac=3D"+_uacct+"&utmcc=3D=
+"+c;=0A=
+   i2[ii].onload=3Dfunction() { _uVoid(); }=0A=
+  }=0A=
+ }=0A=
+ return;=0A=
+}=0A=
+function _uFlash() {=0A=
+ var f=3D"-",n=3Dnavigator;=0A=
+ if (n.plugins && n.plugins.length) {=0A=
+  for (var ii=3D0;ii<n.plugins.length;ii++) {=0A=
+   if (n.plugins[ii].name.indexOf('Shockwave Flash')!=3D-1) {=0A=
+    f=3Dn.plugins[ii].description.split('Shockwave Flash ')[1];=0A=
+    break;=0A=
+   }=0A=
+  }=0A=
+ } else {=0A=
+  var fl;=0A=
+  try {=0A=
+   fl =3D new ActiveXObject("ShockwaveFlash.ShockwaveFlash.7");=0A=
+   f =3D fl.GetVariable("$version");=0A=
+  } catch(e) {}=0A=
+  if (f =3D=3D "-") {=0A=
+   try {=0A=
+    fl =3D new ActiveXObject("ShockwaveFlash.ShockwaveFlash.6");=0A=
+    f =3D "WIN 6,0,21,0";=0A=
+    fl.AllowScriptAccess =3D "always";=0A=
+    f =3D fl.GetVariable("$version");=0A=
+   } catch(e) {}=0A=
+  }=0A=
+  if (f =3D=3D "-") {=0A=
+   try {=0A=
+    fl =3D new ActiveXObject("ShockwaveFlash.ShockwaveFlash");=0A=
+    f =3D fl.GetVariable("$version");=0A=
+   } catch(e) {}=0A=
+  }=0A=
+  if (f !=3D "-") {=0A=
+   f =3D f.split(" ")[1].split(",");=0A=
+   f =3D f[0] + "." + f[1] + " r" + f[2];=0A=
+  }=0A=
+ }=0A=
+ return f;=0A=
+}=0A=
+function __utmLinkerUrl(l,h) {=0A=
+ var p,k,a=3D"-",b=3D"-",c=3D"-",x=3D"-",z=3D"-",v=3D"-";=0A=
+ var dc=3D_ubd.cookie;=0A=
+ var iq =3D l.indexOf("?");=0A=
+ var ih =3D l.indexOf("#");=0A=
+ var url=3Dl;=0A=
+ if (dc) {=0A=
+  a=3D_uES(_uGC(dc,"__utma=3D"+_udh+".",";"));=0A=
+  b=3D_uES(_uGC(dc,"__utmb=3D"+_udh,";"));=0A=
+  c=3D_uES(_uGC(dc,"__utmc=3D"+_udh,";"));=0A=
+  x=3D_uES(_uGC(dc,"__utmx=3D"+_udh,";"));=0A=
+  z=3D_uES(_uGC(dc,"__utmz=3D"+_udh+".",";"));=0A=
+  v=3D_uES(_uGC(dc,"__utmv=3D"+_udh+".",";"));=0A=
+  k=3D(_uHash(a+b+c+x+z+v)*1)+(_udh*1);=0A=
+  =
+p=3D"__utma=3D"+a+"&__utmb=3D"+b+"&__utmc=3D"+c+"&__utmx=3D"+x+"&__utmz=3D=
+"+z+"&__utmv=3D"+v+"&__utmk=3D"+k;=0A=
+ }=0A=
+ if (p) {=0A=
+  if (h && ih>-1) return;=0A=
+  if (h) { url=3Dl+"#"+p; }=0A=
+  else {=0A=
+   if (iq=3D=3D-1 && ih=3D=3D-1) url=3Dl+"?"+p;=0A=
+   else if (ih=3D=3D-1) url=3Dl+"&"+p;=0A=
+   else if (iq=3D=3D-1) url=3Dl.substring(0,ih-1)+"?"+p+l.substring(ih);=0A=
+   else url=3Dl.substring(0,ih-1)+"&"+p+l.substring(ih);=0A=
+  }=0A=
+ }=0A=
+ return url;=0A=
+}=0A=
+function __utmLinker(l,h) {=0A=
+ if (!_ulink || !l || l=3D=3D"") return;=0A=
+ _udl.href=3D__utmLinkerUrl(l,h);=0A=
+}=0A=
+function __utmLinkPost(f,h) {=0A=
+ if (!_ulink || !f || !f.action) return;=0A=
+ f.action=3D__utmLinkerUrl(f.action, h);=0A=
+ return;=0A=
+}=0A=
+function __utmSetVar(v) {=0A=
+ if (!v || v=3D=3D"") return;=0A=
+ if (!_udo || _udo =3D=3D "") {=0A=
+  _udh=3D_uDomain();=0A=
+  if (_udn && _udn!=3D"") { _udo=3D" domain=3D"+_udn+";"; }=0A=
+ }=0A=
+ if (!_uVG()) return;=0A=
+ var r=3DMath.round(Math.random() * 2147483647);=0A=
+ _ubd.cookie=3D"__utmv=3D"+_udh+"."+_uES(v)+"; path=3D"+_utcp+"; =
+expires=3D"+_uNx()+";"+_udo;=0A=
+ var s=3D"&utmt=3Dvar&utmn=3D"+r;=0A=
+ if (_usample && _usample !=3D 100) s+=3D"&utmsp=3D"+_uES(_usample);=0A=
+ if ((_userv=3D=3D0 || _userv=3D=3D2) && _uSP()) {=0A=
+  var i=3Dnew Image(1,1);=0A=
+  i.src=3D_ugifpath+"?"+"utmwv=3D"+_uwv+s;=0A=
+  i.onload=3Dfunction() { _uVoid(); }=0A=
+ }=0A=
+ if ((_userv=3D=3D1 || _userv=3D=3D2) && _uSP()) {=0A=
+  var i2=3Dnew Image(1,1);=0A=
+  =
+i2.src=3D_ugifpath2+"?"+"utmwv=3D"+_uwv+s+"&utmac=3D"+_uacct+"&utmcc=3D"+=
+_uGCS();=0A=
+  i2.onload=3Dfunction() { _uVoid(); }=0A=
+ }=0A=
+}=0A=
+function _uGCS() {=0A=
+ var t,c=3D"",dc=3D_ubd.cookie;=0A=
+ if ((t=3D_uGC(dc,"__utma=3D"+_udh+".",";"))!=3D"-") =
+c+=3D_uES("__utma=3D"+t+";+");=0A=
+ if ((t=3D_uGC(dc,"__utmx=3D"+_udh,";"))!=3D"-") =
+c+=3D_uES("__utmx=3D"+t+";+");=0A=
+ if ((t=3D_uGC(dc,"__utmz=3D"+_udh+".",";"))!=3D"-") =
+c+=3D_uES("__utmz=3D"+t+";+");=0A=
+ if ((t=3D_uGC(dc,"__utmv=3D"+_udh+".",";"))!=3D"-") =
+c+=3D_uES("__utmv=3D"+t+";");=0A=
+ if (c.charAt(c.length-1)=3D=3D"+") c=3Dc.substring(0,c.length-1);=0A=
+ return c;=0A=
+}=0A=
+function _uGC(l,n,s) {=0A=
+ if (!l || l=3D=3D"" || !n || n=3D=3D"" || !s || s=3D=3D"") return "-";=0A=
+ var i,i2,i3,c=3D"-";=0A=
+ i=3Dl.indexOf(n);=0A=
+ i3=3Dn.indexOf("=3D")+1;=0A=
+ if (i > -1) {=0A=
+  i2=3Dl.indexOf(s,i); if (i2 < 0) { i2=3Dl.length; }=0A=
+  c=3Dl.substring((i+i3),i2);=0A=
+ }=0A=
+ return c;=0A=
+}=0A=
+function _uDomain() {=0A=
+ if (!_udn || _udn=3D=3D"" || _udn=3D=3D"none") { _udn=3D""; return 1; }=0A=
+ if (_udn=3D=3D"auto") {=0A=
+  var d=3D_ubd.domain;=0A=
+  if (d.substring(0,4)=3D=3D"www.") {=0A=
+   d=3Dd.substring(4,d.length);=0A=
+  }=0A=
+  _udn=3Dd;=0A=
+ }=0A=
+ _udn =3D _udn.toLowerCase(); =0A=
+ if (_uhash=3D=3D"off") return 1;=0A=
+ return _uHash(_udn);=0A=
+}=0A=
+function _uHash(d) {=0A=
+ if (!d || d=3D=3D"") return 1;=0A=
+ var h=3D0,g=3D0;=0A=
+ for (var i=3Dd.length-1;i>=3D0;i--) {=0A=
+  var c=3DparseInt(d.charCodeAt(i));=0A=
+  h=3D((h << 6) & 0xfffffff) + c + (c << 14);=0A=
+  if ((g=3Dh & 0xfe00000)!=3D0) h=3D(h ^ (g >> 21));=0A=
+ }=0A=
+ return h;=0A=
+}=0A=
+function _uFixA(c,s,t) {=0A=
+ if (!c || c=3D=3D"" || !s || s=3D=3D"" || !t || t=3D=3D"") return "-";=0A=
+ var a=3D_uGC(c,"__utma=3D"+_udh+".",s);=0A=
+ var lt=3D0,i=3D0;=0A=
+ if ((i=3Da.lastIndexOf(".")) > 9) {=0A=
+  _uns=3Da.substring(i+1,a.length);=0A=
+  _uns=3D(_uns*1)+1;=0A=
+  a=3Da.substring(0,i);=0A=
+  if ((i=3Da.lastIndexOf(".")) > 7) {=0A=
+   lt=3Da.substring(i+1,a.length);=0A=
+   a=3Da.substring(0,i);=0A=
+  }=0A=
+  if ((i=3Da.lastIndexOf(".")) > 5) {=0A=
+   a=3Da.substring(0,i);=0A=
+  }=0A=
+  a+=3D"."+lt+"."+t+"."+_uns;=0A=
+ }=0A=
+ return a;=0A=
+}=0A=
+function _uTrim(s) {=0A=
+  if (!s || s=3D=3D"") return "";=0A=
+  while ((s.charAt(0)=3D=3D' ') || (s.charAt(0)=3D=3D'\n') || =
+(s.charAt(0,1)=3D=3D'\r')) s=3Ds.substring(1,s.length);=0A=
+  while ((s.charAt(s.length-1)=3D=3D' ') || =
+(s.charAt(s.length-1)=3D=3D'\n') || (s.charAt(s.length-1)=3D=3D'\r')) =
+s=3Ds.substring(0,s.length-1);=0A=
+  return s;=0A=
+}=0A=
+function _uEC(s) {=0A=
+  var n=3D"";=0A=
+  if (!s || s=3D=3D"") return "";=0A=
+  for (var i=3D0;i<s.length;i++) {if (s.charAt(i)=3D=3D" ") n+=3D"+"; =
+else n+=3Ds.charAt(i);}=0A=
+  return n;=0A=
+}=0A=
+function __utmVisitorCode(f) {=0A=
+ var r=3D0,t=3D0,i=3D0,i2=3D0,m=3D31;=0A=
+ var a=3D_uGC(_ubd.cookie,"__utma=3D"+_udh+".",";");=0A=
+ if ((i=3Da.indexOf(".",0))<0) return;=0A=
+ if ((i2=3Da.indexOf(".",i+1))>0) r=3Da.substring(i+1,i2); else return =
+"";  =0A=
+ if ((i=3Da.indexOf(".",i2+1))>0) t=3Da.substring(i2+1,i); else return =
+"";  =0A=
+ if (f) {=0A=
+  return r;=0A=
+ } else {=0A=
+  var c=3Dnew =
+Array('A','B','C','D','E','F','G','H','J','K','L','M','N','P','R','S','T'=
+,'U','V','W','X','Y','Z','1','2','3','4','5','6','7','8','9');=0A=
+  return =
+c[r>>28&m]+c[r>>23&m]+c[r>>18&m]+c[r>>13&m]+"-"+c[r>>8&m]+c[r>>3&m]+c[((r=
+&7)<<2)+(t>>30&3)]+c[t>>25&m]+c[t>>20&m]+"-"+c[t>>15&m]+c[t>>10&m]+c[t>>5=
+&m]+c[t&m];=0A=
+ }=0A=
+}=0A=
+function _uIN(n) {=0A=
+ if (!n) return false;=0A=
+ for (var i=3D0;i<n.length;i++) {=0A=
+  var c=3Dn.charAt(i);=0A=
+  if ((c<"0" || c>"9") && (c!=3D".")) return false;=0A=
+ }=0A=
+ return true;=0A=
+}=0A=
+function _uES(s,u) {=0A=
+ if (typeof(encodeURIComponent) =3D=3D 'function') {=0A=
+  if (u) return encodeURI(s);=0A=
+  else return encodeURIComponent(s);=0A=
+ } else {=0A=
+  return escape(s);=0A=
+ }=0A=
+}=0A=
+function _uUES(s) {=0A=
+ if (typeof(decodeURIComponent) =3D=3D 'function') {=0A=
+  return decodeURIComponent(s);=0A=
+ } else {=0A=
+  return unescape(s);=0A=
+ }=0A=
+}=0A=
+function _uVG() {=0A=
+ if((_udn.indexOf("www.google.") =3D=3D 0 || _udn.indexOf(".google.") =
+=3D=3D 0 || _udn.indexOf("google.") =3D=3D 0) && _utcp=3D=3D'/' && =
+_udn.indexOf("google.org")=3D=3D-1) {=0A=
+  return false;=0A=
+ }=0A=
+ return true;=0A=
+}=0A=
+function _uSP() {=0A=
+ var s=3D100;=0A=
+ if (_usample) s=3D_usample;=0A=
+ if(s>=3D100 || s<=3D0) return true;=0A=
+ return ((__utmVisitorCode(1)%10000)<(s*100));=0A=
+}=0A=
+function urchinPathCopy(p){=0A=
+ var d=3Ddocument,nx,tx,sx,i,c,cs,t,h,o;=0A=
+ cs=3Dnew Array("a","b","c","v","x","z");=0A=
+ h=3D_uDomain(); if (_udn && _udn!=3D"") o=3D" domain=3D"+_udn+";";=0A=
+ nx=3D_uNx()+";";=0A=
+ tx=3Dnew Date(); tx.setTime(tx.getTime()+(_utimeout*1000));=0A=
+ tx=3Dtx.toGMTString()+";";=0A=
+ sx=3Dnew Date(); sx.setTime(sx.getTime()+(_ucto*1000));=0A=
+ sx=3Dsx.toGMTString()+";";=0A=
+ for (i=3D0;i<6;i++){=0A=
+  t=3D" expires=3D";=0A=
+  if (i=3D=3D1) t+=3Dtx; else if (i=3D=3D2) t=3D""; else if (i=3D=3D5) =
+t+=3Dsx; else t+=3Dnx;=0A=
+  c=3D_uGC(d.cookie,"__utm"+cs[i]+"=3D"+h,";");=0A=
+  if (c!=3D"-") d.cookie=3D"__utm"+cs[i]+"=3D"+c+"; path=3D"+p+";"+t+o;=0A=
+ }=0A=
+}=0A=
+function _uCO() {=0A=
+ if (!_utk || _utk=3D=3D"" || _utk.length<10) return;=0A=
+ var d=3D'www.google.com';=0A=
+ if (_utk.charAt(0)=3D=3D'!') d=3D'analytics.corp.google.com';=0A=
+ _ubd.cookie=3D"GASO=3D"+_utk+"; path=3D"+_utcp+";"+_udo;=0A=
+ var sc=3Ddocument.createElement('script');=0A=
+ sc.type=3D'text/javascript';=0A=
+ sc.id=3D"_gasojs";=0A=
+ =
+sc.src=3D'https://'+d+'/analytics/reporting/overlay_js?gaso=3D'+_utk+'&'+=
+Math.random();=0A=
+ document.getElementsByTagName('head')[0].appendChild(sc);  =0A=
+}=0A=
+function _uGT() {=0A=
+ var h=3Dlocation.hash, a;=0A=
+ if (h && h!=3D"" && h.indexOf("#gaso=3D")=3D=3D0) {=0A=
+  a=3D_uGC(h,"gaso=3D","&");=0A=
+ } else {=0A=
+  a=3D_uGC(_ubd.cookie,"GASO=3D",";");=0A=
+ }=0A=
+ return a;=0A=
+}=0A=
+var _utk=3D_uGT();=0A=
+if (_utk && _utk!=3D"" && _utk.length>10 && _utk.indexOf("=3D")=3D=3D-1) =
+{=0A=
+ if (window.addEventListener) {=0A=
+  window.addEventListener('load', _uCO, false); =0A=
+ } else if (window.attachEvent) { =0A=
+  window.attachEvent('onload', _uCO);=0A=
+ }=0A=
+}=0A=
+=0A=
+function _uNx() {=0A=
+  return (new Date((new Date()).getTime()+63072000000)).toGMTString();=0A=
+}=0A=
+
+------=_NextPart_000_0000_01CC7F05.815001D0--

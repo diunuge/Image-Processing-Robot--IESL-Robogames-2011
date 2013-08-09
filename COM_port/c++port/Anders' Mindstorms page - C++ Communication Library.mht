@@ -1,0 +1,2203 @@
+From: "Saved by Windows Internet Explorer 8"
+Subject: Anders' Mindstorms page - C++ Communication Library
+Date: Fri, 30 Sep 2011 00:50:27 -0700
+MIME-Version: 1.0
+Content-Type: multipart/related;
+	type="text/html";
+	boundary="----=_NextPart_000_0021_01CC7F0A.F235E2C0"
+X-MimeOLE: Produced By Microsoft MimeOLE V6.1.7600.16385
+
+This is a multi-part message in MIME format.
+
+------=_NextPart_000_0021_01CC7F0A.F235E2C0
+Content-Type: text/html;
+	charset="iso-8859-1"
+Content-Transfer-Encoding: quoted-printable
+Content-Location: http://www.norgesgade14.dk/bluetoothlibrary.php
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML><HEAD><TITLE>Anders' Mindstorms page - C++ Communication =
+Library</TITLE>
+<META content=3D"text/html; charset=3Diso-8859-1" =
+http-equiv=3DContent-Type>
+<META name=3Dkeywords=20
+content=3D"Lego Mindstorms,NXT, RCX,Lego Mindstorms projects, =
+candymachine, Pinballmachine, cooler, pencilsharpener, plotter,c++ =
+bluetooth,bluetooth remote,pocket pc bluetooth remote">
+<META name=3DDescription content=3D"See Anders' Lego Mindstorms =
+inventions">
+<META content=3Dno-cache http-equiv=3DPragma>
+<META name=3Drevisit-after content=3D"8 days">
+<META name=3DROBOTS content=3DALL>
+<STYLE type=3Dtext/css>@import url( css/lego.css );
+</STYLE>
+<LINK rel=3D"SHORTCUT ICON" href=3D"/css/rcxunit.ico">
+<META name=3DGENERATOR content=3D"MSHTML 8.00.7600.16385"></HEAD>
+<BODY>
+<DIV id=3Dcontainer class=3Dheader_font>
+<TABLE border=3D0 width=3D"100%">
+  <TBODY>
+  <TR>
+    <TD width=3D"100%">
+      <DIV align=3Dcenter>
+      <TABLE border=3D0 width=3D790 align=3Dcenter>
+        <TBODY>
+        <TR>
+          <TD>
+            <DIV align=3Dcenter><SPAN =
+class=3Dbody_headline>Overview</SPAN> </DIV>
+            <DIV align=3Dleft>
+            <P class=3Dbody_font align=3Djustify>The C++ communication =
+library makes=20
+            it easy to communicate with the NXT using either a Bluetooth =
+or=20
+            network connection. To be able to communicate with the NXT =
+over=20
+            Bluetooth a partnership between the PC and the NXT has to be =
+
+            established. Once a partnership is established you should be =
+able to=20
+            see which Com-port the NXT uses. Please follow this <A=20
+            =
+href=3D"http://www.nxtprograms.com/forklift/steps.html#Program"=20
+            target=3D_blank>link</A> if you don't know how to do this. =
+To=20
+            communicate with the NXT over a network you need to download =
+and run=20
+            the <A =
+href=3D"http://www.norgesgade14.dk/networkserver.php">NXT=20
+            network server</A>. Below you will find documentation and =
+samples=20
+            for both Bluetooth and network communication. If you find =
+bugs or=20
+            have any questions or comments fell free to drop me an <A=20
+            =
+href=3D"http://www.norgesgade14.dk/contact.php">email</A>.</P>
+            <P class=3Dbody_headline align=3Dcenter>The C++ =
+communication=20
+library</P>
+            <P class=3Dbody_font align=3Djustify>The library can be used =
+with most=20
+            C++ compiler on a Windows-box - also the library can be used =
+with=20
+            Pocket PCs running Windows Mobile using MS Visual Embedded =
+C++. With=20
+            the library it is possible to:</P>
+            <UL>
+              <LI class=3Dbody_font>Open and close connections with =
+multiple NXT=20
+              units=20
+              <LI class=3Dbody_font>Control the motors=20
+              <LI class=3Dbody_font>Send and receive messages using the =
+mailbox=20
+              system=20
+              <LI class=3Dbody_font>Use standard LEGO Sensors including =
+sound and=20
+              sonar sensors=20
+              <LI class=3Dbody_font>Set Brick name, get battery level, =
+read=20
+              firmware version etc.=20
+              <LI class=3Dbody_font>Play a tone=20
+              <LI class=3Dbody_font>Play sound files=20
+              <LI class=3Dbody_font>Use the NXT's file system=20
+              <LI class=3Dbody_font>Download and upload files=20
+              <LI class=3Dbody_font>Start and stop on-brick programs=20
+              <LI class=3Dbody_font>Use Compass, Gyro, Color and Tilt =
+sensors from=20
+              Hitechnic=20
+              <LI class=3Dbody_font>Communicate with I<SUP>2</SUP>C =
+sensors=20
+              <LI class=3Dbody_font>Use the I<SUP>2</SUP>C PCF8591 A/D =
+converter=20
+              <LI class=3Dbody_font>Use the I<SUP>2</SUP>C PCF8574 I/O =
+Chip=20
+              <LI class=3Dbody_font>Use exceptions to catch sensor and =
+connection=20
+              errors=20
+              <LI class=3Dbody_font>Generic connection classes which =
+makes it easy=20
+              to switch between either Bluetooth or network =
+communication=20
+              <LI class=3Dbody_font>and more... </LI></UL>
+            <P class=3Dbody_font><U>Download</U></P>
+            <P class=3Dbody_font><A=20
+            =
+href=3D"http://www.norgesgade14.dk/bluetoothlibrary/code/2-00.zip">Versio=
+n=20
+            2.0</A> (uploaded April 6th, 2009)</P>
+            <UL>
+              <LI class=3Dbody_font>Added support for network =
+communication using=20
+              the <A =
+href=3D"http://www.norgesgade14.dk/networkserver.php">NXT=20
+              network server</A>=20
+              <LI class=3Dbody_font>Added missing implementation of =
+delete flash=20
+              memory=20
+              <LI class=3Dbody_font>Added network and server errors to =
+the error=20
+              list=20
+              <LI class=3Dbody_font>Renamed errors in the error list=20
+              <LI class=3Dbody_font>Grouped errors in the error list=20
+              <LI class=3Dbody_font>Added error type enumeration and=20
+              get_error_type function to the Nxt_exception class=20
+              <LI class=3Dbody_font>and more... </LI></UL>
+            <P class=3Dbody_font><A=20
+            =
+href=3D"http://www.norgesgade14.dk/bluetoothlibrary/code/1-10.zip">Versio=
+n=20
+            1.1</A> (uploaded January 26th, 2009)</P>
+            <UL>
+              <LI class=3Dbody_font>Added sub classes for analog sensors =
+
+              (rotation, temperature ect.)=20
+              <LI class=3Dbody_font>Added/updated samples=20
+              <LI class=3Dbody_font>Library documentation=20
+              <LI class=3Dbody_font>Renamed some of the struct (sorry =
+for that)=20
+              <LI class=3Dbody_font>Removed the read(unsigned int =
+return_value) in=20
+              sensor.h=20
+              <LI class=3Dbody_font>All ADC ports on the PCF8591 chip =
+are now read=20
+              with a single call </LI></UL>
+            <P class=3Dbody_font><A=20
+            =
+href=3D"http://www.norgesgade14.dk/bluetoothlibrary/code/1-10linux.zip">V=
+ersion=20
+            1.1 for linux</A> by Christoph Sprenger (uploaded May 3th, =
+2009)</P>
+            <P class=3Dbody_font>Same features as above. This is still =
+work in=20
+            progress. Sprenger's intension was to have one version that =
+could=20
+            work on both Windows and posix systems. However this is not =
+the case=20
+            yet - but maybe in future releases. If anyone out there =
+would like=20
+            to finish the job please <A=20
+            href=3D"http://www.norgesgade14.dk/contact.php">let me =
+know</A></P>
+            <P class=3Dbody_headline align=3Dcenter>Getting started</P>
+            <P class=3Dbody_font align=3Djustify>To get started you need =
+a C++=20
+            compiler. I would recommend<A=20
+            href=3D"http://www.codeblocks.org/downloads/5" =
+target=3D_blank> Code=20
+            Blocks version 8.02 </A>with GCC compiler and GDB debugger =
+from=20
+            MinGW. Install Code blocks and do the following (<A=20
+            =
+href=3D"http://www.norgesgade14.dk/bluetoothlibrary/codeblocks.png">click=
+=20
+            here for step by step image</A>):</P>
+            <UL>
+              <LI class=3Dbody_font>Download and unzip the C++ library =
+to a folder=20
+              of your choice=20
+              <LI class=3Dbody_font>Create a new console C++ project in =
+the same=20
+              folder=20
+              <LI class=3Dbody_font>Add all the files from the library =
+to your=20
+              project=20
+              <LI class=3Dbody_font>If you want to communicate over a =
+network=20
+              remember to link to libwsock32.a - otherwise delete/remove =
+
+              network.h and network.cpp from your project. In Code =
+blocks this=20
+              is done using project-&gt;build option-&gt;linker =
+setting-&gt;add.=20
+              The file libwsock32.a is located in the folder (Code =
+Blocks=20
+              install directory)/MinGW/lib/ (<A=20
+              =
+href=3D"http://www.norgesgade14.dk/bluetoothlibrary/netlib.png">click=20
+              here for step by step images</A>) </LI></UL>
+            <P class=3Dbody_font align=3Djustify>To write your fist =
+Bluetooth=20
+            program simply copy the code below into your main file - =
+remember to=20
+            change the comport!!. The program will make motor B turn =
+when the=20
+            touch sensor on port 1 is pressed. </P><SPAN =
+class=3Dbody_font_small><PRE><FONT color=3Dblue>#include</FONT> <FONT =
+color=3Dmaroon>&lt;cstdlib&gt;</FONT>
+<FONT color=3Dblue>#include</FONT> <FONT =
+color=3Dmaroon>&lt;iostream&gt;</FONT>
+<FONT color=3Dblue>#include</FONT> <FONT =
+color=3Dmaroon>&lt;string&gt;</FONT>
+<FONT color=3Dblue>#include</FONT> <FONT =
+color=3Dmaroon>&lt;conio.h&gt;</FONT>
+<FONT color=3Dblue>#include</FONT> <FONT color=3Dmaroon>"nxt.h"</FONT>
+<FONT color=3Dblue>using</FONT> <FONT color=3Dblue>namespace</FONT> std;
+
+<FONT color=3Dgreen>//set up the NXT</FONT>
+Connection <FONT color=3Dblack>*</FONT>connection <FONT =
+color=3Dblack>=3D</FONT> <FONT color=3Dblue>new</FONT> Bluetooth<FONT =
+color=3Dblack>(</FONT><FONT color=3Dblack>)</FONT>;
+Sensor <FONT color=3Dblack>*</FONT>sensor1 <FONT =
+color=3Dblack>=3D</FONT> <FONT color=3Dblue>new</FONT> Touch<FONT =
+color=3Dblack>(</FONT>IN_1, connection<FONT color=3Dblack>)</FONT>;
+Motor <FONT color=3Dblack>*</FONT>motorB <FONT color=3Dblack>=3D</FONT> =
+<FONT color=3Dblue>new</FONT> Motor<FONT color=3Dblack>(</FONT>OUT_B, =
+connection<FONT color=3Dblack>)</FONT>;
+<FONT color=3Dblue>int</FONT> main<FONT color=3Dblack>(</FONT><FONT =
+color=3Dblack>)</FONT>
+<FONT color=3Dblack>{</FONT>
+  try<FONT color=3Dblack>{</FONT>
+    cout <FONT color=3Dblack>&lt;</FONT><FONT color=3Dblack>&lt;</FONT> =
+<FONT color=3Dmaroon>"Try to connect to the NXT"</FONT> <FONT =
+color=3Dblack>&lt;</FONT><FONT color=3Dblack>&lt;</FONT> endl;
+    connection<FONT color=3Dblack>-</FONT><FONT =
+color=3Dblack>&gt;</FONT>connect<FONT color=3Dblack>(</FONT><FONT =
+color=3Dmaroon>40</FONT><FONT color=3Dblack>)</FONT>;
+    cout <FONT color=3Dblack>&lt;</FONT><FONT color=3Dblack>&lt;</FONT> =
+<FONT color=3Dmaroon>"Connected"</FONT> <FONT =
+color=3Dblack>&lt;</FONT><FONT color=3Dblack>&lt;</FONT> endl;
+    cout <FONT color=3Dblack>&lt;</FONT><FONT color=3Dblack>&lt;</FONT> =
+<FONT color=3Dmaroon>"Press touch sensor to make motor B turn - hit any =
+key to end"</FONT> <FONT color=3Dblack>&lt;</FONT><FONT =
+color=3Dblack>&lt;</FONT> endl;
+    <FONT color=3Dblue>while</FONT><FONT color=3Dblack>(</FONT><FONT =
+color=3Dblack>!</FONT>_kbhit<FONT color=3Dblack>(</FONT><FONT =
+color=3Dblack>)</FONT><FONT color=3Dblack>)</FONT><FONT =
+color=3Dblack>{</FONT><FONT color=3Dgreen>//hit a key to end</FONT>
+      <FONT color=3Dblue>if</FONT><FONT =
+color=3Dblack>(</FONT>sensor1<FONT color=3Dblack>-</FONT><FONT =
+color=3Dblack>&gt;</FONT>read<FONT color=3Dblack>(</FONT><FONT =
+color=3Dblack>)</FONT><FONT color=3Dblack>)</FONT><FONT =
+color=3Dblack>{</FONT>
+        motorB<FONT color=3Dblack>-</FONT><FONT =
+color=3Dblack>&gt;</FONT>on<FONT color=3Dblack>(</FONT><FONT =
+color=3Dmaroon>75</FONT><FONT color=3Dblack>)</FONT>;
+      <FONT color=3Dblack>}</FONT>
+      <FONT color=3Dblue>else</FONT><FONT color=3Dblack>{</FONT>
+        motorB<FONT color=3Dblack>-</FONT><FONT =
+color=3Dblack>&gt;</FONT>stop<FONT color=3Dblack>(</FONT><FONT =
+color=3Dblack>)</FONT>;
+      <FONT color=3Dblack>}</FONT>
+    <FONT color=3Dblack>}</FONT>
+    connection<FONT color=3Dblack>-</FONT><FONT =
+color=3Dblack>&gt;</FONT>disconnect<FONT color=3Dblack>(</FONT><FONT =
+color=3Dblack>)</FONT>;
+  <FONT color=3Dblack>}</FONT>
+  <FONT color=3Dblue>catch</FONT> <FONT =
+color=3Dblack>(</FONT>Nxt_exception<FONT color=3Dblack>&amp;</FONT> =
+e<FONT color=3Dblack>)</FONT><FONT color=3Dblack>{</FONT>
+    <FONT color=3Dgreen>//some error occurred - print it out</FONT>
+    cout <FONT color=3Dblack>&lt;</FONT><FONT color=3Dblack>&lt;</FONT> =
+e.what<FONT color=3Dblack>(</FONT><FONT color=3Dblack>)</FONT> <FONT =
+color=3Dblack>&lt;</FONT><FONT color=3Dblack>&lt;</FONT> endl;
+    cout <FONT color=3Dblack>&lt;</FONT><FONT color=3Dblack>&lt;</FONT> =
+<FONT color=3Dmaroon>"error code: "</FONT> <FONT =
+color=3Dblack>&lt;</FONT><FONT color=3Dblack>&lt;</FONT> =
+e.error_code<FONT color=3Dblack>(</FONT><FONT color=3Dblack>)</FONT> =
+<FONT color=3Dblack>&lt;</FONT><FONT color=3Dblack>&lt;</FONT> endl;
+    cout <FONT color=3Dblack>&lt;</FONT><FONT color=3Dblack>&lt;</FONT> =
+<FONT color=3Dmaroon>"error type: "</FONT> <FONT =
+color=3Dblack>&lt;</FONT><FONT color=3Dblack>&lt;</FONT> =
+e.error_type<FONT color=3Dblack>(</FONT><FONT color=3Dblack>)</FONT> =
+<FONT color=3Dblack>&lt;</FONT><FONT color=3Dblack>&lt;</FONT> endl;
+    cout <FONT color=3Dblack>&lt;</FONT><FONT color=3Dblack>&lt;</FONT> =
+e.who<FONT color=3Dblack>(</FONT><FONT color=3Dblack>)</FONT> <FONT =
+color=3Dblack>&lt;</FONT><FONT color=3Dblack>&lt;</FONT> endl;
+    connection<FONT color=3Dblack>-</FONT><FONT =
+color=3Dblack>&gt;</FONT>disconnect<FONT color=3Dblack>(</FONT><FONT =
+color=3Dblack>)</FONT>;
+  <FONT color=3Dblack>}</FONT>
+  <FONT color=3Dblue>return</FONT> <FONT color=3Dmaroon>0</FONT>;
+<FONT color=3Dblack>}</FONT>
+
+</PRE></SPAN>
+            <P></P>
+            <P class=3Dbody_font align=3Djustify><IMG align=3Dright=20
+            =
+src=3D"http://www.norgesgade14.dk/bluetoothlibrary/nxtremote.png"=20
+            width=3D138 height=3D200>If you have compiled and run the =
+above program=20
+            with success use the samples below to start writing your own =
+
+            programs. To view a complete list of available commands and =
+sensor=20
+            opportunities please consult the <A=20
+            =
+href=3D"http://www.norgesgade14.dk/bluetoothlibrary/doc/projects/NXT_C%2B=
+%2B_Bluetooth_Library/project-summary.html"=20
+            target=3D_blank>library documentation</A>. </P>
+            <P class=3Dbody_font align=3Djustify>Once you are able to =
+write consol=20
+            program you might want to create GUI programs just like the =
+<A=20
+            =
+href=3D"http://www.norgesgade14.dk/bluetoothremote.php">Vehicle=20
+            Remote</A>. There are a lot of RAD tools around that lets =
+you create=20
+            good looking GUI programs together with the C++ library. I=20
+            personally use CodeGear/Borland <A=20
+            =
+href=3D"http://en.wikipedia.org/wiki/Borland_C%2B%2B_Builder"=20
+            target=3D_blank>C++ builder</A> but it also possible to use =
+<A=20
+            href=3D"http://www.codeblocks.org/" target=3D_blank>Code =
+Blocks</A> to=20
+            create GUI programs. Ramacco used QT, Code Blocks and the =
+C++=20
+            library to create the small remote shown to the right. =
+Please visit=20
+            his <A=20
+            =
+href=3D"http://ramacco.blogspot.com/2009/12/commlib-gcc-qt4-nxt-remote-co=
+ntrol.html"=20
+            target=3D_blank>website</A> for more information and source=20
+            code.</P></DIV>
+            <DIV align=3Dcenter>
+            <P><SPAN class=3Dbody_headline>Sample programs</SPAN></P>
+            <TABLE class=3Dbody_font border=3D2 width=3D"90%">
+              <TBODY>
+              <TR class=3Dbody_font align=3Dmiddle bgColor=3D#ffffff>
+                <TD width=3D"24%">Link</TD>
+                <TD width=3D"76%">Description</TD></TR>
+              <TR class=3Dbody_font align=3Dmiddle>
+                <TD><A=20
+                  =
+href=3D"http://www.norgesgade14.dk/bluetoothlibrary/samples/adc_8591.cpp.=
+html">Sample1</A></TD>
+                <TD>Get readings from the four ADC ports on the PCF8591 =
+8-bit=20
+                  ADC </TD></TR>
+              <TR class=3Dbody_font align=3Dmiddle>
+                <TD><A=20
+                  =
+href=3D"http://www.norgesgade14.dk/bluetoothlibrary/samples/color.cpp.htm=
+l">Sample2</A></TD>
+                <TD>Read color with the HiTechnic color sensor =
+</TD></TR>
+              <TR class=3Dbody_font align=3Dmiddle>
+                <TD><A=20
+                  =
+href=3D"http://www.norgesgade14.dk/bluetoothlibrary/samples/compass.cpp.h=
+tml">Sample3</A></TD>
+                <TD>Read the direction with the HiTechnic compass sensor =
+
+</TD></TR>
+              <TR class=3Dbody_font align=3Dmiddle>
+                <TD><A=20
+                  =
+href=3D"http://www.norgesgade14.dk/bluetoothlibrary/samples/download_uplo=
+ad_file.cpp.html">Sample4</A></TD>
+                <TD>Upload a file from the PC to the NXT and download =
+the same=20
+                  file</TD></TR>
+              <TR class=3Dbody_font align=3Dmiddle>
+                <TD><A=20
+                  =
+href=3D"http://www.norgesgade14.dk/bluetoothlibrary/samples/get_brick_inf=
+o.cpp.html">Sample5=20
+                  </A></TD>
+                <TD>Print brick info including firmware-version, brick =
+name=20
+                  ect. </TD></TR>
+              <TR class=3Dbody_font align=3Dmiddle>
+                <TD><A=20
+                  =
+href=3D"http://www.norgesgade14.dk/bluetoothlibrary/samples/gyro.cpp.html=
+">Sample6</A></TD>
+                <TD>Read angular acceleration with the HiTechnic gyro =
+sensor=20
+                </TD></TR>
+              <TR class=3Dbody_font align=3Dmiddle>
+                <TD><A=20
+                  =
+href=3D"http://www.norgesgade14.dk/bluetoothlibrary/samples/io_8574.cpp.h=
+tml">Sample7</A></TD>
+                <TD>Read and write from/to the PCF8574 8-bit I/O =
+chip</TD></TR>
+              <TR class=3Dbody_font align=3Dmiddle>
+                <TD><A=20
+                  =
+href=3D"http://www.norgesgade14.dk/bluetoothlibrary/samples/light.cpp.htm=
+l">Sample8</A></TD>
+                <TD>Get sensor reading from the light sensor and turn =
+the LED=20
+                  on and off </TD></TR>
+              <TR class=3Dbody_font align=3Dmiddle>
+                <TD><A=20
+                  =
+href=3D"http://www.norgesgade14.dk/bluetoothlibrary/samples/message.cpp.h=
+tml">Sample9</A></TD>
+                <TD>Read and write data to/from the NXT's mailbox - run =
+this=20
+                  <A=20
+                  =
+href=3D"http://www.norgesgade14.dk/bluetoothlibrary/samples/message_nxc.c=
+pp.html">NXC=20
+                  code</A> on the NXT (<A=20
+                  =
+href=3D"http://www.norgesgade14.dk/bluetoothlibrary/samples/message.rxe">=
+download=20
+                  compiled NXC file</A>)</TD></TR>
+              <TR class=3Dbody_font align=3Dmiddle>
+                <TD><A=20
+                  =
+href=3D"http://www.norgesgade14.dk/bluetoothlibrary/samples/motor.cpp.htm=
+l">Sample10</A></TD>
+                <TD>Make the motor turn, stop and coast</TD></TR>
+              <TR class=3Dbody_font align=3Dmiddle>
+                <TD><A=20
+                  =
+href=3D"http://www.norgesgade14.dk/bluetoothlibrary/samples/print_file_li=
+st.cpp.html">Sample11</A></TD>
+                <TD>Retrieve a file list from the NXT and print =
+it</TD></TR>
+              <TR class=3Dbody_font align=3Dmiddle>
+                <TD><A=20
+                  =
+href=3D"http://www.norgesgade14.dk/bluetoothlibrary/samples/rcx_light.cpp=
+.html">Sample12</A></TD>
+                <TD>Get sensor readings from the RCX light =
+sensor</TD></TR>
+              <TR class=3Dbody_font align=3Dmiddle>
+                <TD><A=20
+                  =
+href=3D"http://www.norgesgade14.dk/bluetoothlibrary/samples/rotation.cpp.=
+html">Sample13</A></TD>
+                <TD>Get tick count from the RCX rotation =
+sensor</TD></TR>
+              <TR class=3Dbody_font align=3Dmiddle>
+                <TD><A=20
+                  =
+href=3D"http://www.norgesgade14.dk/bluetoothlibrary/samples/sonar.cpp.htm=
+l">Sample14</A></TD>
+                <TD>Read distance with the Sonar (ultrasonic) =
+sensor</TD></TR>
+              <TR class=3Dbody_font align=3Dmiddle>
+                <TD><A=20
+                  =
+href=3D"http://www.norgesgade14.dk/bluetoothlibrary/samples/sound.cpp.htm=
+l">Sample15</A></TD>
+                <TD>Read sound level with the sound sensor</TD></TR>
+              <TR class=3Dbody_font align=3Dmiddle>
+                <TD><A=20
+                  =
+href=3D"http://www.norgesgade14.dk/bluetoothlibrary/samples/start_stop_pr=
+ogram.cpp.html">Sample16</A></TD>
+                <TD>Start and stop a program on the NXT</TD></TR>
+              <TR class=3Dbody_font align=3Dmiddle>
+                <TD><A=20
+                  =
+href=3D"http://www.norgesgade14.dk/bluetoothlibrary/samples/start_stop_so=
+und.cpp.html">Sample17</A></TD>
+                <TD>Play a sound file on the NXT</TD></TR>
+              <TR class=3Dbody_font align=3Dmiddle>
+                <TD><A=20
+                  =
+href=3D"http://www.norgesgade14.dk/bluetoothlibrary/samples/temperature.c=
+pp.html">Sample18</A></TD>
+                <TD>Read the temperature with the RCX temperature sensor =
+
+</TD></TR>
+              <TR class=3Dbody_font align=3Dmiddle>
+                <TD><A=20
+                  =
+href=3D"http://www.norgesgade14.dk/bluetoothlibrary/samples/tilt.cpp.html=
+">Sample19</A></TD>
+                <TD>Get the x y z coordinates with the HiTechnic tilt=20
+              sensor</TD></TR>
+              <TR class=3Dbody_font align=3Dmiddle>
+                <TD><A=20
+                  =
+href=3D"http://www.norgesgade14.dk/bluetoothlibrary/samples/touch.cpp.htm=
+l">Sample20</A></TD>
+                <TD>Determine whether or not the touch sensor is =
+pressed</TD></TR>
+              <TR class=3Dbody_font align=3Dmiddle>
+                <TD><A=20
+                  =
+href=3D"http://www.norgesgade14.dk/bluetoothlibrary/samples/touch_motor.c=
+pp.html">Sample21</A></TD>
+                <TD>Motor B turns when the touch sensor on port 1 is=20
+              pressed</TD></TR>
+              <TR class=3Dbody_font align=3Dmiddle>
+                <TD><A=20
+                  =
+href=3D"http://www.norgesgade14.dk/bluetoothlibrary/samples/user_choice.c=
+pp.html">Sample22</A></TD>
+                <TD>Make the user select the sensor type and print the =
+sensor=20
+                  value </TD></TR>
+              <TR class=3Dbody_font align=3Dmiddle>
+                <TD><A=20
+                  =
+href=3D"http://www.norgesgade14.dk/bluetoothlibrary/samples/server.cpp.ht=
+ml">Sample23</A></TD>
+                <TD>Same as sample 20 but with a network connection. Be =
+sure=20
+                  to download and run the <A=20
+                  =
+href=3D"http://www.norgesgade14.dk/networkserver.php">NXT=20
+                  network server</A></TD></TR></TBODY></TABLE></DIV>
+            <P class=3Dbody_headline align=3Dcenter>Documentation</P>
+            <P class=3Dbody_font align=3Djustify>The <A=20
+            =
+href=3D"http://www.norgesgade14.dk/bluetoothlibrary/doc/projects/NXT_C%2B=
+%2B_Bluetooth_Library/project-summary.html"=20
+            target=3D_blank>library documentation</A> provides a =
+complete list of=20
+            available commands and features not necessarily shown in the =
+samples=20
+            above. Also it contains a <A=20
+            =
+href=3D"http://www.norgesgade14.dk/bluetoothlibrary/doc/projects/NXT_C%2B=
+%2B_Bluetooth_Library/Nxt_errors.html">list=20
+            of errors</A> that might be thrown whenever communication =
+fails or=20
+            the NXT reports an error.</P>
+            <P class=3Dbody_headline align=3Dcenter>License</P>
+            <P class=3Dbody_font align=3Djustify><SPAN =
+class=3Dbody_font>There is no=20
+            license for the files/software - which I guess means that =
+you are=20
+            free to sell it to your friends give it to your dad, make a=20
+            fortune... do whatever you like as long as you give me=20
+            credit.</SPAN><BR></P>
+            <P class=3Dbody_font align=3Djustify>&nbsp;</P>
+            <DIV align=3Dcenter>
+            <DIV align=3Dleft></DIV></DIV></TD></TR>
+        <TR>
+          =
+<TD>&nbsp;</TD></TR></TBODY></TABLE></DIV></TD></TR></TBODY></TABLE></DIV=
+>
+<DIV id=3Dheader>
+<TABLE border=3D0 width=3D"100%">
+  <TBODY>
+  <TR>
+    <TD height=3D2 width=3D195></TD>
+    <TD></TD>
+    <TD></TD></TR>
+  <TR>
+    <TD></TD>
+    <TD class=3Dheader_font>C++ communication library</TD>
+    <TD></TD></TR></TBODY></TABLE></DIV>
+<DIV id=3Dmenu-left>
+<TABLE border=3D0 width=3D"100%">
+  <TBODY>
+  <TR>
+    <TD height=3D150>
+      <SCRIPT type=3Dtext/javascript>
+    //HV Menu- by Ger Versluis (http://www.burmees.nl/)
+    //Submitted to Dynamic Drive (http://www.dynamicdrive.com)
+    //Visit http://www.dynamicdrive.com for this script and more
+
+    function Go(){return}</SCRIPT>
+
+      <SCRIPT type=3Dtext/javascript=20
+      src=3D"http://www.norgesgade14.dk/menu_var.js"></SCRIPT>
+
+      <SCRIPT type=3Dtext/javascript=20
+      src=3D"http://www.norgesgade14.dk/menu_com.js"></SCRIPT>
+    </TD></TR>
+  <TR>
+    <TD vAlign=3Dtop align=3Dmiddle><IMG=20
+      src=3D"http://www.norgesgade14.dk/remote/bluetooth_logo_1.jpg" =
+width=3D150=20
+      height=3D90></TD></TR></TBODY></TABLE></DIV>
+<DIV id=3Dfooter>
+<TABLE border=3D0 width=3D"100%">
+  <TBODY>
+  <TR>
+    <TD height=3D8 width=3D150><ASF td>
+    <TD></TD>
+    <TD width=3D40></TD></TR>
+  <TR>
+    <TD></TD>
+    <TD>
+      <DIV align=3Dcenter><SPAN class=3Dfooter_font>This is an =
+unofficial LEGO=AE web=20
+      site. LEGO=AE is a trademark of the LEGO Group<BR>of companies =
+which does=20
+      not sponsor, authorize or endorse this site.</SPAN></DIV></TD>
+    <TD></TD></TD></TR></TBODY></TABLE></DIV></BODY></HTML>
+
+------=_NextPart_000_0021_01CC7F0A.F235E2C0
+Content-Type: image/png
+Content-Transfer-Encoding: base64
+Content-Location: http://www.norgesgade14.dk/bluetoothlibrary/nxtremote.png
+
+iVBORw0KGgoAAAANSUhEUgAAAIoAAADICAYAAAA3F3kDAAAABGdBTUEAAK/INwWK6QAAABl0RVh0
+U29mdHdhcmUAQWRvYmUgSW1hZ2VSZWFkeXHJZTwAAH4qSURBVHjaYvz//z8DMeDPnz//kdX++/eP
+AcQHYRAbxgcBYs0cBQMPQHHFyMiIgpmYmMAYWQwggBiJjdTfv3//hxkMwn///oUnEBCG8WHyMAeM
+gsGdSEAAOYEwMzODMSyxwDBAAJGUUJBLD2AJAxID0yD8799fII1IPDAwmliGBgDFEyiBsLCwgDEr
+KyuYhokBBBDRCeXnz5/ghAJLGKBEAhRj+PXrF5j+/Rsk/htcsvz/DypZhlFCAfllWKZ3RInCxMQM
+ThwwzMHBAabZ2NjANEAA6spYB0AQBqKHsgAD/v83qkuBLhhticRVTRwcOl6bNq939m7LHisKicLB
+zMg5g4iQEmFeVnApVxSdrjL8HJRuyVUe4LFW9xdtu92buUa0W8VuPmJEygoE42AQpwjnPEII8N43
+I1BYupEcAoiFFLNhbRFYYnn37h3DzVs3GY4cOQHyGQMfDw/DP1D7BFIBwnyMYGNwGeGpGiPLMiLl
+5P/YcwKqIvSQBoqDQhhF/39Mq/6juQOsBaHg67cfDL+AJaYAMCBBkfcfwz5kPqq7/v/7D8xE3xi4
+uLmARTgTxOOMuAsn5CD78fU7MLP9ZeAWFgFL/Ee2AeYvhv9IQcMIJf8jlxVgFiNasMJlgIrevngG
+TMwswDj9yWBspM+gpqrKICAoCI5nEIBVPQABxEJOIgFVNV++fGG4c+cOw+49Bxhs7ZwZHF39GXi4
+OCC+hAY22Bto4YieLP4zojqeAUkcpBgtnWHEDSNSJP9HCgDkXAhPTv8hQQsLbKTwRgrc/2D94JIQ
+iF8+u8vw+P59BmcXZ3D1ysjIiJ6uMGIemh6AmeYvw9Wrlxl0dHTAeRJcuILaAsBSBlty+wcrtYDy
+7x7fYfh4+waDopomw98f34FCEJ8yQSOeCe72/2C3ghPxf0gDFaQWZODf/1DfMkLsA8n/A0n9A9H/
+GVjYORl2HTzIoGrhxHD5xnWGDWtWMvz+9ZtBU0sTag4TPKEABKC87HETBoIo/MZe4yB+JIic4yCK
+NClSkCJtDkaThoMgcQfaVFGkEMABLJl4PZn9Mc6mw5K9K8s7u5753rP3alCaz06e51guV5hM7zF7
+fsFmC2wPOqgMe3UEYiZcVEVB2xLDAQv+ZZkCSP7/+7DPBP9BkaJ2TJNE9lVkH8/da9ZLPqHsAJUE
+a45RyoZPI8Gp1DDGALTOQv5q40YturAxIpTnSmKY1gFiXOJz826tvRGCOfrixqPRrXUhihVqebbY
+7XFar/FTHKFk4lgGqMhNo8hBYwpYCMAfuyPGvRsMRaxvXznSRCEb9FBbTRBMZbSFF6jMKZ1uf4Dq
+8I067uDh8QmJALF4nSO7yy67HwNJmqb4FYDyMmZtGAai8JNjDCWLh5pshWxZQ4eWEEgI7tj/milL
+oVsgBa+ZgzEBO4VAlxIbW+rdSbKz1mA4sHSS7757Ov0LFN/IMixVVSIIR1in7wSJEUyjiB278cZS
+70lmm2JEdueC4yohUAjU3XHRw2CDL/WjnaxaSRggUYM6eInVvUwo+S4ujXK4mR4Qra1vHs+2tFS8
+nlMSv06nrJ+WotvRrc6MOD263+og/0oyIErkFCMQleB5EDWKxg/IvjKU5xOm0yepWH6ausFhn2O1
+ecNjkkhB8hzT0CWh/kVLL6jZNC6eofJHjP2nbf6DeP6MKylQczxhsljiUn7j5VxhlsS48R5oXxxG
+AUZAocInmDq6gLAvajHxukjx+bFDURQCLvcoDAnn+08ASsxnpWEgCONftkk8JLHBQxEFoeDVi/Qk
+voEvIPhkQt/BN6ogSA/aNlWJSYyJ3zfrn/ToYUlCdtjMzm++mc2/QNHwp52GTewb0iTFOE3wVLSI
+4hDr1RLLxwVJDHcLoS60PTw6wWRyDOWnSSf3SY2Us1gqbM4cNw4UXI5RFCCJYYF8r2A90J9mD8rb
+oIAFwVAh+l9F+RHujlBrjsHS+/nfbNg71wlg51WI89u2Q1nWVNKa2a6vdGwCQ+/ATmlzaD4b81V2
+TEg0hKuiEsleGbpmRC4vZubPptgaFLPzM9vT59UGWZaTt57PPFlSuWv97GSZb7nuKOgQ9YLX5475
+wH07aF4RE+Crm2vcLx4wPZ3i7naO/bhC+VLgQzbadbPtPSgkJqD/WsNg5n2S7SEf59jyu1Q1NNTc
+KuZfAnBi7ToNA0FwfCQivFMEKeJVUlDwBRSIzlUa/gL6FPwIFRJfwAcgED0FFV0KCpxIBBI/5EeM
+fWZubYfQYsnyyZK9d7s7s7P7L42SZWyJmWVahmxFhX5gdRk46JKymP3myvVf6TcYvGC702XwSaNW
+XXIK8beqgqoqfC41MhFZE+cVd08PUCv7OLN7aPPbrKiZpcwAvShAawlR/Mo51cwlCfPcms94LEFz
+RQu6hL+p3YVol1oYKdljSjYYTwJEYUTG5H+YOM77Gx2YyiGsBTW0s7tH8bpGW2RY7tUklxuwO/Rj
+JKlGGKdwXRf3j884PDrGaDgigofsNFrw/BBfrk+003dehNn0E9MPsgvLQ5N2G6YA0h6xIyXH+DDm
+80Rp3N5c88UFbPsUV5d9nM8cbLTXEYzL42VmFqZLRjGj028uWptbiL1gzsblnCyX2CZJIkxibhPz
+HwEosZqWBKIoeqZxHD8witqEBiIRBBUTtYiCoAihbb+jX9F/CFq4bBPtatUuhAgDaVMRQiSjGUqS
+o5nO6GjnvSfStsXjre5975177rn33X8riipBQhr7f3oQlXXziTk8FtrIvlSgh/o4sFJYX0jis+ki
++1BELNoimwmgpstAGKEJmEFVcehOZqtwGg56uMhcYspKI/R8h9t8F5uLNzg9n8Lx0R76HUUMxo8+
+aOKrBk5wViAhQDBIDn+gQ/TX12dXcGZWcZhOEQS+gZnfc9XwUNhJcgyGoyZUG5cSpW4ag+2hXKnj
+hxkW5Hey8l7CpNnCxtrKeAwgcLDtMnL3eSwtW3C7Ls820Gx1UKs5lPZvhCMdNBzuYRPx+CxqH0V4
+9Jlgs1unmlSrDWiBqCRKoPEFv2TDq1bhNx1JFIP3MUkKk4AZPFMsnTQoDAxo1i6SyTjeija29neQ
+y5xg+/VJXkwUlx5tXIENye8xszw+NhKbRtuMqACM4jiUaqNmYoIgsgxy/QrAmNW0JBBF0TMzOuAH
+lLrIRZSURZiQQUTQpkUuCoJIkCRolT+qICiwTdAntmkXqYSIkVAImkEpbgKJPii1Z/fONKm7FgOP
+gcfjvnPvOfee9+9EabuyetZ1vu0YF9UkhJ5rNWQrBdSVFwQ8FgKuH5+NV1TrJQxCpSrQK9Bsl1GK
+7+AkUURFtSISnkc5d4vJCS+ukykcxZOw5J+wMu6Cs9cJ97AF78KBav4Cu3sHkHqmsTTnw1VsHzdS
+Hb6pGTTzGVhnI1gc+MDWZgxvah9C66s4O95GwR7A6NACEoenKH+5sby2Aa/LRmwh2s8NhoZwrL9B
+tWBMKibN12Bjij9uuCSZUqljjGSSMswrmXVH0vWV2UtW9AmC/9+XHuAf8+jeDBeMakaOmMXmGNHO
+YDnWpI+NLmKnlmjozaXEPZD4GwB4IZPUZZ0++ENhZC5TKKbTCEajuAuG8Hgeg9dMoAtZ26MIbqMo
+FgpKoXMVO+EjmTQm7cKaMf4WXeTwI4BIGkeB9BD+Qev2/ygjB5CimpHh69+vDJ+YXzKwc38HNvx+
+geoQBiFeDgZPI2WGi8AG239oSc8MzA7Pr55jYBR2ZQgXu8lw4dQTBjuRFwwZVTsZ+mf3Mri95WDg
+tw5lkH6/g+Hh7RMMK98KMZS3KDMsbw5nuPwT2BC8s4VBkO8Hw427PxiiirwZZvcuZUiuiGJYt/Yg
+w/M/LxhMkhsY9L4fZViw7ACDnmUAg76ELsP1Zf0Mux9xMYh8OsOw/bwNQ7GnCbCEgTSK/8GbpUwM
+6N0vVmbQqCU7MLJ+gfOwuLg0w6MH3xi27L4KH70AN5yBUEZeFVxCsbCwgSMXknBYwfpBZisoajDc
+f3if4S6wtICXXsAw5eKWBDZkxcE9JVAbjxHYE2ECjY4KCzEAGyBANzCBqxsmpv/gBMoEsg/aojZh
++MLwdN5EBr4/3xjcmH4z3JneyaAAbDNKSwkCC1hgqQl0D6jdxQQaYAO1iP9CBvLYgGazfP0DblNh
+FApIc3aghAIQgDHzW0kgiML4t8u6uiproJuWuAZq+Cci9Mag+54g6CF6J2+661m6iaibSAoUTbAC
+K7d1Z/tmNtS86mJgrmbOGT6+c35n/i2UzR/G9SmGTFTBBJUr8A3b9hC35nw7DwNaoUlsc20X18Hj
+UlPK5llqqkc1lD/6uOsPMbV8Il4MryyshhHQrifYetPQPr3AefsWvd4lUvYuDvPH6LabKAbPmDVK
+2Cu4qBQ7aNV3cDW5ge6EGD/cYxAfQycCWrE5Ri9DZMIkDsotnHTPUGnU8emJVR7i13q1VXxSOAkr
+QzxmPqZAqpBf0lDJdSP8Dv/OioLAj8oY96YRYvaehpO1YcbTRFwNjpNDtba/mgAtXUwou1dPS0fy
+xRRfuTy2CQseG9IYUYfyoWDoQAzW0KOmX7qMwxg68m5JaTyrqUf3y5ITqHmKptaCYvGFpkrbQuZq
+Z5F4GrBhTUa95gbHrX8a/gggkkoUzJnH//AxD1Dh9v33DwZjWUkGfZlQcA4TAvbjP337zMAFdBYo
+B/xFGo7+A+zBSBo4MPBK8DNwAPOE6r8HDC+5tRgmNbsz7Ltyn8HeW4dh+/EzDGxqegy6LKLAetyT
+Qe/BfgYRkSiGEzs3MRy9AGzl2+gzGFkIMzBz8TMY2AHbC/8FGazcbRjMzHkYNsydz7CVTYYhOC2e
+QfLjFYYVu08yyAdnMjxevo7h8LFTDLzSpgyCwC7g7/9/wSXAP+hAG7hB+w/aAwLmJEYOUQY5OSWG
+a1dOgnsEkABlhHblod1yRsxBQEhX/C+wK/wYWD19BbabWOCDZv8ZUAcL/8NHTxkhYsAE9f3lfYYf
+jx8wvBWXYvj76wd4DAYkB6r1mME9cEaYaiwj1gg3QuIf0tMB1QagBj2oXQUaI/r17RWDorULA6eA
+DLAX+w9zTOo/ouYACMCYGawgCARheBJdS8IOYb1B0KFDTxcdOgb1eB6DOniLtEAIIzW3f0ZXq1OH
+PehBcXBmv+/fvw8F4zjWWZZJ0JYkCYVhSMdTRKvNjq6pJZB3OUeUnA8S3LBllAKLAMfGlPzRlGbz
+pezl/NlqgL2b90NU2nW03GMyd9ExOYBTYYwW2hETyjD1vX4NW3avEKUrAHEWOi3HZHDxrOdDAxT5
+Gt2sONCyAa3oILyvb7OpKVKA7CovMU0cWEit25ylvMq6qFXVhW6SZGINB+jw5w3mcvn5IYyOm+TM
+HBuY4qIKqAU3iDE0+ggh60CAmgBQt4kuNec8Vn4XsDQa3uhaKxBG6X8Syq+YW3+daugufQYf+YBZ
+bzIDpL+knpMx0X67phS2tQBgB0HQrrcAnJpND4MwCIbBeNpluuy0/f8fOFM1+2g7XqDVJu4yL6ba
+mEDpKzz0b0VpA5k1Qx6vdxouN+cSmyGFU/Tyz0bJbDBO7iHazhA5/TwtV9A+R8J8KSWTIisDcvIi
+BNvqSZ7rerCN4cf3FNU5rwfreFmhElGJJlRgRUIn88OCsr13KGiLE5UjUA2Q1LQbMk0zFPFMp2Hc
+I5wmqSwUmd1oVVne+G1mh3E5eyBQy30cMJZcj/Y+hM34djlklJ3hH1SmtWPPmxGdwjYPyt0Fu2fY
+1lFVSP6hG18BSDOjFIBhEIY2svvfd4zq6EyqMNjP/svq1FB9+d8oJZQkrQea5Cz/h2h9BQYmaQGg
+xT/Mx8bgXRrBhMqjAdUaoqdRqJ0rSslr5t3rE6cHPR6janONds0hjmoYdbU8oUiuIsJ8XZ6FGpQ+
+ngqmt7KbpmYWU4JY7Qyr/A1o9mubo4ZqNPRQy1hs5oGXgYnXGaUEjGG2J0+PnlmZaV8m9S0Aq2az
+AyAIw2Dm+7+yq2E/7bhw8mqMi6M08HW/OIpx7sQOz8ORij69mXJ3xFWz2IcPO4ZseY1GJgwDbVr1
+lr4LNU5NYzyZvKSJrQeIj9rvSLO7DoqXb1HyoLcpcsUKVk6quhKZwSuky/8M+hsSSFE2uu9kqkcx
+UPmU8Xywhm2VM8znDMiNSuM7Q6M+EmTrK79WLhfAcR2F+ARg1Qx2AAZBGGp3m///sbuMbjEIxZid
+diXxIEHAvv4zeqbPEtfwpBw+r+nchSveRiqxnJ/E6EweE6qsaxTdPgCo+opY2rY2BiLQgBGZQDLB
+/CzsEmMFmtZCVykrSfRCFrMWxFahDPMGS6ewrLE8s5Ly1MSCn0HAZMPmsZECWzOvqpf0fr536EPS
+bx+l8gggFiqkEci8BuNPhhNHdjJwcbITVwSNrr8eDMuyGL58/cZgbuUKzNy8DJCyBzsACCCKEwqs
+6Pz+7TsDJwcbQ3iwG8OPHz+H69rB4bMI8j+oh8jBsGbDHmBi+cjAxcuLVz1AAFGp6mGAt/Z//AR1
+Q3+PJpQhkFAYoZO3TNCpWHxLgwECiInyLg9qu2g0eQyligfRz8e2XBIZAAQQVUqU/0hzPwOdS2AT
+dIheB+OAuoWRkRE+sYbLLcgjoDRJECjTLtibD//Q5+7QAEAAUSehDJYcAt2b8unTJ/AA4GBJKKBV
+7aDVYiA3IbsHti4VtIqM1hkNtK6EcHj8x1kjAAQQCzUKr8ECQInk/IULDA/u32cQFBQc8N2KsJlX
+UMK1trFhEBURQdkcB0okoAg8e/YsmKaFW0FuACVU0AJv2PgNDoV4czxAALFQozwhtD8KOXdhLY3g
+g5fkRywsUh4/esTg7e0NzsHopQ2yO5DHYP4jr/z+jzS6SkaJhtEIBEbOhfPnGe7dvcsgJSkJXl7I
+xAQZJQZtrDpw4ADYrQoKCjTbinvjxg2GM2fOMNgAEytoBwVe83FIAQRg3Wx2GASBILysaMKJ5+H9
+n6lEodQyk25itGlj9Eg4wGF/2JmPe5TZremxf1nD8AuBvkfpY3P7eA9bVJFgkFd5AV6+PPIF/m4D
+gzr2kj75QVpZCBiTJu8HLvOMn09EC0tton4SXZ9SaWJ6ku6AodeTQbJvH9YKQ8/oR86HfazBo6aU
+mPU6jLwvWJFibcpUVlOoTW128j3wTexD9QDN7lRijAyUX7Hh/ohbbwFIN7sWBGEoDL9bmv//v1hK
+EEQQFN6EN0ZgXYgSGCz7gkiz7cxEpSBqcG7GLna2s7Ox9zn873xSKX7vxCSatHTY92ZwR3Nkt5Lk
+ck2DaWcVpMNZDiEuKHmvWhj904sf7m1dQP9A3zKRhD6GjoNlLAjQDrwJ3PEUWcFxjDdYyX7DtHDY
+bxGJkwzWPoprijDZ1dxs+aUR3GMYRK8rUwHbLNpvbSJjrYN0V9eO9D2NAtj2AIt1RCUVJdOwNxVj
+vXABhWpUSJpilpXIqgNK88y1kCkEsnNOY7pvo4/ZsCFodttTAFE+MgurP/5ja2kzMHx4951h6arj
+DLIi/xkuP/nNkBtnzHDx2FUGKTVNBmE+RobH9x8wMHP+YFgydw+DY1QUg7GSKMO/X98Y3n/6xcAr
+xAueW2EguiiG2MkCLFEen93FMGPteQZBIWYG8Z8sDN9uvGHYcuEpg8ifD8Ci+CGD6P+nDHuecjNM
+74hhWDytjYFJP5+hNJiJYdnKRobjH10YWosDQYNCRJcqoOpj3rx5DCdOnIBv8K6srGQQFxfHWxWD
+MRsnw7tbxxmmLtrHwCXIwcD/6juDkpQTw4OLVxj45TQYJIVYGZ7ev8Lw4Rcbg6qyCsPnd3cZnr78
+wKCiacjA/vMVw7lLDxhktPUYpPhZGK6fOcnwi4+f4f6JgwxP/qsxJITbkNzdwBbaAAFIN3uWhAIo
+DD+pkBWS4OAQZRGaIpUVUV1aK7CGaGhocGlq6T/0E6Jc6i65FDVLikvUFBQVVwi9fRhSGYipJF4V
+u3mFyCmD1nOWw+E9X/CcfwrlR35qw2vG93Kk2cqqnl6nwNzYB0ehBGHxnMvYKwb3JP1KAjnbwaJ3
+kFRCQk4+Mz7QTeHxisDuNb6NVcy6cgMV3zwejSepKGnOjqPMLK8w7bZSeY+zsxXDt76G3awQ3Nzn
+VjUzZFJqIgmgGHvoI8/hQYAXwygWtcRbJodJrfL5x0xo1LogCIiiWGd1/H5/fZxoi+xvp3F9POkK
+nAQv8MwusTBhq3WNIqd720SkDHq7C2dbloenJFVjK9YuB+nYDS2detrlDI57iZAsYXHN4/UUiYTj
+2KZGKCXviOZzpLLDmDTWrVmxNXF/CSDqtFGQduAhN1xAkIPpD8PNkxsYHr9SZAgOs2Y4ve4iQ8PU
+fIYVVVMZLv/hYghLiWYwkPzEYOgYxxDmas3w7/sHBk4ZLYaUClUGdubf8NVWxDeWQCcvfGH4ACyR
+JEGnLgCL9W/fvjP8+P2L4e/P78DeBQj/ZPj8k51BS1eQYdvacwy24U4MPz48Y/j07h3Dw7uPGS6/
+4mSw9rJkUBNgAbYV/hEdDsLCwgxTpkwBNx5BDWrQtgxQyfLv3z+8rYPfQHe9//yDgf/7X4bvwDbT
+n4+PGU4/Z2fIa61mODZlGsORB38Z/GMyGAS+XWdYv+syg7xRIIOrOSfD8iX7GPbcuM8ga2rAIMT8
+lmHvyV8MQYVVDMbSjAxrl/1gkJOzYhBj+8nw9uMvpBl+3L0eRjzDHQABRJ1xFEZsKRIyHfz1LwuD
+vnMsQ0q4AQPjvw8Mz5jWM/TWdzH8FJZkUODiY/jzHVR/cjD8uLKHYd0eEYZwZ0OGb3dOMSyYd4kh
+qjaBQYDxB3jZHlGJ5T9k0fGv/7wMxmYSDEsXzmQ4qyjMwCOiwKCpw86wcP4MBkmmzwy/WCUZpAXY
+GRhEdRkqW2wZ7l0/ynCVQZwhMq2E4fvTiwwrdzxlkBNgBU9HMJDQAwGd7iAmJsYgJSUFbHO9h+w0
+hB4whF7lINou/xm+/WBlMDBXYFiwYRHDrasSDDx8AgyS3O8YZrb3Mfzg4WWQUxZm+Pn9B8PXL9+B
+bTpW8PKIH8BEyMYtxKCt9hnY9mNjEDHUZpB7dYJh+eROhvMWpgwiP74z7Nm8jkFCIhSYiPB3EmAt
+B3xjOQABRIVJwf/QNRrYuuX/gbmMg8HDTprh6/evwFY9O4N7ShoD75ErDPJ6xgyCXMBGGgsnwy9G
+doagnBCGR1+4wUsm2UQVGfzjxRi4GX9DhoBIadQCI+Hn1x8MYkbWDOH8fAy3Hr1nEFNUZDCQ1Wfg
+4D7F8OIbC4ORqSnD/8/vGP6zsTP8BpZ4IrJaDGaSzAxvnj1j+PuHh8HSXBloxjdwSUlq9xjUi0EO
+cBYWFrwFICghMQEbp8La5gzxwLbF1dsvGIQVtRh0pMwZ+E9dZhBS0GIQ5wcmLCYOBmYRHQZfcTUG
+Vg5uIP7H4Owqx8DJ+Jnhwrlr4JX2GlYBDAzsZxl+cfAwqNlZMzBK3GdgBS2sYmPG2F6DWiMgShRc
+PgYIQMq5tCAIBVH43KCXaEGZm6QHRG1ahBUU0SoIWvTbI/f9BKFNZprazOSiwBaVcHcu9D5m5gzf
+uX833FQGQqTIk8cKxZKCZeqiRFIahaqJzX6LO4V/wQ+ZPqfJbXYcOtMxgjCidwx0h3Vx1n/T1OOF
+Yq6XBVO1omE0WWM8y+QxpZDpeifSN7iRPK7ZQkMxlKRZujCt7GWBMtAwlZjc3l2Av3Vmucj1PO+t
+TnmNLCzZXdeF3bZRpm9aLHuIKU2e/QTjqUMbN5un2Bdyns1jaRIK0lmkfwmhwVlRyqYDdvEjDCZz
+2n0RrkGCPhW+SC44HE+wWq3PESO7HuFp681/HgKIKutRGJkYsZbQsDYoKJHA+cAA+wHaRIxUCoGL
+aKBH/8HqUVDi+fWP5EQC6lIrKSkxHD58BDwyi4gc6MJltIhCD6v/aO6m1jA+6LAhBwcHcGkDGx0F
+uQXUbQU1gK9evQqM5K9gMWDthWggf/+G1/yfUPr7t69Y9QBrH3B4y8vJMWhqaoLtx9ZOYYSu6mdi
+YMRZogAEEHWWGSAd9UBUZfUfe/viP4XzR6CA19PTY1BWVoYfBDMYAOyYK/TxDNjYiymwKqT1VAJo
+igBfI4URsaYbKwAIIIq7x5AK5z/D/0EyNQiKDPTh+4EGsCPN0HMzrFEL6loP3Owx7BSo//BBU2wq
+AQKIKgllsAB8VctgcRvpEUkPx8GKFNzhBhBAVJk9hu3jwZVqRg8oHtyJlRFP2wQGAAKIieKEAj0Q
+h3F0wfRQTT6QhMDIiHfICCCAKG7MMkG2ykLWbzNiliSgVAyaIBuK582iHusB3fLxf2iu90RuC6HG
+BdLhgXj8BRBALFRJkNCtoOgDbjAAavHjXTRDBPgH2loKaXIhDgGEHslF6VoWzF4Z6OCZXwysf0CL
+j5kZmECh9Ae0H+cvwx/QSQL/WRmYmRmpGomoM8oMDKgHgcJ3KVNkB2gtCua8EyO2FSIYACCAqNI9
+xpYaqTYWAWsw/4PsCQaN2cA8CwtU2DgN7KB/ihIkeJvpTyDBxPALfFzXN4YP7z4wCHELMDCxsjH8
+B21mZwKdOcJEsJFKbASi7BmG5/H/iD2P4NMSkc+hpG47BTyOwoi/YwIQQFTo9TDCt3f+JzrHEnD8
+f0QigTV+4AcBQvcHI47VQqxOo0aJAtn8ycLAxsQAPm5s/bXtDKe+nmLQ+qPJEGUSzcDByQ4ZwYUd
+3UWNBiYjUnpgYoD6jRlsA2S7KhNq6YN6nALOTgMjIwMDsfUkEwP+NgpAADFRHrL/GRhJqrYR66kY
+cHkEtvUDeQM3E3QxEyNsap4JuuLrH3y/OMm9q/+ICPoP39P6D3z81befvxmWXF3GcJ7xLIOUhCjD
+ZY6LDNMOTGH48vkrwz/WX2B1yJN7//+TN5KEHPGM4GO3oH6DrhoEl5JMsDBjRCQsRjydC6xHPBPo
+kzDhVw0QgJVzt0EYBsLwb5u8HEA8FFEzAWICFoI5KFiCjjWYACFRIygoEBIFgoQ4iRNiRwQaxEPI
+jQsXln3/3cnn+/5Q67k/AX90KiWiU80ZUcWqpMCIJwnCOICIQ4g0gsgSvU7XH5S6EeXRQELGucqE
+xDUMUHeb6Hd7YBl7Att8F9bug8iCw6ou6eKfMV3NsON7eE4NkR+gXW1hHW8wmY8xHIzgNToFpx4q
+j5G6GZ08ZPyDwRLd3LzYLnE8HcBtDmozTdCkqYIRm5q8QHXfNYVJKrCoCcuw4RgODGaAu7b+MSgV
+y7f0E+/3VKYO5LWp3wQQVVa4MTES3zMG9Y5+//vLADrE6zswYSy7tobhF/sf8CmToFN0/v+FTNSB
+2h3ApiNQ9R/wOScg9aA4+c/CyMD6j52BlZuV4dKR+wzlTHwM6vLqYHXkFPugPUm///0GhxEbMxvD
+66/vGJacW8TwnvclgxALJ8PXr8CEywysjL7+ZxBkYWV4zfmCoXfXRIY8hxwGKVEpYKL+AT5flpWR
+mYJABDXUmRmevHjOMG3/AgYtE3mGfx//Mvz6/JOBEbQeBnziAkgFsDoCZgomYCJhBe9dYgKfTswI
+TEzgq1J+MDKEawQy8LLzQSprYIOblUDmge8QJJCYAAKI8hVu0NRIVIECPWGBGRg5TCzswJzzlOE1
+y2MGSQFRYIQBPfufDdxIZAQdevMHmudBgQQsYUD1NvMvfqD8Z4bf3IwMF67eZpD/yc/Az8UDTk7g
+YzQYiC/VEG4CFvX/mMEHKr94855h9vWZDJ8F3jBwARuuoJIEdBLRL2APiOH7f/AMLROw8fKC6ylD
+z44ehiyHfAYVOTmGf6DjyuHHb/4najQWNVyYwG0RLjZOBtX/Ygx3rzxmMDLQZOD4CcwwrLxA/Al6
+HBc7A/jkVfDBvEB/MIPOmAH1xECH4fxjePLuOcPr9y8YBKWEgW4Cbf9gYQAXtkQMpoGrPTwKAQKI
+ooQCO6eDiciqB7IkAZRSIIfh/AT2IEBVzO/vf8ArycALiUGJCIT//geXLqDeB+i4UtBBdv+BnmcD
+tg+uXrzNIPZKiiHDJ4VBFJir/4B6KSyghMJKRKQwIm41+A9ZnQc6vvPx62cM027OZ/jD+4KB/58A
+w9cvf8DHO/8DLVgGmv/95x/wufh/fzEycAJLtKfczxg697Uz5FsWMOioa0AWPDOS1ysBlZygo6wF
+BEUY0txSGKZtWsBw9OwpBj11NYbff4AlFutPYJBBGrjg9T+g00tBuxaYGCEnfwP9BFq9/wtY5fz6
+AwnbfyyghezEdavBY2FMWM7yQgIAAURxicIEPsqbEeWYMXwNN5B6YPpnYAeduvzzK8OvX78Z3jN/
+BiYCUIj9Aaajv5CV9KCcD74KghFyHDfobFTGDww3775lkPskzxAXEscgLC3B8BuY0EDFMfM/JiKL
+tf/wrTuwLvXVJ9cYFj5YDMzSvxk4/vEwfP79Beiev+B1Ib9Ax7qD0wDQXb+AifoPMIEDI4T5LwfD
+O9Y3DM2HexiKfqcxmOuYQc6n/f8PdXyCiJIF1MYCXZLwh+k3A5+sCENCaDzDkg1LGS5duc6goCwC
+tJcNdOAm+CRISMMTclISeNsLaI8QsF3CzMIIXr/z7ddXcOnz+z/kuFFidgeCwg1iHu4GOUAAUaEx
+CznvlInI9gzyXPb3Xz8Y/n39zvAFmEp+g48tZAKfQg1eqQM9p/4/qCoCYiZgpvvF9JPh1dvPDDHm
+NgwK0rIMP4EJCxwYjP+JasfCz08F5WDQWbBMrAzH755lWHV3GQOj6C8Grl/cDN/+fgXfXfPv9x/o
+IYD/IO2lv/8hbac/kOWNf0FH6P7jYPjE8p6hc3c3Q/afXAZnAzvIObzg86FB3VsW4qofRsgpTSyg
+oz2BrpMWk2BwNrNnOLb/LAPP9y8MHP85wG2z/0z/wJ13RibosAEzEziD/gfyWYER/RfYU/vK9h3J
+TEai2tbwo8/wtDQBAoiyqgcW9SRsskYeNPoFrPPf//zEwA4avAJlRGBbAXTQ2D9oaQLuOP5lArP/
+MkI2wwtKCjEsv76JQVpSikFVQRV8xAao4GGD5jbYSUlYB5Zg41fAdMLMzsqw/9oBhiXPVjEIirIx
+MP78x/D17ztgVQM6AfIvJHGA0iuIBlWLIPwXdKw65Iw4UGL5/Y8FXE1+5P/I0HakDdw49zH1gCR2
+BkbUY5SwTQ8gjocEn/0KojmAbaUnzx8zLLq4moFPUoDhO7Ba/s4ELCV+MkJOygb78x/kZE3wcdSg
+ev8PuFT4ASwFQWfiwuZuiK4FGf8THAUDCEDaFaQgCAXR9/2C0C7qAlGn6ALdoE7SsiJadpS2tagT
+dICOkBUtogj0i35tZpSMihBaCILu3vP9N8P4xv1PT7JyOsqpQt3cHxRFG0wS4hZc4VktBlYQZ4Kw
+FPNHzwTio4djuS1fjoQD+uqCCZnJWW+IdqtD4EXPdQvOR87bmwIqK+fxZrfG8rhAveEiDWKEsiuF
+gIgC8KSurF3htEjL3iiVuE2+j0VdIFN4sTJINKkHPTfeHaPtFDdzwaDbJ6B0uYXsa8seZZR6lrcT
++Q9H/7DHeDXHSZ/RNDVSXSIlVV2WfJ1bjAMo7gxzkaXyJEyluY2QkucjUiXBa2FcqVzP8fv96kMA
+1q4lh4AgCtaMGWHFBRALV7BxAmdiYcMh7BxCJCTuQSKWZJYk0tP6o15jEpthYTGb2czkdb1XVa87
+r/9TUaLf2gf+w/5IFhlcCRSDOpyOAvUIGQvViAt6A0WeCjNdyrJm9lQZoFP1gPFmitlwgm6LdlJs
+Kmoo6zW9d00UaWW5X9MCX5Ce5L5AF+bFS/lOuCByVNfLGHC+M9qG7zsbh/81LEciPu8VRcDkUNQt
+Wg6BK42c7mO+XaDfHqDX6TzjE5W00Yu5xjlFeg3nLMNoNcUx3qERN5FRr6UmCROrXWKhYv9KThdG
+nXvGIVQYAQ7F642az9h7EWP/yfTlMuULUB4CsHbtKAgDQfQlm59a2YgWIoiIeBALK3sLb5BCD+Jl
+vICFlWC8hGIrmjioic7OihCRYCFpAiEpsvNm9s3OzPtLzaz9q5d75I2cmE0ck1gMgCEji6PntJvp
+jJn0BRPHXZED4X3MVdNAnVPRbsVX2PEVLkLMh3N0Wm1cpaLdEqTJvkapPKgs0yBWLrmY9MdYRium
+4ZYICOj3onTNYeQEL/WEjuvvXYgQX4gXgY3iFnO4EQUdJAGhR12MagNkZfaIdzPkt95soFoJXizI
+/ppiN2c7mQBB33lOwOFmj9liik28lf7nAx3Mc/aujqTbXPiej4BDpuso0SiURKHKjBoC/5OEzkgY
+MG8jLJBc/DwUtK3iqpSnAKJ8rocJduQ2cVUVJFeDr00A5sDfDJ++fwNXG6B2AON/FnCR/w0YMV+A
+4t9//gAPzv0FdYlYfjNAT/0H1k5AtT/+MbADjbnP+JDh/eY0hqW+Mxjk5VWA7R5gV/IvC8Nvpr/A
+wIWec4t0pCkLE2TQz0TDiMFE3QjRpgEqnHh4IsOuezsZ/rExMLx+/x58U8inr18ZvgGL87/AHsk/
+oJmMLJDi/tvvzwzmwiYM6cHpDFyC3EjtL+jFEkDMjJZQIEP+wNIL3GsCVq/MwNKRhZ3h1fOnDCmb
+sxj2PN/FwAdMGKDJSNBVMcygkhU0ngQqWf+wMoCSDAuwh8PJys7Aw8UNTPCgtbigBPMb3PP8DAyv
+79Al1/+hlxAxEnEXLxP4gi38vTOAAKRdSwrCMBAd+6MQz+BtPIngRvA+bjyEO5HuPYnShdRibbE2
+jfNmqhYXVXAfCExe5vMmmff/CzdHX/LlTw7j/bq+YvTnnNV7GEXeQPToxgCpRM5F1gSgS9ngEpP1
+ABD6ARTUFfewIcMG318Tmu0WtJ6uaMIu39a2U55QHqavMIntPeF5bW/khhOQApSHU0pZWdL5kkuV
+I32WEK7daofVf7pzTbLROFShx/Y151XYiwG+YNQpY0Rgeo8pzbdLSrINGd9wiSz6aBQ57fuQp+Cz
+QSuz9aFRVFdWLhjo/XEckwFg+AbkdSE27cde98OXExXrHD7FhwCkXcsKwjAQnMT0UHz+pSCIf+bN
+iyB+g0fRi1DEFy201Uqt1d010XoQBe+BkM3uZnaTzPzN4eaabT9hWevdDmidihTHc0bRm2CzjxAm
+MYHFQtJojTbGUBZh7lpVyymiKUYMBNRdyVG4UhJqh6ZGvd3G1IzRnfSxCJagqtc+A63y2qvn5aIw
+p+sHTboof1lQGGYJZus5DnEklYUiJ4WXU2l6pehXTK0vHLGsPmrYHcrHz0TujvL2SvVXlhWxS7wz
+HjjlMpai825Y7QL0xgOMMITfaUE3jEh7+TQRr5Hn4u4rr51toClbsE2MKeR4ZTwSpTG2h1BsyEF2
+uqS2N+Nut29f0YBWrxdun0bfBSDtWnYQhIHglPIQooF48M856gcYjx48GP/K8lCKs22JIURjIpcm
+hGS3u93ptF26fw2UyfiRwlchc44SssQEURgVxrSu3l6PFnmUk6iuMCSE+dTgGfdsCeNSiUicGc5+
+BCZtQXZf8k3JaN8QwqsMl90Z9a3G2Hgs/RRNKvx9qIPSdvTAKiJkaRvrhI4hZ2IU24wydcNvhSzT
+WapzTkPBuE9HX31MkpvCDdATkrl7+rFM6HIpErL/wankcN3jVB0Rb1No9uFRUYFKYWDfXGIUOZkM
+QkSetFrKG3THtqFePRLaqtBrd8RgiMbOlu090DE1K9X7C8987y8sn5cApF1NC8IwDE26bo5tDr14
+FU8y3fAvCV4E9aa/XBHFffjSRt1FEDz0WNaE1700afPMf8SjChStH/wLVZH/IzigXOF6OOwWNDQy
+Me2nazpVOwpjsK7kk0AwjQgtsH5EMsDS7zgDCHJLwBUFGdYwZIrGHS0uc6qS0gW9tuOefDb3hBz4
+rRPsS/qfpJRxhTTZxQAqaI1tq/OMEx1wh7IQsUUKYOWYMBABSk2rc+CCUFdF5kCHXg949UXRuzQC
+ywdOUEVW0OpcUiRPRmGDhS1GpO9y8FvqbXVpBymUwme19JWBbbWsJarpsNzQcbaliUnoboWWQmw+
+bdtuegIMP1zWalSl9RtWngKIhYJaB+yJj8CM/fYTZBCLUG0Iqgf/Q7u7oJb/5++vgTH9hYGHUYoh
+SSKeIcczi0FYSoBBaCcXQ9HpeoYfLN8gYwegGVNgL4eBA3ThIBO43fKXExipbMBczfmPgZeHl0H6
+mSZD0p9UhjD3SAZmoFrQFAArw3+cdSLsQmmUXM8I6UEwgq5wYYRUK+CxDibIWCDIXkYuoC+Bdv/j
+AnaXv/9DNBVhx34w4to1Ce0Lg0dugUxWRgY/R3+Gf9v+Mkx/No3hkewt8N1G/4Hi/4CtWWbQtTQ/
+gYkOGPH/fzJBbo5k/A4eHvj7m42hRaeKocQ7j+HT+x8M/zf+Z+h/PJvhJfMjYPXzBlx9g6+aY2KA
+30yGL+u++wRqLzIwiAjg7pQABBALJe1YEABdaPj5+39wu5OYBi24MAEta2QGjVmwMfD+FWTIkI1i
+yAhIZhCQFgEvFkh2z2D4DCzm6y42AkuHrww8wMTwmxPYJQRG0H9gVweEWYANQQ4eZgZhIR4G0Uey
+DDF/MhkiPcMYuAQ4wPuGwSUDIxNRk3T/kUYo/4OqOyY2SMkHGy4HRt5/YOn1nxMY6FxAMXag24EJ
+hvUv8vpdJqJKVMglWJDpAA5udoYgz2AGhp2sDHNfTWJ4qXyf4S2wrfHjy39wifYfNBrLBizNfgDD
+F3Qkxk9QIuNgqNArYsjzLmL4w8bCwC3OwZAQGMfwb/0fhu7bU4G9OnbwFbegLj8jeIEN4TgBHdrw
+59t/Bm5u3MtXAQKIohIFHLD/kdoeRCQV8K3ewMYqsDBgyLJPZrAVNGcwUDJmkJIWAzbVgI1X0DJA
+YBuh2D2PgR1YSNfcrWP4xg8sWdj/g7utoAliVh42BkEebgY5fjEGgdtSDN6fwxlC3YMYuIW5GP79
+AVZXTJBxFHxD6IjuOvJVb8BEyAJdnwpK0aBGJBswsoAl2T9gQmEAJlRmYInGwcnCICbAwyD4kws6
+9s4EvUABf+6F354LuvoF2N0GWcHBx8EQ6OYNTCz/GNbfX8LwQfMJw+PPrxjefP7K8OfLb/AsMChj
+fAdWQ8wfORlqVSsYKrxKQHMWQHOAIQYsAsRFRBmS/VIZDG4aMKhrqwJ7TMAuNnjZADFLL4jrswIE
+IO1cdggGojD8tx2XlmqpSzRBPIJHsFFd6MJrsCUhFt7IxkriLWwtLSRCQhCkUzNTxE4Tq9mf/HMu
+/5nM919GCfCFtI2yUgjrfIwS0c1XrCoqzdoreIHgJXPvgWPpKRv9+k4Pj6WE6XYCmj6BxDVkVRV2
+xkKplIK0suEcO+i2PfGNl4Bb8w/zQCJtbd9OLaUPwfHzFf81lcgCzA2eQZhAKDsDJhYuEkPXUDZz
+KBfS0A9J4YmEdVeJFDPRF3HiKN4YGgrVUOE5LoKFj/l6BrORwG53xobs2SR2wf12hczKzaA+wrg1
+hJ8MzT2FxD7CK9p5uLYbOijs9sZ5gy5HfPgnSfjV9z4FEAslBQpsTgXSziRulpQJ2oRG3JvzD34a
+AgtsvgbUeAQteQS2F3IdsxiYjv5g6PvWwyAkzs4gy8/NIM4rycB0mY/B4o03Q6BHGIOAADd4zQpo
+oQ4DI9I8BzGJHVJwQNaFgFa6gfpW3MCeDbCwYADi/0DMBIwYNmDVJ8HHw6AoKMagyCfBIM0nCszt
+fMAuKsT/4CqK2IXMSNeGMYLba38ZuHl5GPyBpSLDTkaGw5c3MAgZfmDgBzZqH3/8zPDq6VeGNPEs
+hjLbYmDpwgCeB2MG+RV8bR4juEcEhv8gBxyDTWfCPZWBcywFz+FSAAFE2YDbf0S9+5+MQ2dQTiBk
+RBj6F3I/GAPjb9BtuCwMuZaFDCwnORn2MyxhUJQRYPhxhotB95kbQ6BXMAM/sAr48+8XuEfA/p+0
+dbOQFfd/oYNNDAzCXJIMXFw8DOzAhiqoHQI+axRoLg+wzSLGxssgwynMIMUgzCAGbFd9efuDgeXz
+L2CVyAi+2R00bkHe1iXQCjpQGxqYWHiAJYtnAMOfrX8Zzl7ZyqBmy8bA/vU9QzhbAEOheQEDK9Cu
+v6CJKFD1DWrjYWuA/CdjCwkR7UuAAKLCVXHQASXG/yRqg3bFQLkAukcG3n0ArfsADdszczKARljY
+gPVxmnkKg/BlHoZzO/YxGHy3ZQhzCWDg5ucFJpIv4JFW5t+QwSqSV3KCu8lM4JVsyfrxDFp/lRl+
+ffoFXkIIajr+Z2YEd30ZPwPVfv4HrjKY/4GmCL4yyMioMfDwAVuAoElB8BGqLGTtIgTNToCWCoAW
+kHNxcjGEufozMO9nYri4bS+Dl4gfQ6hFHLAn95/h2/9fDKzMHMCS7xvQDcBqh4kFXqVDurn/IJOE
+JCQW2BACE4GqByCAKEso8D43I9bpdIIlCnSFGfrVDqzAAAC3ZUCLixhZIdPwwMQSrB/BYP7IhkFU
+TAgYQfzg2VwmRg7wXBELMxk5CZowYUskhHmFGHyAXVZSEhpoF8E/RhbwoBs5iQS89YQFtH6OAzyx
+AJqm4BTkYwh292ewembJIC0jw8DOyQauntgZIZUz+Ib1/6wYM+VM0CtvSXUH/B5qPGoAAoiFgjQC
+Pz/9////ZO/HxTgzBDrUywZf/8oMv7ySlZ2VQVFVEdYhBU+QMZC+SwNtxJERmjMZSd9kD9IKuvWc
+MieAxzzAEfEftpzzPwMnDw+DkhoPYv0KdK8PKCGwASHe5QtktiLwtR4AAoiyxixSh5hWJ1vA9qWA
+i9V/aIuRKI0h9NYeI8UmUMUp//+j9kGQL6ikFSBwZwIDQABRPCkIuUSakeYnXiCPT8AazsPx3BVs
+fqP54QnQ631RhpTQAEAAsVAlM/6nvW+wnUo0FI/SIMafsGWcdPMfI2L4EdcxNwABRPFBOv+h09n0
+zNzUDsChdpQXtVPJ/39I7U0G7DtLAQKICuMoRE9SDvqA/PnlC8ODffswLypGr8xBuf7vXwY2fn4G
+BUdHqrcf6FtSos4Yw+6lRgcAAURRrwfeUh7iTQVG8GnXXxkudHcz/LtyhYGZlRXjgJf//5FWI/2D
+nKDw4eNHhve3bjEYZ2QMYc8zwG9thycWLPEJEEAU9Xpgc27/yelaDpKGIyiRfP/0ieFiby+D2MuX
+4BsxfoFOBQZ1R//9gycYWEL5j7QAR05SkuHxsWMMTwwNGWTMzfGXRIM2EGDxh7gJDVuJAhBAlJUo
+/xHjKf+HakkCrG4u9/cziL16xcDy9i3D+xcvIEsskQHsdgzkBAMU+/7uHYOUkhLDq3nzwKWQpJHR
+gN9jSOaAGEo7E5vrAQKIieIS5T/hwRpi2zrITPQaDdP8/yhjOP9JKEVgjdcfwERysa+PQQRYkrAA
+E8r3168ZmNnZGZhAZ86BjpFghSyJZASxoZgJiQYN23+5f59BDJhgXkybxvDs3DmsV8YROdCA5P//
+GM0iBizh8h9HGJJesjLirHJgACAAK1eMgzAMA+2C+oI+vU/jCRVrhzIgaG18PreCCpaKIZKXRInj
+WNH5zs0/ItIPxgYxGE+iTTLJjBXQBNbis6jLM19uSg+ULHTPsr4RuzFyXGEoGu/IQ+YSue/HB0YX
+l3mfJrlEJukig5wjUJAdtG1Lu3AqJFSZXVaF2/toSO7GyrdhkG4c5dr3W7B8ezn7PWGvCxoEoa61
+nZ24FAz3medV+gC2gr0Wvln9ZFa+09JV+8H7KFHjr7kvAVg7gxQAYRgIpn5B/Lfgr3r2CfYFnsQm
+2N20VMGTqOBJCpU1aLKZ/JJw+xzxrHlulTUT5YnimArqZEfltpFuYM4zy2ZeXdbM/hxcT7De0XpK
+z6J1XFfzxt79FhBJiSTrssh4FwmiB0SBsSlsK+i0oodYpGeL232wfe8pyVQ+brd5lhRjnTjyngsK
+1V7h0z0GkgewB3hbKAjNpCZxr+ZeHb5QZcEDxMqyVg7+tECqpH/HKvvfPnDlwuMH6PW4BCDtaloY
+hGFoU1PZYLfB/rc/zH8hePG829q9l0TWMWSDHUpFUclHTSUvL386So64/Vvo2dkPa/PO4gQAm7lZ
+byzZkoElF5+xqsliJMYylC3DTLhPkZIGDmU3UXHmISLRoCh91K7u+7M+n5fsSwJjXmHYvK7pjn2J
+OQfTBBgXnB/hSJWhZd+r7A0247jhnSfcd942yOBo/xrOcsPzl2lKyzx3XUXfw0Zf6mmkQsTSkJGA
+9BVszqmcqYcxqbj8pgPKn4fQjbqeRCPcEe7gOm3Ruf31t/Zludco7GjpEPD2FIC0K1lBGIihTymo
+VLQuSKnDaFF/wQ/zYz0VbWXqghtuB8GqyXQRDwXB49AhEPoa8pq85L+iIF6ZJOKnvqWEJmXD7eir
+Kb0+7QEqXMC/hZgrH946wOpKyeXjGCv0WUVaKqNqmBBmG25XYmQPIRsCvZbMbGjtbUI+Cvj+c8wU
+eEqRpE0vFAQS3qJVTKgwg6Lu+6gKgYhAsOc1c5YVL3fiBDVJ2NnfCkWhZq2mAVYgOyfb1s8jbhhf
+LtGhsyKqjckEYjzOzUjYNINCxy7yT+1CBAcFb+NhFgZQly3O0RV33qdCV1hSahkN2GYTg46EK130
+TQc9x41F63qE1yNu4PqqFeVPm0jLZc+UmeTUz94CiMJJQQbo+a/EzfVArpr9Ay6uQTmFGZgjXr9/
+xbD5yg6GHdf3MFx4eo7h/tdH4JsoEJMQzJD9yOCTDqA5nPk3eFKZhZGdQU5AikFXWovBU8uDIUDb
+j0FcSBiYs35DTkBgYICvmAMliuvABqfQo0cMDMDI/AGsJkCNUtiZnfz37jFwALu5L1paGDgvXmQQ
+qatjeAuq0vj5IdUZNJFwAasrIaDYO2B3+h+wTSNcVsbwD5jwPgsJgcMXlFg+AhOPqKgow6OuLgbG
+0lIGaVDXmQF2yCHkhA/wIaUsrAzvge7YdH0rw5Yr2xguPrnC8OD9U2A19B18ADLDXxZIwwG0txh8
+khCQBm1p/Qe5Phh0s5c8pzSDvpQRg6u6E4O/vheDlLAUYuciaJsu9PpgXP1SmL/+I5+qiUUpQABR
+Ye8xI3xnHCEAOtDvL7AtwgqM4F9/fjMsO76YYcKRaQwXv12EHlrCycDBzsbAxMEBbtSx/GEEn1cN
+KlYZ/wCrgn/QvTKge/pAU/JA19//+Irh3sc7DBvvrmLoO6TDUGpeypDoEAOuEhhBx1qBim4WJob7
++/Yx/Dx9moENaPZHYInBBOzdgBuVwEDkBUY0D6ib29rKwAgU/2Fjw8DS2MggCkwsr0Cb1YEJA+Q9
+LmBJIgwsZT4CS4u/iopg/e+BbLH8fIZfnz4xfOPkhJROQD1fgHYI8PIyXJ4xg0EM2G1mAW2YB5/l
+AawWmDgY2ICJd/mhNQztR9sZLn84B6wT2YGJhx+8qYvlLzu4hACtwIf0Lv+C9xpBNmoB23CgWGOC
+rLS///8Rw71HNxnWP17FMPmwJkOOZQZDom0y+Lgx8HodYKJiZiSwVuY/otjFdaIrQADWrlglYiCI
+PrPBvSRnZa65+j7k/sNCROEKrxALQcROhPsTGwttrrDyG1J4XMBPEEG4nMtm45tJYidcYR9Y9k1m
+5u0y7+3/nHrEhmGH1qO63Hhf/UZuH29w8nKGoikYPIssHSIhgCESJWAr2YQWk6Di8JpAeeNUFRdk
+ist0A8b8iRLksCFH+fmO2fIUV0/XMF4on/ktQhI8Wb/un5zvblflUs1lGQKPxoP1mllKXsBvvqdT
+VIsFRgxGzKxPyUcOx2N8kd/4yQTGOR0USlYrVJsNnLSwvj11SRGa1omqf/08KJchvyAnuVve4/j5
+CMXHG2ydI8VIRWtC6vfU/aM1GfTRlnvnng0xkGoSywhkUJuuQEwGkWB3AMsEKE2J89c5Lh8u4Cvx
+tbPq+7aLt1zTtZ+/8v1HANLOXqdhGIjj/8QfbWhoOrDwMH25Lh0QEhIs5SHgAVqGdgIGhrKxsMEI
+Q1PbcZPwt1uBKiE6MFuRnPPv7uzTfaT/u6OkUfOTXfuGg/aHe85o7qdPU1y8nkMULTpyg64OvUUq
+GPHB10sJ4+mXedCNT9CjphXmCEXVwbGT0L6F35RcM3RRlhbawSYrAhAyxAZxwOXV4hqz57sYBGt+
+yY/cC8cTNkfN55UW/dEIveUSaZ5DBFiGQ1R0Rac84BNCsh6P0RASGYY0Ea7+fA5JcN74rVfqp875
+e7p8uzeXsA3p40ri/uUBZ7NLwiDinmuXwWC1bcxTWxqe8G8ldNUgtwqFowxshtx0Yx8Z5+soo6pe
+w4pPys5CKw9NcGSRYPI+we3jDSFKY7XDodrSdlen/Vcc5UsA0q4mJ2EgjD4dTVGoQkVdIJjgAhcs
+PID34DqcgBUXYyVENAqUBdLGQrEUyFfftNgQExITDzCLmbyZ9zPJ+/6tUVIR+wekyFZhd/pdyLXg
+RMfnnvBGCooBBZpRw33hAVXybOWiBDN3jpzKwqAD0PwertfwwwCTTwdDZ4Se+4z3mY2X+Qi+8iAB
+3dBxgQc4xas7TFxFlFRs4KdleidhTYWqdkOklw++HJcEg2o2EdbrUMslVhSjB60WIoJHyuX4JRFS
+jAZJ1G7D1iPtdf6ynQIa/cpL0h/ahETj6oqBN8Z8oytBLQKe6zZfyEoeVbOEW+sGNeuO+6/gKl+E
+aZCO46ETCivh/gkOfzHDwB3jzbHx5HfQD7qYZKZQp7yIZ4cIjvQZ99B4lLj7LbVZez7sop3oYB9W
+vgUQ5b0e9ASDBzAzgpvlDHwMggyqbOoM91jvMOh802LwkQtmcFd2ZdBU0mL49O0Nw7FHpxncDZwY
+RAXFcaa4v7/+MHz/+o3hxauXDBceXGU4ceMww6Y7xxge/37M8JfzHwMbNyvmDBcod/+DnJrNCG2g
+woboQRvPfgBLllfA7q0YMLEwAtsnvzU1wQnjr7Y2WA+oJPkHLOK5jh5l+AvsAj8FVjm/gW0aBmgp
+AgtsBugc0X+MmyQgFBsnsHrjBobH138Msn9lGHyVLBmsNG0YDBT1GKTFJRi4uLnAZ8zh2r316fN7
+hi1ndzKEmPsziPPLMNy4f4Nhz739DBvfrma4wnWRQYFBnkHojzjYHaAwBy98/09oOuY/3nWzAAFE
+hVX4uBMshoP+sYAPzWPm+M9gxWPLYPjKkqHCvYRBV00brmbLxh0MV9gvMby49oEh3TCOgZsN1G75
+BVnh/g9yTCkjMwv4+G8eDj4GFWEg1lRh8LVyYgi/cpOhdmcHw+7/O6B7VxlQzylBmtQDNWLBiQW5
+igBVQ8DSAnRElhQwsTABq52/8vKg2xMg+oGJgvP8eYa/wBLmCbCr/QdU3Xz/zvAXWPKA2j7/QKXN
+b8hoMvisFGBP6J+kJGw4GLIc4T+kccrIzsRgzqzP0OJSxWCir8fAKcgL34wDi9N/0BFY0DEgkGM1
+WMHHiC28sp7h4e/bDB8vfWfIDNVgsJQwY7C0NGOIeBDC0Hagm4FR9DcDOyPoyLG/4M12jMyM+O98
+hI8l4lYDEIC1a0lBGAaiz2gV/wgiQRC8gF+8iuApBRE9hDvryoWIunIj+MEK/eBM0tgiiC4kkE0K
+k9BpM+8l8+YPBbK1pV8OwnTKJctNebQzV1CXecz3Mxwue/SaHRTTBfhXTkx3cbyvMV5OMBoM6Uu2
+FEoMhJbXVfT+qyqFfvmZcgntfguNhURACDhwkyaKjbKhYifA705iYBv3KWZppYTI5fQzITOrCDja
+ggSNeZuNQjYgB1GBq4HQEW2DNNty3VecYi6h+6w8eQNktYZuv4MszZ2dwhSgiPRUwjWHat5sf7Ka
+Yne2yQEs+DcHlzPLcTmwtzbs0xIN+iM9qDG6FND6/uILeZGITfwTen0KIOrcKUjknBR4NRzohMO/
+vxi+gI7tBt1K9f0rw9ZPuxi2PzrAIMcswfDh/zvwCcxMwC7isdfHGLiu8jKE6vuCj+4Cj9iA9tMi
+X1kP7dqBBrD//QL2chi+AWP6G6LYZkRttTEizf6C52pgCQV6tQtog6C4qSnD38JChv/ABMECKiGA
+1Q0jNNJB1RBbeTmDHLAdc3PjRoYf0GtzMSYxGVFPZfyPvHQMJAR04z/QQcxgNzPAYwlelYOXOfyH
+zHOBRqWBXfyt1/Yy7Hm2l4GPjRvc2H/C/JRh1sF5wOr2OfgiKm7Q4B0bIzBsvwC7xsLg40XA49n/
+cZQo/5EG2KCnLeDK7wABWLuWFQSBKHoUe6iJZGEEboN20SqCPqn/6gPa1KpvaFNEUUFfUFkavjoz
+RlQQtGjlRhCcuefhdc79ywSw37vqqQyIqek2NucdHUCI0tWWXxsrmoVtsqe+EI0+uptzAK2cYLae
+wjNd9Fs9bp58MWVOystDIzzohN4h1G8oOzqaVj3XUK8n+tM8BvS5YZJ8WroU2UQFg4vjDgaIh0OK
+7QZU4W5IRaXVChnRJfI8qKSXiM7HIC216XwWoxECcd+Xrq7yDqmSEt1KFbZjkebEUHBWf2ZItNXw
+8XebOEMsEhkKKnXYHJPlmO8kRujTjitFZOYFx9gntSTweT0ELLL0hIhOqVvsEBnVZ17ezyX/peLv
+AojyXg8J09z/wX16JgZTLQuG1bs2MmwTPczACOwCcr7gYBD+J8EgxyvPIM0lDkxMXODbJP5//s/w
+h+kjw+qLGxgURRQYRPhEgK3/v+BuOaSIRuRW0DlvoKtUWH9xMsTrJTI4KzsDS6HfkLYNM2wCE3p0
+FqzaAZUo0MYtF7C6EXNyYviblsbwT1QUmChBZ69wMrBdu8bwqbqagQVYunCCGrjANge4N6SoyMBe
+U8OgCUxA1xYuBJ8eiR4M/5B6PpBJUCbw/mYLGQuGVKMMhgdX7oNHtplBc8jw3X2Iq+9AbRPQROfn
+T+8ZVl1Yz/AB2Jtj+cwNLFFB22C/As36zvDw2yuGR58fMrxmeMHwTeAbuGR1fuHEYGFvCewBsgHN
+/Ye7yMcmjkMtQABR2OtBrnyI6fWAqojvDEpqKgytX1oZ5M7LMuxi2MpwS/A2w/tvHxkevLzLIMIq
+wKAtoM8gyi4Hnhr4yvyTgR2YW0CH5YOPnf3PCD9aC2Y1+KgM0MwysD5PM0xjUNVXYuDk5AAWxz8Z
+mP/AGob/oJH1D1LtgIa1oV1aTmBkS7i5MfyKi2P4JyIC1PMHPDrMcRvortZWhptbtjCwABuymsAu
+NGdpKcMvQUEGRlBiAe3iA/K1ge2WSzNmMPwANnBRwhmaCOHNI9BWWWZgKcHBylBlVc5wjfMGMFBA
+Z3n8BVfDDIwsqD00yBlC4HP4P/34yvDu109gNxp0VsNvhje/nzFce3+B4eXPdwx/hIAZgoeBQfWP
+IoPTRzeGdNMsBm0dPWBm+w4a3sM/XIa8rQnPQApAAFFYoiDaCESdRQ+6MQM8pvGbQcNIgaFeuoXB
+52IAw95n+xgO/zrA8IjnEcO7L58ZTrw5waDD94lBnAd0bw0bQ6RVIIO4gBSwhPgLmkVDdMsZoQ1T
+0OgtsHHHzMfMYGVrAq5efv//AVlfAQ0jdmDX99mnTwxyUlIMjMBeDWx2lQGaaBiBpQgDMMGAEh1o
+XQrbvXsM79raGG6vXQuedvkFbLRenzmTQQPUPc7NZfjBxwduEP8DJhJWYDUFmjf6jzRexARtwMLu
+PwThf+BzV4Bm/fvBwM/OzWBtYwZsiAIrB1ANyPQbPMINvoMHmhHAA3TARCsArKqidIMZOg5MZ/jB
+9Znh3benDJc+XAIWRhwMEjxSDNK/pRhsftszOEs6MZjpWzAISgG77KARbGAVzsREoLBHWRTFiHOJ
+G0AAUVyiwDI3uBtHVCuFBZx7QGeS8UhyMDhK2jHYfrJgePEskeHes3sMK4DVzGLG+QwXvp5jUPr1
+gaHKrI3B2ciJ4dfff+BrCCAn8jHDl4uDS+t/7OCIYWX4BT7BiglsBxP4HP3fwCIFlKuUXV0Zvr94
+wfDqyBEGEWC18fnRI+iMKSPDp9evGf7Om8cgBYzsv2FhDKxPnzJ86OhguAVsf/z+C7lNCxR9X0Dr
+WCZMYNAGJhbOzEzw1TC/li1juNLVxfAVNMkILhsgVYgwMCF9FBZmUEtIAM/zgHsxTH8YWP+yQs6h
+ZWaEny7JDGxv/PkPXSiFfF0uI6R3B1prY6VtwZD85T1D3bFShjs/bjL85WFhCP0dwBCvE86gKKPM
+IA2sElkFOMAb68HnxICqOXAv8R/Bzgb8qjw8ACCAqFKi/Gf4T9yAG+iwOthliqDZY8gxRcCSgJ1B
+nk+BQV5DgeHmmzsMK4EqPr3/y+Al5McQYxECNh98SCIz6iZsWDsFctcM6Mw2NsSYDhPkJGY2RlZw
+4IOm8/UTExkeKSszvJo+nUEIGNnvgVXLX9DYx/fvDJ9Bp2N/+MCgBHTj54sXGe4sXQoeh2BEa499
+A1YvV/v6GHSA+kHzQlc7Oxk+vnkDTkj/oL0VMQEBhg9CQgyy3d0Mqj4+8HW0oLU0jNBzaCHmQc7L
+/w89GwZ9Qg60AgW8WR868+xv6slw+eVZhsbHtQzsEqwM2j80GFwcXRGnOICvqoGELchB7ODhCGYi
+JmwhXXF8ACCAKCxRmCAXYxO9zA31IDz4YXvQ6ADdXsEGFLNRUGTg5FFjqLesY4AdDgeOe3h3lgHj
+uHTsrSXM2VA5Oztw1fQKWGLwA6uNd/fvw3uJb2/dYvheUQGeCf71+zfsnB2U3gwoQXx9/57hIrDt
+AirXv7x7Bz8yApxIgAnkHRAr9PQwqPn6ItbhwFyDMUGH44hT6NQ/E+z63v+QU4jKnIElyqG7DM9F
+TjHw3AaWmMDqGHTkOXycHLYRAMkeglcLQ6+z/f8Pd9EDEEBUufeYkZGMhbNoe2zBZgDbGpKS8gxW
+DwIZohziGXgFeCCrrzBGwim7zVze0RHc63kF7OIKghLIgwfQ20IZGD6/fAkfWvjPgH3RN0juK7D0
+gbH/QROxCLC6eQVsCykCSxJwIqHi9o3/0IUsbFysDO3mbQyL981hkBFTAraNEGtI4DsAyLIXfwUF
+EEBUuHwSdwOIyDYUfJkkqPC1NbZjsPtvx8DNwQm+Ag60uAl23Rk1tkLAzFBwcAAH6MvmZgYhoPgb
+pMTyHwtmQCpdkKsieCIBVjc/9PUZlIqLGTS8veGDbowUZkBE5EMa73+A3WtxPkmGbM8ScGkOOvcO
+fBQ7I+Y4Gun24dYIEEBUKVHILoUw6P8MPNwc0B4S9JJo2CF6VNq2ipzQQNtBQca+bGhgEAJWR28f
+P4Y0cHEkFnQMSiSghqowsAr7Y2PDoAds+/ADe1VYB9sodS/80B9m8GAhNzScEJn1P7THRE5BQrhG
+AAigAUsoyNUOtioFNJHFCD2WkzrnoGCv/hSBiQUUGc9qaxkEgfx3wB7PX7R5G1yJhBXYQAb1bn5Y
+WDBoT5kCTiS03obNxMiCfFkIZKwFfgrBf4zMQHLRjgMABNCAJhRi79ujoQMgJQuwGvoPrIKeVVcz
+CDIxQcZYYJccQAflGJAuPmAE70GCqPlmacmgP2cOA7+EBM2dizVokBut5HRdiWzuAQTQgCaUwQQU
+gYmFqb2d4TKwZGBkwnIAKex2UygbNNvLJizMYF5XB04kQ24rKYkAIIBGEwqsBwaMZHlg11nG1ha+
+8IhgNQBNUMM9kYAAQACNJhTUwRjIwcrMzCRqH9qJhJhmCkAAMQ2dTP8fL394FXCIMab/JFwVTEsA
+EEAU7+uh53kXwzlx4PIruacjUBsABBDFZ7jRE/yDrXQfQadCwme5adZtIg4ABBCFCeUf/QKQAfN0
+guF6KiSiJKGDH4nMawABxEJHu8hLHPBu6X+Uk5CgN+1ALyv/T+5IAop5ZA24Q/vM/xHLzMm0HXFZ
+JiN0gASWRv6Bz3/BbHhTtWQhYCxAANrOZIVCGIaiV///x+z7D0UEQRSxQxqb5LnRncOiBLrpQGlK
+e3vPK6mnerBazlvroW3x2YOTMYL19RQ1lnnFzzkMbaeTKp/ZEwe7SaW75yVWDYcIvnMSFBaDfARt
+JYZS7wmlCShOWGL8l4DjtzkyRWX+3DIoYxN0yRgEFGFuDBXGfoBzDaZpNvwukXqmcOmfgMUzXb1p
+vkxTuwCiwnaN/2QdHwq/XQPlOEKIMaAdcaBlX38Z2Rh+///DwMHIzPDp4zeGRVdnMNz9e4ZBZp8p
+Q7R1BIOYgjQwgEHH7QAD+B8HAwszGaXCf8guPvDlL79ZGQ6ePchw++05Bo7/PAy/Gf8w/ALa/xt8
+qfU/sFsYQXvpQfuLgBh0z6GHlSeDmpgqOLEx4TsEDWdeA030gUrLH5Bl0MxcDO+evmRYdnA1wx3p
+Iwxyl7QZ4rSyGUQE+cG3a4CuXmH88xe86p6diR2lSP///z/SUgNGqtYJAAFEpaqH9JOX4GelgHfU
+IYpt8I2fTCzg46mY/vxm4OLgYPj26RtDx8lOhssy2xnU1MUYHggfZlh48C9DLFs8g5S0BDgX/mOh
+oMoBXST1jw28uv3Y+20MPx0fMLAxszK8/PyW4eG31wwP3r1iePXxE8PnH8AE/P0vuDT5//Mfw/fH
+fxjusj9kmOw7AXxFHbiCJHEFBPgGMtD67//s4INxXr98y7B03wqGu9oHGdgMvjMcurOR4dGpdwyN
+Zg0M/EL8wBIOdAc0K/RYMEjGgIcf+go5KgKAAGKhfmVHSuseW+XICLmRC7R/hxNYknz+ztB0uIZh
+MdNcBuFv/Aw/7n1hkBGWZrirc4Rh+V5mhkjHOAZJGWHI9gsGRiLvRsPI1AyswNLox19mBjZ2bvA9
+fY8/vGS4/+k5w8MPbxhef/rM8OcHsMT4Abo1lJmB4Sswcr4zMDB9/QveMA8rmRiJv3sMJTOzQveo
+vX7xnmHF7hUM11X2MfyR+cJw+94zhsfA6vYY41yGb4c/MbTb9zEIA0sW0MIryG2BmGEH21tNWolC
+WC1AANbOHgVhIIjCb3dFRCzsJBbqXaw8hHfR2koQ7GysPIEKAU9g7Q0i8TdqTGISE3dnE7ARLey2
+WtjZYeYVb+Yr/Dc9vpeVRKszegx/Y+woT0WsCOoap0RbFyM3RG/exygYo1h94nFI4F59OPJcMyrY
+hyaepqws7S6MRl0vxlNeUYJpMwrmz7xDxgmd68QXrE8b7I4ebMeBew+QBvIur6BoskQMZYGQWkFW
+Ie7JD9YhTHk+8f3ZNJSLb/3ClHy9tDJECBy2tkySGVbNJaKWBdtysTtfcQl9xOEDk9sUyaKEYWeA
+crVMmkqZSSNl81RtULBsIFItK8rEvWDgf2o9LwFE1yF8yL7f/+A6nx0YSJeeXGI4fOoYg6umC4Oa
+phLkDDJgY42FhY3h15efDDWb6hmmvZzCwM4L1PyFheE/MOt9ZP3C8Pnfd4bX3zkZZIV+MhyS387w
+fy8TQ6JzHIOYnDgwkH6D2xYs/1nAt3cRXRQDQxm0COgrsHq58fgRw7cvvxl+fgdG6Q+g1DdgKwZ0
+8fQPBvBdh6D2CSO0p8X4FxKEkHUi+DMnbEnAP3D76w/4YCCQX9+/eMewbNdqht2Smxg+iQFLkftv
+GD58+8bw9xuomgPdeczMwAFsTC9+O5+BeSMDQ59fJwOXIA+wMf8LnEBBN5Q9uPWQYfuFnQxGRoYM
+5vKmDD+AmYXtH/Q2eYK5hXAAAQQQ3ed6wJdMgnoswKJ+7oklDFNOTmdIvBfFUMJcxKCqqsEAuvDr
+x+cfDGWbqhmm35/GwMbyl4EVmKj+/gTdnA66LZQR3AN4//0bw+fvDxkEhV8zvPrzBpxYUpzjGUTk
+RBj+/wYdAfoXUhATCCRGaHEN3i8ITFgff/9keP7+MwP7D1ZgO4QBWs0AVQFLFdAdh5Br7RjBCYvx
+D+q9yoyMBLZNQo9JBZ+W9IcVmEhYGD68+MiweNcKhhWicxleiz5meP/sO8NvoJ0MoK0poJLsByiB
+AsvGn8CEBaz+Zn+Zy/Bz4y+GSX79DLxCPAygQvTug3sMkzZPYpj+bD5DxPcwBgNFA2CYEXvpFXFn
+1AMEEH0TCuxIdPCpWswMXCyc4F18yz9vA+YUVoZq32IGcWB7o3lrO8PMm3MZOFlB3WJWht/AiGIG
+NSB/AyMNlMM4gMUrB+i4rv8Mb359YfjG+4xhqfAshr+7vzOkeKQzCEkLAXM6MzTSiMnmsNXIjOCu
+MLh6BFY14OvFQefsAe0EbX8Abz0DN3wZwVtVGX+zIjYOMTAQ1ZCFbEJjBjdg37x+z7B4xwKGRfxz
+GF7xvGD4+hzY3gH69d8fYKXyDWjuL2gi/Qna2M4CXh/LAywxF99bwcC7kZ2h3b+B4fO7HwxTN0xn
+mP9hPTDz/WXgYuYEJxLQubOQLULUadkCBODtWlIQhoHoSz+2RqiezWu48SaCC4sLXQlS6AHceBU3
+rkRRsChYSuqbtFIKiq48wTDJm18y8+avQKmWJNadp1RCdyMaWGjdeZolwIYWpAMsT3P4HkNBSZDI
+VmyaspKBHSllhcBOLk7eNzoEQ8/BnTH82t8hLmYItwFGwzF8XT8TvcVJu0p7UT4IEDyCUbGyMUxU
+RY6SeG8a1kSrg9xyIbxhbps4vvzcZdZ8N0jeRH0eCimrm6me4Dg4wDsz7xHg3Sgvp270IiaXTa3K
+Ev8ZO/7asYm+dh3E+wWytUGUaySXFfJC2fmmkGdqpxVQVMD+il71k1N5CkDatawgDAPBbZMYWvH/
+P8Gbgr+kCKLgG6x9xJlNKtWDCvaQS0se7HazmTCz/18KvrTZ9+MFk680qaLMxbsGe2kht9rKdDdX
+q3kzxt9wV66yJZE8SUzRYAp+wVnyCnv9OBaHtqwqjn7XspV9cZSRs5qnuCGKN3CKCEyF54WbSpBo
+Zo2xapwozphj1UZUOJjBd3DexqjwIEloLVUuQ6+dG50vT8oAKor8xk5gH3xPm3pj5eQvsmw24g6I
+sFdEmSpTYM8gJyKwFpIYpCo70uDUaekcyQpSdhOZrRa6nrqNBbEzh4hSRloHCf29QsGPce7j8xCA
+tDPGQRiGoaibQJLmXkzcAqGuPQsDN+FOiJGpIJq433ZBFQsg1kZV5cZJbMv/5W/sBfOPqbGCf1VY
+Sjll7CotZZdpGG5INR+GOy8SWLZquFQ9Fezn7T1pthYgnhtxbGFsDScZI9Mdq3AX99Rve+SbMi5S
+0Zla+a72adyi6Oc0WxIetkxIxSyyZDUcFc6nemAhIuDH+9FSYFYqZcWuF8gH611xKgf1r05+A/0t
+dEzPIpg8L1UBft2mo/PpQsfrAaYgiB8Qi8EOgm0FC0Wv0eVZ31PNwxwHfN9r0F9FmA8vz6tEKUWc
+knCUmM1xG/oMYOTvy+qTAKydQQ6CMBBFR0BDoQQDLryS3sF4GDfGjQs33sTjeAUWEiIU6sxvMW6M
+LFywaQgJ0E7nd/pf/wPSsXaSzLKjp9YvECWRpixWtOQOY7SihhXHo27AapNcDoliKNOHWC8NLJgg
+YfLPfQYdos3AiV/T1rTL93TenEizGuhbCzytqwHNvlZnR5Z9gGNiySHGQ4d4VUAzeo7KECBvsHJx
+mxiuyqKkVappnRRuJpVOMnh8Oeyvjpb5eWo2/MeiesTMx0omT1M6bg/U3zq63i/cphAN5N1EsWBV
+pnfPNGJFBQ0hRIeRDVYxR06d8ECLFxTxd6o44dXz7F2Y8CCNCUP49x0vAUg7gxwEYSCKfhrQFkpF
+oolXYu/e07gxrryBd/A43oIEsSBxZmpIcIVx35BpZ+h0Jv2v/+t6fhAbjSixT77X0QKr1MJqLU/X
+O5Nj6xhi5FFTedg8H6LY81QGeu5KqUBIYs1vTE7QtBA1pZj97oBLdYYtVzJWbqkNgVX/HSrsLIYi
+c63TMZ/tFexPGGXF3VXhpnAvgv9kJYdiRds6y1VzbVE4i01RYp07tL6Rhw9864UYLbBQPnvRfJhT
+rxBN2ukjyXUIAlRJGbnBqTqivQ243q9wfdiFOiGkkv19mIuiIF0osiJJkGYG1mQwzOSN5UsUKAwp
+slhGy8l6RzPiYI733gKwdu0oCANB9CWbuGuiUfAEVoK9IDmBoJ0XshJLT2ApeAEV72EjCDbaBFtF
+/M4bRUhnYRG2TXZn3ryd4b38wUjH+/z84Pkjo/G+gi4r8F4RRCnKh+Pma8ZwhZOAKdfk4GQLhDMw
+WJjtnLt4/l0N7O4OWqr6SYpRb4ikVtFDC5hF5qFX6q89Ri6Qn+8GV5Zhupxhd9yqJxzbIfZicDgd
+UK82EF/oCPD2oy+GMawVomgDeULVOvsC+3HJYbNfYzAZqC6abOUaPJA22+i1OoJqAW1h8xNPQP3s
+6TxlBL74zi6JMO6OUJ5bLLKVcC4paWfGK+WkRvXTBUEsWoYVQvZePC2p2sI35HBWyzP3JoLLzXv/
+JR95CSC6d4+Rj5/iAEYCLzcvsKXOAc45oNMHwN1N0EDRf8iJ1f+hZ1ew/IHwQcUyKJI+/XjHoMdn
+xNDoX80gICAAbMv8ZGABmge59Z4FKYAwh7lBNcIfYFbc8+Iww03OSwzczBzAyAfmTm52Bi5eZgZF
+RjkGZmDvC7RLkQXUoAZNJzBDGtSg3hio3QsaCQWdkM4gyc7wiPkRsET6x8AOlPvN9o9hx4tPDLbf
+bBiEgKUOI9JpR/CeEDPkxAXI6CxoXOgXAxc/F0OTXyMDy0ZuhhOfjzDwCwkBSzVgYx/Y8wP3YVig
+Z7yBd/n/h5z2yAQ98ZEZ0h5jBmJQmJI5q4IXAARg7VpSEIah4KT51FYpthu9g+49RMGtnkNdCUXQ
+K7n2FOIl6rpgta0vH0sVBBdmFbJMJjPDe2Qi/gaAHwxR+7qV2bgo/RN6FA7ha0OoLMUyR/kt9dOa
+FgrP0C9DVPeQkyeZ+jPs0hViAkl5v9EGSls66+aVfUpi82pgMoyTGNl8g+3pgILlIAE0BtarAhIZ
+7lIc9e0nQOiD1dQg3JxAIoU0Wfyeifkkv0AsUKsS8gosJkskJKNfOz/N+0dOxH94EGsG/RBZusb+
+yHEuLhj5AwI0uQ1BANU1RFSu1lcbUJh9NHlwtiWguILkytV0Og/W/zCeAoi+JQpseR80u3OycDPw
+cwITCgcTA+T+ImYwDe6K/oNOtIEGp2B3PgJ9/uXrfwZtFlmGMvdMBiFhEXC1BBqDZWNEHDyMf1KM
+ETzGADqG00zdjGESexdD4+52hpcMLxh4gBHPDDrRCBgJoMYhOGGwgI7M+ActQZjBJQszOLEAywRW
+YJIC9syYgQn+P1Du+zsuhhTVWAZjZSNg++c39BgK7DPn8EMGwRSwKgVF7K8/wJKFj6HWN4+hd8d0
+hlu/HzLw8jKDq1BQucTIDG0gM4Jm2KF3I4PEmP6CB9dAJ1pzsXLBu+uI+/woTy0AAVg5YxWEgRgM
+/3ftXe1dawsVVwUdrLNP4KQg+CAuvoPgo+qi4ORgC/qnYHUqCA4ZrnRoQi750stF/zev/NCWILma
+uzKPUkJsDu8yOIKtiI9ZDcWOwMbymVSfOM/3PGGS8Hq6YDNaoiiGDbNoGXWlVauKQkcvhvqc66im
+D6TGfFziuD5gVk3w4DNx2tDIcYGG7ZEPZG1DWPJJSD6wjHwyRM9EAQyZIQ0GqLkOrzH25Q4LOonM
+jgvMs3si1vcFdiWOrhpdKn5T2s+xna5wP99Y7mrq7mgf3/xKSCgpRWzU2ou2k8icEbYjY99dTH/N
+PS8BRN9JQdhCpX+QeOViBTZiuTnACQU0wAQaFwGfUwWeAYUcEQuqjv6ABtqAJTwvMMfLK/xjWHdq
+M7gO11HTABbNkMulWMCjU8xEpWdQx5OJkQ3eTVaWkWeoDa5l6Nw9leHRv6sM3Nz84ANp2ECXJ4Hq
+f3ZgO4KZCRyZoEYlMxuwygGWIKAbLD7/+8bA+02EIckwgUFBVB5sHjMzKwP8oCtGwoMZjKCFUbBD
+c4CBdOPObYblh9cwSMkAu+DABPAXcuQQuPqBtVNAJRrYaFCDiZkVvFf7LfN7YHByo621YSTYFiBm
+KRFAANF3CJ8BUuQygWaJga7jBB1xBazjhYAlx8+/kOvg/oJvxAJ6EHSu7D/IQBPoAGNQl/jvLy4G
+TXkBhtvsDxlmb5nHkOeWyKCkrQU+afEPMG5YGYk8JpMReSwZ0mOTFpdkqHcvYZi4bzLDtV+XGMR4
+hECDoOA6H5QImYANVVZgoxd8VhuwZOECtkk+/HrLIPBDmSFTJ4FBFNhlhp3XRsJYNVjBH8iNTEB7
+WBke377DMHfrfIbvSp8ZtOWUgF1woJ3s34HNkH/g3hmkp8MIGYBkZgTfGAZaHgFqZH9j+AJ0Fxdk
+pBm+8pA6/R6AAKLz7DH05gnw1Wf/wF09ht/AhisbE3hGmRMYUCzALiPzX2ZwI/YfNBL//fsFXlfK
+AhpM+veVwVBZn+EG2wOGGYeBiUUwh0FGWpGBgaRliIzInTAwAB0kKCTKzVDqWcIwc/cMhgu/zzEI
+8XMzcIPuoWLmZvjJBZqeBHaPQQmWm5nhw/dvDNK/1BlStJMYeAQ4GH79+gXuvjKgj8QSMWYAWxLx
++tVzhhn75zEwajAxmKoYMbCAZozZeICNWci5+Mzghip02QCwmgJdUQO6W/A36AJLUMH6kQkcppCT
+uZmgg33/iQsOAk4FCCA6r0eB5DbQIXT/gZEvzi/OoPvGALwe9vfvXww/f/5m+Pr7B7Ce/svw6x9o
+JBY0pP8Xcg48aP0G6zNwFcD+jZ1BVFyQ4c67nwyw84b/EVv14Igs0CA+aDSYl4eDIcc7k2EOMMIu
+fDjNwCspAkwgHMDeDRO4WgCd2/btyxcG9V9qDBHG0Qw8rKBJzT/grir4MLX/THgPpMFu/z/IijVg
+uHwVZGKQkxZmePX+NcNPph+QW7z+gsaYwLc5gZc5MDGyMrAzQe4UBF01wwIsRViBbRNtdnEGSUFp
+8EJvUDoBd6H/M1Gl5wMQQHRfj8IMXeQDmu0BnU8WpBnA8P8X5BiJ36Aq5B9oZT3kls5/sNsQQbn4
+P0TuFzBSfv/8xfD9+xeGQAcBBjlxWfAZsgyMTJSUc+CLH0EJGbT6jIODkyHNNYlh4UFWhrPvzjNI
+yYJKFlYGJmCp8vLLDwYNBh2GaNMAYMORG+xGUE6HjQGTcyAW+Cw8oDniYqIMpc7pDG+AiYRbhAc8
+8MbKDrmAkoWRBT6yywTGkIsoWcAJhg18OQSoLQVZZPcPOjXByECtPXIAAUTfNgrs0DnYJQKwGVU2
+RvCyPmasR3HD5sCZsAxG/Adf5cpIzLoTfL0P5FON/kMWLYOckmSXwiBwdDXD0ZdHwYu433z6wmDG
+asAQoBMMLLz+QU8xYIAfHkzO2XL/4etYGMHVq6yoLIOsmBwWv/wn2IuBj47DL2kgsmdMxDIDgAAa
+gBVujBgXVuPyMCLgGaGlBgO8jkYc9MsMP3aC0l118GYoqN3wlwPchQ62CWPgvyTIcOz1CQZbQRsG
+L3VP8FjGv/9oJzxSerYcbDfAf8idhExMSDPc/yGDfITWvGALa2oBgACiWULBVeSRtF+YEelWCsb/
+8KWGsISBfC4JbE8yNRILCICv6wYtZ2BmZnDWc2Cw+W0FHk/5CZpbBnfHYaUcI5XD7R+KHxgZYeNO
+jIgOzH9izUINH3QxUk5cAgigASlRSFEDu0gAtLQLcW4qI222ViKVDKB5HlD1A5qLATU0OTlAo8aQ
+RdX/mP+B14UwUunwQfxhwgg9ox75IGZGksOW0gwEEEAstEsQiFLlx48f8KKU2JyAqKYYELdNIM+Z
+YzkWgpFqZ7rChloYwb0hBpSj9KDtCca/DAzk7lfG61/0eSqknX+wfc5k+JfSEhcggOhSooDGGMgP
+uIFLKP+hLUJGlI1lsME0xiGVUIgrvXADgACiaUIh93gK9DoaqxkY1ROVZ63g7WhG9IkiDJKa1TGm
+XxjRrR6Q4z4AAmjIHM01CgYWAATQkE8o/5GPUsDZo/pP5BFX1MqpjETIMhL003/cXUe4SbjUwMyg
+VuEDEIC6K8cBAARh/v/FQGM0Jeqk1VVmrqEL0IbvgUIAAJ4yzSI4KO62jpI7Y3zAZC1yaut8bXsA
+JPOwH2Ugh4aXcgGliHMvbchB6KMmoJTXAtfF0cu03QUQ01AvTUCLhp4+vsfw9etnyNYMRiwjmkB1
+D+7dgIxR4AjUb1+/gM0BL0JCS0yge4a4uXkZPn18y/D9+2cGTk5OLCUUZBfh1y+fGZ49uQfeLopx
+kiUDxL0vXz5heP/+DeJaGbRxFJD4gwe3oJHMiNkgBSU2YAfh4f2b8AFH9BQAcvP7968ZXr18Cl72
+QOl5dwABRJ9xFPhoImlFITHXioBW1MvKq4LnNcCjtziAsqo24kp5LEeRcgETghyXKmQlPtoA1d27
+dxlevHgB72Ly8T1iUFdXZ+Dg4ECKAMi0PjcPH9gsWE5GjyCQ+ZJSkCF6cCmIoQYirqSkCY7s////
+Ye0hsbKxMyipaOEwA7Se5x+DkJAYNIx+E16XQiBeAAKIhdY5Hpwj2djBa0//AwMJdOUbLPL/I7Xg
+YUsDGZHqV/DJ0KCtLaD5HLSpHJA+ZujBwaDbvQjPfhH2KnpXG4RBCeTp06cMenp6DD9+/gRflPDq
+1SuGEydOMLi7uYFvCcM3hoTbHgYGfIU+aPUcoVKAkRG/GmZmhJ9gJ2qSCwACiMYlCiN4yeDzm6cZ
+9p24xqBl5cJgoiYDPacNNBP8j4GNnQ28NuXHz1/gqXIWJkh7goGZnYGd4TXDhk1XGGw8rBm4Gf+B
+p9RBu/RAHv4JjLT379+TNJBHzpjDi+fPwVs1ZGRkGL59+waOQFCgX7x4keEZUI6mx3tSCYBmprm5
+uBh4eXnJTiwAAUTTkVkQ8eP+e4bt008xMBiwMjx5+IJBmvMHw7XLFxiEVc0ZjDUkGE7v2snwjV+B
+wdpck+HxuSMMV14wMtg6WzP8f32HYduhXQyn7vEw2Hgzg+81fnf/EQOnkAgDFz8nw6c3n8ARJS4h
+Abn7j9pjKdDS7Q/oJlIg/vr1Kzyh/P0LWQLx4/fvIZFQQO7l5uEBZyrQAYnkhBVAANFuUhBa8bFw
+/2P4yfqagYnfncFIV5BhVe8SBg51ToadBx8x3FeWZjh9dh/DC1YRhncPHRhu79vGcPX7T4ZHr98x
+8Dw+w/CGhZnh919OsAfZ2f8znN+0hUHN1Z9BXpCTgQfocR0dHQYeUC75+5fqcz+wEgW0M+/WzZsM
+7969AycWUEIBJRghISEGZSUl8Fktg7zFD67gQEsmQaUwucP4AAHEQksHghtVggIMSW1lDNdP72KY
+3n2UQV7XhiEvw5thS107w7r9BxjkzI0YTBVlGb69uMHwgluYwctNm+Hf108Mb8WcGSqSdRmmzNoL
+bBj+Yfjxj5HBOjEW3N758+sPuCEJSkA/f/xgIHovNgPhVSvwwymgCQXWHQa1h8C3rALtBCUW0D6c
+P8CA/4ujRMFlD7H2M1LoH3Tx39CGOEZVjXw3Hh4AEEC0SyjQqucXsNu6cNYi8CpzAyN1hgc3DjBU
+VxxlYJTUZ4iOlWQ4ffohw7vv0gxGxgYMH57tZ3j+4iuDgbE+w9dt2xjq23YwvGHWZAhiZQEmjN8M
+u/rnMWh6BjPI60kDI+kPuEhlQJ8fwVUHIy1L+IdDDSMjI+JCSahabm5uYJf4O8PRo0fBPRmQGKj4
+5uPjA6tBrXpQr0/FaA8g7UHGNUCIvE/5Px53/kMqGbD6B2muCHY4APrSDAYGBqKXLAAEEA1LFIhH
+QftQ/LxsGO69+s9gZCjGsPTJEwY1HV0GC3NjBhlx0NrXkwxPvrAwyGkbMsgICjNcvPeSQUJWjkE7
+I4zh5sO3wG6iOgPXv18MP74zMdgkxDCwAiPu72/UNgl4H+5/BrzdaNgiKLxFLyMDAyPaeSagBGFu
+bg7u/cD0gdb3SkvLYAl0qP1E3hSK3OtDL4whVR/28gJ2tAZsZJbg8gLEcdiYiYTI9SgAAUTbSUGg
+J/4wMjPIaRozKGgDc+KvrwyhCZEMwiICoHO2gHX+HwYVQ0sGNWCAgHOrgjqDs5ImeAPVfwZZBgtR
+BfA4CaTxyMDALSIEXv2FPMbBwsLKcP/edQYhYTFgq14A6zgJSPD2nSsMyipaOAPzy5dPDG9eP2dQ
+UtYCj3Ugd5X5+fkYREXFGJ4+uQ+udsTEZRh+/foJdhcj0qQhKMF+/vyB4d3bVwyKQH/AzEGOYJB7
+nzy6y8DOwckgIioJHwdBH0S8fesyg5y8CtA+dpRsDyv1fgPtfwQ0R0VVB3IaJlp0g9Ylv371DDxK
+LCWtBF5wTckUBUAA0bZ7DO05gCP6H+jEDjYGYWEOYOPzN3y9KagNADogBxwnQHV/4AnhH7Ad8A8x
+UMfAAL/HD2N4Gb7snRG6awx9PBR1yQLOYWq0BdqwSAYNXoESMqTHwAQuURB7eJCzJxMDfDsFnhYE
+fKUevHGAbs5/8MJznIOQDMiXSGC/sAxiBSP03DnKd5YCBBBdRmbBq8L/I7pqyIGDLId6iRGWk+XR
+bzUFtxd+g0dmwXqxzvdAAgqU8/79+4ujqP8PHqLn4eGDnJ3CyIhl3uQPg4SkLMN/uB+w+xNkBi8v
+P9QcJqzmSErLQ/ZSY+nWg/SAzFdS1oaOyv7H6l42YKNeWUUbrVRDHgH+Ayy5xeGj15QOHwAE0ABd
+FcdIxUILsdAad5b5jzORIAc+ofoe1nClljn4/fQXp12IQ5z/4vQyrOqk1n2HAAE0LO4UJObAXUJK
+SF3LO5zUEAMAAmh04dIoIAoABNBoQhkFRAGAABpNKCMZwBYuEbHMACCARhPKKCBqCB8ggChOKPAR
+UYb/owE+lEsWAiUKQABRnFAYST7jYRQMRQAQQJRXPaBRVWJOvR0FQ7rqAQggyksUBugQ+mg6GdYA
+IICYqJUgR8EQLUmIzOAAAUS1Xg/jaJEypNuyhABAAI12j0cBUQAggJjolSJHwdAGAAHEMhoEdGoO
+gBctscD3ItHbbqxbS0nI4QABNJpQ6JUjgYnk7du3DI8fP6a73aB1v8rKylgWWzEQvfcYIIBY6Jeq
+Ia5CPTnxP/zsWeSLZf8TfTw4jRp3jIjTEf6j7F4ks35nYmL4/Pkzw/79+xk0NTXhW1GJOkrr/3+y
+e5UwO27evAm238TEBHyoEeZZM4RLF4AAvJ0xCsAgDEWDFHuCLN7/Np7GrcVoNF+HDlIKQm+Q4ZMs
+L//9uFEUNgpz70kuaKWGbt57s05TltmN2lfz2ae6blnO7vBiSpAr1RUDuJlmhbzggBXD2N0hzjZi
+rGwFL6VEIQSA2lZV9h4SB5MHyE7DQx8/1cNAOr2FVT+dO2amGOMWm9IEoO2MWRCGgSj8UkJPFJQ6
+6KDUIoWIP0D8/z+gg0MFQQl2shTBiu3QCPbSDk5FKI6BkOHdI9xw7z7592+kHQZmetY5PuBeTaDC
+OciVIALiKILwAih/XBtA4JlecEwc7HdrGF7p9TW8zDHU0vBbjuUPErmteLD5GtHmlXkkkk8cemoy
+t7/5ieVnI2fJCdfbC364xajKoFMDtVnUF0yv1p0LxSGsTqNY9nIBrTUehcF0tkKw9CynUIg38rwE
+DQcWJuFSwzjsMgr3RKyBlP1K/RGAtjPYSRgIwvBn1YMPzXuYQNQo8UAIvED1BuGgEUsaBEoJHEwr
+bU22ReiWFroVEy+iMeEw101mMvvvzuSff7TDYoi6kGr9a4I3d7GtIYY54i2QaIksWO998wXXl8h4
+RXp0zFI4dA2LIBCFZPkX614pXYevXS6rd7yLGTcXDZwozYO6wPdEoeCsEsT3XOK1mvDb4Plzwjj9
+fVvnDn6VhAQLh1qpgt55ZDJ4Qm+ec1UpU+/NODs9+fcz8H1YXPFcfzKFqOMHnXLuX7vT5tm0iZar
+/JOjIUWAZTtMzRbXt/d8JFmBNvvO+yS2Z/tL1j+08LcCiLYlCui+3j+fGHYvmc5w8PFnBklZVfDN
+mk8e3mG4sXEbw4m3PxkExVQYmIARMufwd4bwrFAGLhY2hleXtzBMe7CTQdjQkUHoLy+Db7Axw/5N
+hxn4OR4zHD10gkFC7hvDlZO7GJiEuBg4751nOP2RncHB15Hh/dHdDM++vmVgUnVmMGP7zLD9xGUG
+Azd/hkg/awbGn78IFCvQS6dAuwX+sTLIamkwCHz4xfCS0Z2htZqHYcGymwzfgaUc4++/FBSw/8Gl
+CWhDGa4SBXRyw9fvPxnYOHmBpYkkg5QsE8O67ukM0g5WDO8vn2P4IqrBIMtwkWH39ssMSqbqDFZK
+Igy/wXfW4C5R8B6m85+4MhIggGhWooCPpQC64PnzHwwPuWwZ+nsmMLjqyDB8//KJ4dqF0wxfVDwY
+ejp6GSyFPzLM23KIwT4mkEGK6z/D11+/GRTNwxjamgoYPuw6y/Do828GDk5Whm9fvjLwSGszBIZm
+M4T72jNY+WYwWKgKMjDqhjF0V0UzXF+7n+GzmAlDVWUzgyzTT4Z3334y6GoZMKiJ8cOrJfyxyAje
+H8PEI8EQ1hjDIPL0BsO2HWeAOVyAgZmFi4EbWHr9oWBKC7YIHNSo/PLlCw78GSz/9dtvBm5+YQZJ
+UQEGNg5JBkdXZYb2xlYGKQcbhv9vnzMwiaozeAcnM1gq8QF7Uh8Yvnz+gtNMkHk4T+UkYQgfIIBY
+aFntgNoGgnz/GJhfHmSYt+AJA+PfP+C9OiKSIgzfbu1lWLjkPsPnT+IMoT4CDAc2zGAQj8pi4AA2
+O+5cOsgw6w8HA7uNHoPg/VsMK1bcZzj94DeDuokSw+PD6xhO6IUwfLt6huH8V3GGr49PM8x6KszA
+oSnLwMvBx/CLCdgI/v6bQUBJiuHtiaMMuw8xMOhb6DNAbjMmcLYasBH75+0dhtNX7zJ8/fCHQcZQ
+keHnj80McxYyMPw082TgBbr9OwWlCQiAtlH8wXO8F+i209+/fgAj+ScwbD4zMDy7y/D40gsGRwMT
+hkt7zzJ8ZWRhUAE2rG8f2c9wTluUQYGPDVhi/CdY5aH0pMgAAAFE003qIPdxCokzuLk5Mew9e4NB
+WceEwdiEl4FHUIjh2wNRhqM3HjCoG5ow6CgoMLwEVj+gIllaQpXBxuwhw/N/wgzxfu4M/5+cY9hz
+5iZDqJcxg4aSAgNjkDbDz7+CDO7hRgz3f4sxyOiJMJy8/YvB2c2S4dvnH8BGGxeDvacDw9fndxje
+KhswuLm4M3D8/gm+wJJgMAFzPCuvOAPvn0sM3xWVGXx8PBhen93DcOTmP4YQay3wxd2UXJMEiijY
+0RO4znUBXUUjqaTBoPT2AsO9+48ZpH4zMQjJKzJEeTgx3AC23diEhRmkpfgZLO3eMXz59JWBgY8V
+ZxsE1oiFnNxE2dQtQADKzhinYRiMwi+JY8utxIRUiTOwZs4ZuANzD9AT9ADsHIIFKVOnXgIJhMSC
+M6BK1Gmbxvzvh6y0HSJlsuTE+v3e8L6XnbtACCER90Cb14ZWQTIvr2+4ny/x8VnCmw3C+xp3ohUI
+xRlB9klhOjIdxO4REcVANQNJuXEo2RUs77xDc+tEmHY4pAJTUfUsROm28ReoY432+3TidIybymSK
+GHLWkxy1Rs0acRPdTiOd7ElmJ2Am4tbK+hTJ+/5Mfora4wJ+4lmMgij7LZyHKzPE7/gXBr/8mPBQ
+EPrTNA2qqjrx09jwVWrJNkW4AgYZzZUrmZUsid+rH+RK8kgH7m34d4oxAku0mLUWdV2r6xqnDBvY
+np5XuLq+RZ/PcDNLeHxYYPPVKlKEtnp8fgQQC1lFKCPRWQhM/QbdiP4DcfQWWPzPd4afSMdxAYsT
+qKY/4LoafKMEKNf9ARbDvxCDU79+fIGqA5oJNQpoPMoVbeAbQhl+g81nBF80SbSDQfkQ2I76DO2x
+AZPLD6A93xmgWzzJK0tAORt0noqREbAUvA/Zv0w4nP8hbVZnJLuBAYov0IlRxsbG2AfbiAQAAcRC
+ah1LcpEFTRjYTp5mJHDyAIyHax8u0qWjWCcvSA4UmLVMTCg3iFJjTA9U3aipqTFoaWlRXA2QA0Al
+CRmtTHiYAgQQyQnl/3+kq53/U+tC9+EPYOeq4O2q0npKgqxpFwgACCAyG7PIB/uPrm+jR6TRE/z/
+j3xGC0QMIICITiiwVjr4SE/o9B18aJ1K1dQooGdi+I+S57EWBEjqAAKIhVTD/8OSG5qhkMbXf/AR
+oERNR46CgU0ooAs3WSH3KMMOPf6PVOrBz1eB9pAAAoikNgqoNIEcEswI7a0wQSfhgF0tbk6Gj5+/
+M6zZsJu4s19Ha60BDwdQb+ztu48MEvLcDB+//4cccAjt3SGf7QKKT4AAIjqhINetoOveOYBdrp8/
+QGev/mBgZuJm+POfnUHb0BV8FjwjwYTyH/mCCKqHO/ZTjihrzNEkomBnsTGSXSygXoBJsv/+MUgo
+8DL8Y+QBm/Dzxx+G71+/MLCxsYITDXLBABBAJCUUmEYQFhISZHj/7j3DhVO7GUxsQxhevfkDtJiH
+gYmVF+nCefye/I9y+zkjZQUp1Cj0PUZwcSZGMgKStinlP3T0mpFs/0P0k+M3WPL69APiR2FhFoZb
+Vw4x3LhxncHaygJ8bDzsyFQQBgggkhqzIAzSBGqHcHJyMejq6TDs2LICfHCdloETUIwFfCgfI1FZ
+AT3HUhYp8Cte0Uo/+DwHE2kFGPxiONiZ/TQo/v7/hx3uSW798x+6hob8nisoqH79+stw6+phhhUL
+JzMoyMuDD3sGDdKBBgZBUwAgDBBAJCUUSCJhBWMuLi4GFRVl8EDOysVTGaT3b2EQEOADH4w3IJU0
+0tJBFCPJjFtUVzEiLkSmetuEEv8zMsBvwiavjgYfcAiaYb5x/RqDkpIcg6qqCjBuecDLNUHXzcAS
+DEAAET3X8+XLl/+gIWDQ1PWnT5/Acxcg/ObNa4a3b9+Bb6AAWQgaUPr3d/CeD/+fvPActt1jUOMV
+lBBEhIUYePn4wRcrgM7WFRAQYBAUFARPPYDYAAFEUhsFVqKAUhmoRIHcZPUXfC4qqLgCzf6CEhPo
+EDrIes7RkdvBnlBA7Rtwr4aFFVyCgOIVlFBACQYUp6CSBRTnAAFEctUDmoUEaUZeYgcSB1kCSyig
+2eHRMbehkVhgbU9QYoBVN6AEAtriAUo0IDFQwQAQQCT3ekANG9h2A9hSO1DiAS3xA7VXYAtzRkdn
+h0qJAikAQPEKKwRgJQsIg9ggOYAAIrqNAkwE/2GLg0GlBqjagSUOEIaJEbWgdxQMqhIF3gVmYQGX
+HiAMSzQgGoQBAgwA1RNERclYHlIAAAAASUVORK5CYII=
+
+------=_NextPart_000_0021_01CC7F0A.F235E2C0
+Content-Type: image/jpeg
+Content-Transfer-Encoding: base64
+Content-Location: http://www.norgesgade14.dk/remote/bluetooth_logo_1.jpg
+
+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
+
+------=_NextPart_000_0021_01CC7F0A.F235E2C0
+Content-Type: text/css;
+	charset="iso-8859-1"
+Content-Transfer-Encoding: quoted-printable
+Content-Location: http://www.norgesgade14.dk/css/lego.css
+
+BODY {
+	BORDER-BOTTOM: 0px; BORDER-LEFT: 0px; PADDING-BOTTOM: 0px; MARGIN: 0px; =
+PADDING-LEFT: 0px; WIDTH: 100%; PADDING-RIGHT: 0px; BACKGROUND: white; =
+HEIGHT: 100%; MAX-HEIGHT: 100%; OVERFLOW: hidden; BORDER-TOP: 0px; =
+BORDER-RIGHT: 0px; PADDING-TOP: 0px
+}
+* HTML BODY {
+	SCROLLBAR-ARROW-COLOR: #333333; PADDING-BOTTOM: 50px; PADDING-LEFT: =
+0px; PADDING-RIGHT: 0px; SCROLLBAR-DARKSHADOW-COLOR: #666666; =
+SCROLLBAR-BASE-COLOR: #f26100; PADDING-TOP: 81px
+}
+A:visited {
+	COLOR: red; TEXT-DECORATION: none
+}
+A:link {
+	COLOR: blue; TEXT-DECORATION: none
+}
+A:hover {
+	COLOR: green; TEXT-DECORATION: none
+}
+#container {
+	BACKGROUND-IMAGE: url(background.jpg); POSITION: fixed; BOTTOM: 34px; =
+MARGIN-LEFT: 180px; OVERFLOW: auto; TOP: 81px; RIGHT: 0px; LEFT: 0px
+}
+* HTML #container {
+	BOTTOM: 50px; HEIGHT: 100%
+}
+#header {
+	BACKGROUND-IMAGE: url(header.png); POSITION: absolute; WIDTH: 100%; =
+HEIGHT: 81px; TOP: 0px; LEFT: 0px
+}
+* HTML #header {
+	HEIGHT: 81px
+}
+#footer {
+	BACKGROUND-IMAGE: url(footer.png); POSITION: fixed; WIDTH: 100%; =
+BOTTOM: 0px; HEIGHT: 50px; LEFT: 0px
+}
+* HTML #footer {
+	HEIGHT: 50px
+}
+#menu-left {
+	POSITION: absolute; WIDTH: 180px; TOP: 81px; LEFT: 0px
+}
+.footer_font {
+	TEXT-TRANSFORM: none; FONT-VARIANT: normal; FONT-STYLE: normal; =
+FONT-FAMILY: Verdana, Arial, Trebuchet MS; COLOR: #333333; FONT-SIZE: =
+12px; FONT-WEIGHT: normal
+}
+.header_font {
+	FONT-FAMILY: Verdana, Arial, Trebuchet MS; LETTER-SPACING: 20px; COLOR: =
+#f26100; FONT-SIZE: 20px
+}
+.menu_font {
+	FONT-FAMILY: Verdana, Arial, Trebuchet MS; COLOR: #333333; FONT-SIZE: =
+14px
+}
+.body_headline {
+	FONT-VARIANT: normal; FONT-STYLE: normal; FONT-FAMILY: "Verdana", =
+Arial, Trebuchet MS; LETTER-SPACING: 3px; COLOR: #333333; FONT-SIZE: =
+26px; FONT-WEIGHT: bold
+}
+.body_headline_small {
+	FONT-VARIANT: normal; FONT-STYLE: normal; FONT-FAMILY: "Verdana", =
+Arial, Trebuchet MS; LETTER-SPACING: 2px; COLOR: #333333; FONT-SIZE: =
+16px; FONT-WEIGHT: bold
+}
+.body_font {
+	TEXT-TRANSFORM: none; FONT-FAMILY: "Verdana", Arial, Trebuchet MS; =
+LETTER-SPACING: 1px; COLOR: #333333; FONT-SIZE: 16px
+}
+.body_font_red {
+	TEXT-TRANSFORM: none; FONT-FAMILY: "Verdana", Arial, Trebuchet MS; =
+LETTER-SPACING: 1px; COLOR: #ff0000; FONT-SIZE: 16px
+}
+.body_font_green {
+	TEXT-TRANSFORM: none; FONT-FAMILY: "Verdana", Arial, Trebuchet MS; =
+LETTER-SPACING: 1px; COLOR: #008800; FONT-SIZE: 16px
+}
+.body_font_small {
+	TEXT-TRANSFORM: none; FONT-FAMILY: "Verdana", Arial, Trebuchet MS; =
+LETTER-SPACING: 0px; COLOR: #333333; FONT-SIZE: 12px
+}
+.picture_font {
+	TEXT-TRANSFORM: none; FONT-VARIANT: normal; FONT-STYLE: normal; =
+FONT-FAMILY: "Verdana", Arial, Trebuchet MS; LETTER-SPACING: 0px; COLOR: =
+#333333; FONT-SIZE: 12px; FONT-WEIGHT: normal
+}
+.about_font {
+	BORDER-BOTTOM: #666666 3px solid; BORDER-LEFT: #666666 3px solid; =
+TEXT-TRANSFORM: none; BACKGROUND-COLOR: #999999; FONT-VARIANT: normal; =
+FONT-STYLE: normal; FONT-FAMILY: "Verdana", Arial, Trebuchet MS; =
+LETTER-SPACING: 0px; COLOR: #333333; FONT-SIZE: 12px; BORDER-TOP: =
+#666666 3px solid; FONT-WEIGHT: normal; BORDER-RIGHT: #666666 3px solid
+}
+
+------=_NextPart_000_0021_01CC7F0A.F235E2C0
+Content-Type: application/octet-stream
+Content-Transfer-Encoding: quoted-printable
+Content-Location: http://www.norgesgade14.dk/menu_var.js
+
+/************************************************************************=
+***********
+*	(c) Ger Versluis 2000 version 5.411 24 December 2001 (updated Jan =
+31st, 2003 by Dynamic Drive for Opera7)
+*	For info write to menus@burmees.nl		          *
+*	You may remove all comments for faster loading	          *	=09
+*************************************************************************=
+**********/
+var NoOffFirstLineMenus=3D7;			// Number of first level items
+	var LowBgColor=3D'white';			// Background color when mouse is not over
+	var LowSubBgColor=3D'white';			// Background color when mouse is not =
+over on subs
+	var HighBgColor=3D'#F26100';			// Background color when mouse is over
+	var HighSubBgColor=3D'#F26100';			// Background color when mouse is =
+over on subs
+	var FontLowColor=3D'gray';			// Font color when mouse is not over
+	var FontSubLowColor=3D'gray';			// Font color subs when mouse is not =
+over
+	var FontHighColor=3D'white';			// Font color when mouse is over
+	var FontSubHighColor=3D'white';			// Font color subs when mouse is over
+	var BorderColor=3D'gray';			// Border color
+	var BorderSubColor=3D'black';			// Border color for subs
+	var BorderWidth=3D1;				// Border width
+	var BorderBtwnElmnts=3D1;			// Border between elements 1 or 0
+	var FontFamily=3D"Verdana arial,verdana"	// Font family menu items
+	var FontSize=3D12;				// Font size menu items
+	var FontBold=3D1;				// Bold menu items 1 or 0
+	var FontItalic=3D0;				// Italic menu items 1 or 0
+	var MenuTextCentered=3D'left';			// Item text position 'left', 'center' =
+or 'right'
+	var MenuCentered=3D'left';			// Menu horizontal position 'left', =
+'center' or 'right'
+	var MenuVerticalCentered=3D'top';		// Menu vertical position 'top', =
+'middle','bottom' or static
+	var ChildOverlap=3D.1;				// horizontal overlap child/ parent
+	var ChildVerticalOverlap=3D.2;			// vertical overlap child/ parent
+	var StartTop=3D81;				// Menu offset x coordinate
+	var StartLeft=3D5;				// Menu offset y coordinate
+	var VerCorrect=3D0;				// Multiple frames y correction
+	var HorCorrect=3D0;				// Multiple frames x correction
+	var LeftPaddng=3D3;				// Left padding
+	var TopPaddng=3D0;				// Top padding
+	var FirstLineHorizontal=3D0;			// SET TO 1 FOR HORIZONTAL MENU, 0 FOR =
+VERTICAL
+	var MenuFramesVertical=3D1;			// Frames in cols or rows 1 or 0
+	var DissapearDelay=3D1000;			// delay before menu folds in
+	var TakeOverBgColor=3D1;			// Menu frame takes over background color =
+subitem frame
+	var FirstLineFrame=3D'navig';			// Frame where first level appears
+	var SecLineFrame=3D'space';			// Frame where sub levels appear
+	var DocTargetFrame=3D'space';			// Frame where target documents appear
+	var TargetLoc=3D'';				// span id for relative positioning
+	var HideTop=3D0;				// Hide first level when loading new document 1 or =
+0
+	var MenuWrap=3D1;				// enables/ disables menu wrap 1 or 0
+	var RightToLeft=3D0;				// enables/ disables right to left unfold 1 or =
+0
+	var UnfoldsOnClick=3D0;			// Level 1 unfolds onclick/ onmouseover
+	var WebMasterCheck=3D0;			// menu tree checking on or off 1 or 0
+	var ShowArrow=3D1;				// Uses arrow gifs when 1
+	var KeepHilite=3D1;				// Keep selected path highligthed
+	var Arrws=3D['tri.gif',5,10,'tridown.gif',10,5,'trileft.gif',5,10];	// =
+Arrow source, width and height
+
+function BeforeStart(){return}
+function AfterBuild(){return}
+function BeforeFirstOpen(){return}
+function AfterCloseAll(){return}
+
+
+// Menu tree
+//	MenuX=3Dnew Array(Text to show, Link, background image (optional), =
+number of sub elements, height, width);
+//	For rollover images set "Text to show" to:  =
+"rollover:Image1.jpg:Image2.jpg"
+
+Menu1=3Dnew =
+Array("Home","javascript:location.href=3D'index.php';","",0,18,172);
+
+Menu2=3Dnew Array("NXT Robots","","",5);
+	Menu2_1=3Dnew Array("NXT Image =
+Scanner","javascript:location.href=3D'nxt_scanner.php';","",0,18,200);
+        Menu2_2=3Dnew Array("RFID =
+Rover","javascript:location.href=3D'rfid_rover.php';","",0);
+        Menu2_3=3Dnew Array("Aerial =
+Ropeway","javascript:location.href=3D'aerialropeway.php';","",0);
+	Menu2_4=3Dnew Array("NXT =
+Plotter","javascript:location.href=3D'plotter.php';","",0);
+	Menu2_5=3Dnew Array("YASB - Spy =
+Bot","javascript:location.href=3D'spybot.php';","",0);
+		               =20
+
+Menu3=3Dnew Array("Software","","",5);
+        Menu3_1=3Dnew Array("C++ Communication =
+Library","javascript:top.location.href=3D'bluetoothlibrary.php';","",0,18=
+,265);
+        Menu3_2=3Dnew Array("Bluetooth Vehicle =
+Remote","javascript:top.location.href=3D'bluetoothremote.php';","",0);
+	Menu3_3=3Dnew Array("Bluetooth Pocket =
+Remote","javascript:top.location.href=3D'pocketremote.php';","",0);
+       	Menu3_4=3Dnew Array("Network And BT =
+Remote","javascript:top.location.href=3D'networkbtremote.php';","",0);
+        Menu3_5=3Dnew Array("NXT Network =
+Server","javascript:top.location.href=3D'networkserver.php';","",0);
+        =09
+
+Menu4=3Dnew Array("NXT sensors","","",2);
+	Menu4_1=3Dnew Array("RFID =
+Reader","javascript:top.location.href=3D'rfid.php';","",0,18,190);
+	Menu4_2=3Dnew Array("Magnetic Bit =
+Reader","javascript:top.location.href=3D'magnet.php';","",0);
+       =20
+Menu5=3Dnew Array("RCX Robots","","",5);
+	Menu5_1=3Dnew Array("Brick =
+Sorter","javascript:location.href=3D'bricksorter.php';","",0,18,150);
+	Menu5_2=3Dnew =
+Array("Cooler","javascript:location.href=3D'cooler.php';","",0);
+	Menu5_3=3Dnew Array("Pinball =
+Machine","javascript:location.href=3D'pinball.php';","",0);
+	Menu5_4=3Dnew =
+Array("Scanner","javascript:location.href=3D'scanner.php';","",0);
+	Menu5_5=3Dnew Array("Candy =
+Machine","javascript:location.href=3D'candy.php';","",0);
+
+Menu6=3Dnew =
+Array("Links","javascript:location.href=3D'links.php';","",0,18,142);
+
+Menu7=3Dnew =
+Array("Contact","javascript:location.href=3D'contact.php';","",0,18,142);
+------=_NextPart_000_0021_01CC7F0A.F235E2C0
+Content-Type: application/octet-stream
+Content-Transfer-Encoding: quoted-printable
+Content-Location: http://www.norgesgade14.dk/menu_com.js
+
+/************************************************************************=
+************
+	(c) Ger Versluis 2000 version 5.5 24 December 2001 (updated Jan 31st, =
+2003 by Dynamic Drive for Opera7)
+	Updated 19 July, 2003 by GV for CSS CompatMode=09
+	HV Menu found on Dynamic Drive ONLY may be used on both commercial and =
+non commerical sites=09
+	For info write to menus@burmees.nl							       =20
+	This script featured on Dynamic Drive DHTML code library: =
+http://www.dynamicdrive.com
+*************************************************************************=
+************/
+	var AgntUsr=3Dnavigator.userAgent.toLowerCase();
+	var AppVer=3Dnavigator.appVersion.toLowerCase();
+	var DomYes=3Ddocument.getElementById?1:0;
+	var =
+NavYes=3DAgntUsr.indexOf('mozilla')!=3D-1&&AgntUsr.indexOf('compatible')=3D=
+=3D-1?1:0;
+	var ExpYes=3DAgntUsr.indexOf('msie')!=3D-1?1:0;
+	var Opr=3DAgntUsr.indexOf('opera')!=3D-1?1:0;
+	var Opr6orless=3Dwindow.opera && =
+navigator.userAgent.search(/opera.[1-6]/i)!=3D-1 //DynamicDrive.com =
+added code
+	if(Opr){NavYes=3D1;ExpYes=3D0;}
+	var DomNav=3DDomYes&&NavYes?1:0;
+ 	var DomExp=3DDomYes&&ExpYes?1:0;
+	var Nav4=3DNavYes&&!DomYes&&document.layers?1:0;
+	var Exp4=3DExpYes&&!DomYes&&document.all?1:0;
+	var Exp6Plus=3D(AppVer.indexOf("msie 6")!=3D -1||AppVer.indexOf("msie =
+7")!=3D -1)?1:0
+	var PosStrt=3D(NavYes||ExpYes||Opr)&&!Opr6orless?1:0;
+	var =
+P_X=3DDomYes?"px":"",FHtml=3Dnull,ScHtml=3Dnull,FCmplnt=3D0,SCmplnt=3D0;
+	var FrstLoc,ScLoc,DcLoc;
+	var ScWinWdth,ScWinHght,FrstWinWdth,FrstWinHght;
+	var ScLdAgainWin;
+	var FirstColPos,SecColPos,DocColPos;
+	var RcrsLvl=3D0;
+	var FrstCreat=3D1,Loadd=3D0,Creatd=3D0,IniFlg,AcrssFrms=3D1;
+	var FrstCntnr=3Dnull,CurrntOvr=3Dnull,CloseTmr=3Dnull;
+	var CntrTxt,TxtClose,ImgStr;
+	var Ztop=3D100;
+	var ShwFlg=3D0;
+	var M_StrtTp=3DStartTop,M_StrtLft=3DStartLeft;
+	var StaticPos=3D0;
+	var M_Hide=3DNav4?'hide':'hidden';
+	var M_Show=3DNav4?'show':'visible';
+	var =
+Par=3Dparent.frames[0]&&FirstLineFrame!=3DSecLineFrame?parent:window;
+	var Doc=3DPar.document;
+	var Bod=3DDoc.body;
+	var Trigger=3DNavYes&&!Opr?Par:Bod;
+
+	=
+MenuTextCentered=3DMenuTextCentered=3D=3D1||MenuTextCentered=3D=3D'center=
+'?'center':MenuTextCentered=3D=3D0||MenuTextCentered!=3D'right'?'left':'r=
+ight';=0D
+	WbMstrAlrts=3D["Item not defined: ","Item needs height: ","Item needs =
+width: "];
+
+	if(Trigger.onload)Dummy=3DTrigger.onload;
+	Trigger.onload=3DGo;
+
+function Dummy(){return}
+
+function CnclSlct(){return false}
+
+function RePos(){
+	=
+FrstWinWdth=3DExpYes?FCmplnt?FHtml.clientWidth:FrstLoc.document.body.clie=
+ntWidth:FrstLoc.innerWidth;
+	=
+FrstWinHght=3DExpYes?FCmplnt?FHtml.clientHeight:FrstLoc.document.body.cli=
+entHeight:FrstLoc.innerHeight;
+	=
+ScWinWdth=3DExpYes?SCmplnt?ScHtml.clientWidth:ScLoc.document.body.clientW=
+idth:ScLoc.innerWidth;
+	=
+ScWinHght=3DExpYes?SCmplnt?ScHtml.clientHeight:ScLoc.document.body.client=
+Height:ScLoc.innerHeight;
+	if(MenuCentered=3D=3D'justify'&&FirstLineHorizontal){
+		FrstCntnr.style.width=3DFrstWinWdth+P_X;
+		var LftXtra=3D(DomNav&&!Opr)||FCmplnt?LeftPaddng:0;
+		ClcJus();
+		var P=3DFrstCntnr.FrstMbr,W=3DMenu1[5],i;
+		=
+for(i=3D0;i<NoOffFirstLineMenus;i++){P.style.width=3DW+P_X;P=3DP.PrvMbr}}=
+
+	StaticPos=3D-1;
+	if(TargetLoc)ClcTrgt();
+	if(MenuCentered)ClcLft();
+	if(MenuVerticalCentered)ClcTp();
+	PosMenu(FrstCntnr,StartTop,StartLeft)}
+
+function UnLoaded(){
+	if(CloseTmr)clearTimeout(CloseTmr);
+	Loadd=3D0; Creatd=3D0;
+	if(HideTop){
+		var FCStyle=3DNav4?FrstCntnr:FrstCntnr.style;
+		FCStyle.visibility=3DM_Hide}}
+
+function ReDoWhole(){
+	=
+if(ScWinWdth!=3DScLoc.innerWidth||ScWinHght!=3DScLoc.innerHeight||FrstWin=
+Wdth!=3DFrstLoc.innerWidth||FrstWinHght!=3DFrstLoc.innerHeight)Doc.locati=
+on.reload()}
+
+function Check(WMnu,NoOf){
+	var i,array,ArrayLoc;
+	ArrayLoc=3Dparent.frames[0]?parent.frames[FirstLineFrame]:self;
+	for(i=3D0;i<NoOf;i++){
+		array=3DWMnu+eval(i+1);
+		if(!ArrayLoc[array]){WbMstrAlrt(0,array); return false}
+		if(i=3D=3D0){	if(!ArrayLoc[array][4]){WbMstrAlrt(1,array); return =
+false}
+			if(!ArrayLoc[array][5]){WbMstrAlrt(2,array); return false}}
+		if(ArrayLoc[array][3])if(!Check(array+'_',ArrayLoc[array][3])) return =
+false}
+	return true}
+
+function WbMstrAlrt(No,Xtra){
+	return confirm(WbMstrAlrts[No]+Xtra+'   ')}
+
+function Go(){
+	Dummy();
+	if(Loadd||!PosStrt)return;
+	BeforeStart();
+	Creatd=3D0; Loadd=3D1;
+	status=3D'Building menu';
+	if(FirstLineFrame =3D=3D"" || !parent.frames[FirstLineFrame]){
+		FirstLineFrame=3DSecLineFrame;
+		if(FirstLineFrame =3D=3D"" || !parent.frames[FirstLineFrame]){
+			FirstLineFrame=3DSecLineFrame=3DDocTargetFrame;
+			if(FirstLineFrame =3D=3D"" || =
+!parent.frames[FirstLineFrame])FirstLineFrame=3DSecLineFrame=3DDocTargetF=
+rame=3D''}}
+	if(SecLineFrame =3D=3D"" || !parent.frames[SecLineFrame]){
+		SecLineFrame=3DDocTargetFrame;
+		if(SecLineFrame =3D=3D"" || =
+!parent.frames[SecLineFrame])SecLineFrame=3DDocTargetFrame=3DFirstLineFra=
+me}
+	if(DocTargetFrame =3D=3D"" || =
+!parent.frames[DocTargetFrame])DocTargetFrame=3DSecLineFrame;
+	if(WebMasterCheck){	=
+if(!Check('Menu',NoOffFirstLineMenus)){status=3D'build aborted';return}}
+	FrstLoc=3DFirstLineFrame!=3D""?parent.frames[FirstLineFrame]:window;
+	ScLoc=3DSecLineFrame!=3D""?parent.frames[SecLineFrame]:window;
+	DcLoc=3DDocTargetFrame!=3D""?parent.frames[DocTargetFrame]:window;
+	if (FrstLoc=3D=3DScLoc) AcrssFrms=3D0;
+	if (AcrssFrms)FirstLineHorizontal=3DMenuFramesVertical?0:1;
+	if(Exp6Plus||Opr){
+		=
+FHtml=3DFrstLoc.document.getElementsByTagName("HTML")[0];ScHtml=3DScLoc.d=
+ocument.getElementsByTagName("HTML")[0];
+		=
+FCmplnt=3DFrstLoc.document.compatMode.indexOf("CSS")=3D=3D-1?0:1;SCmplnt=3D=
+ScLoc.document.compatMode.indexOf("CSS")=3D=3D-1?0:1}
+	=
+FrstWinWdth=3DExpYes?FCmplnt?FHtml.clientWidth:FrstLoc.document.body.clie=
+ntWidth:FrstLoc.innerWidth;
+	=
+FrstWinHght=3DExpYes?FCmplnt?FHtml.clientHeight:FrstLoc.document.body.cli=
+entHeight:FrstLoc.innerHeight;
+	=
+ScWinWdth=3DExpYes?SCmplnt?ScHtml.clientWidth:ScLoc.document.body.clientW=
+idth:ScLoc.innerWidth;
+	=
+ScWinHght=3DExpYes?SCmplnt?ScHtml.clientHeight:ScLoc.document.body.client=
+Height:ScLoc.innerHeight;
+	if(Nav4){	CntrTxt=3DMenuTextCentered!=3D'left'?"<div =
+align=3D'"+MenuTextCentered+"'>":"";
+		TxtClose=3D"</font>"+MenuTextCentered!=3D'left'?"</div>":""}
+	FirstColPos=3DNav4?FrstLoc.document:FrstLoc.document.body;
+	SecColPos=3DNav4?ScLoc.document:ScLoc.document.body;
+	DocColPos=3DNav4?DcLoc.document:ScLoc.document.body;
+	if =
+(TakeOverBgColor)FirstColPos.bgColor=3DAcrssFrms?SecColPos.bgColor:DocCol=
+Pos.bgColor;
+	if(MenuCentered=3D=3D'justify'&&FirstLineHorizontal)ClcJus();
+	if(FrstCreat){
+		FrstCntnr=3DCreateMenuStructure('Menu',NoOffFirstLineMenus);
+		FrstCreat=3DAcrssFrms?0:1}
+	else CreateMenuStructureAgain('Menu',NoOffFirstLineMenus);
+	if(TargetLoc)ClcTrgt();
+	if(MenuCentered)ClcLft();
+	if(MenuVerticalCentered)ClcTp();
+	PosMenu(FrstCntnr,StartTop,StartLeft);
+	IniFlg=3D1;
+	Initiate();
+	Creatd=3D1;
+	if (AcrssFrms){
+		ScLdAgainWin=3DExpYes?ScLoc.document.body:ScLoc;
+		ScLdAgainWin.onunload=3DUnLoaded}
+	Trigger.onresize=3DNav4?ReDoWhole:RePos;
+	AfterBuild();
+	=
+if(MenuVerticalCentered=3D=3D'static'&&!AcrssFrms)setInterval('KeepPos()'=
+,250);
+	status=3D'Menu ready for use'}
+
+function KeepPos(){
+	var =
+TS=3DExpYes?SCmplnt?ScHtml.scrollTop:FrstLoc.document.body.scrollTop:Frst=
+Loc.pageYOffset;
+	if(TS!=3DStaticPos){
+		var FCStyle=3DNav4?FrstCntnr:FrstCntnr.style;
+		FrstCntnr.OrgTop=3DStartTop+TS;StaticPos=3DTS;
+		FCStyle.top=3DFrstCntnr.OrgTop+P_X}}
+
+function ClcJus(){
+	var a=3DBorderBtwnElmnts?1:2,b=3DBorderBtwnElmnts?BorderWidth:0;
+	var =
+Size=3DMath.round(((FrstWinWdth-a*BorderWidth)/NoOffFirstLineMenus)-b),i,=
+j;
+	for(i=3D1;i<NoOffFirstLineMenus+1;i++){j=3Deval('Menu'+i);j[5]=3DSize}
+	StartLeft=3D0}
+
+function ClcTrgt(){
+	var =
+TLoc=3DNav4?FrstLoc.document.layers[TargetLoc]:DomYes?FrstLoc.document.ge=
+tElementById(TargetLoc):FrstLoc.document.all[TargetLoc];
+	StartTop=3DM_StrtTp;
+	StartLeft=3DM_StrtLft;
+	if(DomYes){
+		=
+while(TLoc){StartTop+=3DTLoc.offsetTop;StartLeft+=3DTLoc.offsetLeft;TLoc=3D=
+TLoc.offsetParent}}
+	else{	=
+StartTop+=3DNav4?TLoc.pageY:TLoc.offsetTop;StartLeft+=3DNav4?TLoc.pageX:T=
+Loc.offsetLeft}}
+
+function ClcLft(){
+	if(MenuCentered!=3D'left'&&MenuCentered!=3D'justify'){
+		var =
+Size=3DFrstWinWdth-(!Nav4?parseInt(FrstCntnr.style.width):FrstCntnr.clip.=
+width);
+		StartLeft=3DM_StrtLft;
+		StartLeft+=3DMenuCentered=3D=3D'right'?Size:Size/2}}
+
+function ClcTp(){
+	if(MenuVerticalCentered!=3D'top'&&MenuVerticalCentered!=3D'static'){
+		var =
+Size=3DFrstWinHght-(!Nav4?parseInt(FrstCntnr.style.height):FrstCntnr.clip=
+.height);
+		StartTop=3DM_StrtTp;
+		StartTop+=3DMenuVerticalCentered=3D=3D'bottom'?Size:Size/2}}
+
+function PosMenu(CntnrPntr,Tp,Lt){
+	RcrsLvl++;
+	var Cmplnt=3DRcrsLvl=3D=3D1?FCmplnt:SCmplnt;
+	var LftXtra=3D(DomNav&&!Opr)||Cmplnt?LeftPaddng:0;
+	var TpXtra=3D(DomNav&&!Opr)||Cmplnt?TopPaddng:0;
+	var Topi,Lefti,Hori;
+	var Cntnr=3DCntnrPntr;
+	var Mmbr=3DCntnr.FrstMbr;
+	var CntnrStyle=3D!Nav4?Cntnr.style:Cntnr;
+	var MmbrStyle=3D!Nav4?Mmbr.style:Mmbr;
+	var PadL=3DMmbr.value.indexOf('<')=3D=3D-1?LftXtra:0;
+	var PadT=3DMmbr.value.indexOf('<')=3D=3D-1?TpXtra:0;
+	var MmbrWt=3D!Nav4?parseInt(MmbrStyle.width)+PadL:MmbrStyle.clip.width;
+	var =
+MmbrHt=3D!Nav4?parseInt(MmbrStyle.height)+PadT:MmbrStyle.clip.height;
+	var CntnrWt=3D!Nav4?parseInt(CntnrStyle.width):CntnrStyle.clip.width;
+	var CntnrHt=3D!Nav4?parseInt(CntnrStyle.height):CntnrStyle.clip.height;
+	var SubTp,SubLt;
+	if (RcrsLvl=3D=3D1 && =
+AcrssFrms)!MenuFramesVertical?Tp=3DFrstWinHght-CntnrHt+(Nav4?4:0):Lt=3DRi=
+ghtToLeft?0:FrstWinWdth-CntnrWt+(Nav4?4:0);
+	if (RcrsLvl=3D=3D2 && =
+AcrssFrms)!MenuFramesVertical?Tp=3D0:Lt=3DRightToLeft?ScWinWdth-CntnrWt:0=
+;
+	if (RcrsLvl=3D=3D2 && AcrssFrms){Tp+=3DVerCorrect;Lt+=3DHorCorrect}
+	CntnrStyle.top=3DRcrsLvl=3D=3D1?Tp+P_X:0;
+	Cntnr.OrgTop=3DTp;
+	CntnrStyle.left=3DRcrsLvl=3D=3D1?Lt+P_X:0;
+	Cntnr.OrgLeft=3DLt;
+	if (RcrsLvl=3D=3D1 && FirstLineHorizontal){
+		Hori=3D1;Lefti=3DCntnrWt-MmbrWt-2*BorderWidth;Topi=3D0}
+	else{	Hori=3DLefti=3D0;Topi=3DCntnrHt-MmbrHt-2*BorderWidth}
+	while(Mmbr!=3Dnull){
+		MmbrStyle.left=3DLefti+BorderWidth+P_X;
+		MmbrStyle.top=3DTopi+BorderWidth+P_X;
+		if(Nav4)Mmbr.CmdLyr.moveTo(Lefti+BorderWidth,Topi+BorderWidth);
+		if(Mmbr.ChildCntnr){
+			=
+if(RightToLeft)ChldCntnrWdth=3DNav4?Mmbr.ChildCntnr.clip.width:parseInt(M=
+mbr.ChildCntnr.style.width);
+			if(Hori){	SubTp=3DTopi+MmbrHt+2*BorderWidth;
+				SubLt=3DRightToLeft?Lefti+MmbrWt-ChldCntnrWdth:Lefti}
+			else{	=
+SubLt=3DRightToLeft?Lefti-ChldCntnrWdth+ChildOverlap*MmbrWt+BorderWidth:L=
+efti+(1-ChildOverlap)*MmbrWt+BorderWidth;
+				=
+SubTp=3DRcrsLvl=3D=3D1&&AcrssFrms?Topi:Topi+ChildVerticalOverlap*MmbrHt}
+			PosMenu(Mmbr.ChildCntnr,SubTp,SubLt)}
+		Mmbr=3DMmbr.PrvMbr;
+		if(Mmbr){	MmbrStyle=3D!Nav4?Mmbr.style:Mmbr;
+			PadL=3DMmbr.value.indexOf('<')=3D=3D-1?LftXtra:0;
+			PadT=3DMmbr.value.indexOf('<')=3D=3D-1?TpXtra:0;
+			MmbrWt=3D!Nav4?parseInt(MmbrStyle.width)+PadL:MmbrStyle.clip.width;
+			MmbrHt=3D!Nav4?parseInt(MmbrStyle.height)+PadT:MmbrStyle.clip.height;
+			=
+Hori?Lefti-=3DBorderBtwnElmnts?(MmbrWt+BorderWidth):(MmbrWt):Topi-=3DBord=
+erBtwnElmnts?(MmbrHt+BorderWidth):(MmbrHt)}}
+	RcrsLvl--}
+
+function Initiate(){
+	if(IniFlg){	Init(FrstCntnr);IniFlg=3D0;
+		if(ShwFlg)AfterCloseAll();ShwFlg=3D0}}
+
+function Init(CntnrPntr){
+	var Mmbr=3DCntnrPntr.FrstMbr;
+	var MCStyle=3DNav4?CntnrPntr:CntnrPntr.style;
+	RcrsLvl++;
+	MCStyle.visibility=3DRcrsLvl=3D=3D1?M_Show:M_Hide;
+	while(Mmbr!=3Dnull){
+		if(Mmbr.Hilite){Mmbr.Hilite=3D0;if(KeepHilite)LowItem(Mmbr)}
+		if(Mmbr.ChildCntnr) Init(Mmbr.ChildCntnr);
+		Mmbr=3DMmbr.PrvMbr}
+	RcrsLvl--}
+
+function ClearAllChilds(Pntr){
+	var CPCCStyle;
+	while (Pntr){
+		if(Pntr.Hilite){
+			Pntr.Hilite=3D0;
+			if(KeepHilite)LowItem(Pntr);
+			if(Pntr.ChildCntnr){
+				CPCCStyle=3DNav4?Pntr.ChildCntnr:Pntr.ChildCntnr.style;
+				CPCCStyle.visibility=3DM_Hide;
+				ClearAllChilds(Pntr.ChildCntnr.FrstMbr)}
+			break}
+		Pntr=3DPntr.PrvMbr}}
+
+function GoTo(){
+	if(this.LinkTxt){
+		status=3D'';
+		var HP=3DNav4?this.LowLyr:this;
+		LowItem(HP);
+		=
+this.LinkTxt.indexOf('javascript:')!=3D-1?eval(this.LinkTxt):DcLoc.locati=
+on.href=3Dthis.LinkTxt}}
+
+function HiliteItem(P){
+	if(Nav4){
+		if(P.ro)P.document.images[P.rid].src=3DP.ri2;
+		else{	if(P.HiBck)P.bgColor=3DP.HiBck;
+			if(P.value.indexOf('<img')=3D=3D-1){
+				P.document.write(P.Ovalue);
+				P.document.close()}}}
+	else{	if(P.ro){	var Lc=3DP.Level=3D=3D1?FrstLoc:ScLoc;
+			Lc.document.images[P.rid].src=3DP.ri2}
+		else{	if(P.HiBck)P.style.backgroundColor=3DP.HiBck;
+			if(P.HiFntClr)P.style.color=3DP.HiFntClr}}
+	P.Hilite=3D1}
+
+function LowItem(P){
+	if(P.ro){	if(Nav4)P.document.images[P.rid].src=3DP.ri1;
+		else{	var Lc=3DP.Level=3D=3D1?FrstLoc:ScLoc;
+			Lc.document.images[P.rid].src=3DP.ri1}}
+	else{	if(Nav4){	if(P.LoBck)P.bgColor=3DP.LoBck;
+			if(P.value.indexOf('<img')=3D=3D-1){
+				P.document.write(P.value);
+				P.document.close()}}
+		else{	if(P.LoBck)P.style.backgroundColor=3DP.LoBck;
+			if(P.LwFntClr)P.style.color=3DP.LwFntClr}}}
+
+function OpenMenu(){=09
+	if(!Loadd||!Creatd) return;
+	var =
+TpScrlld=3DExpYes?SCmplnt?ScHtml.scrollTop:ScLoc.document.body.scrollTop:=
+ScLoc.pageYOffset;
+	var =
+LScrlld=3DExpYes?SCmplnt?ScHtml.scrollLeft:ScLoc.document.body.scrollLeft=
+:ScLoc.pageXOffset;
+	var CCnt=3DNav4?this.LowLyr.ChildCntnr:this.ChildCntnr;
+	var ThisHt=3DNav4?this.clip.height:parseInt(this.style.height);
+	var ThisWt=3DNav4?this.clip.width:parseInt(this.style.width);
+	var =
+ThisLft=3DAcrssFrms&&this.Level=3D=3D1&&!FirstLineHorizontal?0:Nav4?this.=
+Container.left:parseInt(this.Container.style.left);
+	var =
+ThisTp=3DAcrssFrms&&this.Level=3D=3D1&&FirstLineHorizontal?0:Nav4?this.Co=
+ntainer.top:parseInt(this.Container.style.top);
+	var HP=3DNav4?this.LowLyr:this;
+	CurrntOvr=3Dthis;
+	IniFlg=3D0;
+	ClearAllChilds(this.Container.FrstMbr);
+	HiliteItem(HP);
+	if(CCnt!=3Dnull){
+		if(!ShwFlg){ShwFlg=3D1;	BeforeFirstOpen()}
+		var =
+CCW=3DNav4?this.LowLyr.ChildCntnr.clip.width:parseInt(this.ChildCntnr.sty=
+le.width);
+		var =
+CCH=3DNav4?this.LowLyr.ChildCntnr.clip.height:parseInt(this.ChildCntnr.st=
+yle.height);
+		var ChCntTL=3DNav4?this.LowLyr.ChildCntnr:this.ChildCntnr.style;
+		var =
+SubLt=3DAcrssFrms&&this.Level=3D=3D1?CCnt.OrgLeft+ThisLft+LScrlld:CCnt.Or=
+gLeft+ThisLft;
+		var =
+SubTp=3DAcrssFrms&&this.Level=3D=3D1?CCnt.OrgTop+ThisTp+TpScrlld:CCnt.Org=
+Top+ThisTp;
+		if(MenuWrap){
+			if(RightToLeft){
+				=
+if(SubLt<LScrlld)SubLt=3Dthis.Level=3D=3D1?LScrlld:SubLt+(CCW+(1-2*ChildO=
+verlap)*ThisWt);
+				if(SubLt+CCW>ScWinWdth+LScrlld)SubLt=3DScWinWdth+LScrlld-CCW}
+			else{	=
+if(SubLt+CCW>ScWinWdth+LScrlld)SubLt=3Dthis.Level=3D=3D1?ScWinWdth+LScrll=
+d-CCW:SubLt-(CCW+(1-2*ChildOverlap)*ThisWt);
+				if(SubLt<LScrlld)SubLt=3DLScrlld}
+			=
+if(SubTp+CCH>TpScrlld+ScWinHght)SubTp=3Dthis.Level=3D=3D1?SubTp=3DTpScrll=
+d+ScWinHght-CCH:SubTp-CCH+(1-2*ChildVerticalOverlap)*ThisHt;
+			if(SubTp<TpScrlld)SubTp=3DTpScrlld}
+		=
+ChCntTL.top=3DSubTp+P_X;ChCntTL.left=3DSubLt+P_X;ChCntTL.visibility=3DM_S=
+how}
+	status=3Dthis.LinkTxt}
+
+function OpenMenuClick(){
+	if(!Loadd||!Creatd) return;
+	var HP=3DNav4?this.LowLyr:this;
+	CurrntOvr=3Dthis;
+	IniFlg=3D0;
+	ClearAllChilds(this.Container.FrstMbr);
+	HiliteItem(HP);
+	status=3Dthis.LinkTxt}
+
+function CloseMenu(){
+	if(!Loadd||!Creatd) return;
+	if(!KeepHilite){
+		var HP=3DNav4?this.LowLyr:this;
+		LowItem(HP)}
+	status=3D'';
+	if(this=3D=3DCurrntOvr){
+		IniFlg=3D1;
+		if(CloseTmr)clearTimeout(CloseTmr);
+		CloseTmr=3DsetTimeout('Initiate(CurrntOvr)',DissapearDelay)}}
+
+function CntnrSetUp(Wdth,Hght,NoOff){
+	var x=3DRcrsLvl=3D=3D1?BorderColor:BorderSubColor;
+	this.FrstMbr=3Dnull;
+	this.OrgLeft=3Dthis.OrgTop=3D0;
+	if(x)this.bgColor=3Dx;
+	if(Nav4){	this.visibility=3D'hide';
+		this.resizeTo(Wdth,Hght)}
+	else{	if(x)this.style.backgroundColor=3Dx;
+		this.style.width=3DWdth+P_X;
+		this.style.height=3DHght+P_X;
+		this.style.fontFamily=3DFontFamily;
+		this.style.fontWeight=3DFontBold?'bold':'normal';
+		this.style.fontStyle=3DFontItalic?'italic':'normal';
+		this.style.fontSize=3DFontSize+'pt';
+		this.style.zIndex=3DRcrsLvl+Ztop}}
+
+function MbrSetUp(MmbrCntnr,PrMmbr,WhatMenu,Wdth,Hght){
+	var Location=3DRcrsLvl=3D=3D1?FrstLoc:ScLoc;
+	var MemVal=3Deval(WhatMenu+'[0]');
+	var t,T,L,W,H,S;
+	var a,b,c,d;
+	var Cmplnt=3DRcrsLvl=3D=3D1?FCmplnt:SCmplnt;
+	var LftXtra=3D(DomNav&&!Opr)||Cmplnt?LeftPaddng:0;
+	var TpXtra=3D(DomNav&&!Opr)||Cmplnt?TopPaddng:0;
+	this.PrvMbr=3DPrMmbr;
+	this.Level=3DRcrsLvl;
+	this.LinkTxt=3Deval(WhatMenu+'[1]');
+	this.Container=3DMmbrCntnr;
+	this.ChildCntnr=3Dnull;
+	this.Hilite=3D0;
+	this.style.overflow=3D'hidden';
+	=
+this.style.cursor=3DExpYes&&(this.LinkTxt||(RcrsLvl=3D=3D1&&UnfoldsOnClic=
+k))?'hand':'default';
+	this.ro=3D0;
+	if(MemVal.indexOf('rollover')!=3D-1){
+		this.ro=3D1;
+		=
+this.ri1=3DMemVal.substring(MemVal.indexOf(':')+1,MemVal.lastIndexOf(':')=
+);
+		this.ri2=3DMemVal.substring(MemVal.lastIndexOf(':')+1,MemVal.length);
+		this.rid=3DWhatMenu+'i';
+		MemVal=3D"<img src=3D\""+this.ri1+"\" name=3D\""+this.rid+"\" =
+width=3D\""+Wdth+"\" height=3D\""+Hght+"\">"}
+	this.value=3DMemVal;
+	if(RcrsLvl=3D=3D1){
+		a=3DLowBgColor;
+		b=3DHighBgColor;
+		c=3DFontLowColor;
+		d=3DFontHighColor}
+	else{	a=3DLowSubBgColor;
+		b=3DHighSubBgColor;
+		c=3DFontSubLowColor;
+		d=3DFontSubHighColor}
+	this.LoBck=3Da;
+	this.LwFntClr=3Dc;
+	this.HiBck=3Db;
+	this.HiFntClr=3Dd;
+	this.style.color=3Dthis.LwFntClr;
+	if(this.LoBck)this.style.backgroundColor=3Dthis.LoBck;
+	this.style.textAlign=3DMenuTextCentered;
+	=
+if(eval(WhatMenu+'[2]'))this.style.backgroundImage=3D"url(\'"+eval(WhatMe=
+nu+'[2]')+"\')";
+	if(MemVal.indexOf('<')=3D=3D-1){
+		this.style.width=3DWdth-LftXtra+P_X;
+		this.style.height=3DHght-TpXtra+P_X;
+		this.style.paddingLeft=3DLeftPaddng+P_X;
+		this.style.paddingTop=3DTopPaddng+P_X}
+	else{	this.style.width=3DWdth+P_X;
+		this.style.height=3DHght+P_X}
+	if(MemVal.indexOf('<')=3D=3D-1&&DomYes){
+		t=3DLocation.document.createTextNode(MemVal);
+		this.appendChild(t)}
+	else this.innerHTML=3DMemVal;
+	if(eval(WhatMenu+'[3]')&&ShowArrow){
+		a=3DRcrsLvl=3D=3D1&&FirstLineHorizontal?3:RightToLeft?6:0;
+		S=3DArrws[a];
+		W=3DArrws[a+1];
+		H=3DArrws[a+2];
+		T=3DRcrsLvl=3D=3D1&&FirstLineHorizontal?Hght-H-2:(Hght-H)/2;
+		L=3DRightToLeft?2:Wdth-W-2;
+		if(DomYes){
+
+			t=3DLocation.document.createElement('img');
+			this.appendChild(t);
+			t.style.position=3D'absolute';
+			t.src=3DS;
+
+			t.style.width=3DW+P_X;
+			t.style.height=3DH+P_X;
+			t.style.top=3DT+P_X;
+			t.style.left=3DL+P_X}
+		else{	MemVal+=3D"<div style=3D'position:absolute; top:"+T+"; =
+left:"+L+"; width:"+W+"; height:"+H+";visibility:inherit'><img =
+src=3D'"+S+"'></div>";
+			this.innerHTML=3DMemVal}}
+	if(ExpYes){this.onselectstart=3DCnclSlct;
+		=
+this.onmouseover=3DRcrsLvl=3D=3D1&&UnfoldsOnClick?OpenMenuClick:OpenMenu;=
+
+		this.onmouseout=3DCloseMenu;
+		=
+this.onclick=3DRcrsLvl=3D=3D1&&UnfoldsOnClick&&eval(WhatMenu+'[3]')?OpenM=
+enu:GoTo	}
+	else{	=
+RcrsLvl=3D=3D1&&UnfoldsOnClick?this.addEventListener('mouseover',OpenMenu=
+Click,false):this.addEventListener('mouseover',OpenMenu,false);
+		this.addEventListener('mouseout',CloseMenu,false);
+		=
+RcrsLvl=3D=3D1&&UnfoldsOnClick&&eval(WhatMenu+'[3]')?this.addEventListene=
+r('click',OpenMenu,false):this.addEventListener('click',GoTo,false)}}
+
+function NavMbrSetUp(MmbrCntnr,PrMmbr,WhatMenu,Wdth,Hght){
+	var a,b,c,d;
+	if(RcrsLvl=3D=3D1){
+		a=3DLowBgColor;
+		b=3DHighBgColor;
+		c=3DFontLowColor;
+		d=3DFontHighColor}
+	else {	a=3DLowSubBgColor;
+		b=3DHighSubBgColor;
+		c=3DFontSubLowColor;
+		d=3DFontSubHighColor	}
+	this.value=3Deval(WhatMenu+'[0]');
+	this.ro=3D0;
+	if(this.value.indexOf('rollover')!=3D-1){
+		this.ro=3D1;
+		=
+this.ri1=3Dthis.value.substring(this.value.indexOf(':')+1,this.value.last=
+IndexOf(':'));
+		=
+this.ri2=3Dthis.value.substring(this.value.lastIndexOf(':')+1,this.value.=
+length);
+		this.rid=3DWhatMenu+'i';this.value=3D"<img src=3D'"+this.ri1+"' =
+name=3D'"+this.rid+"'>"}
+	=
+if(LeftPaddng&&this.value.indexOf('<')=3D=3D-1&&MenuTextCentered=3D=3D'le=
+ft')this.value=3D'&nbsp\;'+this.value;
+	if(FontBold)this.value=3Dthis.value.bold();
+	if(FontItalic)this.value=3Dthis.value.italics();
+	this.Ovalue=3Dthis.value;
+	this.value=3Dthis.value.fontcolor(c);
+	this.Ovalue=3Dthis.Ovalue.fontcolor(d);
+	this.value=3DCntrTxt+"<font face=3D'"+FontFamily+"' =
+point-size=3D'"+FontSize+"'>"+this.value+TxtClose;
+	this.Ovalue=3DCntrTxt+"<font face=3D'"+FontFamily+"' =
+point-size=3D'"+FontSize+"'>"+this.Ovalue+TxtClose;
+	this.LoBck=3Da;
+	this.HiBck=3Db;
+	this.ChildCntnr=3Dnull;
+	this.PrvMbr=3DPrMmbr;
+	this.Hilite=3D0;
+	this.visibility=3D'inherit';
+	if(this.LoBck)this.bgColor=3Dthis.LoBck;
+	this.resizeTo(Wdth,Hght);
+	=
+if(!AcrssFrms&&eval(WhatMenu+'[2]'))this.background.src=3Deval(WhatMenu+'=
+[2]');
+	this.document.write(this.value);
+	this.document.close();
+	this.CmdLyr=3Dnew Layer(Wdth,MmbrCntnr);
+	this.CmdLyr.Level=3DRcrsLvl;
+	this.CmdLyr.LinkTxt=3Deval(WhatMenu+'[1]');
+	this.CmdLyr.visibility=3D'inherit';
+	=
+this.CmdLyr.onmouseover=3DRcrsLvl=3D=3D1&&UnfoldsOnClick?OpenMenuClick:Op=
+enMenu;
+	this.CmdLyr.onmouseout=3DCloseMenu;
+	this.CmdLyr.captureEvents(Event.MOUSEUP);
+	=
+this.CmdLyr.onmouseup=3DRcrsLvl=3D=3D1&&UnfoldsOnClick&&eval(WhatMenu+'[3=
+]')?OpenMenu:GoTo;
+	this.CmdLyr.LowLyr=3Dthis;
+	this.CmdLyr.resizeTo(Wdth,Hght);
+	this.CmdLyr.Container=3DMmbrCntnr;
+	if(eval(WhatMenu+'[3]')&&ShowArrow){
+		a=3DRcrsLvl=3D=3D1&&FirstLineHorizontal?3:RightToLeft?6:0;
+		this.CmdLyr.ImgLyr=3Dnew Layer(Arrws[a+1],this.CmdLyr);
+		this.CmdLyr.ImgLyr.visibility=3D'inherit';
+		=
+this.CmdLyr.ImgLyr.top=3DRcrsLvl=3D=3D1&&FirstLineHorizontal?Hght-Arrws[a=
++2]-2:(Hght-Arrws[a+2])/2;
+		this.CmdLyr.ImgLyr.left=3DRightToLeft?2:Wdth-Arrws[a+1]-2;
+		this.CmdLyr.ImgLyr.width=3DArrws[a+1];
+		this.CmdLyr.ImgLyr.height=3DArrws[a+2];
+		ImgStr=3D"<img src=3D'"+Arrws[a]+"' width=3D'"+Arrws[a+1]+"' =
+height=3D'"+Arrws[a+2]+"'>";
+		this.CmdLyr.ImgLyr.document.write(ImgStr);
+		this.CmdLyr.ImgLyr.document.close()}}
+
+function CreateMenuStructure(MName,NumberOf){
+	RcrsLvl++;
+	var i,NoOffSubs,Mbr,Wdth=3D0,Hght=3D0;
+	var PrvMmbr=3Dnull;
+	var WMnu=3DMName+'1';
+	var MenuWidth=3Deval(WMnu+'[5]');
+	var MenuHeight=3Deval(WMnu+'[4]');
+	var Location=3DRcrsLvl=3D=3D1?FrstLoc:ScLoc;
+	if (RcrsLvl=3D=3D1&&FirstLineHorizontal){
+		for(i=3D1;i<NumberOf+1;i++){
+			WMnu=3DMName+eval(i);
+			Wdth=3Deval(WMnu+'[5]')?Wdth+eval(WMnu+'[5]'):Wdth+MenuWidth}
+		=
+Wdth=3DBorderBtwnElmnts?Wdth+(NumberOf+1)*BorderWidth:Wdth+2*BorderWidth;=
+Hght=3DMenuHeight+2*BorderWidth}
+	else{	for(i=3D1;i<NumberOf+1;i++){
+			WMnu=3DMName+eval(i);
+			Hght=3Deval(WMnu+'[4]')?Hght+eval(WMnu+'[4]'):Hght+MenuHeight}
+		=
+Hght=3DBorderBtwnElmnts?Hght+(NumberOf+1)*BorderWidth:Hght+2*BorderWidth;=
+Wdth=3DMenuWidth+2*BorderWidth}
+	if(DomYes){
+		var MmbrCntnr=3DLocation.document.createElement("div");
+		MmbrCntnr.style.position=3D'absolute';
+		MmbrCntnr.style.visibility=3D'hidden';
+		Location.document.body.appendChild(MmbrCntnr)}
+	else{	if(Nav4) var MmbrCntnr=3Dnew Layer(Wdth,Location)
+		else{	WMnu+=3D'c';
+			Location.document.body.insertAdjacentHTML("AfterBegin","<div =
+id=3D'"+WMnu+"' style=3D'visibility:hidden; =
+position:absolute;'><\/div>");
+			var MmbrCntnr=3DLocation.document.all[WMnu]}}
+	MmbrCntnr.SetUp=3DCntnrSetUp;
+	MmbrCntnr.SetUp(Wdth,Hght,NumberOf);
+	if(Exp4){	MmbrCntnr.InnerString=3D'';
+		for(i=3D1;i<NumberOf+1;i++){
+			WMnu=3DMName+eval(i);
+			MmbrCntnr.InnerString+=3D"<div id=3D'"+WMnu+"' =
+style=3D'position:absolute;'><\/div>"}
+		MmbrCntnr.innerHTML=3DMmbrCntnr.InnerString}
+	for(i=3D1;i<NumberOf+1;i++){
+		WMnu=3DMName+eval(i);
+		NoOffSubs=3Deval(WMnu+'[3]');
+		=
+Wdth=3DRcrsLvl=3D=3D1&&FirstLineHorizontal?eval(WMnu+'[5]')?eval(WMnu+'[5=
+]'):MenuWidth:MenuWidth;
+		=
+Hght=3DRcrsLvl=3D=3D1&&FirstLineHorizontal?MenuHeight:eval(WMnu+'[4]')?ev=
+al(WMnu+'[4]'):MenuHeight;
+		if(DomYes){
+			Mbr=3DLocation.document.createElement("div");
+			Mbr.style.position=3D'absolute';
+			Mbr.style.visibility=3D'inherit';
+			MmbrCntnr.appendChild(Mbr)}
+		else Mbr=3DNav4?new Layer(Wdth,MmbrCntnr):Location.document.all[WMnu];
+		Mbr.SetUp=3DNav4?NavMbrSetUp:MbrSetUp;
+		Mbr.SetUp(MmbrCntnr,PrvMmbr,WMnu,Wdth,Hght);
+		if(NoOffSubs) =
+Mbr.ChildCntnr=3DCreateMenuStructure(WMnu+'_',NoOffSubs);
+		PrvMmbr=3DMbr}
+	MmbrCntnr.FrstMbr=3DMbr;
+	RcrsLvl--;
+	return(MmbrCntnr)}
+
+function CreateMenuStructureAgain(MName,NumberOf){
+	var i,WMnu,NoOffSubs,PrvMmbr,Mbr=3DFrstCntnr.FrstMbr;
+	RcrsLvl++;
+	for(i=3DNumberOf;i>0;i--){
+		WMnu=3DMName+eval(i);
+		NoOffSubs=3Deval(WMnu+'[3]');
+		PrvMmbr=3DMbr;
+		if(NoOffSubs)Mbr.ChildCntnr=3DCreateMenuStructure(WMnu+'_',NoOffSubs);
+		Mbr=3DMbr.PrvMbr}
+	RcrsLvl--}
+------=_NextPart_000_0021_01CC7F0A.F235E2C0--

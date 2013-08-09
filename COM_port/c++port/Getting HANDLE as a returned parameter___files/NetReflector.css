@@ -1,0 +1,39 @@
+.NetReflectorMain {
+	POSITION: absolute; BACKGROUND-COLOR: #fff; WIDTH: 365px; DISPLAY: none
+}
+.NRHeader {
+	BACKGROUND-IMAGE: url(../../resources/Images/msdn-logo-stripe.gif); WIDTH: 351px; HEIGHT: 30px
+}
+.NRCloseButton {
+	BACKGROUND-IMAGE: url(../../resources/Images/msdn-close.gif); MARGIN-TOP: -30px; WIDTH: 22px; FLOAT: right; HEIGHT: 30px; CURSOR: pointer
+}
+.NRTopStripe {
+	BACKGROUND-IMAGE: url(../../resources/Images/top-stripe.gif); WIDTH: 373px; HEIGHT: 19px
+}
+.NRNotification {
+	BACKGROUND-COLOR: #fff; WIDTH: 373px; HEIGHT: 180px
+}
+.NRNotification DIV {
+	MARGIN: 10px
+}
+.NRBottomStripe {
+	BACKGROUND-IMAGE: url(../../resources/Images/bottom-stripe.gif); WIDTH: 373px; HEIGHT: 17px
+}
+.NRSubmit {
+	MARGIN-TOP: 15px; MARGIN-LEFT: 130px
+}
+.NRCancel {
+	MARGIN-LEFT: 10px
+}
+.PrivacyStatement {
+	MARGIN-TOP: 10px; MARGIN-LEFT: 5px
+}
+.NRTrackerBody {
+	PADDING-BOTTOM: 0px; BACKGROUND-COLOR: #fff; MARGIN: 0px; PADDING-LEFT: 0px; PADDING-RIGHT: 0px; FONT-FAMILY: "Segoe UI", "Lucida Grande", Verdana, Arial, Helvetica, sans-serif; COLOR: #333; FONT-SIZE: 80%; PADDING-TOP: 0px
+}
+.NRTrackerMain {
+	MARGIN-LEFT: 5px
+}
+.TrackerHeader {
+	BACKGROUND-IMAGE: url(../../resources/Images/msdnNetReflectorLogo.png); WIDTH: 365px; HEIGHT: 62px
+}

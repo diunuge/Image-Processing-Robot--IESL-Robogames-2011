@@ -1,0 +1,1202 @@
+﻿<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3c.org/TR/1999/REC-html401-19991224/loose.dtd">
+<!-- saved from url=(0104)http://social.msdn.microsoft.com/Forums/en-US/csharplanguage/thread/32777688-b43f-4ea4-8e08-157b23abf3c6 -->
+<HTML xmlns="http://www.w3.org/1999/xhtml"><HEAD id=ctl00_ctl00_Head1><TITLE>Getting HANDLE as a returned parameter...</TITLE>
+<META content="text/html; charset=utf-8" http-equiv=Content-Type>
+<META content=IE=EmulateIE9 http-equiv=X-UA-Compatible><LINK rel="shortcut icon" 
+type=image/x-icon 
+href="http://i1.social.s-msft.com/Forums/GlobalResources/images/Msdn/favicon.ico"><LINK 
+rel=Stylesheet type=text/css 
+href="Getting%20HANDLE%20as%20a%20returned%20parameter___files/Msdn.css"><LINK 
+rel=Stylesheet type=text/css 
+href="Getting%20HANDLE%20as%20a%20returned%20parameter___files/Site.css"><LINK 
+rel=Stylesheet type=text/css 
+href="Getting%20HANDLE%20as%20a%20returned%20parameter___files/vstudio_nologo.css">
+<META name=CommunityInfo content=" B=Msdn;A=Forums;L=en-US;">
+<SCRIPT language=javascript type=text/javascript 
+src="Getting%20HANDLE%20as%20a%20returned%20parameter___files/jquery-1.6.1.min.js"></SCRIPT>
+<LINK rel=Stylesheet type=text/css 
+href="Getting%20HANDLE%20as%20a%20returned%20parameter___files/Core.css"><!--[if IE 6]>
+    <link type="text/css" rel="Stylesheet" href="http://i2.social.s-msft.com/Forums/resources/styles/IE6Core.css?cver=1864.989%0d%0a" />
+    <![endif]--><LINK rel=Stylesheet type=text/css 
+href="Getting%20HANDLE%20as%20a%20returned%20parameter___files/forums.css">
+<SCRIPT type=text/javascript>
+    //<![CDATA[
+        var fms_site_culture = 'en-US'; var fms_site_lcid = '1033';
+    //]]>
+     </SCRIPT>
+<LINK title="Getting HANDLE as a returned parameter..." rel=alternate 
+type=application/rss+xml 
+href="http://social.msdn.microsoft.com/Forums/en-US/csharplanguage/thread/32777688-b43f-4ea4-8e08-157b23abf3c6?outputAs=rss">
+<META name=Search.MSForums.Iroot content=vcsharp>
+<META name=Search.MSForums.CategoryID 
+content=53a3f556-a51e-4e2f-aa28-714e91c2cac5>
+<META name=Search.MSForums.CategoryName content=visualcsharp>
+<META name=GENERATOR content="MSHTML 8.00.7600.16385"></HEAD>
+<BODY dir=ltr class="IE IE8">
+<FORM id=aspnetForm method=post name=aspnetForm 
+action=32777688-b43f-4ea4-8e08-157b23abf3c6>
+<DIV><INPUT id=__VIEWSTATE 
+value=/wEPDwULLTEzNTczODQxNDFkZBedQ7kgRC6uoTvQluYfRU8lK8gV type=hidden 
+name=__VIEWSTATE> </DIV></FORM>
+<DIV id=BodyBackground class=ltr>
+<DIV id=JelloSizer>
+<DIV id=JelloExpander>
+<DIV id=JelloWrapper>
+<DIV class=Clear></DIV>
+<DIV class=Masthead>
+<DIV id=BrandLogo class=BrandLogo><A class=BrandLogoLink 
+href="http://msdn.microsoft.com/en-us/vcsharp/aa336706.aspx"><SPAN 
+id=BrandDisplayText>Visual C# Developer Center</SPAN></A></DIV>
+<DIV class=Search>
+<DIV id=SearchBox class=SearchBox><INPUT id=SearchTextBox 
+class="TextBoxSearch TextBoxSearchIE7" type=text name=SearchTextBox><INPUT 
+id=SearchButton class=SearchButton 
+src="Getting%20HANDLE%20as%20a%20returned%20parameter___files/trans(1).gif" 
+type=image name=SearchButton><SPAN class=Bing>&nbsp;</SPAN></DIV></DIV>
+<DIV class=GlobalBar>
+<DIV class=PassportScarab><A id=idPPScarab 
+href="https://login.live.com/login.srf?wa=wsignin1.0&amp;wtrealm=social.msdn.microsoft.com&amp;wreply=https%3a%2f%2fsocial.msdn.microsoft.com%2fForums%2fen-US%2fcsharplanguage%2fthread%2f32777688-b43f-4ea4-8e08-157b23abf3c6%3fstoAI%3d10&amp;wp=MBI_FED_SSL&amp;wlcxt=Msdn%24Msdn%24Msdn">Sign 
+in</A> </DIV>
+<DIV id=LocaleFlyout class=LocaleFlyout>
+<DIV id=LocaleSelector>
+<DIV id=TargetPanel><A>United States (English)</A><SPAN 
+class=DropDownArrow>&nbsp;</SPAN> </DIV>
+<DIV id=PopupPanel class=ContextMenuPanel><A class=ContextMenuItem 
+href="http://social.msdn.microsoft.com/Forums/pt-BR/csharplanguage/thread/32777688-b43f-4ea4-8e08-157b23abf3c6" 
+rel=nofollow>Brasil (Português)</A><A class=ContextMenuItem 
+href="http://social.msdn.microsoft.com/Forums/cs-CZ/csharplanguage/thread/32777688-b43f-4ea4-8e08-157b23abf3c6" 
+rel=nofollow>Česká&nbsp;republika (Čeština)</A><A class=ContextMenuItem 
+href="http://social.msdn.microsoft.com/Forums/de-DE/csharplanguage/thread/32777688-b43f-4ea4-8e08-157b23abf3c6" 
+rel=nofollow>Deutschland (Deutsch)</A><A class=ContextMenuItem 
+href="http://social.msdn.microsoft.com/Forums/es-ES/csharplanguage/thread/32777688-b43f-4ea4-8e08-157b23abf3c6" 
+rel=nofollow>España (Español)</A><A class=ContextMenuItem 
+href="http://social.msdn.microsoft.com/Forums/fr-FR/csharplanguage/thread/32777688-b43f-4ea4-8e08-157b23abf3c6" 
+rel=nofollow>France (Français)</A><A class=ContextMenuItem 
+href="http://social.msdn.microsoft.com/Forums/id-ID/csharplanguage/thread/32777688-b43f-4ea4-8e08-157b23abf3c6" 
+rel=nofollow>Indonesia (Bahasa)</A><A class=ContextMenuItem 
+href="http://social.msdn.microsoft.com/Forums/it-IT/csharplanguage/thread/32777688-b43f-4ea4-8e08-157b23abf3c6" 
+rel=nofollow>Italia (Italiano)</A><A class=ContextMenuItem 
+href="http://social.msdn.microsoft.com/Forums/ro-RO/csharplanguage/thread/32777688-b43f-4ea4-8e08-157b23abf3c6" 
+rel=nofollow>România (Română)</A><A class=ContextMenuItem 
+href="http://social.msdn.microsoft.com/Forums/tr-TR/csharplanguage/thread/32777688-b43f-4ea4-8e08-157b23abf3c6" 
+rel=nofollow>Türkiye (Türkçe)</A><A class=ContextMenuItem 
+href="http://social.msdn.microsoft.com/Forums/ru-RU/csharplanguage/thread/32777688-b43f-4ea4-8e08-157b23abf3c6" 
+rel=nofollow>Россия (Русский)</A><A class=ContextMenuItem 
+href="http://social.msdn.microsoft.com/Forums/he-IL/csharplanguage/thread/32777688-b43f-4ea4-8e08-157b23abf3c6" 
+rel=nofollow>ישראל (עברית)</A><A class=ContextMenuItem 
+href="http://social.msdn.microsoft.com/Forums/th-TH/csharplanguage/thread/32777688-b43f-4ea4-8e08-157b23abf3c6" 
+rel=nofollow>ไทย (ไทย)</A><A class=ContextMenuItem 
+href="http://social.msdn.microsoft.com/Forums/ko-KR/csharplanguage/thread/32777688-b43f-4ea4-8e08-157b23abf3c6" 
+rel=nofollow>대한민국 (한국어)</A><A class=ContextMenuItem 
+href="http://social.msdn.microsoft.com/Forums/zh-CN/csharplanguage/thread/32777688-b43f-4ea4-8e08-157b23abf3c6" 
+rel=nofollow>中华人民共和国 (中文)</A><A class=ContextMenuItem 
+href="http://social.msdn.microsoft.com/Forums/zh-TW/csharplanguage/thread/32777688-b43f-4ea4-8e08-157b23abf3c6" 
+rel=nofollow>台灣 (中文)</A><A class=ContextMenuItem 
+href="http://social.msdn.microsoft.com/Forums/ja-JP/csharplanguage/thread/32777688-b43f-4ea4-8e08-157b23abf3c6" 
+rel=nofollow>日本 (日本語)</A> </DIV></DIV>
+<SCRIPT language=javascript type=text/javascript>
+$(function() {
+    var targetPanel = $("div#TargetPanel");
+    var popupPanel = $("div#PopupPanel");
+    var speed = 0;
+
+    positionPopup = function() {
+        var outerPanel = $("div#LocaleFlyout");
+
+        if (outerPanel.length == "0") {
+            outerPanel = $("div#LocaleSelector");
+        }
+        popupPanel.css("left", outerPanel.position().left - (popupPanel.outerWidth() - outerPanel.outerWidth()));
+        popupPanel.css("top", outerPanel.position().top + outerPanel.outerHeight());
+    }
+
+    showPanel = function() {
+        positionPopup();
+        popupPanel.show(speed);
+    }
+
+    hidePanel = function(event) {
+        if (event != undefined) {
+            popupPanel.hide(speed);
+        }
+    }
+
+    hidePopUpIfVisible = function() {
+        if (popupPanel.css("display") == "block") {
+            targetPanel.click();
+        }
+    }
+
+    var doc = $(document);
+    doc.click(hidePopUpIfVisible);
+    $(window).resize(hidePanel);
+
+    // setup
+    popupPanel.hide(speed);
+    targetPanel.toggle(showPanel, hidePanel);
+
+});
+</SCRIPT>
+</DIV>
+<DIV class=Clear></DIV>
+<DIV id=UserName class=UserName><A 
+id=ctl00_ctl00_ctl01_UserNameLink></A></DIV></DIV>
+<DIV class=Clear></DIV>
+<DIV id=NetworkTagLineArea class=NetworkLogo><A id=NetworkLink 
+href="http://msdn.microsoft.com/en-US">&nbsp; </A></DIV>
+<DIV class=leftcap xmlns:msxsl="urn:schemas-microsoft-com:xslt"></DIV>
+<DIV class=internav xmlns:msxsl="urn:schemas-microsoft-com:xslt"><A 
+href="http://msdn.microsoft.com/en-us/vcsharp/aa336706.aspx">Home</A><A 
+href="http://msdn.microsoft.com/en-us/library/kx37x362.aspx">Library</A><A 
+href="http://msdn.microsoft.com/en-us/vcsharp/aa336766.aspx">Learn</A><A 
+href="http://msdn.microsoft.com/en-us/vcsharp/aa336734.aspx">Downloads</A><A 
+href="http://msdn.microsoft.com/en-us/vcsharp/aa336821.aspx">Support</A><A 
+href="http://msdn.microsoft.com/en-us/vcsharp/aa336717.aspx">Community</A><A 
+class="&#10;          active&#10;        " 
+href="http://social.msdn.microsoft.com/Forums/en-US/category/visualcsharp">Forums</A></DIV></DIV>
+<DIV class=Clear></DIV>
+<DIV class=topleftcorner></DIV>
+<DIV class=toprightcorner></DIV>
+<DIV class=alley><!-- Left Side -->
+<DIV class=wrapper><!-- Right Side -->
+<DIV class=inner>
+<DIV class=Clear></DIV>
+<DIV id=SystemMessage class=SystemMessage><B>Please note:</B> On Thursday 
+September 29, 2011 from 4:00 PM until approximately 4:30 PM (PDT) the Forums 
+application will be unavailable for a short period of time due to system 
+maintenance. During this time, you may see an error message below. We apologize 
+for the inconvenience and thank you for your patience as we work to improve the 
+system. </DIV>
+<DIV id=MainContent class=Msdn>
+<DIV id=contentWrapper>
+<DIV id=content>
+<DIV id=forumsMessage></DIV>
+<DIV class=bread><SPAN><A 
+href="http://msdn.microsoft.com/en-us/vcsharp/aa336706.aspx">Visual C# Developer 
+Center</A></SPAN><SPAN> &gt; </SPAN><SPAN><A 
+href="http://social.msdn.microsoft.com/Forums/en-US/category/visualcsharp">Visual 
+C# Forums</A></SPAN> <SPAN>&gt; </SPAN><SPAN><A 
+href="http://social.msdn.microsoft.com/Forums/en-US/csharplanguage/threads">Visual 
+C# Language</A></SPAN> <SPAN>&gt; </SPAN><SPAN>Getting HANDLE as a returned 
+parameter...</SPAN> </DIV>
+<H1 
+href="http://social.msdn.microsoft.com:80/Forums/en-US/csharplanguage/thread/32777688-b43f-4ea4-8e08-157b23abf3c6"><IMG 
+class="icon answer" title=Answer alt=Answer 
+src="Getting%20HANDLE%20as%20a%20returned%20parameter___files/trans.gif"><SPAN 
+name="subject">Getting HANDLE as a returned parameter...</SPAN><A 
+href="http://social.msdn.microsoft.com/Forums/en-US/csharplanguage/thread/32777688-b43f-4ea4-8e08-157b23abf3c6?outputAs=rss" 
+rel=nofollow><IMG class="icon rss" 
+src="Getting%20HANDLE%20as%20a%20returned%20parameter___files/trans.gif"></A></H1><!-- Scope: forum-->
+<DIV class="box discover">
+<DIV class=content>
+<DIV class=search>
+<FORM id=forumsSearch method=post action=/Forums/en-US/search><INPUT 
+id=searchTerm class=searchTerm type=text name=searchTerm><INPUT 
+src="Getting%20HANDLE%20as%20a%20returned%20parameter___files/search.gif" 
+type=image> <A style="DISPLAY: none; HEIGHT: 18px" id=searchRefinements 
+class=popup href="javascript:void(0);" name=searchRefinements></A>
+<UL class=popup name="searchRefinementsPopup" popupAlign="left">
+  <LI><A title="Search Visual C# Language Forum" 
+  href="http://social.msdn.microsoft.com/Forums/en-US/csharplanguage/thread/32777688-b43f-4ea4-8e08-157b23abf3c6#" 
+  scopeData="csharplanguage" scopeType="Forum">Search Visual C# Language Forum 
+  </A></LI>
+  <LI><A title="Search All Visual C# Forums" 
+  href="http://social.msdn.microsoft.com/Forums/en-US/csharplanguage/thread/32777688-b43f-4ea4-8e08-157b23abf3c6#" 
+  scopeData="visualcsharp" scopeType="Category">Search All Visual C# Forums 
+  </A></LI>
+  <LI><A title="Search All MSDN Forums" 
+  href="http://social.msdn.microsoft.com/Forums/en-US/csharplanguage/thread/32777688-b43f-4ea4-8e08-157b23abf3c6#" 
+  scopeData="" scopeType="Brand">Search All MSDN Forums </A></LI></UL><INPUT 
+id=scopeType value=Forum type=hidden name=scopeType> <INPUT id=scopeData 
+value=csharplanguage type=hidden name=scopeData> <INPUT id=currentScopeType 
+value=Forum type=hidden name=currentScopeType> <INPUT id=currentScopeData 
+value=csharplanguage type=hidden name=currentScopeData> </FORM>
+<SCRIPT type=text/javascript>
+            $(document).ready(function()
+            {
+                $("#forumsSearch #searchTerm").watermark('Search Visual C\x23 Language Forum');
+                $("#btnSubmit").attr("disabled", "disabled");
+                $("a#searchRefinements").show();
+
+                $("#forumsSearch").submit(function()
+                {
+                    var strippedVal = $("#forumsSearch #searchTerm").watermarkVal().replace(/^\s+|\s+$/g, "");
+                    return (strippedVal.length > 0)
+                });
+
+                $("#forumsSearch ul.popup a").click(function()
+                {
+                    $("#forumsSearch #scopeType").val($(this).attr("scopeType"));
+                    $("#forumsSearch #scopeData").val($(this).attr("scopeData"));
+                    $("#forumsSearch").submit();
+                    return false;
+                });
+            });
+        </SCRIPT>
+</DIV>
+<DIV><A class=btn title="Ask a question" 
+href="http://social.msdn.microsoft.com/Forums/en-US/newthread?forum=csharplanguage" 
+name=ask rel=nofollow><IMG class="icon ask" alt="Ask a question" 
+src="Getting%20HANDLE%20as%20a%20returned%20parameter___files/trans.gif">Ask a 
+question</A> </DIV>
+<DIV class=clear></DIV></DIV></DIV>
+<UL class="message root">
+  <LI id=32777688-b43f-4ea4-8e08-157b23abf3c6 class="message  root">
+  <DIV class=head><SPAN class=date>Saturday, July 10, 2010 11:15 PM</SPAN>
+  <DIV class=profile-usercard-mini 
+  data-profile-usercard-customLink="{&quot;href&quot;:&quot;http://social.msdn.microsoft.com/Forums/en-US/user/threads?user=Benevolent%20Deity&quot;, &quot;text&quot;: &quot;Benevolent Deit...'s threads&quot;}&#10;        " 
+  data-profile-userid="7a869249-fe77-42ac-89d5-a486e5d84d8d">
+  <DIV class=profile-mini-content></DIV>&nbsp;</DIV>
+  <DIV class=helpful></DIV></DIV>
+  <DIV class=votingouterbox>
+  <DIV class=voting><A class=voteuphreflink title="Vote As Helpful" 
+  href="https://login.live.com/login.srf?wa=wsignin1.0&amp;wtrealm=social.msdn.microsoft.com&amp;wreply=https%3a%2f%2fsocial.msdn.microsoft.com%2fForums%2fen-US%2fcsharplanguage%2fthread%2f32777688-b43f-4ea4-8e08-157b23abf3c6%3fprof%3drequired%26stoAI%3d10&amp;wp=MBI_FED_SSL&amp;wlcxt=microsoft%24microsoft%24microsoft" 
+  name=voteup><IMG class="icon voteup" title="Sign In to Vote" 
+  alt="Sign In to Vote" 
+  src="Getting%20HANDLE%20as%20a%20returned%20parameter___files/trans.gif">
+  <DIV class=votecount>0</DIV></A></DIV><SPAN class="votinglabel type"><A 
+  title="Sign In to Vote" 
+  href="https://login.live.com/login.srf?wa=wsignin1.0&amp;wtrealm=social.msdn.microsoft.com&amp;wreply=https%3a%2f%2fsocial.msdn.microsoft.com%2fForums%2fen-US%2fcsharplanguage%2fthread%2f32777688-b43f-4ea4-8e08-157b23abf3c6%3fprof%3drequired%26stoAI%3d10&amp;wp=MBI_FED_SSL&amp;wlcxt=microsoft%24microsoft%24microsoft">Sign 
+  In to Vote</A></SPAN></DIV>
+  <DIV class=container>
+  <DIV class=body>Hello,<BR><BR>In my C# program I'm attempting to call Win32 
+  functions located inside a DLL.&nbsp; These functions are all specified using 
+  the standard Win32 data types such as DWORD, LPVOID, etc.&nbsp; I've been able 
+  to determine the C# equivalents for most of those I need and I've gotten the 
+  corresponding functions to work except for those using type HANDLE.&nbsp; For 
+  example, one of the functions gets an appropriate HANDLE then passes it back 
+  to the caller in a HANDLE parameter:<BR><BR>void GetHandle(HANDLE 
+  h);<BR><BR>My understanding is that the C# equivalent of HANDLE is 
+  System.IntPtr.&nbsp; It seems that appropriate approach would be to create an 
+  object of type System.Int (but there is no such type), then pass its address 
+  to GetHandle as follows:<BR><BR>System.Int 
+  obj;<BR>GetHandle(&amp;obj);<BR><BR>However, since there is no such System.Int 
+  type I tried the following instead:<BR><BR>System.Int32 
+  obj;<BR>GetHandle(&amp;obj);<BR><BR>However, that simply did not yield the 
+  correct results from GetHandle.&nbsp; I tried several other things but I 
+  really hate just "trying" things without actually knowing what I'm 
+  doing.&nbsp; So, what is the proper approach?&nbsp; I'd like this to work for 
+  both 32-bit and 64-bit Windows without having to change my code if 
+  possible.<BR><BR>Thanks,<BR>Ray</DIV><INPUT 
+  id=32777688-b43f-4ea4-8e08-157b23abf3c6_attachments type=hidden></DIV>
+  <DIV class="menu message">
+  <UL class=menu>
+    <LI><A title=Reply 
+    href="https://login.live.com/login.srf?wa=wsignin1.0&amp;wtrealm=social.msdn.microsoft.com&amp;wreply=https%3a%2f%2fsocial.msdn.microsoft.com%2fForums%2fen-US%2fcsharplanguage%2fthread%2f32777688-b43f-4ea4-8e08-157b23abf3c6%3fprof%3drequired%26stoAI%3d10&amp;wp=MBI_FED_SSL&amp;wlcxt=microsoft%24microsoft%24microsoft" 
+    name=reply rel=nofollow><IMG class="icon reply" title=Reply alt=Reply 
+    src="Getting%20HANDLE%20as%20a%20returned%20parameter___files/trans.gif"><NOBR>Reply</NOBR></A></LI>
+    <LI><A title=Quote 
+    href="https://login.live.com/login.srf?wa=wsignin1.0&amp;wtrealm=social.msdn.microsoft.com&amp;wreply=https%3a%2f%2fsocial.msdn.microsoft.com%2fForums%2fen-US%2fcsharplanguage%2fthread%2f32777688-b43f-4ea4-8e08-157b23abf3c6%3fprof%3drequired%26stoAI%3d10&amp;wp=MBI_FED_SSL&amp;wlcxt=microsoft%24microsoft%24microsoft" 
+    name=quote rel=nofollow><IMG class="icon quote" title=Quote alt=Quote 
+    src="Getting%20HANDLE%20as%20a%20returned%20parameter___files/trans.gif"><NOBR>Quote</NOBR></A></LI></UL>
+  <DIV class=clear></DIV></DIV></LI></UL>
+<DIV class=answers>
+<H3>Answers</H3>
+<UL class="message answers">
+  <LI id=1e63679e-ec41-4252-b26c-f69e867ac0c0 class="message answer">
+  <DIV class=head><SPAN class=date>Saturday, July 10, 2010 11:26 PM</SPAN>
+  <DIV class=profile-usercard-mini 
+  data-profile-usercard-customLink="{&quot;href&quot;:&quot;http://social.msdn.microsoft.com/Forums/en-US/user/threads?user=Nishant%20Sivakumar&quot;, &quot;text&quot;: &quot;Nishant Sivakum...'s threads&quot;}&#10;        " 
+  data-profile-userid="16f96281-5a56-4030-b28a-99f8a53f38eb">
+  <DIV class=profile-mini-content>Moderator</DIV>&nbsp;</DIV>
+  <DIV class=helpful>&nbsp;<IMG class="icon answer" title=Answer alt=Answer 
+  src="Getting%20HANDLE%20as%20a%20returned%20parameter___files/trans.gif"></DIV></DIV>
+  <DIV class=votingouterbox>
+  <DIV class=voting><A class=voteuphreflink title="Vote As Helpful" 
+  href="https://login.live.com/login.srf?wa=wsignin1.0&amp;wtrealm=social.msdn.microsoft.com&amp;wreply=https%3a%2f%2fsocial.msdn.microsoft.com%2fForums%2fen-US%2fcsharplanguage%2fthread%2f32777688-b43f-4ea4-8e08-157b23abf3c6%3fprof%3drequired%26stoAI%3d10&amp;wp=MBI_FED_SSL&amp;wlcxt=microsoft%24microsoft%24microsoft" 
+  name=voteup><IMG class="icon voteup" title="Sign In to Vote" 
+  alt="Sign In to Vote" 
+  src="Getting%20HANDLE%20as%20a%20returned%20parameter___files/trans.gif">
+  <DIV class=votecount>0</DIV></A></DIV><SPAN class="votinglabel type"><A 
+  title="Sign In to Vote" 
+  href="https://login.live.com/login.srf?wa=wsignin1.0&amp;wtrealm=social.msdn.microsoft.com&amp;wreply=https%3a%2f%2fsocial.msdn.microsoft.com%2fForums%2fen-US%2fcsharplanguage%2fthread%2f32777688-b43f-4ea4-8e08-157b23abf3c6%3fprof%3drequired%26stoAI%3d10&amp;wp=MBI_FED_SSL&amp;wlcxt=microsoft%24microsoft%24microsoft">Sign 
+  In to Vote</A></SPAN></DIV>
+  <DIV class=container>
+  <DIV class=body>
+  <P>If the native C/C++ DLL actually has a function&nbsp;with that signature, 
+  then there's something wrong :</P>
+  <P>void GetHandle(HANDLE h)<BR>{<BR>&nbsp;h = GetDesktopWindow();<BR>}</P>
+  <P>void Foo()<BR>{<BR>&nbsp;HANDLE h = 0;<BR>&nbsp;GetHandle(h); // h will 
+  still be 0</P>
+  <P>A more workable soltion would be:</P>
+  <P>HANDLE GetHandle();</P>
+  <P>And in C# this would be:</P>
+  <P>IntPtr handle = GetHandle();</P>
+  <HR>
+  <A href="http://blog.voidnish.com/">http://blog.voidnish.com/</A></DIV>
+  <UL class=history>
+    <LI><SPAN class=type>Proposed As Answer by</SPAN><A class=author 
+    title="About Louis.fr" 
+    href="http://social.msdn.microsoft.com/profile/louis.fr/?type=forum&amp;referrer=http://social.msdn.microsoft.com/Forums/en-US/csharplanguage/thread/32777688-b43f-4ea4-8e08-157b23abf3c6" 
+    rel=nofollow><SPAN>Louis.fr</SPAN><ABBR class=affil>Microsoft Community 
+    Contributor</ABBR></A><SPAN class=date>Sunday, July 11, 2010 2:53 
+    AM</SPAN></LI>
+    <LI><SPAN class=type>Marked As Answer by</SPAN><A class=author 
+    title="About Harry Zhu" 
+    href="http://social.msdn.microsoft.com/profile/harry%20zhu/?type=forum&amp;referrer=http://social.msdn.microsoft.com/Forums/en-US/csharplanguage/thread/32777688-b43f-4ea4-8e08-157b23abf3c6" 
+    rel=nofollow><SPAN>Harry Zhu</SPAN><ABBR 
+    class=affil>Moderator</ABBR></A><SPAN class=date>Monday, July 19, 2010 8:37 
+    AM</SPAN></LI>
+    <LI></LI></UL><INPUT id=1e63679e-ec41-4252-b26c-f69e867ac0c0_attachments 
+  type=hidden></DIV>
+  <DIV class="menu message">
+  <UL class=menu>
+    <LI><A title=Reply 
+    href="https://login.live.com/login.srf?wa=wsignin1.0&amp;wtrealm=social.msdn.microsoft.com&amp;wreply=https%3a%2f%2fsocial.msdn.microsoft.com%2fForums%2fen-US%2fcsharplanguage%2fthread%2f32777688-b43f-4ea4-8e08-157b23abf3c6%3fprof%3drequired%26stoAI%3d10&amp;wp=MBI_FED_SSL&amp;wlcxt=microsoft%24microsoft%24microsoft" 
+    name=reply rel=nofollow><IMG class="icon reply" title=Reply alt=Reply 
+    src="Getting%20HANDLE%20as%20a%20returned%20parameter___files/trans.gif"><NOBR>Reply</NOBR></A></LI>
+    <LI><A title=Quote 
+    href="https://login.live.com/login.srf?wa=wsignin1.0&amp;wtrealm=social.msdn.microsoft.com&amp;wreply=https%3a%2f%2fsocial.msdn.microsoft.com%2fForums%2fen-US%2fcsharplanguage%2fthread%2f32777688-b43f-4ea4-8e08-157b23abf3c6%3fprof%3drequired%26stoAI%3d10&amp;wp=MBI_FED_SSL&amp;wlcxt=microsoft%24microsoft%24microsoft" 
+    name=quote rel=nofollow><IMG class="icon quote" title=Quote alt=Quote 
+    src="Getting%20HANDLE%20as%20a%20returned%20parameter___files/trans.gif"><NOBR>Quote</NOBR></A></LI></UL>
+  <DIV class=clear></DIV></DIV></LI>
+  <LI id=5236a63f-098a-48b8-8a47-927848243693 class="message answer">
+  <DIV class=head><SPAN class=date>Sunday, July 11, 2010 2:48 AM</SPAN>
+  <DIV class=profile-usercard-mini 
+  data-profile-usercard-customLink="{&quot;href&quot;:&quot;http://social.msdn.microsoft.com/Forums/en-US/user/threads?user=Ray%20M_&quot;, &quot;text&quot;: &quot;Ray M_'s threads&quot;}&#10;        " 
+  data-profile-userid="4038ba04-e340-4fd1-a8ca-cc94a78de66d">
+  <DIV class=profile-mini-content></DIV>&nbsp;</DIV>
+  <DIV class=helpful>&nbsp;<IMG class="icon answer" title=Answer alt=Answer 
+  src="Getting%20HANDLE%20as%20a%20returned%20parameter___files/trans.gif"></DIV></DIV>
+  <DIV class=votingouterbox>
+  <DIV class=voting><A class=voteuphreflink title="Vote As Helpful" 
+  href="https://login.live.com/login.srf?wa=wsignin1.0&amp;wtrealm=social.msdn.microsoft.com&amp;wreply=https%3a%2f%2fsocial.msdn.microsoft.com%2fForums%2fen-US%2fcsharplanguage%2fthread%2f32777688-b43f-4ea4-8e08-157b23abf3c6%3fprof%3drequired%26stoAI%3d10&amp;wp=MBI_FED_SSL&amp;wlcxt=microsoft%24microsoft%24microsoft" 
+  name=voteup><IMG class="icon voteup" title="Sign In to Vote" 
+  alt="Sign In to Vote" 
+  src="Getting%20HANDLE%20as%20a%20returned%20parameter___files/trans.gif">
+  <DIV class=votecount>0</DIV></A></DIV><SPAN class="votinglabel type"><A 
+  title="Sign In to Vote" 
+  href="https://login.live.com/login.srf?wa=wsignin1.0&amp;wtrealm=social.msdn.microsoft.com&amp;wreply=https%3a%2f%2fsocial.msdn.microsoft.com%2fForums%2fen-US%2fcsharplanguage%2fthread%2f32777688-b43f-4ea4-8e08-157b23abf3c6%3fprof%3drequired%26stoAI%3d10&amp;wp=MBI_FED_SSL&amp;wlcxt=microsoft%24microsoft%24microsoft">Sign 
+  In to Vote</A></SPAN></DIV>
+  <DIV class=container>
+  <DIV class=body>
+  <P>Well stuck with it or not the signature you gave can't ever return a value 
+  in h, not in C# not in C not in C++</P>
+  <P>Are you sure the original C signature isn't</P>
+  <P>void GetHandle(HANDLE *h);</P>
+  <P>which would translate to</P>
+  <P>void GetHandle(out IntPtr handle);</P>
+  <P>?</P></DIV>
+  <UL class=history>
+    <LI><SPAN class=type>Proposed As Answer by</SPAN><A class=author 
+    title="About Louis.fr" 
+    href="http://social.msdn.microsoft.com/profile/louis.fr/?type=forum&amp;referrer=http://social.msdn.microsoft.com/Forums/en-US/csharplanguage/thread/32777688-b43f-4ea4-8e08-157b23abf3c6" 
+    rel=nofollow><SPAN>Louis.fr</SPAN><ABBR class=affil>Microsoft Community 
+    Contributor</ABBR></A><SPAN class=date>Sunday, July 11, 2010 2:53 
+    AM</SPAN></LI>
+    <LI><SPAN class=type>Marked As Answer by</SPAN><A class=author 
+    title="About Harry Zhu" 
+    href="http://social.msdn.microsoft.com/profile/harry%20zhu/?type=forum&amp;referrer=http://social.msdn.microsoft.com/Forums/en-US/csharplanguage/thread/32777688-b43f-4ea4-8e08-157b23abf3c6" 
+    rel=nofollow><SPAN>Harry Zhu</SPAN><ABBR 
+    class=affil>Moderator</ABBR></A><SPAN class=date>Monday, July 19, 2010 8:37 
+    AM</SPAN></LI>
+    <LI></LI></UL><INPUT id=5236a63f-098a-48b8-8a47-927848243693_attachments 
+  type=hidden></DIV>
+  <DIV class="menu message">
+  <UL class=menu>
+    <LI><A title=Reply 
+    href="https://login.live.com/login.srf?wa=wsignin1.0&amp;wtrealm=social.msdn.microsoft.com&amp;wreply=https%3a%2f%2fsocial.msdn.microsoft.com%2fForums%2fen-US%2fcsharplanguage%2fthread%2f32777688-b43f-4ea4-8e08-157b23abf3c6%3fprof%3drequired%26stoAI%3d10&amp;wp=MBI_FED_SSL&amp;wlcxt=microsoft%24microsoft%24microsoft" 
+    name=reply rel=nofollow><IMG class="icon reply" title=Reply alt=Reply 
+    src="Getting%20HANDLE%20as%20a%20returned%20parameter___files/trans.gif"><NOBR>Reply</NOBR></A></LI>
+    <LI><A title=Quote 
+    href="https://login.live.com/login.srf?wa=wsignin1.0&amp;wtrealm=social.msdn.microsoft.com&amp;wreply=https%3a%2f%2fsocial.msdn.microsoft.com%2fForums%2fen-US%2fcsharplanguage%2fthread%2f32777688-b43f-4ea4-8e08-157b23abf3c6%3fprof%3drequired%26stoAI%3d10&amp;wp=MBI_FED_SSL&amp;wlcxt=microsoft%24microsoft%24microsoft" 
+    name=quote rel=nofollow><IMG class="icon quote" title=Quote alt=Quote 
+    src="Getting%20HANDLE%20as%20a%20returned%20parameter___files/trans.gif"><NOBR>Quote</NOBR></A></LI></UL>
+  <DIV class=clear></DIV></DIV></LI>
+  <LI id=443623aa-f4aa-41af-a5d4-46ea63eed786 class="message answer">
+  <DIV class=head><SPAN class=date>Monday, July 12, 2010 12:26 AM</SPAN>
+  <DIV class=profile-usercard-mini 
+  data-profile-usercard-customLink="{&quot;href&quot;:&quot;http://social.msdn.microsoft.com/Forums/en-US/user/threads?user=Captain%20Kernel&quot;, &quot;text&quot;: &quot;Captain Kernel's threads&quot;}&#10;        " 
+  data-profile-userid="ae61b666-fe5f-4d90-908a-54e0262cddb3">
+  <DIV class=profile-mini-content></DIV>&nbsp;</DIV>
+  <DIV class=helpful>&nbsp;<IMG class="icon answer" title=Answer alt=Answer 
+  src="Getting%20HANDLE%20as%20a%20returned%20parameter___files/trans.gif"><IMG 
+  class="icon hascode" title="Has Code" alt="Has Code" 
+  src="Getting%20HANDLE%20as%20a%20returned%20parameter___files/trans.gif"></DIV></DIV>
+  <DIV class=votingouterbox>
+  <DIV class=voting><A class=voteuphreflink title="Vote As Helpful" 
+  href="https://login.live.com/login.srf?wa=wsignin1.0&amp;wtrealm=social.msdn.microsoft.com&amp;wreply=https%3a%2f%2fsocial.msdn.microsoft.com%2fForums%2fen-US%2fcsharplanguage%2fthread%2f32777688-b43f-4ea4-8e08-157b23abf3c6%3fprof%3drequired%26stoAI%3d10&amp;wp=MBI_FED_SSL&amp;wlcxt=microsoft%24microsoft%24microsoft" 
+  name=voteup><IMG class="icon voteup" title="Sign In to Vote" 
+  alt="Sign In to Vote" 
+  src="Getting%20HANDLE%20as%20a%20returned%20parameter___files/trans.gif">
+  <DIV class=votecount>0</DIV></A></DIV><SPAN class="votinglabel type"><A 
+  title="Sign In to Vote" 
+  href="https://login.live.com/login.srf?wa=wsignin1.0&amp;wtrealm=social.msdn.microsoft.com&amp;wreply=https%3a%2f%2fsocial.msdn.microsoft.com%2fForums%2fen-US%2fcsharplanguage%2fthread%2f32777688-b43f-4ea4-8e08-157b23abf3c6%3fprof%3drequired%26stoAI%3d10&amp;wp=MBI_FED_SSL&amp;wlcxt=microsoft%24microsoft%24microsoft">Sign 
+  In to Vote</A></SPAN></DIV>
+  <DIV class=container>
+  <DIV class=body>
+  <BLOCKQUOTE>Hello,<BR><BR>In my C# program I'm attempting to call Win32 
+    functions located inside a DLL.&nbsp; These functions are all specified 
+    using the standard Win32 data types such as DWORD, LPVOID, etc.&nbsp; I've 
+    been able to determine the C# equivalents for most of those I need and I've 
+    gotten the corresponding functions to work except for those using type 
+    HANDLE.&nbsp; For example, one of the functions gets an appropriate HANDLE 
+    then passes it back to the caller in a HANDLE parameter:<BR><BR>void 
+    GetHandle(HANDLE h);<BR><BR>My understanding is that the C# equivalent of 
+    HANDLE is System.IntPtr.&nbsp; It seems that appropriate approach would be 
+    to create an object of type System.Int (but there is no such type), then 
+    pass its address to GetHandle as follows:<BR><BR>System.Int 
+    obj;<BR>GetHandle(&amp;obj);<BR><BR>However, since there is no such 
+    System.Int type I tried the following instead:<BR><BR>System.Int32 
+    obj;<BR>GetHandle(&amp;obj);<BR><BR>However, that simply did not yield the 
+    correct results from GetHandle.&nbsp; I tried several other things but I 
+    really hate just "trying" things without actually knowing what I'm 
+    doing.&nbsp; So, what is the proper approach?&nbsp; I'd like this to work 
+    for both 32-bit and 64-bit Windows without having to change my code if 
+    possible.<BR><BR>Thanks,<BR>Ray</BLOCKQUOTE>
+  <P><BR>This is not making sense, the example you give is:</P>
+  <DIV style="BACKGROUND-COLOR: white; COLOR: black"><PRE><SPAN style="COLOR: blue">void</SPAN> GetHandle(HANDLE h);
+
+</PRE></DIV>
+  <P>If this is the signature of the unmanaged function, then there is no 
+  address, there is ONLY a handle and that handle is passed IN. No unmanaged 
+  function with that signature could modify the value of HANDLE as seen by the 
+  caller.</P>
+  <P>Let be clear, what EXACTLY is the function signature of the function you 
+  want to call, this is easy to solve once we know this.</P>
+  <P>Incidentally a HANDLE (In Windows) is NOT a pointer, it is not an address 
+  nor does the OS treat it as an address.</P>
+  <P>It is a 32 bit integer on 32-bit OS and a 64-bit integer on a 64-bit OS - 
+  it is stored in a HANDLE type which is defined as a void *.</P>
+  <P>However it is JUST a number, NOT a pointer, it is stored in a pointer for 
+  convenience because the size of a pointer is 32-bits on 32-bit OS and 64-bits 
+  on a 64-bit OS, if they used some other type (Int32, UInt64 and so on) then 
+  this would be the same size on both kinds of OS.</P>
+  <P>So think of a HANDLE as an integer whose size depends on the kind of 
+OS.</P>
+  <P>Cap'n</P>
+  <P>&nbsp;</P>
+  <P>&nbsp;</P></DIV>
+  <UL class=history>
+    <LI><SPAN class=type>Marked As Answer by</SPAN><A class=author 
+    title="About Harry Zhu" 
+    href="http://social.msdn.microsoft.com/profile/harry%20zhu/?type=forum&amp;referrer=http://social.msdn.microsoft.com/Forums/en-US/csharplanguage/thread/32777688-b43f-4ea4-8e08-157b23abf3c6" 
+    rel=nofollow><SPAN>Harry Zhu</SPAN><ABBR 
+    class=affil>Moderator</ABBR></A><SPAN class=date>Monday, July 19, 2010 8:37 
+    AM</SPAN></LI>
+    <LI></LI></UL><INPUT id=443623aa-f4aa-41af-a5d4-46ea63eed786_attachments 
+  type=hidden></DIV>
+  <DIV class="menu message">
+  <UL class=menu>
+    <LI><A title=Reply 
+    href="https://login.live.com/login.srf?wa=wsignin1.0&amp;wtrealm=social.msdn.microsoft.com&amp;wreply=https%3a%2f%2fsocial.msdn.microsoft.com%2fForums%2fen-US%2fcsharplanguage%2fthread%2f32777688-b43f-4ea4-8e08-157b23abf3c6%3fprof%3drequired%26stoAI%3d10&amp;wp=MBI_FED_SSL&amp;wlcxt=microsoft%24microsoft%24microsoft" 
+    name=reply rel=nofollow><IMG class="icon reply" title=Reply alt=Reply 
+    src="Getting%20HANDLE%20as%20a%20returned%20parameter___files/trans.gif"><NOBR>Reply</NOBR></A></LI>
+    <LI><A title=Quote 
+    href="https://login.live.com/login.srf?wa=wsignin1.0&amp;wtrealm=social.msdn.microsoft.com&amp;wreply=https%3a%2f%2fsocial.msdn.microsoft.com%2fForums%2fen-US%2fcsharplanguage%2fthread%2f32777688-b43f-4ea4-8e08-157b23abf3c6%3fprof%3drequired%26stoAI%3d10&amp;wp=MBI_FED_SSL&amp;wlcxt=microsoft%24microsoft%24microsoft" 
+    name=quote rel=nofollow><IMG class="icon quote" title=Quote alt=Quote 
+    src="Getting%20HANDLE%20as%20a%20returned%20parameter___files/trans.gif"><NOBR>Quote</NOBR></A></LI></UL>
+  <DIV class=clear></DIV></DIV></LI></UL></DIV>
+<DIV class=replies>
+<H3>All Replies</H3>
+<UL class=message>
+  <LI id=1e63679e-ec41-4252-b26c-f69e867ac0c0 class="message answer">
+  <DIV class=head><SPAN class=date>Saturday, July 10, 2010 11:26 PM</SPAN>
+  <DIV class=profile-usercard-mini 
+  data-profile-usercard-customLink="{&quot;href&quot;:&quot;http://social.msdn.microsoft.com/Forums/en-US/user/threads?user=Nishant%20Sivakumar&quot;, &quot;text&quot;: &quot;Nishant Sivakum...'s threads&quot;}&#10;        " 
+  data-profile-userid="16f96281-5a56-4030-b28a-99f8a53f38eb">
+  <DIV class=profile-mini-content>Moderator</DIV>&nbsp;</DIV>
+  <DIV class=helpful>&nbsp;<IMG class="icon answer" title=Answer alt=Answer 
+  src="Getting%20HANDLE%20as%20a%20returned%20parameter___files/trans.gif"></DIV></DIV>
+  <DIV class=votingouterbox>
+  <DIV class=voting><A class=voteuphreflink title="Vote As Helpful" 
+  href="https://login.live.com/login.srf?wa=wsignin1.0&amp;wtrealm=social.msdn.microsoft.com&amp;wreply=https%3a%2f%2fsocial.msdn.microsoft.com%2fForums%2fen-US%2fcsharplanguage%2fthread%2f32777688-b43f-4ea4-8e08-157b23abf3c6%3fprof%3drequired%26stoAI%3d10&amp;wp=MBI_FED_SSL&amp;wlcxt=microsoft%24microsoft%24microsoft" 
+  name=voteup><IMG class="icon voteup" title="Sign In to Vote" 
+  alt="Sign In to Vote" 
+  src="Getting%20HANDLE%20as%20a%20returned%20parameter___files/trans.gif">
+  <DIV class=votecount>0</DIV></A></DIV><SPAN class="votinglabel type"><A 
+  title="Sign In to Vote" 
+  href="https://login.live.com/login.srf?wa=wsignin1.0&amp;wtrealm=social.msdn.microsoft.com&amp;wreply=https%3a%2f%2fsocial.msdn.microsoft.com%2fForums%2fen-US%2fcsharplanguage%2fthread%2f32777688-b43f-4ea4-8e08-157b23abf3c6%3fprof%3drequired%26stoAI%3d10&amp;wp=MBI_FED_SSL&amp;wlcxt=microsoft%24microsoft%24microsoft">Sign 
+  In to Vote</A></SPAN></DIV>
+  <DIV class=container>
+  <DIV class=body>
+  <P>If the native C/C++ DLL actually has a function&nbsp;with that signature, 
+  then there's something wrong :</P>
+  <P>void GetHandle(HANDLE h)<BR>{<BR>&nbsp;h = GetDesktopWindow();<BR>}</P>
+  <P>void Foo()<BR>{<BR>&nbsp;HANDLE h = 0;<BR>&nbsp;GetHandle(h); // h will 
+  still be 0</P>
+  <P>A more workable soltion would be:</P>
+  <P>HANDLE GetHandle();</P>
+  <P>And in C# this would be:</P>
+  <P>IntPtr handle = GetHandle();</P>
+  <HR>
+  <A href="http://blog.voidnish.com/">http://blog.voidnish.com/</A></DIV>
+  <UL class=history>
+    <LI><SPAN class=type>Proposed As Answer by</SPAN><A class=author 
+    title="About Louis.fr" 
+    href="http://social.msdn.microsoft.com/profile/louis.fr/?type=forum&amp;referrer=http://social.msdn.microsoft.com/Forums/en-US/csharplanguage/thread/32777688-b43f-4ea4-8e08-157b23abf3c6" 
+    rel=nofollow><SPAN>Louis.fr</SPAN><ABBR class=affil>Microsoft Community 
+    Contributor</ABBR></A><SPAN class=date>Sunday, July 11, 2010 2:53 
+    AM</SPAN></LI>
+    <LI><SPAN class=type>Marked As Answer by</SPAN><A class=author 
+    title="About Harry Zhu" 
+    href="http://social.msdn.microsoft.com/profile/harry%20zhu/?type=forum&amp;referrer=http://social.msdn.microsoft.com/Forums/en-US/csharplanguage/thread/32777688-b43f-4ea4-8e08-157b23abf3c6" 
+    rel=nofollow><SPAN>Harry Zhu</SPAN><ABBR 
+    class=affil>Moderator</ABBR></A><SPAN class=date>Monday, July 19, 2010 8:37 
+    AM</SPAN></LI>
+    <LI></LI></UL><INPUT id=1e63679e-ec41-4252-b26c-f69e867ac0c0_attachments 
+  type=hidden></DIV>
+  <DIV class="menu message">
+  <UL class=menu>
+    <LI><A title=Reply 
+    href="https://login.live.com/login.srf?wa=wsignin1.0&amp;wtrealm=social.msdn.microsoft.com&amp;wreply=https%3a%2f%2fsocial.msdn.microsoft.com%2fForums%2fen-US%2fcsharplanguage%2fthread%2f32777688-b43f-4ea4-8e08-157b23abf3c6%3fprof%3drequired%26stoAI%3d10&amp;wp=MBI_FED_SSL&amp;wlcxt=microsoft%24microsoft%24microsoft" 
+    name=reply rel=nofollow><IMG class="icon reply" title=Reply alt=Reply 
+    src="Getting%20HANDLE%20as%20a%20returned%20parameter___files/trans.gif"><NOBR>Reply</NOBR></A></LI>
+    <LI><A title=Quote 
+    href="https://login.live.com/login.srf?wa=wsignin1.0&amp;wtrealm=social.msdn.microsoft.com&amp;wreply=https%3a%2f%2fsocial.msdn.microsoft.com%2fForums%2fen-US%2fcsharplanguage%2fthread%2f32777688-b43f-4ea4-8e08-157b23abf3c6%3fprof%3drequired%26stoAI%3d10&amp;wp=MBI_FED_SSL&amp;wlcxt=microsoft%24microsoft%24microsoft" 
+    name=quote rel=nofollow><IMG class="icon quote" title=Quote alt=Quote 
+    src="Getting%20HANDLE%20as%20a%20returned%20parameter___files/trans.gif"><NOBR>Quote</NOBR></A></LI></UL>
+  <DIV class=clear></DIV></DIV></LI>
+  <LI id=1f11e8f4-5fd8-445a-8646-f4cf2e439f08 class="message ">
+  <DIV class=head><SPAN class=date>Sunday, July 11, 2010 2:30 AM</SPAN>
+  <DIV class=profile-usercard-mini 
+  data-profile-usercard-customLink="{&quot;href&quot;:&quot;http://social.msdn.microsoft.com/Forums/en-US/user/threads?user=Benevolent%20Deity&quot;, &quot;text&quot;: &quot;Benevolent Deit...'s threads&quot;}&#10;        " 
+  data-profile-userid="7a869249-fe77-42ac-89d5-a486e5d84d8d">
+  <DIV class=profile-mini-content></DIV>&nbsp;</DIV>
+  <DIV class=helpful></DIV></DIV>
+  <DIV class=votingouterbox>
+  <DIV class=voting><A class=voteuphreflink title="Vote As Helpful" 
+  href="https://login.live.com/login.srf?wa=wsignin1.0&amp;wtrealm=social.msdn.microsoft.com&amp;wreply=https%3a%2f%2fsocial.msdn.microsoft.com%2fForums%2fen-US%2fcsharplanguage%2fthread%2f32777688-b43f-4ea4-8e08-157b23abf3c6%3fprof%3drequired%26stoAI%3d10&amp;wp=MBI_FED_SSL&amp;wlcxt=microsoft%24microsoft%24microsoft" 
+  name=voteup><IMG class="icon voteup" title="Sign In to Vote" 
+  alt="Sign In to Vote" 
+  src="Getting%20HANDLE%20as%20a%20returned%20parameter___files/trans.gif">
+  <DIV class=votecount>0</DIV></A></DIV><SPAN class="votinglabel type"><A 
+  title="Sign In to Vote" 
+  href="https://login.live.com/login.srf?wa=wsignin1.0&amp;wtrealm=social.msdn.microsoft.com&amp;wreply=https%3a%2f%2fsocial.msdn.microsoft.com%2fForums%2fen-US%2fcsharplanguage%2fthread%2f32777688-b43f-4ea4-8e08-157b23abf3c6%3fprof%3drequired%26stoAI%3d10&amp;wp=MBI_FED_SSL&amp;wlcxt=microsoft%24microsoft%24microsoft">Sign 
+  In to Vote</A></SPAN></DIV>
+  <DIV class=container>
+  <DIV class=body>
+  <P>Nishant,</P>
+  <P>I agree that a function returning a HANDLE would be preferable.&nbsp; 
+  However, the function I gave as an example is what I am stuck with using since 
+  it is already in&nbsp;the 3rd party DLL I am using.&nbsp; Therefore, I have no 
+  choice but to receive the HANDLE as a parameter rather than a return 
+value.</P>
+  <P>Ray</P></DIV><INPUT id=1f11e8f4-5fd8-445a-8646-f4cf2e439f08_attachments 
+  type=hidden></DIV>
+  <DIV class="menu message">
+  <UL class=menu>
+    <LI><A title=Reply 
+    href="https://login.live.com/login.srf?wa=wsignin1.0&amp;wtrealm=social.msdn.microsoft.com&amp;wreply=https%3a%2f%2fsocial.msdn.microsoft.com%2fForums%2fen-US%2fcsharplanguage%2fthread%2f32777688-b43f-4ea4-8e08-157b23abf3c6%3fprof%3drequired%26stoAI%3d10&amp;wp=MBI_FED_SSL&amp;wlcxt=microsoft%24microsoft%24microsoft" 
+    name=reply rel=nofollow><IMG class="icon reply" title=Reply alt=Reply 
+    src="Getting%20HANDLE%20as%20a%20returned%20parameter___files/trans.gif"><NOBR>Reply</NOBR></A></LI>
+    <LI><A title=Quote 
+    href="https://login.live.com/login.srf?wa=wsignin1.0&amp;wtrealm=social.msdn.microsoft.com&amp;wreply=https%3a%2f%2fsocial.msdn.microsoft.com%2fForums%2fen-US%2fcsharplanguage%2fthread%2f32777688-b43f-4ea4-8e08-157b23abf3c6%3fprof%3drequired%26stoAI%3d10&amp;wp=MBI_FED_SSL&amp;wlcxt=microsoft%24microsoft%24microsoft" 
+    name=quote rel=nofollow><IMG class="icon quote" title=Quote alt=Quote 
+    src="Getting%20HANDLE%20as%20a%20returned%20parameter___files/trans.gif"><NOBR>Quote</NOBR></A></LI></UL>
+  <DIV class=clear></DIV></DIV></LI>
+  <LI id=5236a63f-098a-48b8-8a47-927848243693 class="message answer">
+  <DIV class=head><SPAN class=date>Sunday, July 11, 2010 2:48 AM</SPAN>
+  <DIV class=profile-usercard-mini 
+  data-profile-usercard-customLink="{&quot;href&quot;:&quot;http://social.msdn.microsoft.com/Forums/en-US/user/threads?user=Ray%20M_&quot;, &quot;text&quot;: &quot;Ray M_'s threads&quot;}&#10;        " 
+  data-profile-userid="4038ba04-e340-4fd1-a8ca-cc94a78de66d">
+  <DIV class=profile-mini-content></DIV>&nbsp;</DIV>
+  <DIV class=helpful>&nbsp;<IMG class="icon answer" title=Answer alt=Answer 
+  src="Getting%20HANDLE%20as%20a%20returned%20parameter___files/trans.gif"></DIV></DIV>
+  <DIV class=votingouterbox>
+  <DIV class=voting><A class=voteuphreflink title="Vote As Helpful" 
+  href="https://login.live.com/login.srf?wa=wsignin1.0&amp;wtrealm=social.msdn.microsoft.com&amp;wreply=https%3a%2f%2fsocial.msdn.microsoft.com%2fForums%2fen-US%2fcsharplanguage%2fthread%2f32777688-b43f-4ea4-8e08-157b23abf3c6%3fprof%3drequired%26stoAI%3d10&amp;wp=MBI_FED_SSL&amp;wlcxt=microsoft%24microsoft%24microsoft" 
+  name=voteup><IMG class="icon voteup" title="Sign In to Vote" 
+  alt="Sign In to Vote" 
+  src="Getting%20HANDLE%20as%20a%20returned%20parameter___files/trans.gif">
+  <DIV class=votecount>0</DIV></A></DIV><SPAN class="votinglabel type"><A 
+  title="Sign In to Vote" 
+  href="https://login.live.com/login.srf?wa=wsignin1.0&amp;wtrealm=social.msdn.microsoft.com&amp;wreply=https%3a%2f%2fsocial.msdn.microsoft.com%2fForums%2fen-US%2fcsharplanguage%2fthread%2f32777688-b43f-4ea4-8e08-157b23abf3c6%3fprof%3drequired%26stoAI%3d10&amp;wp=MBI_FED_SSL&amp;wlcxt=microsoft%24microsoft%24microsoft">Sign 
+  In to Vote</A></SPAN></DIV>
+  <DIV class=container>
+  <DIV class=body>
+  <P>Well stuck with it or not the signature you gave can't ever return a value 
+  in h, not in C# not in C not in C++</P>
+  <P>Are you sure the original C signature isn't</P>
+  <P>void GetHandle(HANDLE *h);</P>
+  <P>which would translate to</P>
+  <P>void GetHandle(out IntPtr handle);</P>
+  <P>?</P></DIV>
+  <UL class=history>
+    <LI><SPAN class=type>Proposed As Answer by</SPAN><A class=author 
+    title="About Louis.fr" 
+    href="http://social.msdn.microsoft.com/profile/louis.fr/?type=forum&amp;referrer=http://social.msdn.microsoft.com/Forums/en-US/csharplanguage/thread/32777688-b43f-4ea4-8e08-157b23abf3c6" 
+    rel=nofollow><SPAN>Louis.fr</SPAN><ABBR class=affil>Microsoft Community 
+    Contributor</ABBR></A><SPAN class=date>Sunday, July 11, 2010 2:53 
+    AM</SPAN></LI>
+    <LI><SPAN class=type>Marked As Answer by</SPAN><A class=author 
+    title="About Harry Zhu" 
+    href="http://social.msdn.microsoft.com/profile/harry%20zhu/?type=forum&amp;referrer=http://social.msdn.microsoft.com/Forums/en-US/csharplanguage/thread/32777688-b43f-4ea4-8e08-157b23abf3c6" 
+    rel=nofollow><SPAN>Harry Zhu</SPAN><ABBR 
+    class=affil>Moderator</ABBR></A><SPAN class=date>Monday, July 19, 2010 8:37 
+    AM</SPAN></LI>
+    <LI></LI></UL><INPUT id=5236a63f-098a-48b8-8a47-927848243693_attachments 
+  type=hidden></DIV>
+  <DIV class="menu message">
+  <UL class=menu>
+    <LI><A title=Reply 
+    href="https://login.live.com/login.srf?wa=wsignin1.0&amp;wtrealm=social.msdn.microsoft.com&amp;wreply=https%3a%2f%2fsocial.msdn.microsoft.com%2fForums%2fen-US%2fcsharplanguage%2fthread%2f32777688-b43f-4ea4-8e08-157b23abf3c6%3fprof%3drequired%26stoAI%3d10&amp;wp=MBI_FED_SSL&amp;wlcxt=microsoft%24microsoft%24microsoft" 
+    name=reply rel=nofollow><IMG class="icon reply" title=Reply alt=Reply 
+    src="Getting%20HANDLE%20as%20a%20returned%20parameter___files/trans.gif"><NOBR>Reply</NOBR></A></LI>
+    <LI><A title=Quote 
+    href="https://login.live.com/login.srf?wa=wsignin1.0&amp;wtrealm=social.msdn.microsoft.com&amp;wreply=https%3a%2f%2fsocial.msdn.microsoft.com%2fForums%2fen-US%2fcsharplanguage%2fthread%2f32777688-b43f-4ea4-8e08-157b23abf3c6%3fprof%3drequired%26stoAI%3d10&amp;wp=MBI_FED_SSL&amp;wlcxt=microsoft%24microsoft%24microsoft" 
+    name=quote rel=nofollow><IMG class="icon quote" title=Quote alt=Quote 
+    src="Getting%20HANDLE%20as%20a%20returned%20parameter___files/trans.gif"><NOBR>Quote</NOBR></A></LI></UL>
+  <DIV class=clear></DIV></DIV></LI>
+  <LI id=bba28f50-f7d6-4ec5-910e-4608c550ce38 class="message ">
+  <DIV class=head><SPAN class=date>Sunday, July 11, 2010 4:16 AM</SPAN>
+  <DIV class=profile-usercard-mini 
+  data-profile-usercard-customLink="{&quot;href&quot;:&quot;http://social.msdn.microsoft.com/Forums/en-US/user/threads?user=Benevolent%20Deity&quot;, &quot;text&quot;: &quot;Benevolent Deit...'s threads&quot;}&#10;        " 
+  data-profile-userid="7a869249-fe77-42ac-89d5-a486e5d84d8d">
+  <DIV class=profile-mini-content></DIV>&nbsp;</DIV>
+  <DIV class=helpful></DIV></DIV>
+  <DIV class=votingouterbox>
+  <DIV class=voting><A class=voteuphreflink title="Vote As Helpful" 
+  href="https://login.live.com/login.srf?wa=wsignin1.0&amp;wtrealm=social.msdn.microsoft.com&amp;wreply=https%3a%2f%2fsocial.msdn.microsoft.com%2fForums%2fen-US%2fcsharplanguage%2fthread%2f32777688-b43f-4ea4-8e08-157b23abf3c6%3fprof%3drequired%26stoAI%3d10&amp;wp=MBI_FED_SSL&amp;wlcxt=microsoft%24microsoft%24microsoft" 
+  name=voteup><IMG class="icon voteup" title="Sign In to Vote" 
+  alt="Sign In to Vote" 
+  src="Getting%20HANDLE%20as%20a%20returned%20parameter___files/trans.gif">
+  <DIV class=votecount>0</DIV></A></DIV><SPAN class="votinglabel type"><A 
+  title="Sign In to Vote" 
+  href="https://login.live.com/login.srf?wa=wsignin1.0&amp;wtrealm=social.msdn.microsoft.com&amp;wreply=https%3a%2f%2fsocial.msdn.microsoft.com%2fForums%2fen-US%2fcsharplanguage%2fthread%2f32777688-b43f-4ea4-8e08-157b23abf3c6%3fprof%3drequired%26stoAI%3d10&amp;wp=MBI_FED_SSL&amp;wlcxt=microsoft%24microsoft%24microsoft">Sign 
+  In to Vote</A></SPAN></DIV>
+  <DIV class=container>
+  <DIV class=body>
+  <P>Nishant,</P>
+  <P>I must be missing something pretty basic then.&nbsp; Functions like scanf, 
+  time, fgetpos, etc. all have pointer parameters.&nbsp; When called these 
+  fucntions merely store something in the addresses specified by those 
+  parameters, then return.&nbsp; So, if type HANDLE is really nothing more than 
+  a pointer type, why can't a function that has a type HANDLE parameter store 
+  something in the address specified by that parameter in the same way?&nbsp; In 
+  all cases, of course, that pointer better point to a valid object before the 
+  call is made.</P>
+  <P>Ray</P></DIV><INPUT id=bba28f50-f7d6-4ec5-910e-4608c550ce38_attachments 
+  type=hidden></DIV>
+  <DIV class="menu message">
+  <UL class=menu>
+    <LI><A title=Reply 
+    href="https://login.live.com/login.srf?wa=wsignin1.0&amp;wtrealm=social.msdn.microsoft.com&amp;wreply=https%3a%2f%2fsocial.msdn.microsoft.com%2fForums%2fen-US%2fcsharplanguage%2fthread%2f32777688-b43f-4ea4-8e08-157b23abf3c6%3fprof%3drequired%26stoAI%3d10&amp;wp=MBI_FED_SSL&amp;wlcxt=microsoft%24microsoft%24microsoft" 
+    name=reply rel=nofollow><IMG class="icon reply" title=Reply alt=Reply 
+    src="Getting%20HANDLE%20as%20a%20returned%20parameter___files/trans.gif"><NOBR>Reply</NOBR></A></LI>
+    <LI><A title=Quote 
+    href="https://login.live.com/login.srf?wa=wsignin1.0&amp;wtrealm=social.msdn.microsoft.com&amp;wreply=https%3a%2f%2fsocial.msdn.microsoft.com%2fForums%2fen-US%2fcsharplanguage%2fthread%2f32777688-b43f-4ea4-8e08-157b23abf3c6%3fprof%3drequired%26stoAI%3d10&amp;wp=MBI_FED_SSL&amp;wlcxt=microsoft%24microsoft%24microsoft" 
+    name=quote rel=nofollow><IMG class="icon quote" title=Quote alt=Quote 
+    src="Getting%20HANDLE%20as%20a%20returned%20parameter___files/trans.gif"><NOBR>Quote</NOBR></A></LI></UL>
+  <DIV class=clear></DIV></DIV></LI>
+  <LI id=9f10482a-0ac8-4bf6-b17b-da8058ecee11 class="message ">
+  <DIV class=head><SPAN class=date>Sunday, July 11, 2010 4:21 AM</SPAN>
+  <DIV class=profile-usercard-mini 
+  data-profile-usercard-customLink="{&quot;href&quot;:&quot;http://social.msdn.microsoft.com/Forums/en-US/user/threads?user=Nishant%20Sivakumar&quot;, &quot;text&quot;: &quot;Nishant Sivakum...'s threads&quot;}&#10;        " 
+  data-profile-userid="16f96281-5a56-4030-b28a-99f8a53f38eb">
+  <DIV class=profile-mini-content>Moderator</DIV>&nbsp;</DIV>
+  <DIV class=helpful></DIV></DIV>
+  <DIV class=votingouterbox>
+  <DIV class=voting><A class=voteuphreflink title="Vote As Helpful" 
+  href="https://login.live.com/login.srf?wa=wsignin1.0&amp;wtrealm=social.msdn.microsoft.com&amp;wreply=https%3a%2f%2fsocial.msdn.microsoft.com%2fForums%2fen-US%2fcsharplanguage%2fthread%2f32777688-b43f-4ea4-8e08-157b23abf3c6%3fprof%3drequired%26stoAI%3d10&amp;wp=MBI_FED_SSL&amp;wlcxt=microsoft%24microsoft%24microsoft" 
+  name=voteup><IMG class="icon voteup" title="Sign In to Vote" 
+  alt="Sign In to Vote" 
+  src="Getting%20HANDLE%20as%20a%20returned%20parameter___files/trans.gif">
+  <DIV class=votecount>0</DIV></A></DIV><SPAN class="votinglabel type"><A 
+  title="Sign In to Vote" 
+  href="https://login.live.com/login.srf?wa=wsignin1.0&amp;wtrealm=social.msdn.microsoft.com&amp;wreply=https%3a%2f%2fsocial.msdn.microsoft.com%2fForums%2fen-US%2fcsharplanguage%2fthread%2f32777688-b43f-4ea4-8e08-157b23abf3c6%3fprof%3drequired%26stoAI%3d10&amp;wp=MBI_FED_SSL&amp;wlcxt=microsoft%24microsoft%24microsoft">Sign 
+  In to Vote</A></SPAN></DIV>
+  <DIV class=container>
+  <DIV class=body>While it's common for HANDLE to be a typedef for void*, it's 
+  not guaranteed. All that's guaranteed is that sizeof(HANDLE) is equal to 
+  sizeof(void*). You'll find that HANDLE arguments are rarely used as a pointer. 
+  In your example, the HANDLE is passed by value. So it cannot be used to return 
+  a value back from the function.
+  <HR class=sig>
+  <A href="http://blog.voidnish.com/">http://blog.voidnish.com/</A></DIV><INPUT 
+  id=9f10482a-0ac8-4bf6-b17b-da8058ecee11_attachments type=hidden></DIV>
+  <DIV class="menu message">
+  <UL class=menu>
+    <LI><A title=Reply 
+    href="https://login.live.com/login.srf?wa=wsignin1.0&amp;wtrealm=social.msdn.microsoft.com&amp;wreply=https%3a%2f%2fsocial.msdn.microsoft.com%2fForums%2fen-US%2fcsharplanguage%2fthread%2f32777688-b43f-4ea4-8e08-157b23abf3c6%3fprof%3drequired%26stoAI%3d10&amp;wp=MBI_FED_SSL&amp;wlcxt=microsoft%24microsoft%24microsoft" 
+    name=reply rel=nofollow><IMG class="icon reply" title=Reply alt=Reply 
+    src="Getting%20HANDLE%20as%20a%20returned%20parameter___files/trans.gif"><NOBR>Reply</NOBR></A></LI>
+    <LI><A title=Quote 
+    href="https://login.live.com/login.srf?wa=wsignin1.0&amp;wtrealm=social.msdn.microsoft.com&amp;wreply=https%3a%2f%2fsocial.msdn.microsoft.com%2fForums%2fen-US%2fcsharplanguage%2fthread%2f32777688-b43f-4ea4-8e08-157b23abf3c6%3fprof%3drequired%26stoAI%3d10&amp;wp=MBI_FED_SSL&amp;wlcxt=microsoft%24microsoft%24microsoft" 
+    name=quote rel=nofollow><IMG class="icon quote" title=Quote alt=Quote 
+    src="Getting%20HANDLE%20as%20a%20returned%20parameter___files/trans.gif"><NOBR>Quote</NOBR></A></LI></UL>
+  <DIV class=clear></DIV></DIV></LI>
+  <LI id=d757d442-5916-4513-a13a-c0c406fb6550 class="message ">
+  <DIV class=head><SPAN class=date>Sunday, July 11, 2010 4:41 AM</SPAN>
+  <DIV class=profile-usercard-mini 
+  data-profile-usercard-customLink="{&quot;href&quot;:&quot;http://social.msdn.microsoft.com/Forums/en-US/user/threads?user=Benevolent%20Deity&quot;, &quot;text&quot;: &quot;Benevolent Deit...'s threads&quot;}&#10;        " 
+  data-profile-userid="7a869249-fe77-42ac-89d5-a486e5d84d8d">
+  <DIV class=profile-mini-content></DIV>&nbsp;</DIV>
+  <DIV class=helpful></DIV></DIV>
+  <DIV class=votingouterbox>
+  <DIV class=voting><A class=voteuphreflink title="Vote As Helpful" 
+  href="https://login.live.com/login.srf?wa=wsignin1.0&amp;wtrealm=social.msdn.microsoft.com&amp;wreply=https%3a%2f%2fsocial.msdn.microsoft.com%2fForums%2fen-US%2fcsharplanguage%2fthread%2f32777688-b43f-4ea4-8e08-157b23abf3c6%3fprof%3drequired%26stoAI%3d10&amp;wp=MBI_FED_SSL&amp;wlcxt=microsoft%24microsoft%24microsoft" 
+  name=voteup><IMG class="icon voteup" title="Sign In to Vote" 
+  alt="Sign In to Vote" 
+  src="Getting%20HANDLE%20as%20a%20returned%20parameter___files/trans.gif">
+  <DIV class=votecount>0</DIV></A></DIV><SPAN class="votinglabel type"><A 
+  title="Sign In to Vote" 
+  href="https://login.live.com/login.srf?wa=wsignin1.0&amp;wtrealm=social.msdn.microsoft.com&amp;wreply=https%3a%2f%2fsocial.msdn.microsoft.com%2fForums%2fen-US%2fcsharplanguage%2fthread%2f32777688-b43f-4ea4-8e08-157b23abf3c6%3fprof%3drequired%26stoAI%3d10&amp;wp=MBI_FED_SSL&amp;wlcxt=microsoft%24microsoft%24microsoft">Sign 
+  In to Vote</A></SPAN></DIV>
+  <DIV class=container>
+  <DIV class=body>
+  <P>Thanks Nushant,</P>
+  <P>But I'm afraid that this brings me back to my original issue.&nbsp; Since 
+  the 3rd party DLL vendor has chosen to use HANDLE as a parameter, it's 
+  obviously being used as a pointer in this case.&nbsp; Of course, 
+  simply&nbsp;knowing that it is a void * doesn't really help.&nbsp; Since there 
+  must be a real object type hidden beneath that void * somewhere, my task is to 
+  discover what type it is and provide a pointer to that type as an 
+  argument.&nbsp; From what I can gather from Web searches it is likely to be 
+  and Int32 (maybe an Int64 for 64-bit Windows?), but I don't seem to be able to 
+  get that to work properly.&nbsp; I suppose I can contact the vendor, but I'm 
+  sure you already know the futility of trying to discuss something at this 
+  level with anyone at tech support:-)</P>
+  <P>Thanks for your help,<BR>Ray</P>
+  <P>&nbsp;</P></DIV><INPUT id=d757d442-5916-4513-a13a-c0c406fb6550_attachments 
+  type=hidden></DIV>
+  <DIV class="menu message">
+  <UL class=menu>
+    <LI><A title=Reply 
+    href="https://login.live.com/login.srf?wa=wsignin1.0&amp;wtrealm=social.msdn.microsoft.com&amp;wreply=https%3a%2f%2fsocial.msdn.microsoft.com%2fForums%2fen-US%2fcsharplanguage%2fthread%2f32777688-b43f-4ea4-8e08-157b23abf3c6%3fprof%3drequired%26stoAI%3d10&amp;wp=MBI_FED_SSL&amp;wlcxt=microsoft%24microsoft%24microsoft" 
+    name=reply rel=nofollow><IMG class="icon reply" title=Reply alt=Reply 
+    src="Getting%20HANDLE%20as%20a%20returned%20parameter___files/trans.gif"><NOBR>Reply</NOBR></A></LI>
+    <LI><A title=Quote 
+    href="https://login.live.com/login.srf?wa=wsignin1.0&amp;wtrealm=social.msdn.microsoft.com&amp;wreply=https%3a%2f%2fsocial.msdn.microsoft.com%2fForums%2fen-US%2fcsharplanguage%2fthread%2f32777688-b43f-4ea4-8e08-157b23abf3c6%3fprof%3drequired%26stoAI%3d10&amp;wp=MBI_FED_SSL&amp;wlcxt=microsoft%24microsoft%24microsoft" 
+    name=quote rel=nofollow><IMG class="icon quote" title=Quote alt=Quote 
+    src="Getting%20HANDLE%20as%20a%20returned%20parameter___files/trans.gif"><NOBR>Quote</NOBR></A></LI></UL>
+  <DIV class=clear></DIV></DIV></LI>
+  <LI id=2bd4659a-eb80-467c-9c61-fa9a17579b60 class="message ">
+  <DIV class=head><SPAN class=date>Sunday, July 11, 2010 4:51 AM</SPAN>
+  <DIV class=profile-usercard-mini 
+  data-profile-usercard-customLink="{&quot;href&quot;:&quot;http://social.msdn.microsoft.com/Forums/en-US/user/threads?user=Nishant%20Sivakumar&quot;, &quot;text&quot;: &quot;Nishant Sivakum...'s threads&quot;}&#10;        " 
+  data-profile-userid="16f96281-5a56-4030-b28a-99f8a53f38eb">
+  <DIV class=profile-mini-content>Moderator</DIV>&nbsp;</DIV>
+  <DIV class=helpful></DIV></DIV>
+  <DIV class=votingouterbox>
+  <DIV class=voting><A class=voteuphreflink title="Vote As Helpful" 
+  href="https://login.live.com/login.srf?wa=wsignin1.0&amp;wtrealm=social.msdn.microsoft.com&amp;wreply=https%3a%2f%2fsocial.msdn.microsoft.com%2fForums%2fen-US%2fcsharplanguage%2fthread%2f32777688-b43f-4ea4-8e08-157b23abf3c6%3fprof%3drequired%26stoAI%3d10&amp;wp=MBI_FED_SSL&amp;wlcxt=microsoft%24microsoft%24microsoft" 
+  name=voteup><IMG class="icon voteup" title="Sign In to Vote" 
+  alt="Sign In to Vote" 
+  src="Getting%20HANDLE%20as%20a%20returned%20parameter___files/trans.gif">
+  <DIV class=votecount>0</DIV></A></DIV><SPAN class="votinglabel type"><A 
+  title="Sign In to Vote" 
+  href="https://login.live.com/login.srf?wa=wsignin1.0&amp;wtrealm=social.msdn.microsoft.com&amp;wreply=https%3a%2f%2fsocial.msdn.microsoft.com%2fForums%2fen-US%2fcsharplanguage%2fthread%2f32777688-b43f-4ea4-8e08-157b23abf3c6%3fprof%3drequired%26stoAI%3d10&amp;wp=MBI_FED_SSL&amp;wlcxt=microsoft%24microsoft%24microsoft">Sign 
+  In to Vote</A></SPAN></DIV>
+  <DIV class=container>
+  <DIV class=body>
+  <P>Assuming that's so, you still need to know what the method does or returns. 
+  And what you could do is use the Marshal class and allocate some memory equal 
+  to sizeof(HANDLE), and then pass an IntPtr that represents this allocated 
+  native memory to your 3rd party method. Assuming that&nbsp;your idea that it 
+  uses it as a pointer is correct, then when the function ends, the memory 
+  pointed to by the IntPtr will itself be a pointer to some struct or other data 
+  format created or allocated by the native method. How you use it depends on 
+  what that data is. Your best bet is to get some example native code that calls 
+  and uses this DLL. Then you will have a much better idea of what to do to port 
+  to C#.</P>
+  <P>Once again, I don't personally believe that any decent 3rd party library 
+  would ever use a HANDLE in such a manner. So my above answer was purely 
+  hypothetical so as to let me go along with your train of&nbsp;thought :-)</P>
+  <HR class=sig>
+  <A href="http://blog.voidnish.com/">http://blog.voidnish.com/</A></DIV><INPUT 
+  id=2bd4659a-eb80-467c-9c61-fa9a17579b60_attachments type=hidden></DIV>
+  <DIV class="menu message">
+  <UL class=menu>
+    <LI><A title=Reply 
+    href="https://login.live.com/login.srf?wa=wsignin1.0&amp;wtrealm=social.msdn.microsoft.com&amp;wreply=https%3a%2f%2fsocial.msdn.microsoft.com%2fForums%2fen-US%2fcsharplanguage%2fthread%2f32777688-b43f-4ea4-8e08-157b23abf3c6%3fprof%3drequired%26stoAI%3d10&amp;wp=MBI_FED_SSL&amp;wlcxt=microsoft%24microsoft%24microsoft" 
+    name=reply rel=nofollow><IMG class="icon reply" title=Reply alt=Reply 
+    src="Getting%20HANDLE%20as%20a%20returned%20parameter___files/trans.gif"><NOBR>Reply</NOBR></A></LI>
+    <LI><A title=Quote 
+    href="https://login.live.com/login.srf?wa=wsignin1.0&amp;wtrealm=social.msdn.microsoft.com&amp;wreply=https%3a%2f%2fsocial.msdn.microsoft.com%2fForums%2fen-US%2fcsharplanguage%2fthread%2f32777688-b43f-4ea4-8e08-157b23abf3c6%3fprof%3drequired%26stoAI%3d10&amp;wp=MBI_FED_SSL&amp;wlcxt=microsoft%24microsoft%24microsoft" 
+    name=quote rel=nofollow><IMG class="icon quote" title=Quote alt=Quote 
+    src="Getting%20HANDLE%20as%20a%20returned%20parameter___files/trans.gif"><NOBR>Quote</NOBR></A></LI></UL>
+  <DIV class=clear></DIV></DIV></LI>
+  <LI id=443623aa-f4aa-41af-a5d4-46ea63eed786 class="message answer">
+  <DIV class=head><SPAN class=date>Monday, July 12, 2010 12:26 AM</SPAN>
+  <DIV class=profile-usercard-mini 
+  data-profile-usercard-customLink="{&quot;href&quot;:&quot;http://social.msdn.microsoft.com/Forums/en-US/user/threads?user=Captain%20Kernel&quot;, &quot;text&quot;: &quot;Captain Kernel's threads&quot;}&#10;        " 
+  data-profile-userid="ae61b666-fe5f-4d90-908a-54e0262cddb3">
+  <DIV class=profile-mini-content></DIV>&nbsp;</DIV>
+  <DIV class=helpful>&nbsp;<IMG class="icon answer" title=Answer alt=Answer 
+  src="Getting%20HANDLE%20as%20a%20returned%20parameter___files/trans.gif"><IMG 
+  class="icon hascode" title="Has Code" alt="Has Code" 
+  src="Getting%20HANDLE%20as%20a%20returned%20parameter___files/trans.gif"></DIV></DIV>
+  <DIV class=votingouterbox>
+  <DIV class=voting><A class=voteuphreflink title="Vote As Helpful" 
+  href="https://login.live.com/login.srf?wa=wsignin1.0&amp;wtrealm=social.msdn.microsoft.com&amp;wreply=https%3a%2f%2fsocial.msdn.microsoft.com%2fForums%2fen-US%2fcsharplanguage%2fthread%2f32777688-b43f-4ea4-8e08-157b23abf3c6%3fprof%3drequired%26stoAI%3d10&amp;wp=MBI_FED_SSL&amp;wlcxt=microsoft%24microsoft%24microsoft" 
+  name=voteup><IMG class="icon voteup" title="Sign In to Vote" 
+  alt="Sign In to Vote" 
+  src="Getting%20HANDLE%20as%20a%20returned%20parameter___files/trans.gif">
+  <DIV class=votecount>0</DIV></A></DIV><SPAN class="votinglabel type"><A 
+  title="Sign In to Vote" 
+  href="https://login.live.com/login.srf?wa=wsignin1.0&amp;wtrealm=social.msdn.microsoft.com&amp;wreply=https%3a%2f%2fsocial.msdn.microsoft.com%2fForums%2fen-US%2fcsharplanguage%2fthread%2f32777688-b43f-4ea4-8e08-157b23abf3c6%3fprof%3drequired%26stoAI%3d10&amp;wp=MBI_FED_SSL&amp;wlcxt=microsoft%24microsoft%24microsoft">Sign 
+  In to Vote</A></SPAN></DIV>
+  <DIV class=container>
+  <DIV class=body>
+  <BLOCKQUOTE>Hello,<BR><BR>In my C# program I'm attempting to call Win32 
+    functions located inside a DLL.&nbsp; These functions are all specified 
+    using the standard Win32 data types such as DWORD, LPVOID, etc.&nbsp; I've 
+    been able to determine the C# equivalents for most of those I need and I've 
+    gotten the corresponding functions to work except for those using type 
+    HANDLE.&nbsp; For example, one of the functions gets an appropriate HANDLE 
+    then passes it back to the caller in a HANDLE parameter:<BR><BR>void 
+    GetHandle(HANDLE h);<BR><BR>My understanding is that the C# equivalent of 
+    HANDLE is System.IntPtr.&nbsp; It seems that appropriate approach would be 
+    to create an object of type System.Int (but there is no such type), then 
+    pass its address to GetHandle as follows:<BR><BR>System.Int 
+    obj;<BR>GetHandle(&amp;obj);<BR><BR>However, since there is no such 
+    System.Int type I tried the following instead:<BR><BR>System.Int32 
+    obj;<BR>GetHandle(&amp;obj);<BR><BR>However, that simply did not yield the 
+    correct results from GetHandle.&nbsp; I tried several other things but I 
+    really hate just "trying" things without actually knowing what I'm 
+    doing.&nbsp; So, what is the proper approach?&nbsp; I'd like this to work 
+    for both 32-bit and 64-bit Windows without having to change my code if 
+    possible.<BR><BR>Thanks,<BR>Ray</BLOCKQUOTE>
+  <P><BR>This is not making sense, the example you give is:</P>
+  <DIV style="BACKGROUND-COLOR: white; COLOR: black"><PRE><SPAN style="COLOR: blue">void</SPAN> GetHandle(HANDLE h);
+
+</PRE></DIV>
+  <P>If this is the signature of the unmanaged function, then there is no 
+  address, there is ONLY a handle and that handle is passed IN. No unmanaged 
+  function with that signature could modify the value of HANDLE as seen by the 
+  caller.</P>
+  <P>Let be clear, what EXACTLY is the function signature of the function you 
+  want to call, this is easy to solve once we know this.</P>
+  <P>Incidentally a HANDLE (In Windows) is NOT a pointer, it is not an address 
+  nor does the OS treat it as an address.</P>
+  <P>It is a 32 bit integer on 32-bit OS and a 64-bit integer on a 64-bit OS - 
+  it is stored in a HANDLE type which is defined as a void *.</P>
+  <P>However it is JUST a number, NOT a pointer, it is stored in a pointer for 
+  convenience because the size of a pointer is 32-bits on 32-bit OS and 64-bits 
+  on a 64-bit OS, if they used some other type (Int32, UInt64 and so on) then 
+  this would be the same size on both kinds of OS.</P>
+  <P>So think of a HANDLE as an integer whose size depends on the kind of 
+OS.</P>
+  <P>Cap'n</P>
+  <P>&nbsp;</P>
+  <P>&nbsp;</P></DIV>
+  <UL class=history>
+    <LI><SPAN class=type>Marked As Answer by</SPAN><A class=author 
+    title="About Harry Zhu" 
+    href="http://social.msdn.microsoft.com/profile/harry%20zhu/?type=forum&amp;referrer=http://social.msdn.microsoft.com/Forums/en-US/csharplanguage/thread/32777688-b43f-4ea4-8e08-157b23abf3c6" 
+    rel=nofollow><SPAN>Harry Zhu</SPAN><ABBR 
+    class=affil>Moderator</ABBR></A><SPAN class=date>Monday, July 19, 2010 8:37 
+    AM</SPAN></LI>
+    <LI></LI></UL><INPUT id=443623aa-f4aa-41af-a5d4-46ea63eed786_attachments 
+  type=hidden></DIV>
+  <DIV class="menu message">
+  <UL class=menu>
+    <LI><A title=Reply 
+    href="https://login.live.com/login.srf?wa=wsignin1.0&amp;wtrealm=social.msdn.microsoft.com&amp;wreply=https%3a%2f%2fsocial.msdn.microsoft.com%2fForums%2fen-US%2fcsharplanguage%2fthread%2f32777688-b43f-4ea4-8e08-157b23abf3c6%3fprof%3drequired%26stoAI%3d10&amp;wp=MBI_FED_SSL&amp;wlcxt=microsoft%24microsoft%24microsoft" 
+    name=reply rel=nofollow><IMG class="icon reply" title=Reply alt=Reply 
+    src="Getting%20HANDLE%20as%20a%20returned%20parameter___files/trans.gif"><NOBR>Reply</NOBR></A></LI>
+    <LI><A title=Quote 
+    href="https://login.live.com/login.srf?wa=wsignin1.0&amp;wtrealm=social.msdn.microsoft.com&amp;wreply=https%3a%2f%2fsocial.msdn.microsoft.com%2fForums%2fen-US%2fcsharplanguage%2fthread%2f32777688-b43f-4ea4-8e08-157b23abf3c6%3fprof%3drequired%26stoAI%3d10&amp;wp=MBI_FED_SSL&amp;wlcxt=microsoft%24microsoft%24microsoft" 
+    name=quote rel=nofollow><IMG class="icon quote" title=Quote alt=Quote 
+    src="Getting%20HANDLE%20as%20a%20returned%20parameter___files/trans.gif"><NOBR>Quote</NOBR></A></LI></UL>
+  <DIV class=clear></DIV></DIV></LI>
+  <LI id=6bd23bf2-4638-44fc-8a86-728f40a4c973 class="message ">
+  <DIV class=head><SPAN class=date>Monday, July 19, 2010 11:44 AM</SPAN>
+  <DIV class=profile-usercard-mini 
+  data-profile-usercard-customLink="{&quot;href&quot;:&quot;http://social.msdn.microsoft.com/Forums/en-US/user/threads?user=Captain%20Kernel&quot;, &quot;text&quot;: &quot;Captain Kernel's threads&quot;}&#10;        " 
+  data-profile-userid="ae61b666-fe5f-4d90-908a-54e0262cddb3">
+  <DIV class=profile-mini-content></DIV>&nbsp;</DIV>
+  <DIV class=helpful></DIV></DIV>
+  <DIV class=votingouterbox>
+  <DIV class=voting><A class=voteuphreflink title="Vote As Helpful" 
+  href="https://login.live.com/login.srf?wa=wsignin1.0&amp;wtrealm=social.msdn.microsoft.com&amp;wreply=https%3a%2f%2fsocial.msdn.microsoft.com%2fForums%2fen-US%2fcsharplanguage%2fthread%2f32777688-b43f-4ea4-8e08-157b23abf3c6%3fprof%3drequired%26stoAI%3d10&amp;wp=MBI_FED_SSL&amp;wlcxt=microsoft%24microsoft%24microsoft" 
+  name=voteup><IMG class="icon voteup" title="Sign In to Vote" 
+  alt="Sign In to Vote" 
+  src="Getting%20HANDLE%20as%20a%20returned%20parameter___files/trans.gif">
+  <DIV class=votecount>0</DIV></A></DIV><SPAN class="votinglabel type"><A 
+  title="Sign In to Vote" 
+  href="https://login.live.com/login.srf?wa=wsignin1.0&amp;wtrealm=social.msdn.microsoft.com&amp;wreply=https%3a%2f%2fsocial.msdn.microsoft.com%2fForums%2fen-US%2fcsharplanguage%2fthread%2f32777688-b43f-4ea4-8e08-157b23abf3c6%3fprof%3drequired%26stoAI%3d10&amp;wp=MBI_FED_SSL&amp;wlcxt=microsoft%24microsoft%24microsoft">Sign 
+  In to Vote</A></SPAN></DIV>
+  <DIV class=container>
+  <DIV class=body>
+  <BLOCKQUOTE>
+    <P>Nishant,</P>
+    <P>I must be missing something pretty basic then.&nbsp; Functions like 
+    scanf, time, fgetpos, etc. all have pointer parameters.&nbsp; When called 
+    these fucntions merely store something in the addresses specified by those 
+    parameters, then return.&nbsp; So, if type HANDLE is really nothing more 
+    than a pointer type, why can't a function that has a type HANDLE parameter 
+    store something in the address specified by that parameter in the same 
+    way?&nbsp; In all cases, of course, that pointer better point to a valid 
+    object before the call is made.</P>
+    <P>Ray</P></BLOCKQUOTE>
+  <P><BR>You are missing something - A HANDLE is not a pointer, period. (it just 
+  happens to be convenient to store then in void * variables). They are not 
+  pointers, they cannot be dereferenced or used for address calculations. Just 
+  pretend that HANDLE is like DWORD, just a type for storing a number and never 
+  used or treated as a pointer.</P>
+  <P>This is the cause of your confusion.</P>
+  <P>Cap'n</P>
+  <P>&nbsp;</P></DIV><INPUT id=6bd23bf2-4638-44fc-8a86-728f40a4c973_attachments 
+  type=hidden></DIV>
+  <DIV class="menu message">
+  <UL class=menu>
+    <LI><A title=Reply 
+    href="https://login.live.com/login.srf?wa=wsignin1.0&amp;wtrealm=social.msdn.microsoft.com&amp;wreply=https%3a%2f%2fsocial.msdn.microsoft.com%2fForums%2fen-US%2fcsharplanguage%2fthread%2f32777688-b43f-4ea4-8e08-157b23abf3c6%3fprof%3drequired%26stoAI%3d10&amp;wp=MBI_FED_SSL&amp;wlcxt=microsoft%24microsoft%24microsoft" 
+    name=reply rel=nofollow><IMG class="icon reply" title=Reply alt=Reply 
+    src="Getting%20HANDLE%20as%20a%20returned%20parameter___files/trans.gif"><NOBR>Reply</NOBR></A></LI>
+    <LI><A title=Quote 
+    href="https://login.live.com/login.srf?wa=wsignin1.0&amp;wtrealm=social.msdn.microsoft.com&amp;wreply=https%3a%2f%2fsocial.msdn.microsoft.com%2fForums%2fen-US%2fcsharplanguage%2fthread%2f32777688-b43f-4ea4-8e08-157b23abf3c6%3fprof%3drequired%26stoAI%3d10&amp;wp=MBI_FED_SSL&amp;wlcxt=microsoft%24microsoft%24microsoft" 
+    name=quote rel=nofollow><IMG class="icon quote" title=Quote alt=Quote 
+    src="Getting%20HANDLE%20as%20a%20returned%20parameter___files/trans.gif"><NOBR>Quote</NOBR></A></LI></UL>
+  <DIV class=clear></DIV></DIV></LI>
+  <LI id=958242e0-4f82-432f-bc67-c68c847eaeb2 class="message ">
+  <DIV class=head><SPAN class=date>Monday, July 19, 2010 11:51 AM</SPAN>
+  <DIV class=profile-usercard-mini 
+  data-profile-usercard-customLink="{&quot;href&quot;:&quot;http://social.msdn.microsoft.com/Forums/en-US/user/threads?user=Captain%20Kernel&quot;, &quot;text&quot;: &quot;Captain Kernel's threads&quot;}&#10;        " 
+  data-profile-userid="ae61b666-fe5f-4d90-908a-54e0262cddb3">
+  <DIV class=profile-mini-content></DIV>&nbsp;</DIV>
+  <DIV class=helpful></DIV></DIV>
+  <DIV class=votingouterbox>
+  <DIV class=voting><A class=voteuphreflink title="Vote As Helpful" 
+  href="https://login.live.com/login.srf?wa=wsignin1.0&amp;wtrealm=social.msdn.microsoft.com&amp;wreply=https%3a%2f%2fsocial.msdn.microsoft.com%2fForums%2fen-US%2fcsharplanguage%2fthread%2f32777688-b43f-4ea4-8e08-157b23abf3c6%3fprof%3drequired%26stoAI%3d10&amp;wp=MBI_FED_SSL&amp;wlcxt=microsoft%24microsoft%24microsoft" 
+  name=voteup><IMG class="icon voteup" title="Sign In to Vote" 
+  alt="Sign In to Vote" 
+  src="Getting%20HANDLE%20as%20a%20returned%20parameter___files/trans.gif">
+  <DIV class=votecount>0</DIV></A></DIV><SPAN class="votinglabel type"><A 
+  title="Sign In to Vote" 
+  href="https://login.live.com/login.srf?wa=wsignin1.0&amp;wtrealm=social.msdn.microsoft.com&amp;wreply=https%3a%2f%2fsocial.msdn.microsoft.com%2fForums%2fen-US%2fcsharplanguage%2fthread%2f32777688-b43f-4ea4-8e08-157b23abf3c6%3fprof%3drequired%26stoAI%3d10&amp;wp=MBI_FED_SSL&amp;wlcxt=microsoft%24microsoft%24microsoft">Sign 
+  In to Vote</A></SPAN></DIV>
+  <DIV class=container>
+  <DIV class=body>
+  <BLOCKQUOTE>
+    <P>Thanks Nushant,</P>
+    <P>But I'm afraid that this brings me back to my original issue.&nbsp; Since 
+    the 3rd party DLL vendor has chosen to use HANDLE as a parameter, it's 
+    obviously being used as a pointer in this case.&nbsp; Of course, 
+    simply&nbsp;knowing that it is a void * doesn't really help.&nbsp; Since 
+    there must be a real object type hidden beneath that void * somewhere, my 
+    task is to discover what type it is and provide a pointer to that type as an 
+    argument.&nbsp; From what I can gather from Web searches it is likely to be 
+    and Int32 (maybe an Int64 for 64-bit Windows?), but I don't seem to be able 
+    to get that to work properly.&nbsp; I suppose I can contact the vendor, but 
+    I'm sure you already know the futility of trying to discuss something at 
+    this level with anyone at tech support:-)</P>
+    <P>Thanks for your help,<BR>Ray</P>
+    <P>&nbsp;</P></BLOCKQUOTE>
+  <P><BR>If the vendor passes a HANDLE (this is a typdef defined in Windows.h 
+  incidentally) then it is an input-only operation, and by convention one 
+  expects to only ever see a true OS handle stored in such a variable. Because 
+  of these factors it is impossible to return anything at all unless we do 
+  something unconventional.</P>
+  <P>Of course a programmer could choose to store a real pointer in a HANDLE 
+  variable, but that would be very bad practice because it just confuses 
+  people.</P>
+  <P>If a pointer (a proper address) really is expected by the unmanaged 
+  function then it should be declared as taking 'void *' or some other type *, 
+  but not HANDLE.</P>
+  <P>Contact the vendor for a definite explanation and signature for this 
+  function, without&nbsp; this we are just guessing and speculating and this is 
+  a waste of time.</P>
+  <P>Cap'n</P>
+  <P>&nbsp;</P>
+  <P>&nbsp;</P></DIV><INPUT id=958242e0-4f82-432f-bc67-c68c847eaeb2_attachments 
+  type=hidden></DIV>
+  <DIV class="menu message">
+  <UL class=menu>
+    <LI><A title=Reply 
+    href="https://login.live.com/login.srf?wa=wsignin1.0&amp;wtrealm=social.msdn.microsoft.com&amp;wreply=https%3a%2f%2fsocial.msdn.microsoft.com%2fForums%2fen-US%2fcsharplanguage%2fthread%2f32777688-b43f-4ea4-8e08-157b23abf3c6%3fprof%3drequired%26stoAI%3d10&amp;wp=MBI_FED_SSL&amp;wlcxt=microsoft%24microsoft%24microsoft" 
+    name=reply rel=nofollow><IMG class="icon reply" title=Reply alt=Reply 
+    src="Getting%20HANDLE%20as%20a%20returned%20parameter___files/trans.gif"><NOBR>Reply</NOBR></A></LI>
+    <LI><A title=Quote 
+    href="https://login.live.com/login.srf?wa=wsignin1.0&amp;wtrealm=social.msdn.microsoft.com&amp;wreply=https%3a%2f%2fsocial.msdn.microsoft.com%2fForums%2fen-US%2fcsharplanguage%2fthread%2f32777688-b43f-4ea4-8e08-157b23abf3c6%3fprof%3drequired%26stoAI%3d10&amp;wp=MBI_FED_SSL&amp;wlcxt=microsoft%24microsoft%24microsoft" 
+    name=quote rel=nofollow><IMG class="icon quote" title=Quote alt=Quote 
+    src="Getting%20HANDLE%20as%20a%20returned%20parameter___files/trans.gif"><NOBR>Quote</NOBR></A></LI></UL>
+  <DIV class=clear></DIV></DIV></LI>
+  <LI id=70dd78f7-767f-4ff7-b995-dedc4d8494fa class="message ">
+  <DIV class=head><SPAN class=date>Monday, July 19, 2010 12:26 PM</SPAN>
+  <DIV class=profile-usercard-mini 
+  data-profile-usercard-customLink="{&quot;href&quot;:&quot;http://social.msdn.microsoft.com/Forums/en-US/user/threads?user=Matthew%20Watson&quot;, &quot;text&quot;: &quot;Matthew Watson's threads&quot;}&#10;        " 
+  data-profile-userid="c1f44905-67f7-4fe6-82c7-87c79f96a47d">
+  <DIV class=profile-mini-content></DIV>&nbsp;</DIV>
+  <DIV class=helpful></DIV></DIV>
+  <DIV class=votingouterbox>
+  <DIV class=voting><A class=voteuphreflink title="Vote As Helpful" 
+  href="https://login.live.com/login.srf?wa=wsignin1.0&amp;wtrealm=social.msdn.microsoft.com&amp;wreply=https%3a%2f%2fsocial.msdn.microsoft.com%2fForums%2fen-US%2fcsharplanguage%2fthread%2f32777688-b43f-4ea4-8e08-157b23abf3c6%3fprof%3drequired%26stoAI%3d10&amp;wp=MBI_FED_SSL&amp;wlcxt=microsoft%24microsoft%24microsoft" 
+  name=voteup><IMG class="icon voteup" title="Sign In to Vote" 
+  alt="Sign In to Vote" 
+  src="Getting%20HANDLE%20as%20a%20returned%20parameter___files/trans.gif">
+  <DIV class=votecount>0</DIV></A></DIV><SPAN class="votinglabel type"><A 
+  title="Sign In to Vote" 
+  href="https://login.live.com/login.srf?wa=wsignin1.0&amp;wtrealm=social.msdn.microsoft.com&amp;wreply=https%3a%2f%2fsocial.msdn.microsoft.com%2fForums%2fen-US%2fcsharplanguage%2fthread%2f32777688-b43f-4ea4-8e08-157b23abf3c6%3fprof%3drequired%26stoAI%3d10&amp;wp=MBI_FED_SSL&amp;wlcxt=microsoft%24microsoft%24microsoft">Sign 
+  In to Vote</A></SPAN></DIV>
+  <DIV class=container>
+  <DIV class=body>
+  <P>Just to add a bit to the previous responses:</P>
+  <P>Sometimes you might want to use SafeHandle or HandleRef instead of IntPtr 
+  for handle values used by Windows API functions:</P>
+  <P><A 
+  href="http://social.msdn.microsoft.com/Forums/en-US/csharpgeneral/thread/a170a15f-aa4e-4c1b-ad2a-c96259bc3948">http://social.msdn.microsoft.com/Forums/en-US/csharpgeneral/thread/a170a15f-aa4e-4c1b-ad2a-c96259bc3948</A></P>
+  <P>Also see <A href="http://www.pinvoke.net/">http://www.pinvoke.net/</A> for 
+  more information about specific Windows API functions.</P></DIV><INPUT 
+  id=70dd78f7-767f-4ff7-b995-dedc4d8494fa_attachments type=hidden></DIV>
+  <DIV class="menu message">
+  <UL class=menu>
+    <LI><A title=Reply 
+    href="https://login.live.com/login.srf?wa=wsignin1.0&amp;wtrealm=social.msdn.microsoft.com&amp;wreply=https%3a%2f%2fsocial.msdn.microsoft.com%2fForums%2fen-US%2fcsharplanguage%2fthread%2f32777688-b43f-4ea4-8e08-157b23abf3c6%3fprof%3drequired%26stoAI%3d10&amp;wp=MBI_FED_SSL&amp;wlcxt=microsoft%24microsoft%24microsoft" 
+    name=reply rel=nofollow><IMG class="icon reply" title=Reply alt=Reply 
+    src="Getting%20HANDLE%20as%20a%20returned%20parameter___files/trans.gif"><NOBR>Reply</NOBR></A></LI>
+    <LI><A title=Quote 
+    href="https://login.live.com/login.srf?wa=wsignin1.0&amp;wtrealm=social.msdn.microsoft.com&amp;wreply=https%3a%2f%2fsocial.msdn.microsoft.com%2fForums%2fen-US%2fcsharplanguage%2fthread%2f32777688-b43f-4ea4-8e08-157b23abf3c6%3fprof%3drequired%26stoAI%3d10&amp;wp=MBI_FED_SSL&amp;wlcxt=microsoft%24microsoft%24microsoft" 
+    name=quote rel=nofollow><IMG class="icon quote" title=Quote alt=Quote 
+    src="Getting%20HANDLE%20as%20a%20returned%20parameter___files/trans.gif"><NOBR>Quote</NOBR></A></LI></UL>
+  <DIV class=clear></DIV></DIV></LI></UL></DIV>
+<DIV class=clear></DIV></DIV></DIV>
+<DIV id=nrSurvey>
+<SCRIPT type=text/javascript>
+  if (!$.Microsoft) $.Microsoft = {};
+  if (!$.Microsoft.Mtps) $.Microsoft.Mtps = {};
+  if (!$.Microsoft.Mtps.NetReflectorInit)
+    $.Microsoft.Mtps.NetReflectorInit = {
+        surveyUrl: "http://support.microsoft.com/common/SurveyRedirect.ashx?surveyid=1890&showpage=1&sd=msdn&altStyle=narrow&renderOption=OverrideDefault",
+        throttleRate: "6.00",
+        privacyStatementText: "Privacy Statement",
+        trackerWindowText: "<p>Please do not close this window.</p><p>Thank you! The survey will appear here when you've completed your visit, so <b>please do not close this window</b>.</p>",
+        logoUrl: 'http://js.microsoft.com/library/svy/sto/msdn-logo-stripe.gif',
+        closeButtonUrl:'http://js.microsoft.com/library/svy/sto/msdn-close.gif',
+        topBarUrl:'http://js.microsoft.com/library/svy/sto/top-stripe.gif',
+        bottomBarUrl: 'http://js.microsoft.com/library/svy/sto/bottom-stripe.gif',
+        blankPage: 'http://i4.social.s-msft.com/Forums/blank.htm?cver=1864.989%0d%0a',
+        showSurveyToComscoreUser:  'no'
+    };
+</SCRIPT>
+<LINK rel=stylesheet type=text/css 
+href="Getting%20HANDLE%20as%20a%20returned%20parameter___files/NetReflector.css">
+<SCRIPT type=text/javascript 
+src="Getting%20HANDLE%20as%20a%20returned%20parameter___files/NetReflector.js"></SCRIPT>
+
+<DIV 
+style="Z-INDEX: 1001; POSITION: absolute; BACKGROUND-COLOR: white; DISPLAY: none" 
+id=divNRMain>
+<TABLE border=0 cellSpacing=0 cellPadding=3 width=360 bgColor=#ffffff>
+  <TBODY>
+  <TR>
+    <TD 
+    style="PADDING-BOTTOM: 3px; PADDING-LEFT: 3px; PADDING-RIGHT: 3px; PADDING-TOP: 3px">
+      <TABLE border=0 cellSpacing=0 cellPadding=1 width="100%" 
+        bgColor=#999999><TBODY>
+        <TR>
+          <TD 
+          style="PADDING-BOTTOM: 1px; PADDING-LEFT: 1px; PADDING-RIGHT: 1px; PADDING-TOP: 1px">
+            <TABLE border=0 cellSpacing=0 cellPadding=0 width="100%" 
+            bgColor=#ffffff>
+              <TBODY>
+              <TR vAlign=top>
+                <TD><IMG 
+                  src="Getting%20HANDLE%20as%20a%20returned%20parameter___files/msdn-logo-stripe.gif"><IMG 
+                  id=imgNRClose border=0 
+                  src="Getting%20HANDLE%20as%20a%20returned%20parameter___files/msdn-close.gif"><BR><IMG 
+                  src="Getting%20HANDLE%20as%20a%20returned%20parameter___files/top-stripe.gif"> 
+
+                  <TABLE cellSpacing=0 cellPadding=5 width="100%">
+                    <TBODY>
+                    <TR>
+                      <TD 
+                      style="PADDING-BOTTOM: 2px; PADDING-LEFT: 2px; PADDING-RIGHT: 2px; PADDING-TOP: 2px">
+                        <DIV>
+                        <P>Microsoft is conducting an online survey to 
+                        understand your opinion of the Msdn Web site. If you 
+                        choose to participate, the online survey will be 
+                        presented to you when you leave the Msdn Web site.</P>
+                        <P>Would you like to participate?</P></DIV>
+                        <DIV align=center><INPUT id=btnNRYes value="  Yes  " type=button>&nbsp;&nbsp; 
+<INPUT id=btnNRNo value=" No " type=button> </DIV>
+                        <DIV><A 
+                        href="http://privacy.microsoft.com/en-us/default.mspx" 
+                        target=_blank>Privacy 
+                  Statement</A></DIV></TD></TR></TBODY></TABLE><IMG 
+                  src="Getting%20HANDLE%20as%20a%20returned%20parameter___files/bottom-stripe.gif"> 
+                  <INPUT id=hdnSurveyUrl 
+                  value=http://support.microsoft.com/common/SurveyRedirect.ashx?surveyid=1890&amp;showpage=1&amp;sd=msdn&amp;altStyle=narrow&amp;renderOption=OverrideDefault 
+                  type=hidden> <INPUT id=hdnLogoUrl 
+                  value=http://js.microsoft.com/library/svy/sto/msdn-logo-stripe.gif 
+                  type=hidden> <INPUT id=hdnTopStripUrl 
+                  value=http://js.microsoft.com/library/svy/sto/top-stripe.gif 
+                  type=hidden> <INPUT id=hdnBtmStripUrl 
+                  value=http://js.microsoft.com/library/svy/sto/bottom-stripe.gif 
+                  type=hidden> <INPUT id=hdnTrackerText 
+                  value="<p>Please do not close this window.</p><p>Thank you! The survey will appear here when you've completed your visit, so <b>please do not close this window</b>.</p>" 
+                  type=hidden> <INPUT id=hdnPrivacyText 
+                  value="Privacy Statement" type=hidden> 
+        </TD></TR></TBODY></TABLE></TD></TR></TBODY></TABLE></TD></TR></TBODY></TABLE></DIV></DIV>
+<DIV id=rail><A class=help 
+href="http://social.msdn.microsoft.com/Forums/en-US/help" rel=Help>Need Help 
+with Forums? (FAQ)</A> </DIV>
+<DIV class=Clear></DIV></DIV></DIV></DIV></DIV>
+<DIV class=Clearbottom></DIV>
+<DIV class=bottomleftcorner></DIV>
+<DIV class=bottomrightcorner></DIV>
+<DIV id=Footer>
+<DIV class=FooterLogoContainer><A 
+href="http://www.microsoft.com/en/us/default.aspx">
+<DIV class=FooterLogo title="Microsoft Corporation">&nbsp;</DIV></A></DIV>
+<DIV id=FooterCopyright class=FooterCopyright>© 2011 Microsoft. All rights 
+reserved.</DIV>
+<DIV class=FooterLinks><SPAN class=FooterAnchorList><A 
+href="http://msdn.microsoft.com/cc300389.aspx">Terms of Use</A><SPAN 
+class=Pipe>|</SPAN><A 
+href="http://www.microsoft.com/library/toolbar/3.0/trademarks/en-us.mspx">Trademarks</A><SPAN 
+class=Pipe>|</SPAN><A href="http://www.microsoft.com/info/privacy.mspx">Privacy 
+Statement</A><SPAN class=Pipe>|</SPAN><A 
+href="https://lab.msdn.microsoft.com/mailform/contactus.aspx?refurl=http%3a%2f%2fsocial.msdn.microsoft.com%2fForums%2fen-US%2fcsharplanguage%2fthread%2f32777688-b43f-4ea4-8e08-157b23abf3c6">Site 
+Feedback</A></SPAN></DIV></DIV></DIV></DIV></DIV></DIV>
+<SCRIPT language=javascript type=text/javascript 
+src="Getting%20HANDLE%20as%20a%20returned%20parameter___files/resources.htm"></SCRIPT>
+
+<SCRIPT language=javascript type=text/javascript 
+src="Getting%20HANDLE%20as%20a%20returned%20parameter___files/core.js"></SCRIPT>
+
+<SCRIPT type=text/javascript 
+src="Getting%20HANDLE%20as%20a%20returned%20parameter___files/dap.js"></SCRIPT>
+
+<SCRIPT language=javascript type=text/javascript>
+    var railItems = ["/Forums/en-US/rightrailannouncement/Msdn/53a3f556-a51e-4e2f-aa28-714e91c2cac5","/Forums/en-US/user/mylinks?forumId=ee0ba90b-2020-4d46-848e-7278d11047e8&forumName=csharplanguage","/Forums/en-US/csharplanguage/ads","/Forums/en-US/search/RelatedThreadsByThread?threadTopic=Getting%20HANDLE%20as%20a%20returned%20parameter...&threadId=32777688-b43f-4ea4-8e08-157b23abf3c6","/Forums/en-US/csharplanguage/thread/32777688-b43f-4ea4-8e08-157b23abf3c6/stats"];
+</SCRIPT>
+
+<SCRIPT language=javascript type=text/javascript>
+        var pageData = {"validUser":false,"autoSubscribe":false};
+    </SCRIPT>
+
+<SCRIPT language=javascript type=text/javascript>
+            var userEmailConfigured = false;
+     </SCRIPT>
+
+<SCRIPT language=javascript type=text/javascript 
+src="Getting%20HANDLE%20as%20a%20returned%20parameter___files/messages.js"></SCRIPT>
+
+<SCRIPT type=text/javascript> 
+        var gDomain='m.webtrends.com';
+        var gDcsId = 'dcsour5e80000008ybade4ttg_1i1l'; 
+        var gTrackEvents=1;
+        var gFpc = 'WT_FPC'; 
+        if(document.cookie.indexOf(gFpc+'=') == -1) {
+            document.write("<script type='text/javascript' src='http://m.webtrends.com/dcsour5e80000008ybade4ttg_1i1l/wtid.js'><\\/script>");
+        }
+    </SCRIPT>
+
+<SCRIPT type=text/javascript 
+src="Getting%20HANDLE%20as%20a%20returned%20parameter___files/webtrends.js"></SCRIPT>
+<NOSCRIPT><IMG id=DCSIMG border=0 alt="" 
+src="Getting%20HANDLE%20as%20a%20returned%20parameter___files/njs.gif" width=1 
+height=1> </NOSCRIPT>
+<SCRIPT type=text/javascript>document.domain="microsoft.com"</SCRIPT>
+
+<SCRIPT type=text/javascript 
+src="Getting%20HANDLE%20as%20a%20returned%20parameter___files/broker.js"></SCRIPT>
+
+<SCRIPT language=javascript type=text/javascript 
+src="Getting%20HANDLE%20as%20a%20returned%20parameter___files/loader.js"></SCRIPT>
+
+<SCRIPT language=javascript type=text/javascript 
+src="Getting%20HANDLE%20as%20a%20returned%20parameter___files/SearchBox.jss"></SCRIPT>
+
+<SCRIPT language=javascript type=text/javascript 
+src="Getting%20HANDLE%20as%20a%20returned%20parameter___files/common.min.js"></SCRIPT>
+
+<SCRIPT type=text/javascript>
+            loadJavaScript('http://i3.social.s-msft.com/Forums/GlobalResources/Scripts/omni_rsid_social_min.js?cver=1864.989%0d%0a');
+        </SCRIPT>
+<NOSCRIPT><A title="Web Analytics" href="http://www.omniture.com/"><IMG border=0 
+alt="" src="Getting%20HANDLE%20as%20a%20returned%20parameter___files/0.gif" 
+width=1 height=1> </A></NOSCRIPT></BODY></HTML>

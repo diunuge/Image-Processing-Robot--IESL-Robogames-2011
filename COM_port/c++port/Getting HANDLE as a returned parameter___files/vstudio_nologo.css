@@ -1,0 +1,240 @@
+.BrandLogo {
+	MARGIN: 2px 0px 0px 8px; WIDTH: 308px; BACKGROUND: none transparent scroll repeat 0% 0%; HEIGHT: 32px
+}
+.BrandLogoLink {
+	COLOR: #313131 !important
+}
+.NetworkLogo {
+	POSITION: relative; FLOAT: right; RIGHT: 8px
+}
+.NetworkLogo {
+	COLOR: #ffffff
+}
+.NetworkLogo A {
+	COLOR: #fff
+}
+.NetworkLogo A:link {
+	COLOR: #fff
+}
+.NetworkLogo A:visited {
+	COLOR: #fff
+}
+.NetworkLogo A:hover {
+	COLOR: #fff
+}
+.NetworkLogo A:active {
+	COLOR: #fff
+}
+.NetworkLogo #NetworkTaglineLogo {
+	VISIBILITY: hidden; MARGIN-RIGHT: 0px
+}
+.BrandLogo A {
+	COLOR: #2186c6
+}
+.BrandLogo A:link {
+	COLOR: #2186c6
+}
+.BrandLogo A:visited {
+	COLOR: #2186c6
+}
+.BrandLogo A:hover {
+	COLOR: #2186c6
+}
+.BrandLogo A:active {
+	COLOR: #2186c6
+}
+.internav A {
+	COLOR: #260859; TEXT-DECORATION: none
+}
+.internav A:link {
+	COLOR: #260859; TEXT-DECORATION: none
+}
+.internav A:visited {
+	COLOR: #260859; TEXT-DECORATION: none
+}
+.internav A:hover {
+	COLOR: #260859; TEXT-DECORATION: none
+}
+.internav A:active {
+	COLOR: #260859; TEXT-DECORATION: none
+}
+#masthead A {
+	COLOR: #260859
+}
+#masthead A:link {
+	COLOR: #260859
+}
+#masthead A:visited {
+	COLOR: #260859
+}
+#masthead A:hover {
+	COLOR: #260859
+}
+#masthead A:focus {
+	COLOR: #260859
+}
+#masthead A:active {
+	COLOR: #260859
+}
+.internav A {
+	COLOR: #260859
+}
+.internav A.active {
+	
+}
+.internav A:hover {
+	COLOR: #260859
+}
+.internav A.active {
+	
+}
+.internav A.active:hover {
+	
+}
+.LocalNavigation {
+	
+}
+.LocalNavigation .TabOff A:hover {
+	BACKGROUND-COLOR: #634e99
+}
+.LocalNavigation .TabOn {
+	BACKGROUND-COLOR: #4c3c79
+}
+.leftcap {
+	
+}
+.GlobalBar {
+	
+}
+#TargetPanel A {
+	
+}
+.DropDownArrow {
+	
+}
+.rtl .internav {
+	MARGIN: 0px; BACKGROUND-POSITION: -170px top
+}
+.rtl .leftcap {
+	POSITION: relative; WIDTH: 29px; BACKGROUND-POSITION: -1180px 0px; FLOAT: right; RIGHT: 0px; MARGIN-RIGHT: -20px
+}
+.IE6 .internav {
+	BACKGROUND: none transparent scroll repeat 0% 0%
+}
+.IE6 .internav A {
+	PADDING-BOTTOM: 5px; MARGIN: 1px 0px; PADDING-LEFT: 9px; PADDING-RIGHT: 9px; BACKGROUND: none transparent scroll repeat 0% 0%; FLOAT: left; HEIGHT: 20px; COLOR: #260859; PADDING-TOP: 5px
+}
+.IE6 .internav A:hover {
+	PADDING-BOTTOM: 4px; MARGIN: 1px 0px; PADDING-LEFT: 9px; PADDING-RIGHT: 9px; BACKGROUND: #260859; HEIGHT: 20px; COLOR: #260859; PADDING-TOP: 6px
+}
+.IE6 .internav A.active {
+	PADDING-BOTTOM: 5px; MARGIN: 1px 0px; PADDING-LEFT: 9px; PADDING-RIGHT: 9px; PADDING-TOP: 5px
+}
+.IE6 .internav A.active:hover {
+	PADDING-BOTTOM: 5px; MARGIN: 1px 0px; PADDING-LEFT: 9px; PADDING-RIGHT: 9px; PADDING-TOP: 5px
+}
+.LocalNavigation {
+	DISPLAY: block; OVERFLOW: auto
+}
+.LocalNavigation .TabOff A {
+	COLOR: #000000
+}
+.LocalNavigation .TabOff A:hover {
+	PADDING-BOTTOM: 4px; BACKGROUND-COLOR: #e0e7ec; MARGIN-TOP: 1px; PADDING-LEFT: 6px; PADDING-RIGHT: 6px; PADDING-TOP: 4px
+}
+.LocalNavigation #notificationLink SPAN {
+	COLOR: red; FONT-WEIGHT: bold
+}
+.internav A.active {
+	PADDING-BOTTOM: 5px !important; MARGIN: 1px 0px; PADDING-LEFT: 9px !important; PADDING-RIGHT: 9px !important; HEIGHT: 20px !important; COLOR: #313131 !important; PADDING-TOP: 5px !important
+}
+.internav A.active {
+	BACKGROUND: url(http://i1.social.s-msft.com/contentservice/1de160e2-73af-4669-944f-9ee101393a90/contentpaneInternavActiveSprite.png) #becbd7 no-repeat -10px -120px
+}
+.internav A.active:hover {
+	BACKGROUND: url(http://i1.social.s-msft.com/contentservice/1de160e2-73af-4669-944f-9ee101393a90/contentpaneInternavActiveSprite.png) #becbd7 no-repeat -10px -120px
+}
+.NetworkLogo {
+	WIDTH: 87px; BACKGROUND: url(http://i1.social.s-msft.com/contentservice/e95b5ec9-abb9-4592-8e65-9f5d00aa982f/LogoMSDN.png) no-repeat; HEIGHT: 23px
+}
+.NetworkLogo {
+	COLOR: #ffffff
+}
+.NetworkLogo {
+	POSITION: relative; FLOAT: right; RIGHT: 8px
+}
+.EyebrowElement {
+	FONT-WEIGHT: normal !important
+}
+.homeItemTable TH {
+	COLOR: #260859 !important
+}
+#siteActions .label A {
+	COLOR: #3a3e43 !important
+}
+#siteActions P {
+	COLOR: #3a3e43 !important
+}
+#findActions > #popularSearchBox DIV:first-child {
+	COLOR: #3a3e43 !important
+}
+#findBox > DIV:first-child {
+	COLOR: #3a3e43 !important
+}
+#sideNav .section H3 {
+	PADDING-BOTTOM: 3px !important; TEXT-TRANSFORM: capitalize !important; BACKGROUND-COLOR: #f1f1f1 !important; PADDING-LEFT: 3px !important; PADDING-RIGHT: 0px !important; PADDING-TOP: 2px !important
+}
+#searchPage H2 {
+	FONT-SIZE: 16px !important; FONT-WEIGHT: bold !important
+}
+#searchPage H3 {
+	FONT-SIZE: 16px !important; FONT-WEIGHT: bold !important
+}
+H1 {
+	COLOR: #260859 !important
+}
+H2 {
+	COLOR: #260859 !important
+}
+H3 {
+	COLOR: #260859 !important
+}
+H4 {
+	COLOR: #260859 !important
+}
+H5 {
+	COLOR: #260859 !important
+}
+H6 {
+	COLOR: #260859 !important
+}
+#sideNav H3 {
+	BORDER-BOTTOM: #3a3e43 0px solid
+}
+.tabHeaders DIV.current {
+	BACKGROUND-COLOR: gray !important; COLOR: #ffffff !important
+}
+.tabHeaders DIV {
+	BORDER-BOTTOM: medium none; BORDER-LEFT: medium none; BACKGROUND: #e8e8e8 0px 0px; COLOR: #333333 !important; BORDER-TOP: medium none; BORDER-RIGHT: medium none
+}
+.tabHeaders {
+	BORDER-BOTTOM: medium none
+}
+#publishBar {
+	BORDER-BOTTOM: #707070 1px solid; BORDER-LEFT: #707070 1px solid; BACKGROUND-COLOR: #f8f8f8 !important; COLOR: #333333 !important; BORDER-TOP: #707070 1px solid; BORDER-RIGHT: #707070 1px solid
+}
+.tabContents {
+	BORDER-BOTTOM: medium none; BORDER-LEFT: medium none; BORDER-TOP: #e8e8e8 5px solid; BORDER-RIGHT: medium none
+}
+.tabContents {
+	PADDING-BOTTOM: 10px !important; PADDING-LEFT: 5px !important; PADDING-RIGHT: 5px !important; PADDING-TOP: 10px !important
+}
+.tabHeaders DIV + DIV {
+	MARGIN: 0px 0px 5px 5px
+}
+#logoDiv IMG {
+	DISPLAY: none !important
+}
+#tagLineDiv {
+	PADDING-BOTTOM: 10px !important; FONT-SIZE: x-large !important; PADDING-TOP: 5px !important
+}

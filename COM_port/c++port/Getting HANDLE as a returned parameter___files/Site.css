@@ -1,0 +1,18 @@
+#BrandDisplayText {
+	DISPLAY: block
+}
+.BrandLogo {
+	BACKGROUND-IMAGE: none; HEIGHT: auto
+}
+.IE6 .BrandLogo {
+	BACKGROUND-IMAGE: none !important; HEIGHT: auto
+}
+#NetworkTaglineText {
+	DISPLAY: none
+}
+#NetworkTaglineLogo {
+	DISPLAY: block
+}
+#NetworkLink {
+	DISPLAY: block
+}

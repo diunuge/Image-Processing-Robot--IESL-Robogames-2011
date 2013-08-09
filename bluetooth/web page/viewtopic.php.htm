@@ -1,0 +1,746 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" dir="ltr" xml:lang="en-gb" lang="en-gb"><head>
+
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+<meta http-equiv="content-language" content="en-gb">
+<meta http-equiv="content-style-type" content="text/css">
+<meta http-equiv="imagetoolbar" content="no">
+<meta name="resource-type" content="document">
+<meta name="distribution" content="global">
+<meta name="copyright" content="2000, 2002, 2005, 2007 phpBB Group">
+<meta name="keywords" content="">
+<meta name="description" content="">
+
+<title>SparkFun Electronics • View topic - Bluetooth serial interface</title>
+
+<link rel="stylesheet" href="viewtopic.php_files/style.css" type="text/css">
+
+<script src="viewtopic.php_files/ga.js" async="" type="text/javascript"></script><script type="text/javascript">
+// <![CDATA[
+
+
+function popup(url, width, height, name)
+{
+	if (!name)
+	{
+		name = '_popup';
+	}
+
+	window.open(url.replace(/&amp;/g, '&'), name, 'height=' + height + ',resizable=yes,scrollbars=yes,width=' + width);
+	return false;
+}
+
+function jumpto()
+{
+	var page = prompt('Enter the page number you wish to go to:', '1');
+	var perpage = '';
+	var base_url = '';
+
+	if (page !== null && !isNaN(page) && page > 0)
+	{
+		document.location.href = base_url.replace(/&amp;/g, '&') + '&start=' + ((page - 1) * perpage);
+	}
+}
+
+/**
+* Find a member
+*/
+function find_username(url)
+{
+	popup(url, 760, 570, '_usersearch');
+	return false;
+}
+
+/**
+* Mark/unmark checklist
+* id = ID of parent container, name = name prefix, state = state [true/false]
+*/
+function marklist(id, name, state)
+{
+	var parent = document.getElementById(id);
+	if (!parent)
+	{
+		eval('parent = document.' + id);
+	}
+
+	if (!parent)
+	{
+		return;
+	}
+
+	var rb = parent.getElementsByTagName('input');
+	
+	for (var r = 0; r < rb.length; r++)
+	{
+		if (rb[r].name.substr(0, name.length) == name)
+		{
+			rb[r].checked = state;
+		}
+	}
+}
+
+
+
+// ]]>
+</script>
+</head>
+<body class="ltr">
+
+<a name="top"></a>
+
+<table cellpadding="0" cellspacing="0" width="100%">
+	<tbody><tr>
+		<td style="padding: 0pt; background: url(&quot;./styles/RedSilver3/imageset/left_bkg.gif&quot;) repeat-y scroll 0% 0% transparent; width: 15px;" width="15"></td>
+		<td style="padding: 0pt;">
+
+<div id="wrapheader">
+
+				
+
+	<table style="height: 100px; background: url(&quot;./styles/RedSilver3/imageset/top_bkg.gif&quot;) repeat-x scroll 0% 0% transparent;" cellpadding="0" cellspacing="0" width="100%">
+		<tbody><tr>
+			<td><!-- <center> //-->
+				<table cellpadding="0" cellspacing="0">
+					<tbody><tr>
+						<td style="padding: 0pt;">
+							<a href="http://www.sparkfun.com/"><img style="margin: -4px 40px -4px 14px;" src="viewtopic.php_files/site_logo.gif" alt="Go to www.sparkfun.com"></a>
+						</td><td>
+							<h1></h1><span class="gen"></span>
+						</td>
+					</tr>
+				</tbody></table>
+			<!-- </center> //--> </td>
+		</tr>
+	</tbody></table>
+	
+	<table id="menu_bkg" style="height: 34px; background: url(&quot;./styles/RedSilver3/imageset/menu_bkg.gif&quot;) repeat-x scroll 0% 0% transparent;" cellpadding="0" cellspacing="0" width="100%">
+		<tbody><tr>
+			<td style="padding: 0pt;">
+				<center>
+					<a href="http://forum.sparkfun.com/faq.php">FAQ</a>
+							
+					 &nbsp;-&nbsp;<a href="http://forum.sparkfun.com/ucp.php?mode=register">Register</a>
+						 &nbsp;-&nbsp;<a href="http://forum.sparkfun.com/search.php">Search</a>&nbsp;-&nbsp;<a href="http://forum.sparkfun.com/ucp.php?mode=login">Login</a>&nbsp;
+				</center>
+			</td>
+		</tr>
+	</tbody></table>
+	
+	
+	<table style="height: 30px; background: url(&quot;./styles/RedSilver3/imageset/below_menu_bkg.gif&quot;) repeat-x scroll 0% 0% transparent;" cellpadding="0" cellspacing="0" width="100%">
+		<tbody><tr>
+			<td style="padding: 0pt;">
+				&nbsp;
+			</td>
+		</tr>
+	</tbody></table>
+	
+	<div id="datebar">
+		<table cellspacing="0" width="100%">
+		<tbody><tr>
+			<td class="gensmall"></td>
+			<td class="gensmall" align="right">It is currently Fri Sep 16, 2011 5:26 am<br></td>
+		</tr>
+		</tbody></table>
+	</div>
+
+</div>
+
+<div id="wrapcentre">
+
+	
+	<p class="searchbar">
+		<span style="float: left;"><a href="http://forum.sparkfun.com/search.php?search_id=unanswered">View unanswered posts</a> | <a href="http://forum.sparkfun.com/search.php?search_id=active_topics">View active topics</a></span>
+		
+	</p>
+	
+
+	<br style="clear: both;">
+
+	<table class="tablebg" style="margin-top: 5px;" cellpadding="0" cellspacing="1" width="100%">
+	<tbody><tr>
+		<td class="row1">
+			<p class="breadcrumbs"><a href="http://forum.sparkfun.com/index.php">Board index</a> » <a href="http://forum.sparkfun.com/viewforum.php?f=23">PIC Microchip</a> » <a href="http://forum.sparkfun.com/viewforum.php?f=4">PIC Microcontrollers - Software and Hardware</a></p>
+			<p class="datetime">All times are UTC - 7 hours </p>
+		</td>
+	</tr>
+	</tbody></table>
+
+	<br>
+
+<div id="pageheader">
+	<h2><a class="titles" href="http://forum.sparkfun.com/viewtopic.php?f=4&amp;t=29197">Bluetooth serial interface</a></h2>
+
+
+	<p class="moderators">Moderator: <a href="http://forum.sparkfun.com/memberlist.php?mode=viewprofile&amp;u=65" style="color: rgb(170, 0, 0);" class="username-coloured">phalanx</a></p>
+
+</div>
+
+<br clear="all"><br>
+
+<div id="pagecontent">
+
+	<table cellspacing="1" width="100%">
+	<tbody><tr>
+		<td align="left" nowrap="nowrap" valign="middle">
+		<a href="http://forum.sparkfun.com/posting.php?mode=post&amp;f=4"><img src="viewtopic.php_files/button_topic_new.gif" alt="Post new topic" title="Post new topic"></a>&nbsp;<a href="http://forum.sparkfun.com/posting.php?mode=reply&amp;f=4&amp;t=29197"><img src="viewtopic.php_files/button_topic_reply.gif" alt="Reply to topic" title="Reply to topic"></a>
+		</td>
+		
+			<td class="nav" nowrap="nowrap" valign="middle">&nbsp;Page <strong>1</strong> of <strong>1</strong><br></td>
+			<td class="gensmall" nowrap="nowrap">&nbsp;[ 5 posts ]&nbsp;</td>
+			<td class="gensmall" align="right" nowrap="nowrap" width="100%"></td>
+		
+	</tr>
+	</tbody></table>
+
+	<table class="tablebg" cellspacing="1" width="100%">
+	<tbody><tr>
+		<td class="cat">
+			<table cellspacing="0" width="100%">
+			<tbody><tr>
+				<td class="nav" nowrap="nowrap">&nbsp;
+				<a href="http://forum.sparkfun.com/viewtopic.php?f=4&amp;t=29197&amp;view=print" title="Print view">Print view</a>
+				</td>
+				<td class="nav" align="right" nowrap="nowrap"><a href="http://forum.sparkfun.com/viewtopic.php?f=4&amp;t=29197&amp;view=previous">Previous topic</a> | <a href="http://forum.sparkfun.com/viewtopic.php?f=4&amp;t=29197&amp;view=next">Next topic</a>&nbsp;</td>
+			</tr>
+			</tbody></table>
+		</td>
+	</tr>
+
+	</tbody></table>
+
+
+	<table class="tablebg" cellspacing="1" width="100%">
+	
+		<tbody><tr>
+			<th>Author</th>
+			<th>Message</th>
+		</tr>
+	<tr class="row1">
+
+			<td align="center" valign="middle">
+				<a name="p130565"></a>
+				<b class="postauthor">exapod</b>
+			</td>
+			<td height="25" width="100%">
+				<table cellspacing="0" width="100%">
+				<tbody><tr>
+				
+					<td class="gensmall" width="100%"><div style="float: left;">&nbsp;<b>Post subject:</b> Bluetooth serial interface</div><div style="float: right;"><a href="http://forum.sparkfun.com/viewtopic.php?p=130565#p130565"><img src="viewtopic.php_files/icon_post_target.gif" alt="Post" title="Post" height="9" width="12"></a><b>Posted:</b> Fri Jul 22, 2011 12:34 pm&nbsp;</div></td>
+				</tr>
+				</tbody></table>
+			</td>
+		</tr>
+		
+		<tr class="row1">
+
+			<td class="profile" valign="top">
+				<table align="center" cellspacing="4" width="150">
+			
+				<tbody><tr>
+					<td><img src="viewtopic.php_files/icon_user_offline.gif" alt="Offline" title="Offline"></td>
+				</tr>
+			
+				</tbody></table>
+
+				<span class="postdetails">
+					<br><b>Joined:</b> Tue Jun 28, 2011 4:33 am<br><b>Posts:</b> 8
+				</span>
+
+			</td>
+			<td valign="top">
+				<table cellspacing="5" width="100%">
+				<tbody><tr>
+					<td>
+					
+
+						<div class="postbody">hi,<br> i make this little demo for try a bluetooth serial communication and it works, i get the echo and the led turn on or off.<br>My
+ problem is that i want control the led status by sending 'on' or 'off' 
+but when i try and change the if statement it doesn't works.<br><br><div class="codetitle"><b>Code:</b></div><div class="codecontent">#include &lt;p18f2553.h&gt;<br>#include "config.h"&nbsp; //fuses<br>#include &lt;usart.h&gt;<br>#define led1 LATCbits.LATC0<br>int data = 0; <br>void main() {<br>OSCCON=0b01111111;//internal 8 mhz<br>TRISC=0;<br>OpenUSART(USART_TX_INT_OFF &amp; USART_RX_INT_OFF &amp;<br>USART_ASYNCH_MODE &amp; USART_EIGHT_BIT &amp;<br>USART_CONT_RX &amp; USART_BRGH_LOW, 12);&nbsp; &nbsp;//baud rate=9600 <br>while(1){<br>while(!DataRdyUSART( ));&nbsp; &nbsp; &nbsp; &nbsp;//wait for data<br>data = ReadUSART();&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;//read data<br>if(data=='1'){led1=1;}&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;//if i change into if(data=='on')&nbsp; it doesn't works<br>if (data=='0'){led1=0;}<br>WriteUSART (data);&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; //echo<br>while (BusyUSART());<br><br>}<br>}<br></div></div>
+
+					<br clear="all"><br>
+
+						<table cellspacing="0" width="100%">
+						<tbody><tr valign="middle">
+							<td class="gensmall" align="right">
+							
+							</td>
+						</tr>
+						</tbody></table>
+					</td>
+				</tr>
+				</tbody></table>
+			</td>
+		</tr>
+
+		<tr class="row1">
+
+			<td class="profile"><strong><a href="#wrapheader">Top</a></strong></td>
+			<td><div class="gensmall" style="float: left;">&nbsp;<a href="http://forum.sparkfun.com/memberlist.php?mode=viewprofile&amp;u=39104"><img src="viewtopic.php_files/icon_user_profile.gif" alt="Profile" title="Profile"></a> &nbsp;</div> <div class="gensmall" style="float: right;">&nbsp;</div></td>
+	
+		</tr>
+
+	<tr>
+		<td class="spacer" colspan="2" height="1"><img src="viewtopic.php_files/spacer.gif" alt="" height="1" width="1"></td>
+	</tr>
+	</tbody></table>
+
+	<table class="tablebg" cellspacing="1" width="100%">
+	<tbody><tr class="row2">
+
+			<td align="center" valign="middle">
+				<a name="p130655"></a>
+				<b class="postauthor">vsg1990</b>
+			</td>
+			<td height="25" width="100%">
+				<table cellspacing="0" width="100%">
+				<tbody><tr>
+				
+					<td class="gensmall" width="100%"><div style="float: left;">&nbsp;<b>Post subject:</b> Re: Bluetooth serial interface</div><div style="float: right;"><a href="http://forum.sparkfun.com/viewtopic.php?p=130655#p130655"><img src="viewtopic.php_files/icon_post_target.gif" alt="Post" title="Post" height="9" width="12"></a><b>Posted:</b> Sun Jul 24, 2011 1:57 pm&nbsp;</div></td>
+				</tr>
+				</tbody></table>
+			</td>
+		</tr>
+		
+		<tr class="row2">
+
+			<td class="profile" valign="top">
+				<table align="center" cellspacing="4" width="150">
+			
+				<tbody><tr>
+					<td><img src="viewtopic.php_files/icon_user_offline.gif" alt="Offline" title="Offline"></td>
+				</tr>
+			
+				</tbody></table>
+
+				<span class="postdetails">
+					<br><b>Joined:</b> Fri Mar 11, 2011 2:06 pm<br><b>Posts:</b> 30
+				</span>
+
+			</td>
+			<td valign="top">
+				<table cellspacing="5" width="100%">
+				<tbody><tr>
+					<td>
+					
+
+						<div class="postbody">What are you using to send the 'on' signal?<br><br>--Vince</div>
+
+					<br clear="all"><br>
+
+						<table cellspacing="0" width="100%">
+						<tbody><tr valign="middle">
+							<td class="gensmall" align="right">
+							
+							</td>
+						</tr>
+						</tbody></table>
+					</td>
+				</tr>
+				</tbody></table>
+			</td>
+		</tr>
+
+		<tr class="row2">
+
+			<td class="profile"><strong><a href="#wrapheader">Top</a></strong></td>
+			<td><div class="gensmall" style="float: left;">&nbsp;<a href="http://forum.sparkfun.com/memberlist.php?mode=viewprofile&amp;u=34258"><img src="viewtopic.php_files/icon_user_profile.gif" alt="Profile" title="Profile"></a> &nbsp;</div> <div class="gensmall" style="float: right;">&nbsp;</div></td>
+	
+		</tr>
+
+	<tr>
+		<td class="spacer" colspan="2" height="1"><img src="viewtopic.php_files/spacer.gif" alt="" height="1" width="1"></td>
+	</tr>
+	</tbody></table>
+
+	<table class="tablebg" cellspacing="1" width="100%">
+	<tbody><tr class="row1">
+
+			<td align="center" valign="middle">
+				<a name="p130660"></a>
+				<b class="postauthor">exapod</b>
+			</td>
+			<td height="25" width="100%">
+				<table cellspacing="0" width="100%">
+				<tbody><tr>
+				
+					<td class="gensmall" width="100%"><div style="float: left;">&nbsp;<b>Post subject:</b> Re: Bluetooth serial interface</div><div style="float: right;"><a href="http://forum.sparkfun.com/viewtopic.php?p=130660#p130660"><img src="viewtopic.php_files/icon_post_target.gif" alt="Post" title="Post" height="9" width="12"></a><b>Posted:</b> Sun Jul 24, 2011 4:30 pm&nbsp;</div></td>
+				</tr>
+				</tbody></table>
+			</td>
+		</tr>
+		
+		<tr class="row1">
+
+			<td class="profile" valign="top">
+				<table align="center" cellspacing="4" width="150">
+			
+				<tbody><tr>
+					<td><img src="viewtopic.php_files/icon_user_offline.gif" alt="Offline" title="Offline"></td>
+				</tr>
+			
+				</tbody></table>
+
+				<span class="postdetails">
+					<br><b>Joined:</b> Tue Jun 28, 2011 4:33 am<br><b>Posts:</b> 8
+				</span>
+
+			</td>
+			<td valign="top">
+				<table cellspacing="5" width="100%">
+				<tbody><tr>
+					<td>
+					
+
+						<div class="postbody">i'm using a pc with Termite :http://www.compuphase.com/software_termite.htm , a terminal program.</div>
+
+					<br clear="all"><br>
+
+						<table cellspacing="0" width="100%">
+						<tbody><tr valign="middle">
+							<td class="gensmall" align="right">
+							
+							</td>
+						</tr>
+						</tbody></table>
+					</td>
+				</tr>
+				</tbody></table>
+			</td>
+		</tr>
+
+		<tr class="row1">
+
+			<td class="profile"><strong><a href="#wrapheader">Top</a></strong></td>
+			<td><div class="gensmall" style="float: left;">&nbsp;<a href="http://forum.sparkfun.com/memberlist.php?mode=viewprofile&amp;u=39104"><img src="viewtopic.php_files/icon_user_profile.gif" alt="Profile" title="Profile"></a> &nbsp;</div> <div class="gensmall" style="float: right;">&nbsp;</div></td>
+	
+		</tr>
+
+	<tr>
+		<td class="spacer" colspan="2" height="1"><img src="viewtopic.php_files/spacer.gif" alt="" height="1" width="1"></td>
+	</tr>
+	</tbody></table>
+
+	<table class="tablebg" cellspacing="1" width="100%">
+	<tbody><tr class="row2">
+
+			<td align="center" valign="middle">
+				<a name="p130666"></a>
+				<b class="postauthor">vsg1990</b>
+			</td>
+			<td height="25" width="100%">
+				<table cellspacing="0" width="100%">
+				<tbody><tr>
+				
+					<td class="gensmall" width="100%"><div style="float: left;">&nbsp;<b>Post subject:</b> Re: Bluetooth serial interface</div><div style="float: right;"><a href="http://forum.sparkfun.com/viewtopic.php?p=130666#p130666"><img src="viewtopic.php_files/icon_post_target.gif" alt="Post" title="Post" height="9" width="12"></a><b>Posted:</b> Sun Jul 24, 2011 6:51 pm&nbsp;</div></td>
+				</tr>
+				</tbody></table>
+			</td>
+		</tr>
+		
+		<tr class="row2">
+
+			<td class="profile" valign="top">
+				<table align="center" cellspacing="4" width="150">
+			
+				<tbody><tr>
+					<td><img src="viewtopic.php_files/icon_user_offline.gif" alt="Offline" title="Offline"></td>
+				</tr>
+			
+				</tbody></table>
+
+				<span class="postdetails">
+					<br><b>Joined:</b> Fri Mar 11, 2011 2:06 pm<br><b>Posts:</b> 30
+				</span>
+
+			</td>
+			<td valign="top">
+				<table cellspacing="5" width="100%">
+				<tbody><tr>
+					<td>
+					
+
+						<div class="postbody">I would try <div class="codetitle"><b>Code:</b></div><div class="codecontent">if(data=='111110')</div><br>The
+ first '111' stands for Ascii code for 'o' (NOT Uppercase), and the 
+'110' stands for 'n'.  See if that works, if it doesn't could you send 
+me what module you are communicating with?<br>I've never used a bluetooth module or that program so I'm just seeing what I can come up with. <img src="viewtopic.php_files/icon_smile.gif" alt=":)" title="Smile"></div>
+
+					<br clear="all"><br>
+
+						<table cellspacing="0" width="100%">
+						<tbody><tr valign="middle">
+							<td class="gensmall" align="right">
+							
+							</td>
+						</tr>
+						</tbody></table>
+					</td>
+				</tr>
+				</tbody></table>
+			</td>
+		</tr>
+
+		<tr class="row2">
+
+			<td class="profile"><strong><a href="#wrapheader">Top</a></strong></td>
+			<td><div class="gensmall" style="float: left;">&nbsp;<a href="http://forum.sparkfun.com/memberlist.php?mode=viewprofile&amp;u=34258"><img src="viewtopic.php_files/icon_user_profile.gif" alt="Profile" title="Profile"></a> &nbsp;</div> <div class="gensmall" style="float: right;">&nbsp;</div></td>
+	
+		</tr>
+
+	<tr>
+		<td class="spacer" colspan="2" height="1"><img src="viewtopic.php_files/spacer.gif" alt="" height="1" width="1"></td>
+	</tr>
+	</tbody></table>
+
+	<table class="tablebg" cellspacing="1" width="100%">
+	<tbody><tr class="row1">
+
+			<td align="center" valign="middle">
+				<a name="p130709"></a>
+				<b class="postauthor">exapod</b>
+			</td>
+			<td height="25" width="100%">
+				<table cellspacing="0" width="100%">
+				<tbody><tr>
+				
+					<td class="gensmall" width="100%"><div style="float: left;">&nbsp;<b>Post subject:</b> Re: Bluetooth serial interface</div><div style="float: right;"><a href="http://forum.sparkfun.com/viewtopic.php?p=130709#p130709"><img src="viewtopic.php_files/icon_post_target.gif" alt="Post" title="Post" height="9" width="12"></a><b>Posted:</b> Mon Jul 25, 2011 11:17 am&nbsp;</div></td>
+				</tr>
+				</tbody></table>
+			</td>
+		</tr>
+		
+		<tr class="row1">
+
+			<td class="profile" valign="top">
+				<table align="center" cellspacing="4" width="150">
+			
+				<tbody><tr>
+					<td><img src="viewtopic.php_files/icon_user_offline.gif" alt="Offline" title="Offline"></td>
+				</tr>
+			
+				</tbody></table>
+
+				<span class="postdetails">
+					<br><b>Joined:</b> Tue Jun 28, 2011 4:33 am<br><b>Posts:</b> 8
+				</span>
+
+			</td>
+			<td valign="top">
+				<table cellspacing="5" width="100%">
+				<tbody><tr>
+					<td>
+					
+
+						<div class="postbody">i'm using one of this cheap 
+module:http://cgi.ebay.it/Arduino-Bluetooth-Module-Slave-Wireless-Serial-Port-4P-/220809927558?pt=LH_DefaultDomain_0&amp;hash=item33694c1b86
+ .<br>i try with '111110' and it still doesn't works but i just notice 
+that the led turn on for a small amount of ms and then it turns off.i 
+try also with the original 'on' and the same thing happened so '111110' 
+and 'on' is the same thing.</div>
+
+					<br clear="all"><br>
+
+						<table cellspacing="0" width="100%">
+						<tbody><tr valign="middle">
+							<td class="gensmall" align="right">
+							
+							</td>
+						</tr>
+						</tbody></table>
+					</td>
+				</tr>
+				</tbody></table>
+			</td>
+		</tr>
+
+		<tr class="row1">
+
+			<td class="profile"><strong><a href="#wrapheader">Top</a></strong></td>
+			<td><div class="gensmall" style="float: left;">&nbsp;<a href="http://forum.sparkfun.com/memberlist.php?mode=viewprofile&amp;u=39104"><img src="viewtopic.php_files/icon_user_profile.gif" alt="Profile" title="Profile"></a> &nbsp;</div> <div class="gensmall" style="float: right;">&nbsp;</div></td>
+	
+		</tr>
+
+	<tr>
+		<td class="spacer" colspan="2" height="1"><img src="viewtopic.php_files/spacer.gif" alt="" height="1" width="1"></td>
+	</tr>
+	</tbody></table>
+
+	<table class="tablebg" cellspacing="1" width="100%">
+	<tbody><tr align="center">
+		<td class="cat"><form name="viewtopic" method="post" action="./viewtopic.php?f=4&amp;t=29197"><span class="gensmall">Display posts from previous:</span> <select name="st" id="st"><option value="0" selected="selected">All posts</option><option value="1">1 day</option><option value="7">7 days</option><option value="14">2 weeks</option><option value="30">1 month</option><option value="90">3 months</option><option value="180">6 months</option><option value="365">1 year</option></select>&nbsp;<span class="gensmall">Sort by</span> <select name="sk" id="sk"><option value="a">Author</option><option value="t" selected="selected">Post time</option><option value="s">Subject</option></select> <select name="sd" id="sd"><option value="a" selected="selected">Ascending</option><option value="d">Descending</option></select>&nbsp;<input class="btnlite" value="Go" name="sort" type="submit"></form></td>
+	</tr>
+	</tbody></table>
+	
+
+	<table cellspacing="1" width="100%">
+	<tbody><tr>
+		<td align="left" nowrap="nowrap" valign="middle">
+		<a href="http://forum.sparkfun.com/posting.php?mode=post&amp;f=4"><img src="viewtopic.php_files/button_topic_new.gif" alt="Post new topic" title="Post new topic"></a>&nbsp;<a href="http://forum.sparkfun.com/posting.php?mode=reply&amp;f=4&amp;t=29197"><img src="viewtopic.php_files/button_topic_reply.gif" alt="Reply to topic" title="Reply to topic"></a>
+		</td>
+		
+			<td class="nav" nowrap="nowrap" valign="middle">&nbsp;Page <strong>1</strong> of <strong>1</strong><br></td>
+			<td class="gensmall" nowrap="nowrap">&nbsp;[ 5 posts ]&nbsp;</td>
+			<td class="gensmall" align="right" nowrap="nowrap" width="100%"></td>
+		
+	</tr>
+	</tbody></table>
+
+</div>
+
+<div id="pagefooter"></div>
+
+<br clear="all">
+
+<table class="tablebg" style="margin-top: 5px;" cellpadding="0" cellspacing="1" width="100%">
+	<tbody><tr>
+		<td class="row1">
+			<p class="breadcrumbs"><a href="http://forum.sparkfun.com/index.php">Board index</a> » <a href="http://forum.sparkfun.com/viewforum.php?f=23">PIC Microchip</a> » <a href="http://forum.sparkfun.com/viewforum.php?f=4">PIC Microcontrollers - Software and Hardware</a></p>
+			<p class="datetime">All times are UTC - 7 hours </p>
+		</td>
+	</tr>
+	</tbody></table>
+	<br clear="all">
+
+	<table class="tablebg" cellspacing="1" width="100%">
+	<tbody><tr>
+		<td class="cat"><h4>Who is online</h4></td>
+	</tr>
+	<tr>
+		<td class="row1"><p class="gensmall">Users browsing this forum: No registered users and 7 guests</p></td>
+	</tr>
+	</tbody></table>
+
+
+<br clear="all">
+
+<table cellspacing="1" width="100%">
+<tbody><tr>
+	<td align="left" nowrap="nowrap" valign="top" width="40%"></td>
+	<td align="right" nowrap="nowrap" valign="top"><span class="gensmall">You <strong>cannot</strong> post new topics in this forum<br>You <strong>cannot</strong> reply to topics in this forum<br>You <strong>cannot</strong> edit your posts in this forum<br>You <strong>cannot</strong> delete your posts in this forum<br>You <strong>cannot</strong> post attachments in this forum<br></span></td>
+</tr>
+</tbody></table>
+
+<br clear="all">
+
+<table cellspacing="0" width="100%">
+<tbody><tr>
+	<td><form method="post" name="search" action="./search.php?t=29197"><span class="gensmall">Search for:</span> <input class="post" name="keywords" size="20" type="text"> <input class="btnlite" value="Go" type="submit"></form></td>
+	<td align="right">
+	<form method="post" name="jumpbox" action="./viewforum.php" onsubmit="if(document.jumpbox.f.value == -1){return false;}">
+
+	<table border="0" cellpadding="0" cellspacing="0">
+	<tbody><tr>
+		<td nowrap="nowrap"><span class="gensmall">Jump to:</span>&nbsp;<select name="f" onchange="if(this.options[this.selectedIndex].value != -1){ document.forms['jumpbox'].submit() }">
+
+		
+			<option value="-1">Select a forum</option>
+		<option value="-1">------------------</option>
+			<option value="26">Technical Discussions</option>
+		
+			<option value="14">&nbsp; &nbsp;Projects and SparkFun Product Questions</option>
+		
+			<option value="32">&nbsp; &nbsp;Arduino</option>
+		
+			<option value="13">&nbsp; &nbsp;Wireless/RF</option>
+		
+			<option value="20">&nbsp; &nbsp;PCB Design Questions</option>
+		
+			<option value="17">&nbsp; &nbsp;GPS</option>
+		
+			<option value="29">Feedback</option>
+		
+			<option value="15">&nbsp; &nbsp;SparkFun Site Questions/Comments</option>
+		
+			<option value="33">&nbsp; &nbsp;Sparkfun Promotions and Competitions</option>
+		
+			<option value="5">&nbsp; &nbsp;New Product Ideas</option>
+		
+			<option value="16">&nbsp; &nbsp;BatchPCB</option>
+		
+			<option value="31">&nbsp; &nbsp;Shipping Times</option>
+		
+			<option value="23">PIC Microchip</option>
+		
+			<option value="4" selected="selected">&nbsp; &nbsp;PIC Microcontrollers - Software and Hardware</option>
+		
+			<option value="6">&nbsp; &nbsp;Code Snippets</option>
+		
+			<option value="12">&nbsp; &nbsp;Boot Loading</option>
+		
+			<option value="19">&nbsp; &nbsp;USB Development</option>
+		
+			<option value="22">AVR Atmel</option>
+		
+			<option value="7">&nbsp; &nbsp;AVR Microcontrollers</option>
+		
+			<option value="8">&nbsp; &nbsp;Code</option>
+		
+			<option value="25">ARM / LPC</option>
+		
+			<option value="11">&nbsp; &nbsp;Everything ARM and LPC</option>
+		
+			<option value="18">&nbsp; &nbsp;OpenOCD</option>
+		
+			<option value="24">MSP Texas Instruments</option>
+		
+			<option value="9">&nbsp; &nbsp;MSP Microcontrollers</option>
+		
+
+		</select>&nbsp;<input class="btnlite" value="Go" type="submit"></td>
+	</tr>
+	</tbody></table>
+
+	</form>
+</td>
+</tr>
+</tbody></table>
+
+
+</div>
+
+<!--
+	We request you retain the full copyright notice below including the link to www.phpbb.com.
+	This not only gives respect to the large amount of time given freely by the developers
+	but also helps build interest, traffic and use of phpBB3. If you (honestly) cannot retain
+	the full copyright we ask you at least leave in place the "Powered by phpBB" line, with
+	"phpBB" linked to www.phpbb.com. If you refuse to include even this then support on our
+	forums may be affected.
+
+	The phpBB Group : 2006
+//-->
+
+<div id="wrapfooter">
+	
+	<span class="copyright">Powered by <a href="http://www.phpbb.com/">phpBB</a> © 2000, 2002, 2005, 2007 phpBB Group<br>
+	Template made by <a style="color: rgb(68, 68, 68);" href="http://www.devppl.com/">DEVPPL</a>
+	</span>
+</div>
+
+		</td>
+		<td style="padding: 0pt; background: url(&quot;./styles/RedSilver3/imageset/right_bkg.gif&quot;) repeat-y scroll 0% 0% transparent;" width="15"></td>
+	</tr>
+</tbody></table>
+
+<table cellpadding="0" cellspacing="0" width="100%">
+	<tbody><tr>
+		<td style="padding: 0pt; background: url(&quot;./styles/RedSilver3/imageset/bottom_left.gif&quot;) no-repeat scroll 0% 0% transparent;" height="56" width="77"></td>
+		<td style="padding: 0pt; background: url(&quot;./styles/RedSilver3/imageset/bottom_bkg.gif&quot;) repeat-x scroll 0% 0% transparent;" height="56">&nbsp;</td>
+		<td style="padding: 0pt; background: url(&quot;./styles/RedSilver3/imageset/bottom_right.gif&quot;) no-repeat scroll 0% 0% transparent;" height="45" width="77"></td>
+	</tr>
+</tbody></table>
+
+<script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-3404365-4']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+   var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+   ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+   var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+   })();
+
+</script>
+
+</body></html>

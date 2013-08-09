@@ -1,0 +1,369 @@
+
+
+HI-TECH Software PIC LITE Macro Assembler V9.80 build 6738 
+                                                                                               Sun Sep 18 11:58:34 2011
+
+HI-TECH Software Omniscient Code Generator (Lite mode) build 6738
+     1  0000                     opt subtitle "HI-TECH Software Omniscient Code Generator (Lite mode) build 6738"
+     2                           
+     3                           opt pagewidth 120
+     4                           
+     5                           	opt lm
+     6                           
+     7                           	processor	16F690
+     8                           clrc	macro
+     9                           	bcf	3,0
+    10  0000                     	endm
+    11                           clrz	macro
+    12                           	bcf	3,2
+    13  0000                     	endm
+    14                           setc	macro
+    15                           	bsf	3,0
+    16  0000                     	endm
+    17                           setz	macro
+    18                           	bsf	3,2
+    19  0000                     	endm
+    20                           skipc	macro
+    21                           	btfss	3,0
+    22  0000                     	endm
+    23                           skipz	macro
+    24                           	btfss	3,2
+    25  0000                     	endm
+    26                           skipnc	macro
+    27                           	btfsc	3,0
+    28  0000                     	endm
+    29                           skipnz	macro
+    30                           	btfsc	3,2
+    31  0000                     	endm
+    32  0000                     indf	equ	0
+    33  0000                     indf0	equ	0
+    34  0002                     pc	equ	2
+    35  0002                     pcl	equ	2
+    36  0003                     status	equ	3
+    37  0004                     fsr	equ	4
+    38  0004                     fsr0	equ	4
+    39  0001                     c	equ	1
+    40  0000                     z	equ	0
+    41  000A                     pclath	equ	10
+    42                           # 3 "C:\Users\Robot\Desktop\brainstorm\timers\test\timer_config_HiTech\timer_config.c"
+    43                           	psect config,class=CONFIG,delta=2 ;#
+    44                           # 3 "C:\Users\Robot\Desktop\brainstorm\timers\test\timer_config_HiTech\timer_config.c"
+    45  2007  30D4               	dw 0x3FFC & 0x3FF7 & 0x3FFF & 0x3FDF & 0x3FFF & 0x3CFF & 0x3BFF & 0x37FF ;#
+    46                           	FNCALL	_main,_Init
+    47                           	FNROOT	_main
+    48                           	global	_counter
+    49                           	global	_TMR0
+    50                           psect	text54,local,class=CODE,delta=2
+    51                           global __ptext54
+    52  0000                     __ptext54:
+    53  0001                     _TMR0	set	1
+    54                           	global	_T0IF
+    55  005A                     _T0IF	set	90
+    56                           	global	_OPTION
+    57  0081                     _OPTION	set	129
+    58                           	file	"timer_config.as"
+    59                           	line	#
+    60                           psect cinit,class=CODE,delta=2
+    61                           global start_initialization
+    62  07E2                     start_initialization:
+    63                           
+    64                           psect	bssCOMMON,class=COMMON,space=1
+    65                           global __pbssCOMMON
+    66  0070                     __pbssCOMMON:
+    67  0070                     _counter:
+    68  0070                            ds      1
+    69                           
+    70                           ; Clear objects allocated to COMMON
+    71                           psect cinit,class=CODE,delta=2
+    72  07E2  01F0               	clrf	((__pbssCOMMON)+0)&07Fh
+    73                           psect cinit,class=CODE,delta=2
+    74                           global end_of_initialization
+    75                           
+    76                           ;End of C runtime variable initialization code
+    77                           
+    78  07E3                     end_of_initialization:
+    79  07E3  0183               clrf status
+    80  07E4  118A  2FEE         ljmp _main	;jump to C main() function
+    81                           psect	cstackCOMMON,class=COMMON,space=1
+    82                           global __pcstackCOMMON
+    83  0071                     __pcstackCOMMON:
+    84                           	global	??_Init
+    85  0071                     ??_Init:	; 0 bytes @ 0x0
+    86                           	global	??_main
+    87  0071                     ??_main:	; 0 bytes @ 0x0
+    88                           	global	?_Init
+    89  0071                     ?_Init:	; 2 bytes @ 0x0
+    90                           	global	?_main
+    91  0071                     ?_main:	; 2 bytes @ 0x0
+    92  0071                     	ds	1
+    93 ;;Data sizes: Strings 0, constant 0, data 0, bss 1, persistent 0 stack 0
+    94 ;;Auto spaces:   Size  Autos    Used
+    95 ;; COMMON          14      1       2
+    96 ;; BANK0           80      0       0
+    97 ;; BANK1           80      0       0
+    98 ;; BANK2           80      0       0
+    99                           
+   100 ;;
+   101 ;; Pointer list with targets:
+   102                           
+   103                           
+   104                           
+   105 ;;
+   106 ;; Critical Paths under _main in COMMON
+   107 ;;
+   108 ;;   None.
+   109 ;;
+   110 ;; Critical Paths under _main in BANK0
+   111 ;;
+   112 ;;   None.
+   113 ;;
+   114 ;; Critical Paths under _main in BANK1
+   115 ;;
+   116 ;;   None.
+   117 ;;
+   118 ;; Critical Paths under _main in BANK2
+   119 ;;
+   120 ;;   None.
+   121                           
+   122 ;;
+   123 ;;Main: autosize = 0, tempsize = 1, incstack = 0, save=0
+   124 ;;
+   125                           
+   126 ;;
+   127 ;;Call Graph Tables:
+   128 ;;
+   129 ;; ---------------------------------------------------------------------------------
+   130 ;; (Depth) Function   	        Calls       Base Space   Used Autos Params    Refs
+   131 ;; ---------------------------------------------------------------------------------
+   132 ;; (0) _main                                                 1     1      0       0
+   133 ;;                                              0 COMMON     1     1      0
+   134 ;;                               _Init
+   135 ;; ---------------------------------------------------------------------------------
+   136 ;; (1) _Init                                                 0     0      0       0
+   137 ;; ---------------------------------------------------------------------------------
+   138 ;; Estimated maximum stack depth 1
+   139 ;; ---------------------------------------------------------------------------------
+   140                           
+   141 ;; Call Graph Graphs:
+   142                           
+   143 ;; _main (ROOT)
+   144 ;;   _Init
+   145 ;;
+   146                           
+   147 ;; Address spaces:
+   148                           
+   149 ;;Name               Size   Autos  Total    Cost      Usage
+   150 ;;BITCOMMON            E      0       0       0        0.0%
+   151 ;;EEDATA             100      0       0       0        0.0%
+   152 ;;NULL                 0      0       0       0        0.0%
+   153 ;;CODE                 0      0       0       0        0.0%
+   154 ;;COMMON               E      1       2       1       14.3%
+   155 ;;BITSFR0              0      0       0       1        0.0%
+   156 ;;SFR0                 0      0       0       1        0.0%
+   157 ;;BITSFR1              0      0       0       2        0.0%
+   158 ;;SFR1                 0      0       0       2        0.0%
+   159 ;;STACK                0      0       1       2        0.0%
+   160 ;;BANK0               50      0       0       3        0.0%
+   161 ;;BITBANK1            50      0       0       4        0.0%
+   162 ;;BITSFR3              0      0       0       4        0.0%
+   163 ;;SFR3                 0      0       0       4        0.0%
+   164 ;;BANK1               50      0       0       5        0.0%
+   165 ;;BITSFR2              0      0       0       5        0.0%
+   166 ;;SFR2                 0      0       0       5        0.0%
+   167 ;;BITBANK2            50      0       0       6        0.0%
+   168 ;;BANK2               50      0       0       7        0.0%
+   169 ;;ABS                  0      0       2       8        0.0%
+   170 ;;BITBANK0            50      0       0       9        0.0%
+   171 ;;DATA                 0      0       3      10        0.0%
+   172                           
+   173                           	global	_main
+   174                           psect	maintext,global,class=CODE,delta=2
+   175                           global __pmaintext
+   176  07EE                     __pmaintext:
+   177                           
+   178 ;; *************** function _main *****************
+   179 ;; Defined at:
+   180 ;;		line 34 in file "C:\Users\Robot\Desktop\brainstorm\timers\test\timer_config_HiTech\timer_config.c"
+   181 ;; Parameters:    Size  Location     Type
+   182 ;;		None
+   183 ;; Auto vars:     Size  Location     Type
+   184 ;;		None
+   185 ;; Return value:  Size  Location     Type
+   186 ;;                  2  713[COMMON] int 
+   187 ;; Registers used:
+   188 ;;		wreg, status,2, status,0, pclath, cstack
+   189 ;; Tracked objects:
+   190 ;;		On entry : 17F/0
+   191 ;;		On exit  : 0/0
+   192 ;;		Unchanged: 0/0
+   193 ;; Data sizes:     COMMON   BANK0   BANK1   BANK2
+   194 ;;      Params:         0       0       0       0
+   195 ;;      Locals:         0       0       0       0
+   196 ;;      Temps:          1       0       0       0
+   197 ;;      Totals:         1       0       0       0
+   198 ;;Total ram usage:        1 bytes
+   199 ;; Hardware stack levels required when called:    1
+   200 ;; This function calls:
+   201 ;;		_Init
+   202 ;; This function is called by:
+   203 ;;		Startup code after reset
+   204 ;; This function uses a non-reentrant model
+   205 ;;
+   206                           psect	maintext
+   207                           	file	"C:\Users\Robot\Desktop\brainstorm\timers\test\timer_config_HiTech\timer_config.c"
+   208                           	line	34
+   209                           	global	__size_of_main
+   210  0012                     	__size_of_main	equ	__end_of_main-_main
+   211                           	
+   212  07EE                     _main:	
+   213                           	opt	stack 7
+   214                           ; Regs used in _main: [wreg+status,2+status,0+pclath+cstack]
+   215                           	line	35
+   216                           	
+   217  07EE                     l1877:	
+   218                           ;timer_config.c: 35: Init();
+   219  07EE  118A  27E6  118A   	fcall	_Init
+   220  07F1  2FF2               	goto	l1879
+   221                           	line	36
+   222                           ;timer_config.c: 36: while(1)
+   223                           	
+   224  07F2                     l714:	
+   225                           	line	39
+   226                           	
+   227  07F2                     l1879:	
+   228                           ;timer_config.c: 37: {
+   229                           ;timer_config.c: 39: if (T0IF)
+   230  07F2  1D0B               	btfss	(90/8),(90)&7
+   231  07F3  2FF5               	goto	u2141
+   232  07F4  2FF6               	goto	u2140
+   233  07F5                     u2141:
+   234  07F5  2FF2               	goto	l1879
+   235  07F6                     u2140:
+   236                           	line	41
+   237                           	
+   238  07F6                     l1881:	
+   239                           ;timer_config.c: 40: {
+   240                           ;timer_config.c: 41: ++counter;
+   241  07F6  3001               	movlw	(01h)
+   242  07F7  00F1               	movwf	(??_main+0)+0
+   243  07F8  0871               	movf	(??_main+0)+0,w
+   244  07F9  07F0               	addwf	(_counter),f
+   245                           	line	43
+   246                           	
+   247  07FA                     l1883:	
+   248                           ;timer_config.c: 43: T0IF = 0;
+   249  07FA  110B               	bcf	(90/8),(90)&7
+   250  07FB  2FF2               	goto	l1879
+   251                           	line	45
+   252                           	
+   253  07FC                     l715:	
+   254  07FC  2FF2               	goto	l1879
+   255                           	line	46
+   256                           	
+   257  07FD                     l716:	
+   258                           	line	36
+   259  07FD  2FF2               	goto	l1879
+   260                           	
+   261  07FE                     l717:	
+   262                           	line	47
+   263                           	
+   264  07FE                     l718:	
+   265                           	global	start
+   266  07FE  118A  2800         	ljmp	start
+   267                           	opt stack 0
+   268                           GLOBAL	__end_of_main
+   269  0800                     	__end_of_main:
+   270 ;; =============== function _main ends ============
+   271                           
+   272                           	signat	_main,90
+   273                           	global	_Init
+   274                           psect	text55,local,class=CODE,delta=2
+   275                           global __ptext55
+   276  07E6                     __ptext55:
+   277                           
+   278 ;; *************** function _Init *****************
+   279 ;; Defined at:
+   280 ;;		line 17 in file "C:\Users\Robot\Desktop\brainstorm\timers\test\timer_config_HiTech\timer_config.c"
+   281 ;; Parameters:    Size  Location     Type
+   282 ;;		None
+   283 ;; Auto vars:     Size  Location     Type
+   284 ;;		None
+   285 ;; Return value:  Size  Location     Type
+   286 ;;                  2  710[COMMON] int 
+   287 ;; Registers used:
+   288 ;;		wreg, status,2
+   289 ;; Tracked objects:
+   290 ;;		On entry : 0/0
+   291 ;;		On exit  : 0/0
+   292 ;;		Unchanged: 0/0
+   293 ;; Data sizes:     COMMON   BANK0   BANK1   BANK2
+   294 ;;      Params:         0       0       0       0
+   295 ;;      Locals:         0       0       0       0
+   296 ;;      Temps:          0       0       0       0
+   297 ;;      Totals:         0       0       0       0
+   298 ;;Total ram usage:        0 bytes
+   299 ;; Hardware stack levels used:    1
+   300 ;; This function calls:
+   301 ;;		Nothing
+   302 ;; This function is called by:
+   303 ;;		_main
+   304 ;; This function uses a non-reentrant model
+   305 ;;
+   306                           psect	text55
+   307                           	file	"C:\Users\Robot\Desktop\brainstorm\timers\test\timer_config_HiTech\timer_config.c"
+   308                           	line	17
+   309                           	global	__size_of_Init
+   310  0008                     	__size_of_Init	equ	__end_of_Init-_Init
+   311                           	
+   312  07E6                     _Init:	
+   313                           	opt	stack 7
+   314                           ; Regs used in _Init: [wreg+status,2]
+   315                           	line	18
+   316                           	
+   317  07E6                     l1087:	
+   318                           ;timer_config.c: 18: TMR0 = 0;
+   319  07E6  1283               	bcf	status, 5	;RP0=0, select bank0
+   320  07E7  1303               	bcf	status, 6	;RP1=0, select bank0
+   321  07E8  0181               	clrf	(1)	;volatile
+   322                           	line	25
+   323                           	
+   324  07E9                     l1089:	
+   325                           ;timer_config.c: 25: OPTION = 0B00001000;
+   326  07E9  3008               	movlw	(08h)
+   327  07EA  1683               	bsf	status, 5	;RP0=1, select bank1
+   328  07EB  1303               	bcf	status, 6	;RP1=0, select bank1
+   329  07EC  0081               	movwf	(129)^080h	;volatile
+   330                           	line	26
+   331                           	
+   332  07ED                     l711:	
+   333  07ED  0008               	return
+   334                           	opt stack 0
+   335                           GLOBAL	__end_of_Init
+   336  07EE                     	__end_of_Init:
+   337 ;; =============== function _Init ends ============
+   338                           
+   339                           	signat	_Init,90
+   340                           psect	text56,local,class=CODE,delta=2
+   341                           global __ptext56
+   342  0000                     __ptext56:
+   343                           	global	btemp
+   344  007E                     	btemp set 07Eh
+   345                           
+   346                           	DABS	1,126,2	;btemp
+   347                           	global	wtemp0
+   348  007E                     	wtemp0 set btemp
+
+
+HI-TECH Software PICC Macro Assembler V9.80 build 6738 
+Symbol Table                                                                                   Sun Sep 18 11:58:34 2011
+
+                 l711 07ED                   l714 07F2                   l715 07FC                   l716 07FD  
+                 l717 07FE                   l718 07FE                  l1087 07E6                  l1089 07E9  
+                l1881 07F6                  l1883 07FA                  l1877 07EE                  l1879 07F2  
+                _T0IF 005A                  u2140 07F6                  u2141 07F5                  _TMR0 0001  
+                _Init 07E6                  _main 07EE                  btemp 007E                  start 0000  
+               ?_Init 0071                 ?_main 0071                 status 0003                 wtemp0 007E  
+        __end_of_Init 07EE          __end_of_main 0800                ??_Init 0071                ??_main 0071  
+              _OPTION 0081        __pcstackCOMMON 0071            __pmaintext 07EE               _counter 0070  
+end_of_initialization 07E3   start_initialization 07E2           __pbssCOMMON 0070              __ptext54 0000  
+            __ptext55 07E6              __ptext56 0000         __size_of_Init 0008         __size_of_main 0012  
